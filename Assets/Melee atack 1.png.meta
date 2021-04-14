@@ -1,0 +1,434 @@
+fileFormatVersion: 2
+guid: a09a0b3f2a4781f4caa3bb6bfb7226ea
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1996670683246140472
+    second: Melee atack 1_0
+  - first:
+      213: 1215643007097427659
+    second: Melee atack 1_1
+  - first:
+      213: -5746706532174014607
+    second: Melee atack 1_2
+  - first:
+      213: -4686809036042777666
+    second: Melee atack 1_3
+  - first:
+      213: -1596749139320355235
+    second: Melee atack 1_4
+  - first:
+      213: -2571877226276664776
+    second: Melee atack 1_5
+  - first:
+      213: -7192904786316890026
+    second: Melee atack 1_6
+  - first:
+      213: 6548539917437121967
+    second: Melee atack 1_7
+  - first:
+      213: -1249853289384294821
+    second: Melee atack 1_8
+  - first:
+      213: -8130845257673485456
+    second: Melee atack 1_9
+  - first:
+      213: -6453692947519888666
+    second: Melee atack 1_10
+  - first:
+      213: 1293385346118527012
+    second: Melee atack 1_11
+  - first:
+      213: 4961440311924414962
+    second: Melee atack 1_12
+  - first:
+      213: -8486836012663903901
+    second: Melee atack 1_13
+  - first:
+      213: 8098193695445207152
+    second: Melee atack 1_14
+  - first:
+      213: -167974687005145784
+    second: Melee atack 1_15
+  - first:
+      213: -3979848869617613525
+    second: Melee atack 1_16
+  - first:
+      213: 8968875306838888026
+    second: Melee atack 1_17
+  - first:
+      213: -5323166474613279124
+    second: Melee atack 1_18
+  - first:
+      213: 2124982554023585223
+    second: Melee atack 1_19
+  - first:
+      213: -3988950445687917684
+    second: Melee atack 1_20
+  - first:
+      213: -2994350229478358812
+    second: Melee atack 1_21
+  - first:
+      213: -5497796973895575702
+    second: Melee atack 1_22
+  - first:
+      213: -3363680560978486407
+    second: Melee atack 1_23
+  - first:
+      213: -4138030301968177898
+    second: Melee atack 1_24
+  - first:
+      213: 1608858172690420056
+    second: Melee atack 1_25
+  - first:
+      213: -6428279029059275138
+    second: Melee atack 1_26
+  - first:
+      213: 1010146002359489759
+    second: Melee atack 1_27
+  - first:
+      213: 8936970988242005399
+    second: Melee atack 1_28
+  - first:
+      213: -7943641100560896899
+    second: Melee atack 1_29
+  - first:
+      213: 5756991460995724803
+    second: Melee atack 1_30
+  - first:
+      213: -498640414162071134
+    second: Melee atack 1_31
+  - first:
+      213: -5412867113813983963
+    second: Melee atack 1_32
+  - first:
+      213: -2089702534100100649
+    second: Melee atack 1_33
+  - first:
+      213: 2337364784107781054
+    second: Melee atack 1_34
+  - first:
+      213: 7074871511054631872
+    second: Melee atack 1_35
+  - first:
+      213: 3154579807152817583
+    second: Melee atack 1_36
+  - first:
+      213: -9047937588967693266
+    second: Melee atack 1_37
+  - first:
+      213: 5259276015937417643
+    second: Melee atack 1_38
+  - first:
+      213: -7826752113250146808
+    second: Melee atack 1_39
+  - first:
+      213: 4728448663386223576
+    second: Melee atack 1_40
+  - first:
+      213: -6997977667274874249
+    second: Melee atack 1_41
+  - first:
+      213: -5591704984651060856
+    second: Melee atack 1_42
+  - first:
+      213: -7929731137297724995
+    second: Melee atack 1_43
+  - first:
+      213: -274717106126532859
+    second: Melee atack 1_44
+  - first:
+      213: 5264255003945019966
+    second: Melee atack 1_45
+  - first:
+      213: 6016556467270104167
+    second: Melee atack 1_46
+  - first:
+      213: -3266171380413446150
+    second: Melee atack 1_47
+  - first:
+      213: 7943522483873074607
+    second: Melee atack 1_48
+  - first:
+      213: -4704145293381746149
+    second: Melee atack 1_49
+  - first:
+      213: 5235635932387856473
+    second: Melee atack 1_50
+  - first:
+      213: 8737843720095761657
+    second: Melee atack 1_51
+  - first:
+      213: -8353742181919945712
+    second: Melee atack 1_52
+  - first:
+      213: 7139486048337033018
+    second: Melee atack 1_53
+  - first:
+      213: -1054288022391869380
+    second: Melee atack 1_54
+  - first:
+      213: -2826720103725080113
+    second: Melee atack 1_55
+  - first:
+      213: -3157587662793369024
+    second: Melee atack 1_56
+  - first:
+      213: 5552903602465551430
+    second: Melee atack 1_57
+  - first:
+      213: 5158960841642573313
+    second: Melee atack 1_58
+  - first:
+      213: -7120445531781723954
+    second: Melee atack 1_59
+  - first:
+      213: 2634429271536226150
+    second: Melee atack 1_60
+  - first:
+      213: -4131139974279658184
+    second: Melee atack 1_61
+  - first:
+      213: 4022689044067840418
+    second: Melee atack 1_62
+  - first:
+      213: -4897227130557948722
+    second: Melee atack 1_63
+  - first:
+      213: -7473397106622042934
+    second: Melee atack 1_64
+  - first:
+      213: -5921517544361272145
+    second: Melee atack 1_65
+  - first:
+      213: 5861765017796605961
+    second: Melee atack 1_66
+  - first:
+      213: -2478152760847627528
+    second: Melee atack 1_67
+  - first:
+      213: 2123241151018913887
+    second: Melee atack 1_68
+  - first:
+      213: 3705585379624154340
+    second: Melee atack 1_69
+  - first:
+      213: -6916578809187973808
+    second: Melee atack 1_70
+  - first:
+      213: 4125106739623451053
+    second: Melee atack 1_71
+  - first:
+      213: 5621733704739673769
+    second: Melee atack 1_72
+  - first:
+      213: 2335357274065964450
+    second: Melee atack 1_73
+  - first:
+      213: -2442401931609708975
+    second: Melee atack 1_74
+  - first:
+      213: -2998107634264452828
+    second: Melee atack 1_75
+  - first:
+      213: -5652335228508255126
+    second: Melee atack 1_76
+  - first:
+      213: -8062260969562426069
+    second: Melee atack 1_77
+  - first:
+      213: 619730698624143290
+    second: Melee atack 1_78
+  - first:
+      213: 7346502531329528329
+    second: Melee atack 1_79
+  - first:
+      213: 7227741171565037321
+    second: Melee atack 1_80
+  - first:
+      213: -13601537966775632
+    second: Melee atack 1_81
+  - first:
+      213: -6598327482206162422
+    second: Melee atack 1_82
+  - first:
+      213: -8060585878206329153
+    second: Melee atack 1_83
+  - first:
+      213: -2813010482078727732
+    second: Melee atack 1_84
+  - first:
+      213: 5360740948133033154
+    second: Melee atack 1_85
+  - first:
+      213: 9123566984230253495
+    second: Melee atack 1_86
+  - first:
+      213: -6755132772985577703
+    second: Melee atack 1_87
+  - first:
+      213: -4799743052465962805
+    second: Melee atack 1_88
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Melee atack 1_0
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 1183
+        width: 124
+        height: 231
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c9258586995bb10800000000000000
+      internalID: 1996670683246140472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Melee atack 1_1
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 1100
+        width: 252
+        height: 348
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc6dabbcfd4ded010800000000000000
+      internalID: 1215643007097427659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Melee atack 1_2
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 1142
+        width: 139
+        height: 278
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 177d9593bd89f30b0800000000000000
+      internalID: -5746706532174014607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
