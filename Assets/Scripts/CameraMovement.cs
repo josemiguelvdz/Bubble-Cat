@@ -22,6 +22,10 @@ public class CameraMovement : MonoBehaviour
     GameObject bubble;
     Transform target;
 
+    Rigidbody2D playerRigidBody;
+
+    RadiusMovement radiusMovement;
+
 
     void Start() 
     {
@@ -29,6 +33,10 @@ public class CameraMovement : MonoBehaviour
         {
             Debug.Log("Player camarita");
             target = player.transform;
+
+            playerRigidBody = player.GetComponent<Rigidbody2D>();
+
+            radiusMovement = GameManager.GetInstance().GetInside();
         }
         else
             Debug.LogError("No estoy siguiendo al jugador");
@@ -37,12 +45,12 @@ public class CameraMovement : MonoBehaviour
     }
 
 
-    void FixedUpdate()
+    void Update()
     {
-        if (target != null) 
+        if (!radiusMovement.inside && target != null) 
         {
             whereCameraShouldBe = target.position + generalOffset;
-            transform.position = Vector3.Lerp(transform.position, whereCameraShouldBe, 1 / laziness);
+            transform.position = Vector3.Lerp(transform.position, whereCameraShouldBe, Time.deltaTime);
 
 
             if (lookAtTarget) transform.LookAt(target);
