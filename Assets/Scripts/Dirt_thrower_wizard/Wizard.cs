@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Wizard : MonoBehaviour
 {
+    //Obtiene el transform spawner, desde donde se van a instanciar los proyectiles
+    public Transform spawnerProjectile;
     //Obtiene el objeto projectile de la carpeta Prefabs
     public GameObject dirtProjectile;
     //Indica el tiempo que pasa entre un proyectil y el siguiente
@@ -14,47 +16,41 @@ public class Wizard : MonoBehaviour
     private float initialTime;  
     //Indica si el lagarto puede disparar
     private bool canShoot = true;
+    //Indica la direction en la que se mueve el lagarto, empezamos con movimiento hacia la derecha
+    string direction = "right";
 
-    
-    Rigidbody2D rb;
-    int time = 0;
-    bool cambioDireccion = false;
 
     void Start()
     {
         initialTime = shootCadenceSecs;
+        //Asignamos la posicion del spawner en una poscion en concreto en base a la poscion del lagarto
+        spawnerProjectile.transform.position = transform.position + new Vector3(0.5f, -0.5f, 0);
 
-        if (autoShoot)
+        if (autoShoot) //Esta activado el autoShoot se generan continuamente proyectiles
             InvokeRepeating("Shoot", initialTime, shootCadenceSecs);
-        else
+        else //NO esta activado el autoShoot se generan un unico proyectil
             Invoke("Shoot", shootCadenceSecs);
-
-        rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(Vector2.right);
     }
 
     private void Update()
     {
-        /*time = time + 1;
-        Debug.Log(time);
-        if (time % 1000 == 0)
-        {                    
-            if (cambioDireccion == false)
-            {
-                rb.AddForce(Vector2.zero);
-                cambioDireccion = true;
-                Debug.Log("Me muevo a la derecha");
-            }
-            else
-            {
-                rb.AddForce(Vector2.zero);
-                cambioDireccion = false;
-                Debug.Log("Me muevo a la izquierda");
-            }
-        }*/                
+        //Obtenemos el nuevo escale por si haya cambiado y haya que rotar al lagarto
+        if (direction == "right")
+        {            
+            //Indicamos la traslacion (movimeinto) del lagarto hacia la derecha
+            transform.Translate(Vector3.right * Time.deltaTime);
+        }
+        if (direction == "left")
+        {
+            //Indicamos la traslacion (movimeinto) del lagarto hacia la izquierda
+            transform.Translate(Vector3.left * Time.deltaTime);
+        }
+        //Actualizamos la posicion tanto del spawner como del proyectil ya que el lagarto esta en movimiento continuo, y al instanciar el nuevo proyectil debe tener estas referencias
+        spawnerProjectile.transform.position = transform.position + new Vector3(0.5f, -0.5f, 0);
+        dirtProjectile.transform.position = spawnerProjectile.position + new Vector3(0, 1.25f, 0);
     }
 
-    //Dispara bala en la direccion dada
+    //Dispara bala en la direction dada
     public void Shoot()
     {
         if (canShoot)
@@ -65,11 +61,23 @@ public class Wizard : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.gameObject.CompareTag("Ground"))
+        //En este caso obtenemos el id del layer Stage
+        int stageLayer = LayerMask.NameToLayer("Stage");
+
+        //Ha colisionado con un objetro con layer Stage
+        if (collision.gameObject.layer == stageLayer)
+        {
+            //Como hemos colisionado con un stage hay que rotar al lagarto para que el movimiento sea acorde a la direccion
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);            
+            //La direccion del movimiento es derecha, asi que cambia la direccion del movimiento hacia la izquierda
+            if (direction == "right") 
             {
-            rb.AddForce(Vector2.left);
+                direction = "left";
             }
-        else if (collision.gameObject.CompareTag("Wall"))
-        { Debug.Log("He chocado muro"); }
+            else if (direction == "left") //La direccion del movimiento es izquierda, asi que cambia la direccion del movimiento hacia la derecha
+            {
+                direction = "right";
+            }
+        }
     }
 }
