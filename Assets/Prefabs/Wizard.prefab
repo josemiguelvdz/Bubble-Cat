@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1112077537627941049}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -34.470085, y: 5.7893996, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5144108589de7a4da380473bf547357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnerProjectile: {fileID: 0}
   dirtProjectile: {fileID: 7137267404116649082, guid: c73b18bc6fb729c41837a9a60fd510e8,
     type: 3}
   shootCadenceSecs: 3
@@ -122,9 +123,9 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.6, y: -0.8}
+  m_Offset: {x: 0.4, y: -0.15}
   serializedVersion: 2
-  m_Radius: 1.25
+  m_Radius: 0.3
