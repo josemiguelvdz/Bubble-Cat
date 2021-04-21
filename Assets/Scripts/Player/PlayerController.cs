@@ -4,35 +4,39 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject bala;
     public GameObject melee;
-    public Transform spawn_bala;
+    public Transform bulletSpawn;
 
-    public float rateBala = 0.5f;
-    public float timeRateBala = 0;
+    public float bulletRate = 0.5f;
+    public float timeBulletRate = 0;
     public float jumpVelocity = 8f;
     public float fallMultiplier = 2.5f, lowJumpMultiplier = 1.2f;
+    public float raycastLength;
 
     Rigidbody2D rb;
     BubbleSpawner spawner;
     BubbleHelmet bubbleHelmet;
     BubbleSpawner bubbleSpawner;
 
-    [Tooltip("Velocidad del jugador"), SerializeField]
+    [Tooltip("Velocidad del jugador."), SerializeField]
     float speed = 0;
     float horizontal; // Input del eje horizontal
     bool isJumping;
 
-
-
+    [Tooltip("Índice de la layer del escenario."), SerializeField]
+    int stageLayer = 9;
 
 
     void Start()
     {
+        GameManager.GetInstance().SetPlayerController(this);
+
         rb = GetComponent<Rigidbody2D>(); // Componente RigidBody2D del jugador
         spawner = GetComponentInChildren<BubbleSpawner>();  
         bubbleHelmet = GetComponent<BubbleHelmet>();
         bubbleSpawner = GetComponentInChildren<BubbleSpawner>();
 
-        GameManager.GetInstance().SetPlayerController(this);
+        //Bit shift para obtener la bit mask
+        stageLayer = 1 << stageLayer;
     }
 
 
@@ -56,12 +60,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Reload")) GameManager.GetInstance().Reload();
 
         //Salto
-        if (Input.GetButtonDown("Jump") && !isJumping)
-        {
-            rb.velocity = Vector2.up * jumpVelocity;
-            bubbleSpawner.enabled = false;
-            isJumping = true;
-        }
+        if (Input.GetButtonDown("Jump") && !isJumping) rb.velocity = Vector2.up * jumpVelocity;
 
         if (Input.GetButtonDown("Helmet")) bubbleHelmet.InvokeReplace();
 
@@ -77,41 +76,42 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y); // Movimiento físico del jugador
-    }
 
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-        if (Physics2D.Raycast(transform.position,Vector2.down,0.05f))
+        if (Physics2D.Raycast(transform.position, Vector2.down, raycastLength, stageLayer))
         {
+            Debug.Log("He llegado al suelo");
             isJumping = false;
             bubbleSpawner.enabled = true;
         }
+        else
+        {
+            Debug.Log("Estoy en el aire");
+            isJumping = true;
+            bubbleSpawner.enabled = false;
+        }
+
+        Debug.DrawRay(transform.position, Vector2.down * raycastLength, Color.cyan);
     }
-
-
 
     void Shoot()
     {
-        
-        if (GameManager.GetInstance().CanShoot() && Time.time > timeRateBala)
+        if (GameManager.GetInstance().CanShoot() && Time.time > timeBulletRate)
         {
 
             if (transform.localScale.x < 0)
             {
-                Quaternion inverse = Quaternion.Inverse(spawn_bala.rotation);
+                Quaternion inverse = Quaternion.Inverse(bulletSpawn.rotation);
                 //CREA UNA COPIA DE LA BALA
-                Instantiate(bala, spawn_bala.position, inverse);
+                Instantiate(bala, bulletSpawn.position, inverse);
             }
             else if (transform.localScale.x > 0)
             {
                 //CREA UNA COPIA DE LA BALA
-                Instantiate(bala, spawn_bala.position, spawn_bala.rotation);
+                Instantiate(bala, bulletSpawn.position, bulletSpawn.rotation);
             }
 
             //ACTUALIZA LA VARIABLE QUE LIMITA LAS BALAS
-            timeRateBala = Time.time + rateBala;
+            timeBulletRate = Time.time + bulletRate;
 
             GameManager.GetInstance().Shoot();
         }
