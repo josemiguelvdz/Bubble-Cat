@@ -19,7 +19,7 @@ public class BubbleHelmet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Proyectile>() || collision.gameObject.GetComponent<BatBehaviour>())
+        if (collision.gameObject.GetComponent<EnemyHealth>())
         {
             if (helmetOn)
             {
