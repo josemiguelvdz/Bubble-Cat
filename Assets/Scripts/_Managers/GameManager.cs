@@ -16,8 +16,6 @@ public class GameManager : MonoBehaviour
     UIManager uim;
     PlayerController playerController;
 
-    RadiusMovement insideGM;
-
     void Awake()
     {
         if (instance == null)
@@ -131,18 +129,5 @@ public class GameManager : MonoBehaviour
     public float localScaleX()
     {
         return playerController.transform.localScale.x;
-    }
-
-    public GameObject GetPlayer()
-    {
-        return playerController.gameObject;
-    }
-    public void SetInside(RadiusMovement radiusMovement)
-    {
-        insideGM = radiusMovement;
-    }
-    public RadiusMovement GetInside()
-    {
-        return insideGM;
     }
 }

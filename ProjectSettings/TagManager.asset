@@ -3,11 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Ground
-  - Bubble
-  - Interactuable
-  - Enemy
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -17,14 +13,14 @@ TagManager:
   - UI
   - 
   - 
-  - Player
-  - Stage
-  - Bubble
-  - Bar
-  - Bullet
-  - Proyectile
-  - Enemy
-  - Damageable
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
