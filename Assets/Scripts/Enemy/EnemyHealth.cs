@@ -8,11 +8,24 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<BulletMovement>())
+        if (collision.gameObject.GetComponent<Damageable>() && !collision.gameObject.GetComponent<EnemyHealth>())
         {
             lives--;
 
             if(lives == 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<Melee>())
+        {
+            lives--;
+            Debug.Log(lives);
+            if (lives == 0)
             {
                 Destroy(this.gameObject);
             }

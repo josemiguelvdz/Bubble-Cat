@@ -3,7 +3,7 @@
 public class SpiderMovement : MonoBehaviour
 {
     public float spiderSpeed,escapeSpeed,visionRadius,attackRadius;
-    public float lives = 2, timeToAttack, forceX, forceY, refreshAttack, raycastLength;
+    public float timeToAttack, forceX, forceY, refreshAttack, raycastLength;
     public LayerMask stageLayer;
 
 
@@ -27,10 +27,6 @@ public class SpiderMovement : MonoBehaviour
             if (player.transform.position.x - transform.position.x < 0 && transform.localScale.x >= 0) transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
             else if (player.transform.position.x - transform.position.x > 0 && transform.localScale.x <= 0) transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
-
-
-
-        if (lives == 0) Destroy(this.gameObject);
     }
 
 
@@ -81,17 +77,6 @@ public class SpiderMovement : MonoBehaviour
             transform.localScale = new Vector3(-transform.localScale.x,transform.localScale.y,transform.localScale.z);
         }
     }
-
-
-
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.GetComponent<Melee>() || collision.gameObject.GetComponent<EnemyHealth>()) lives--;
-    }
-
-
 
 
 

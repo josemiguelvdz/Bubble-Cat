@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DetecPlayer : MonoBehaviour
 {
-    EnemyMovement chasePlayer;
+    SlimeBehaviour chasePlayer;
     public Transform player;
 
     void Start()
     {
-        chasePlayer = GetComponentInParent<EnemyMovement>();
+        chasePlayer = GetComponentInParent<SlimeBehaviour>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)

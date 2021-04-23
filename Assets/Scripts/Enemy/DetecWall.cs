@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DetecWall : MonoBehaviour
 {
-    EnemyMovement changeDirection;
+    SlimeBehaviour changeDirection;
     Transform r;
     void Start()
     {
-        changeDirection = GetComponentInParent<EnemyMovement>();
+        changeDirection = GetComponentInParent<SlimeBehaviour>();
         r = GetComponentInParent<Transform>();
     }
 

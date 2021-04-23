@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttack : MonoBehaviour
+public class SlimeAttack : MonoBehaviour
 {
-    EnemyMovement stop;
+    SlimeBehaviour stop;
 
     void Start()
     {
-        stop = GetComponentInParent<EnemyMovement>();
+        stop = GetComponentInParent<SlimeBehaviour>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)

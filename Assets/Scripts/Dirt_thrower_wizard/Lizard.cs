@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wizard : MonoBehaviour
+public class Lizard : MonoBehaviour
 {
     //Obtiene el transform spawner, desde donde se van a instanciar los proyectiles
     public Transform spawnerProjectile;
@@ -103,7 +103,7 @@ public class Wizard : MonoBehaviour
         }
     }
 
-    public void stopShoothing()
+    public void StopShooting()
     {
         canShoot = false;
         direction = "drop";

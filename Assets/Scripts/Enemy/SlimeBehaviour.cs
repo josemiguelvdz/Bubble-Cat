@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class SlimeBehaviour : MonoBehaviour
 {
     public int force;
 
