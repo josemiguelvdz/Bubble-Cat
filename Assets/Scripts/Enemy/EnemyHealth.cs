@@ -22,7 +22,7 @@ public class EnemyHealth : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<Melee>())
-        {
+        { 
             lives--;
             Debug.Log(lives);
             if (lives == 0)

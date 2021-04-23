@@ -80,6 +80,9 @@ public class BatBehaviour : MonoBehaviour
                 Debug.Log("Me he cansao de esperar");
             }
         }
+
+        //Vuelve a rotacion 0
+        transform.rotation = Quaternion.Euler(Vector3.zero);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
