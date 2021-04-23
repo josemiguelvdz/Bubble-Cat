@@ -65,6 +65,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Bar.cs" />
+    <Compile Include="Assets\Scripts\Bastet\Bastet.cs" />
+    <Compile Include="Assets\Scripts\Bastet\YunoDetector.cs" />
     <Compile Include="Assets\Scripts\Bat\BatBehaviour.cs" />
     <Compile Include="Assets\Scripts\Bat\BatDetection.cs" />
     <Compile Include="Assets\Scripts\Bubble\BubbleController.cs" />

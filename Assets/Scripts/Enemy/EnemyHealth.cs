@@ -24,7 +24,7 @@ public class EnemyHealth : MonoBehaviour
         if (collision.gameObject.GetComponent<Melee>())
         { 
             lives--;
-            Debug.Log(lives);
+
             if (lives == 0)
             {
                 Destroy(this.gameObject);

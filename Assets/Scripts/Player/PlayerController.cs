@@ -45,30 +45,41 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal"); //Recogida de input
-        if (horizontal < 0 && transform.localScale.x >= 0) transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        else if (horizontal > 0 && transform.localScale.x<=0) transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        if (horizontal < 0 && transform.localScale.x >= 0) 
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        else if (horizontal > 0 && transform.localScale.x<=0) 
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
-        if (Input.GetButtonDown("Gun")) Shoot();
+        if (Input.GetButtonDown("Gun")) 
+            Shoot();
+
         if (Input.GetButtonDown("Bubble") && !isJumping)
         {
             rb.velocity = new Vector2(0, 0);
             spawner.BubbleSpawn();
             GameManager.GetInstance().DeactivatePlayerController();
         }
-        if (Input.GetButtonDown("Melee")) Hit();
 
-        if (Input.GetButtonDown("Reload")) GameManager.GetInstance().Reload();
+        if (Input.GetButtonDown("Melee")) 
+            Hit();
+
+        if (Input.GetButtonDown("Reload")) 
+            GameManager.GetInstance().Reload();
 
         //Salto
-        if (Input.GetButtonDown("Jump") && !isJumping) rb.velocity = Vector2.up * jumpVelocity;
+        if (Input.GetButtonDown("Jump") && !isJumping) 
+            rb.velocity = Vector2.up * jumpVelocity;
 
-        if (Input.GetButtonDown("Helmet")) bubbleHelmet.InvokeReplace();
+        if (Input.GetButtonDown("Helmet")) 
+            bubbleHelmet.InvokeReplace();
 
 
 
-        if (rb.velocity.y < 0) rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        if (rb.velocity.y < 0) 
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
        
-        else if (rb.velocity.y > 0 && !Input.GetButton("Jump")) rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+        else if (rb.velocity.y > 0 && !Input.GetButton("Jump")) 
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
     }
 
 
@@ -79,13 +90,13 @@ public class PlayerController : MonoBehaviour
 
         if (Physics2D.Raycast(transform.position, Vector2.down, raycastLength, stageLayer))
         {
-            Debug.Log("He llegado al suelo");
+            //Debug.Log("He llegado al suelo");
             isJumping = false;
             bubbleSpawner.enabled = true;
         }
         else
         {
-            Debug.Log("Estoy en el aire");
+            //Debug.Log("Estoy en el aire");
             isJumping = true;
             bubbleSpawner.enabled = false;
         }
@@ -129,7 +140,7 @@ public class PlayerController : MonoBehaviour
         if (melee.activeSelf) melee.SetActive(false);
     }
 
-
+    //Esto en el Player Controller que hace? Puedo borrarlo?
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Player"))
