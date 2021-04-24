@@ -21,28 +21,33 @@ public class Lizard : MonoBehaviour
     //Indica la direction en la que se mueve el lagarto, empezamos con movimiento hacia la derecha
     private string direction = "right";
     //Indica la posicion del spawner del proyectil, como empezamos con movimiento hacia la derecha la poscion es una en concreto, si es movimiento hacia la izquierda es otra
-    private Vector3 posSpawner = new Vector3(0.5f, -0.5f, 0);
+    private Vector3 posSpawner = new Vector3(0.5f, -0.75f, 0);
     //Indica la velocidad del descenso del lagarto
     private float velocity = 5;
     private Vector3 scaleChange = new Vector3(0.75f, 0.75f, 0);
+    //Indica la rotacion inicial, para perder dicha referencia al rotar al lagarto dentro de la pompa 
+    private Quaternion initialTrans;
 
 
     void Start()
     {
         initialTime = shootCadenceSecs;
-        //Asignamos la posicion del spawner en una poscion en concreto en base a la poscion del lagarto
-        spawnerProjectile.transform.position = transform.position + new Vector3(0.5f, -0.5f, 0);
+        //Asignamos algunos valores iniciales que iran modificandose a lo largo de la ejecucion y es necesario tenerlas almacenadas
+        spawnerProjectile.transform.position = transform.position + posSpawner;
         dirtProjectile.transform.position = spawnerProjectile.transform.position + new Vector3(0, -0.15f, 0);
         dirtProjectile.transform.localScale = scaleChange;
+        initialTrans = transform.rotation;
 
         if (autoShoot) //Esta activado el autoShoot se generan continuamente proyectiles
             InvokeRepeating("Shoot", initialTime, shootCadenceSecs);
         else //NO esta activado el autoShoot se generan un unico proyectil
             Invoke("Shoot", shootCadenceSecs);
     }
-      
+
     private void Update()
     {
+        //RaycastHit2D col = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector2(0, 1));
+
         if (direction == "right")
         {
             //Indicamos la traslacion (movimiento) del lagarto hacia la derecha
@@ -57,6 +62,8 @@ public class Lizard : MonoBehaviour
         }
         else if (direction == "drop")
         {
+            //Asignamos la rotacion al lagarto, para generar un movimineto de caida vertical, ya que al haberlo rotado el movimiento saldra con la rotacion de la manipulacion de la pompa.
+            transform.rotation = initialTrans;
             //Indicamos la traslacion (movimiento) del lagarto en descenso
             transform.Translate(Vector3.down * velocity * Time.deltaTime);
         }

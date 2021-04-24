@@ -33,7 +33,7 @@ public class DetectPlayer : MonoBehaviour
 
         if (hit.collider != null)
         {
-            Debug.Log(hit.collider.name);
+            //Debug.Log(hit.collider.name);
             if(hit.transform.GetComponent<PlayerController>()) rb.gravityScale = 1;
          
         }

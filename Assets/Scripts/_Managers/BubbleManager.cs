@@ -29,6 +29,10 @@ public class BubbleManager : MonoBehaviour
         circleCollider2D.isTrigger = false;
         collissioned = col;
         collissioned.SetActive(false);
+        if (col.name == "Lizard")
+        {            
+            col.gameObject.GetComponent<Lizard>().StopShooting();
+        }
     }
 
 

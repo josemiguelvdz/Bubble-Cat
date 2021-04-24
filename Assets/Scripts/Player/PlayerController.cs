@@ -145,9 +145,11 @@ public class PlayerController : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Soy player");
+            //Debug.Log("Soy player");
         }
         else
-            Debug.Log("No soy player");
+        {
+            //Debug.Log("No soy player");
+        }
     }
 }
