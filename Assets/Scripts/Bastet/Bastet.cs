@@ -10,10 +10,13 @@ public class Bastet : MonoBehaviour
     [SerializeField, Tooltip("Tiempo en segundos que tarda Bastet en salir de su estado KO")]
     float koTime = 10; 
 
+
+
     int pieces = 3; //Número de piezas que tenemos que quitar a Bastet para desmontar su robot
     bool ko = false;
 
     Transform player;
+    CapsuleCollider2D col;
 
     //Ataques que hay que meter (se acumulan):
 
@@ -36,6 +39,10 @@ public class Bastet : MonoBehaviour
 
     //Final epico
 
+    private void Start()
+    {
+        col = GetComponent<CapsuleCollider2D>();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -43,10 +50,8 @@ public class Bastet : MonoBehaviour
         {
             health--;
 
-            if (health == 0)
-            {
-                ko = true;
-            }
+            if (health >= 0)
+                KOEnter();
         }
     }
 
@@ -56,15 +61,25 @@ public class Bastet : MonoBehaviour
         {
             health--;
 
-            if (health == 0)
-            {
-                ko = true;
-            }
+            if (health >= 0)
+                KOEnter();
         }
     }
 
     public void Appear()
     {
         GetComponent<SpriteRenderer>().enabled = true;
+    }
+
+    void KOEnter()
+    {
+        col.enabled = false;
+        ko = true;
+        Invoke("KOExit", koTime);
+    }
+
+    void KOExit()
+    {
+
     }
 }
