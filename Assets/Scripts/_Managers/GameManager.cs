@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     UIManager uim;
     PlayerController playerController;
+    Bastet bastet;
 
     RadiusMovement insideGM;
 
@@ -111,7 +112,21 @@ public class GameManager : MonoBehaviour
         playerController = p;
     }
 
+    public void SetBastet(Bastet b)
+    {
+        bastet = b;
+    }
 
+    public Bastet GetBastet()
+    {
+        return bastet;
+    }
+
+    public void NextPhase()
+    {
+        //Pasa a la siguiente fase de Bastet
+        bastet.PieceOff();
+    }
 
     public void BubbleHelmet()
     {

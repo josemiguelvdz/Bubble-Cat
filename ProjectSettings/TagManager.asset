@@ -25,9 +25,9 @@ TagManager:
   - Proyectile
   - Enemy
   - Damageable
-  - 
-  - 
-  - 
+  - Boss
+  - Piece
+  - Staff
   - 
   - 
   - 
@@ -44,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Bubble
+    uniqueID: 686265885
     locked: 0

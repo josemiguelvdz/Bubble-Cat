@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BubbleController : MonoBehaviour
 {
@@ -9,10 +7,30 @@ public class BubbleController : MonoBehaviour
     [Tooltip("Fuerza de la burbuja"), SerializeField]
     float force = 0;
 
+    [Tooltip("Capa de colisión de las piezas."), SerializeField]
+    int pieceLayer = 17;
+
+    [Tooltip("Capa de colisión del bastón."), SerializeField]
+    int staffLayer = 18;
+
+    [Tooltip("Cantidad de rotacion para quitar una pieza de Bastet"), SerializeField]
+    float pieceRotation = 10f;
+
+    [Tooltip("Aumento de masa al tirar de un objeto"), SerializeField]
+    float pullWeigth = 100f;
+
+    [Tooltip("Distancia para quitar el bastón"), SerializeField]
+    float pullDistance = 1f;
+
     float horizontal; // Input del eje horizontal
     float vertical;
     float delta;
     public float rotationSpeed;
+
+    bool piece = false; //Si es una pieza de Bastet el comportamiento es diferente
+    bool grab = false; //Si estamos tirando de algo agarrado
+    Vector3 ini;
+    float currentRotation = 0f;
 
     Rigidbody2D rb;
     GameObject child;
@@ -34,6 +52,7 @@ public class BubbleController : MonoBehaviour
         spriteRenderer = child.GetComponent<SpriteRenderer>();
         circleCollider2D = GetComponent<CircleCollider2D>();
     }
+
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal"); //Recogida de input
@@ -42,16 +61,38 @@ public class BubbleController : MonoBehaviour
 
         movement = new Vector2(horizontal * force, vertical * force);
 
-        if (Input.GetButtonDown("Bubble"))
+        if (Input.GetButtonDown("Bubble") ||
+            (grab && Mathf.Abs(Vector3.Distance(ini, transform.position)) > pullDistance))
         {
             BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer,child);
+
+            if (grab)
+                GameManager.GetInstance().NextPhase();
         }
     }
 
     private void FixedUpdate()
     {
-        rb.AddForce(movement);
-        rb.rotation += delta * rotationSpeed;
+        if(!piece)
+            rb.AddForce(movement);
+
+        if(!grab)
+        {
+            if (piece && (currentRotation > 0 || delta > 0))
+            {
+                rb.rotation += delta * rotationSpeed;
+
+                currentRotation += delta;
+
+                if (currentRotation >= pieceRotation)
+                {
+                    BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);
+                    GameManager.GetInstance().NextPhase();
+                }
+            }
+            else if (!piece)
+                rb.rotation += delta * rotationSpeed;
+        }
     }
 
 
@@ -70,6 +111,21 @@ public class BubbleController : MonoBehaviour
             BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);
         else if (col.gameObject.GetComponent<Lizard>())
             col.gameObject.GetComponent<Lizard>().StopShooting();
+
+        if (col.gameObject.layer == pieceLayer)
+        {
+            piece = true;
+            rb.velocity = Vector2.zero;
+            GameManager.GetInstance().GetBastet().SetBubble(this);
+        }
+        else if (col.gameObject.layer == staffLayer)
+        {
+            grab = true;
+            rb.velocity = Vector2.zero;
+            rb.mass *= pullWeigth;
+            ini = transform.position;
+            GameManager.GetInstance().GetBastet().SetBubble(this);
+        }
     }
 
 
@@ -80,5 +136,11 @@ public class BubbleController : MonoBehaviour
         {
             BubbleManager.GetInstance().TakeObjects(col.gameObject, spriteRenderer,child, circleCollider2D);
         }
+    }
+
+    public void Pop()
+    {
+        //Me exploto
+        BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);
     }
 }
