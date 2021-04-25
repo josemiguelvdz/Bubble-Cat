@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4630292146005390973}
   - component: {fileID: 7745785114741269390}
   - component: {fileID: 5779787666561809778}
-  - component: {fileID: -5305118260206185938}
+  - component: {fileID: 1874134392325285394}
   m_Layer: 14
-  m_Name: Wizard
+  m_Name: Lizard
   m_TagString: Interactuable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,11 +96,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5144108589de7a4da380473bf547357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnerProjectile: {fileID: 0}
+  foot: {fileID: 6388265446634584258, guid: 7733e988b26823146bf154af3abe0c4b, type: 3}
+  spawnerProjectile: {fileID: 5187708483767367445, guid: cbc68084993f0b84c9ee4f734c065732,
+    type: 3}
   dirtProjectile: {fileID: 7137267404116649082, guid: c73b18bc6fb729c41837a9a60fd510e8,
     type: 3}
   shootCadenceSecs: 3
   autoShoot: 1
+  canShoot: 1
+  destructible: 0
 --- !u!114 &5779787666561809778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,8 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9abcdd75907d104e97a73b35ccc962e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &-5305118260206185938
-CircleCollider2D:
+--- !u!70 &1874134392325285394
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -124,8 +128,8 @@ CircleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0.4, y: -0.15}
-  serializedVersion: 2
-  m_Radius: 0.3
+  m_Offset: {x: 0, y: -0.15}
+  m_Size: {x: 1.4, y: 0.6}
+  m_Direction: 1
