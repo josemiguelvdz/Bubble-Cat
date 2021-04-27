@@ -217,6 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 6
+  velocityLimit: 5
   pieceLayer: 17
   staffLayer: 18
   pieceRotation: 200

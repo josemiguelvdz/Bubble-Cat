@@ -7,6 +7,9 @@ public class BubbleController : MonoBehaviour
     [Tooltip("Fuerza de la burbuja"), SerializeField]
     float force = 0;
 
+    [Tooltip("Limite de velocidad para la colisión"), SerializeField]
+    float velocityLimit = 0;
+
     [Tooltip("Capa de colisión de las piezas."), SerializeField]
     int pieceLayer = 17;
 
@@ -109,6 +112,7 @@ public class BubbleController : MonoBehaviour
         //Añadir layer de todo lo que destruya la burbuja
         else if (col.gameObject.layer == stageLayer || col.gameObject.layer == playerLayer)
             BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);
+        
         else if (col.gameObject.GetComponent<Lizard>())
             col.gameObject.GetComponent<Lizard>().StopShooting();
 

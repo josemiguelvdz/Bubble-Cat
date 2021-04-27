@@ -221,6 +221,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 28
       objectReference: {fileID: 0}
+    - target: {fileID: 9218661749734107733, guid: 5505f79c5171b4347944517d3d4ad281,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218661749734107733, guid: 5505f79c5171b4347944517d3d4ad281,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.06
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7215444068820441514, guid: 5505f79c5171b4347944517d3d4ad281, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5505f79c5171b4347944517d3d4ad281, type: 3}
@@ -295,6 +305,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218661749734107733, guid: 5505f79c5171b4347944517d3d4ad281,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5505f79c5171b4347944517d3d4ad281, type: 3}
@@ -15612,6 +15627,7 @@ GameObject:
   - component: {fileID: 1930537888}
   - component: {fileID: 1930537887}
   - component: {fileID: 1930537886}
+  - component: {fileID: 1930537890}
   m_Layer: 0
   m_Name: water
   m_TagString: Untagged
@@ -15728,6 +15744,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1930537890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930537885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb8669175f48564c90c6ec721aa98b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1983900879
 PrefabInstance:
   m_ObjectHideFlags: 0
