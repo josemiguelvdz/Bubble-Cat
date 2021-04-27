@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     PlayerController playerController;
     Bastet bastet;
 
-    RadiusMovement insideGM;
 
     void Awake()
     {
@@ -151,13 +150,5 @@ public class GameManager : MonoBehaviour
     public GameObject GetPlayer()
     {
         return playerController.gameObject;
-    }
-    public void SetInside(RadiusMovement radiusMovement)
-    {
-        insideGM = radiusMovement;
-    }
-    public RadiusMovement GetInside()
-    {
-        return insideGM;
     }
 }
