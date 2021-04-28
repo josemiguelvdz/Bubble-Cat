@@ -221,6 +221,6 @@ MonoBehaviour:
   pieceLayer: 17
   staffLayer: 18
   pieceRotation: 200
-  pullWeigth: 100
-  pullDistance: 1
+  pullWeigth: 70
+  pullDistance: 1.5
   rotationSpeed: 3

@@ -99,6 +99,7 @@ public class Bastet : MonoBehaviour
         }
         catch { }
         ko = false;
+        currentHealth = health;
         pieces[piecesNum - 1].SetActive(false);
     }
 
