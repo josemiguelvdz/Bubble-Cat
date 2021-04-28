@@ -13,11 +13,11 @@ public class Lizard : MonoBehaviour
     //Indica el tiempo que pasa entre un proyectil y el siguiente
     public float shootCadenceSecs;
     //Indica si queremos que haya una repeticion de projectiles o no
-    public bool autoShoot = true;
+    public bool autoShoot;
     //Indica si el lagarto puede disparar
-    public bool canShoot = true;
+    public bool canShoot;
     //Indica si me puedo destruir al chocar con el proximo objeto
-    public bool destructible = false;
+    public bool destructible;
     //Se indica el tiempo de retardo tras el primer invoke
     private float initialTime;
     //Indica la direction en la que se mueve el lagarto, empezamos con movimiento hacia la derecha
@@ -36,6 +36,9 @@ public class Lizard : MonoBehaviour
     private SpriteRenderer sprite;
     private int contador = 0;
     private int desapariciones = 0;
+
+    private Transform player; //Posicion del jugador
+    private float radius; //Distancia a la que veo al jugador
 
     void Start()
     {
@@ -64,6 +67,11 @@ public class Lizard : MonoBehaviour
         }
         else
         {
+            //Trazamos un rayo hacia el jugador
+            Vector2 dir = player.position - spawnerProjectile.position;
+            RaycastHit2D hitPlayer = Physics2D.Raycast(spawnerProjectile.position, dir, radius);
+            Debug.DrawRay(spawnerProjectile.position, dir.normalized * hitPlayer.distance, Color.red);
+
             if (direction != "drop")//No tiene que caerse el lagarto
             {
                 RaycastHit2D hit = Physics2D.Raycast(foot.transform.position, Vector3.up, 0.05f);
@@ -173,5 +181,11 @@ public class Lizard : MonoBehaviour
         canShoot = false;
         direction = "drop";
         destructible = true;
+    }
+
+    public void PositionPlayer(Transform t, float s) 
+    {
+        player = t;
+        radius = s;
     }
 }
