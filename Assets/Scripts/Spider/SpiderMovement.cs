@@ -7,15 +7,18 @@ public class SpiderMovement : MonoBehaviour
     public LayerMask stageLayer;
 
 
-    float distance;
+    float distance,izq, der;
     bool attacking,ground, runnningAway;
 
     GameObject player;
     Rigidbody2D rb;
-
+    Quaternion playerRotation;
 
     private void Start()
     {
+        izq = -transform.localScale.x;
+        der = transform.localScale.x;
+        playerRotation = transform.rotation;
         rb = GetComponent<Rigidbody2D>();
         player = GameManager.GetInstance().GetPlayer();
     }
@@ -24,8 +27,8 @@ public class SpiderMovement : MonoBehaviour
     {
         if (!runnningAway)
         {
-            if (player.transform.position.x - transform.position.x < 0 && transform.localScale.x >= 0) transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-            else if (player.transform.position.x - transform.position.x > 0 && transform.localScale.x <= 0) transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            if (player.transform.position.x - transform.position.x < 0 ) transform.localScale = new Vector3(izq, transform.localScale.y, transform.localScale.z);
+            else if (player.transform.position.x - transform.position.x > 0 ) transform.localScale = new Vector3(der, transform.localScale.y, transform.localScale.z);
         }
     }
 
@@ -43,6 +46,7 @@ public class SpiderMovement : MonoBehaviour
         {
             Debug.Log("He llegado al suelo");
             ground = true;
+            transform.rotation = playerRotation;
         }
         else
         {
