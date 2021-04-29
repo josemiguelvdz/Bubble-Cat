@@ -18,7 +18,6 @@ public class LizardDetector : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerController>())
         {
             parent.PositionPlayer(collision.gameObject.transform, col.radius);
-            Debug.Log("Detecto al jugador");
         }
     }
 }

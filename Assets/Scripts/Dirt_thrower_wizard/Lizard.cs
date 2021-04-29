@@ -5,34 +5,38 @@ using UnityEngine;
 
 public class Lizard : MonoBehaviour
 {
+    //Obtenemos elementos necesarios
+    //Obtiene el pide derecho, encargado de crear el RayCast encargado de detectar el suelo
     public Transform foot;
     //Obtiene el transform spawner, desde donde se van a instanciar los proyectiles
-    public Transform spawnerProjectile;
+    public GameObject spawnerProjectile;
     //Obtiene el objeto projectile de la carpeta Prefabs
-    public GameObject dirtProjectile;
+    private GameObject dirtProjectile;
     //Indica el tiempo que pasa entre un proyectil y el siguiente
     public float shootCadenceSecs;
     //Indica si queremos que haya una repeticion de projectiles o no
     public bool autoShoot;
     //Indica si el lagarto puede disparar
-    public bool canShoot;
+    public bool canShoot = false;
     //Indica si me puedo destruir al chocar con el proximo objeto
     public bool destructible;
+    //Obtenemos variables necesarias para el recalculo contionuo de los diferentes elementos
     //Se indica el tiempo de retardo tras el primer invoke
     private float initialTime;
     //Indica la direction en la que se mueve el lagarto, empezamos con movimiento hacia la derecha
     private string direction = "right";
     //Indica la posicion del spawner del proyectil, como empezamos con movimiento hacia la derecha la poscion es una en concreto, si es movimiento hacia la izquierda es otra
     private Vector3 posSpawner = new Vector3(0.5f, -0.75f, 0);
+    //Indica la posicion en donde se situa el inicio del proyectil, como empezamos con movimiento hacia la derecha la poscion es una en concreto, si es movimiento hacia la izquierda es otra
+    private Vector3 posProjectile = new Vector3(0, -0.15f, 0);
+    //Indica la posicion del pie delantero, como empezamos con movimiento hacia la derecha la poscion es una en concreto, si es movimiento hacia la izquierda es otra
+    private Vector3 posFoot = new Vector3(0.15f, 0.25f, 0);
     //Indica la velocidad del descenso del lagarto
     private float velocity = 5;
     private Vector3 scaleChange = new Vector3(0.75f, 0.75f, 0);
     //Indica la rotacion inicial, para perder dicha referencia al rotar al lagarto dentro de la pompa 
     private Quaternion initialTrans;
-    //Indica la posicion del pie delantero, como empezamos con movimiento hacia la derecha la poscion es una en concreto, si es movimiento hacia la izquierda es otra
-    private Vector3 posFoot = new Vector3(0.15f, 0.25f, 0);
-    //Indica la posicion en donde se situa el inicio del proyectil, como empezamos con movimiento hacia la derecha la poscion es una en concreto, si es movimiento hacia la izquierda es otra
-    private Vector3 posProjectile = new Vector3(0, -0.15f, 0);
+   
     private SpriteRenderer sprite;
     private int contador = 0;
     private int desapariciones = 0;
@@ -45,11 +49,12 @@ public class Lizard : MonoBehaviour
         //Obtenemos el sprite del lagarto para poder hacer uso del volteo (flip)
         sprite = GetComponent<SpriteRenderer>();
         initialTime = shootCadenceSecs;
-        //Asignamos algunos valores iniciales que iran modificandose a lo largo de la ejecucion y es necesario tenerlas almacenadas
-        foot.transform.position = transform.position + posFoot;
+        //Asignamos algunos valores iniciales que iran modificandose a lo largo de la ejecucion y es necesario tenerlas almacenadas        
         spawnerProjectile.transform.position = transform.position + posSpawner;
+        dirtProjectile = spawnerProjectile.transform.GetChild(0).gameObject;
         dirtProjectile.transform.position = spawnerProjectile.transform.position + new Vector3(0, -0.15f, 0);
         dirtProjectile.transform.localScale = scaleChange;
+        foot.transform.position = transform.position + posFoot;
         initialTrans = transform.rotation;
 
         if (autoShoot) //Esta activado el autoShoot se generan continuamente proyectiles
@@ -67,10 +72,15 @@ public class Lizard : MonoBehaviour
         }
         else
         {
-            //Trazamos un rayo hacia el jugador
-            Vector2 dir = player.position - spawnerProjectile.position;
-            RaycastHit2D hitPlayer = Physics2D.Raycast(spawnerProjectile.position, dir, radius);
-            Debug.DrawRay(spawnerProjectile.position, dir.normalized * hitPlayer.distance, Color.red);
+            //Detectamos al jugador y trazamos un rayo hacia él
+            if (player != null && canShoot == false)
+            {
+                Vector2 dir = player.position - spawnerProjectile.transform.position;
+                RaycastHit2D hitPlayer = Physics2D.Raycast(spawnerProjectile.transform.position, dir, radius);
+                dirtProjectile.GetComponent<Dirt_projectile>().updatePosition(dir.normalized);
+                Debug.DrawRay(spawnerProjectile.transform.position, dir.normalized * hitPlayer.distance, Color.red);
+                canShoot = true;
+            }
 
             if (direction != "drop")//No tiene que caerse el lagarto
             {
@@ -110,12 +120,12 @@ public class Lizard : MonoBehaviour
                 if (direction == "right")
                 {
                     spawnerProjectile.transform.position = transform.position + posSpawner;
-                    dirtProjectile.transform.position = spawnerProjectile.position + posProjectile;
+                    dirtProjectile.transform.position = spawnerProjectile.transform.position + posProjectile;
                 }
                 else if (direction == "left")
                 {
                     spawnerProjectile.transform.position = new Vector3((transform.position.x + -posSpawner.x), (transform.position.y + posSpawner.y), (transform.position.z + posSpawner.z));
-                    dirtProjectile.transform.position = spawnerProjectile.position + posProjectile;
+                    dirtProjectile.transform.position = spawnerProjectile.transform.position + posProjectile;
                 }
             }
             else//Tiene que caerse el lagarto
@@ -133,8 +143,9 @@ public class Lizard : MonoBehaviour
     {
         if (canShoot == true)
         {
-            Instantiate(dirtProjectile, dirtProjectile.transform.position, Quaternion.Euler(new Vector3(0, 0, 105)));
+            Instantiate(dirtProjectile, dirtProjectile.transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
         }
+        canShoot = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -147,7 +158,6 @@ public class Lizard : MonoBehaviour
         {
             if (destructible == true)//Puedo destruirme, ya que si he interactuado con la pompa
             {
-                Debug.Log("Me muero");
                 //Animacion del lagarto
                 direction = String.Empty;
             }

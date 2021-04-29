@@ -97,9 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foot: {fileID: 6388265446634584258, guid: 7733e988b26823146bf154af3abe0c4b, type: 3}
-  spawnerProjectile: {fileID: 5187708483767367445, guid: cbc68084993f0b84c9ee4f734c065732,
-    type: 3}
-  dirtProjectile: {fileID: 7137267404116649082, guid: c73b18bc6fb729c41837a9a60fd510e8,
+  spawnerProjectile: {fileID: 4556339192567175516, guid: 4c0bbbbeaad707a4490d0ce1325df11c,
     type: 3}
   shootCadenceSecs: 3
   autoShoot: 1
