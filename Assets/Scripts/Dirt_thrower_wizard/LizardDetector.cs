@@ -14,10 +14,11 @@ public class LizardDetector : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collision)
-    {
+    {       
         if (collision.gameObject.GetComponent<PlayerController>())
         {
             parent.PositionPlayer(collision.gameObject.transform, col.radius);
+            Debug.Log("Colisiono con el jugador");
         }
     }
 }

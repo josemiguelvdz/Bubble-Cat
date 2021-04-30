@@ -28,12 +28,12 @@ public class Lizard : MonoBehaviour
     //Indica la posicion del spawner del proyectil, como empezamos con movimiento hacia la derecha la poscion es una en concreto, si es movimiento hacia la izquierda es otra
     private Vector3 posSpawner = new Vector3(0.5f, -0.75f, 0);
     //Indica la posicion en donde se situa el inicio del proyectil, como empezamos con movimiento hacia la derecha la poscion es una en concreto, si es movimiento hacia la izquierda es otra
-    private Vector3 posProjectile = new Vector3(0, -0.15f, 0);
+    private Vector3 posProjectile = new Vector3(1.75f, -1, 0);
     //Indica la posicion del pie delantero, como empezamos con movimiento hacia la derecha la poscion es una en concreto, si es movimiento hacia la izquierda es otra
     private Vector3 posFoot = new Vector3(0.15f, 0.25f, 0);
     //Indica la velocidad del descenso del lagarto
     private float velocity = 5;
-    private Vector3 scaleChange = new Vector3(0.75f, 0.75f, 0);
+    private Vector3 scaleChange = new Vector3(0.5f, 0.5f, 0);
     //Indica la rotacion inicial, para perder dicha referencia al rotar al lagarto dentro de la pompa 
     private Quaternion initialTrans;
    
@@ -43,6 +43,8 @@ public class Lizard : MonoBehaviour
 
     private Transform player; //Posicion del jugador
     private float radius; //Distancia a la que veo al jugador
+
+    Vector2 dir;
 
     void Start()
     {
@@ -56,11 +58,12 @@ public class Lizard : MonoBehaviour
         dirtProjectile.transform.localScale = scaleChange;
         foot.transform.position = transform.position + posFoot;
         initialTrans = transform.rotation;
+        dir = Vector2.zero;
 
-        if (autoShoot) //Esta activado el autoShoot se generan continuamente proyectiles
-            InvokeRepeating("Shoot", initialTime, shootCadenceSecs);
-        else //NO esta activado el autoShoot se generan un unico proyectil
-            Invoke("Shoot", shootCadenceSecs);
+        //if (autoShoot) //Esta activado el autoShoot se generan continuamente proyectiles
+        //    InvokeRepeating("Shoot", initialTime, shootCadenceSecs);
+        //else //NO esta activado el autoShoot se generan un unico proyectil
+        //    Invoke("Shoot", shootCadenceSecs);
     }
 
     private void Update()
@@ -73,13 +76,12 @@ public class Lizard : MonoBehaviour
         else
         {
             //Detectamos al jugador y trazamos un rayo hacia él
-            if (player != null && canShoot == false)
+            if (player != null)
             {
-                Vector2 dir = player.position - spawnerProjectile.transform.position;
-                RaycastHit2D hitPlayer = Physics2D.Raycast(spawnerProjectile.transform.position, dir, radius);
-                dirtProjectile.GetComponent<Dirt_projectile>().updatePosition(dir.normalized);
-                Debug.DrawRay(spawnerProjectile.transform.position, dir.normalized * hitPlayer.distance, Color.red);
-                canShoot = true;
+                //RaycastHit2D hitPlayer = Physics2D.Raycast(spawnerProjectile.transform.position, dir, radius);
+                //Debug.DrawRay(spawnerProjectile.transform.position, dir.normalized * hitPlayer.distance, Color.red);
+                Debug.Log("Detecto player");
+                Shoot();
             }
 
             if (direction != "drop")//No tiene que caerse el lagarto
@@ -141,11 +143,19 @@ public class Lizard : MonoBehaviour
     //Dispara bala en la direction dada
     public void Shoot()
     {
-        if (canShoot == true)
+        Debug.Log("Intento disparar");
+        if (Time.time > initialTime)
         {
+            Debug.Log("Disparo");
+            initialTime = Time.time + shootCadenceSecs;
             Instantiate(dirtProjectile, dirtProjectile.transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+            dir = player.position - dirtProjectile.transform.position;        
         }
-        canShoot = false;
+    }
+
+    public Vector2 DirectionDirtProjectile()
+    {
+        return dir;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
