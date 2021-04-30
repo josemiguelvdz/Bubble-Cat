@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\Damageable.cs" />
     <Compile Include="Assets\Scripts\Dirt_thrower_wizard\Dirt_projectile.cs" />
     <Compile Include="Assets\Scripts\Dirt_thrower_wizard\Lizard.cs" />
+    <Compile Include="Assets\Scripts\Dirt_thrower_wizard\LizardDetector.cs" />
     <Compile Include="Assets\Scripts\Enemy\DetecPlayer.cs" />
     <Compile Include="Assets\Scripts\Enemy\DetecWall.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyHealth.cs" />
