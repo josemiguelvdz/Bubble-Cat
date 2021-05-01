@@ -28,12 +28,12 @@ public class Lizard : MonoBehaviour
     //Indica la posicion del spawner del proyectil, como empezamos con movimiento hacia la derecha la poscion es una en concreto, si es movimiento hacia la izquierda es otra
     private Vector3 posSpawner = new Vector3(0.5f, -0.75f, 0);
     //Indica la posicion en donde se situa el inicio del proyectil, como empezamos con movimiento hacia la derecha la poscion es una en concreto, si es movimiento hacia la izquierda es otra
-    private Vector3 posProjectile = new Vector3(1.75f, -1, 0);
+    private Vector3 posProjectile = new Vector3(0, -0.3f, 0);
     //Indica la posicion del pie delantero, como empezamos con movimiento hacia la derecha la poscion es una en concreto, si es movimiento hacia la izquierda es otra
     private Vector3 posFoot = new Vector3(0.15f, 0.25f, 0);
     //Indica la velocidad del descenso del lagarto
     private float velocity = 5;
-    private Vector3 scaleChange = new Vector3(0.5f, 0.5f, 0);
+    private Vector3 scaleChange = new Vector3(0.75f, 0.75f, 0);
     //Indica la rotacion inicial, para perder dicha referencia al rotar al lagarto dentro de la pompa 
     private Quaternion initialTrans;
    
@@ -54,7 +54,7 @@ public class Lizard : MonoBehaviour
         //Asignamos algunos valores iniciales que iran modificandose a lo largo de la ejecucion y es necesario tenerlas almacenadas        
         spawnerProjectile.transform.position = transform.position + posSpawner;
         dirtProjectile = spawnerProjectile.transform.GetChild(0).gameObject;
-        dirtProjectile.transform.position = spawnerProjectile.transform.position + new Vector3(0, -0.15f, 0);
+        dirtProjectile.transform.position = spawnerProjectile.transform.position + posProjectile;
         dirtProjectile.transform.localScale = scaleChange;
         foot.transform.position = transform.position + posFoot;
         initialTrans = transform.rotation;
@@ -100,7 +100,7 @@ public class Lizard : MonoBehaviour
                     {
                         //Indicamos la traslacion (movimiento) del lagarto hacia la izquierda yu cambio del scripte (volteo)
                         transform.Translate(Vector3.left * Time.deltaTime);
-                        sprite.flipX = true;
+                         sprite.flipX = true;
                     }
                 }
                 else //No detecta suelo
@@ -122,12 +122,12 @@ public class Lizard : MonoBehaviour
                 if (direction == "right")
                 {
                     spawnerProjectile.transform.position = transform.position + posSpawner;
-                    dirtProjectile.transform.position = spawnerProjectile.transform.position + posProjectile;
+                    //dirtProjectile.transform.position = spawnerProjectile.transform.position + posProjectile;
                 }
                 else if (direction == "left")
                 {
                     spawnerProjectile.transform.position = new Vector3((transform.position.x + -posSpawner.x), (transform.position.y + posSpawner.y), (transform.position.z + posSpawner.z));
-                    dirtProjectile.transform.position = spawnerProjectile.transform.position + posProjectile;
+                    //dirtProjectile.transform.position = spawnerProjectile.transform.position + posProjectile;
                 }
             }
             else//Tiene que caerse el lagarto
@@ -149,13 +149,18 @@ public class Lizard : MonoBehaviour
             Debug.Log("Disparo");
             initialTime = Time.time + shootCadenceSecs;
             Instantiate(dirtProjectile, dirtProjectile.transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
-            dir = player.position - dirtProjectile.transform.position;        
+            setDirectionDirtProjectile(player.position - dirtProjectile.transform.position);        
         }
     }
 
-    public Vector2 DirectionDirtProjectile()
+    public Vector2 getDirectionDirtProjectile()
     {
         return dir;
+    }
+
+    public void setDirectionDirtProjectile(Vector3 vector)
+    {
+        dir = vector;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
