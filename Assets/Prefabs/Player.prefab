@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 964593979786218407}
   - component: {fileID: 964593979786218405}
   - component: {fileID: 964593979786218410}
-  - component: {fileID: 8088082789742724200}
+  - component: {fileID: 6055711807188745263}
+  - component: {fileID: 561291139570862662}
   - component: {fileID: 1043255758}
   m_Layer: 8
   m_Name: Player
@@ -135,7 +136,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8088082789742724200
+--- !u!114 &6055711807188745263
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,8 +148,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053ceeda0691aad4ea43f1601dbef3f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 964593979786218404}
   time: 1
   helmet: {fileID: 3995560674584329885}
+--- !u!114 &561291139570862662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964593979786218404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd634f4312d032478083b09f3e72f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpoint: {fileID: 0}
+  player: {fileID: 964593979786218404}
 --- !u!70 &1043255758
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

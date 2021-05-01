@@ -23,13 +23,45 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
         else
             Destroy(this.gameObject);
 
         bars = startingBars;
         bullets = startingBullets;
+    }
+
+    private void Start()
+    {
+        Debug.Log("SE EJECUTO EL START");
+        switch (GameState.currentCheckpoint)
+        {
+            case Checkpoint.spawnpoint:
+                GameObject.Find("Player").transform.position = GameObject.Find("spawnpoint").transform.position;
+                GameObject.Find("Camera").transform.position = GameObject.Find("spawnpoint").transform.position + new Vector3(5, 0, -10);
+                break;
+            case Checkpoint.checkpoint1: // Delete Key1, Door1
+
+                Destroy(GameObject.Find("Key_1"));
+                Destroy(GameObject.Find("Door_1"));
+
+                GameObject.Find("Player").transform.position = GameObject.Find("checkpoint1").transform.position;
+
+                GameObject.Find("Camera").transform.position = GameObject.Find("checkpoint1").transform.position + new Vector3(5,0, -10);
+                break;
+
+            case Checkpoint.checkpoint2: // Delete Key1, Door1
+
+                Destroy(GameObject.Find("Key_2"));
+                Destroy(GameObject.Find("Door_2"));
+
+                GameObject.Find("Player").transform.position = GameObject.Find("checkpoint2").transform.position;
+
+                GameObject.Find("Camera").transform.position = GameObject.Find("checkpoint2").transform.position + new Vector3(5, 0, -10);
+                break;
+
+        }
+
     }
 
     public static GameManager GetInstance()

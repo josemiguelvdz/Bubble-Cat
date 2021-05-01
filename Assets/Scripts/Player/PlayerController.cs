@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Índice de la layer del escenario."), SerializeField]
     int stageLayer = 9;
 
+    private bool key = false;
 
     void Start()
     {
@@ -140,16 +141,23 @@ public class PlayerController : MonoBehaviour
         if (melee.activeSelf) melee.SetActive(false);
     }
 
-    //Esto en el Player Controller que hace? Puedo borrarlo?
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Player"))
+
+        string name = col.gameObject.name.Split('_')[0];
+
+        if (name == "Door" && key)
         {
-            //Debug.Log("Soy player");
+            key = false;
+
+            col.gameObject.GetComponent<Door>().OpenDoor();
+
+            GameState.currentCheckpoint += 1;
         }
-        else
+        if (name == "Key")
         {
-            //Debug.Log("No soy player");
+            key = true;
+            Destroy(col.gameObject);
         }
     }
 }
