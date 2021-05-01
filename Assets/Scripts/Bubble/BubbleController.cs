@@ -104,7 +104,7 @@ public class BubbleController : MonoBehaviour
     {
         int stageLayer = LayerMask.NameToLayer("Stage");
         int playerLayer = LayerMask.NameToLayer("Player");
-        spriteRenderer = col.gameObject.GetComponent<SpriteRenderer>();
+        //spriteRenderer = col.gameObject.GetComponent<SpriteRenderer>();
         //Si el objeto colisionado tiene la layer de un objeto interactuable activa el trigger
         if (col.gameObject.GetComponent<Bubbleable>() && spriteRenderer.sprite == null)
             BubbleManager.GetInstance().ActivateTrigger(circleCollider2D);
