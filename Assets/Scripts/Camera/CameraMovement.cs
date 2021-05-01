@@ -31,7 +31,7 @@ public class CameraMovement : MonoBehaviour
     {
         if (player != null)
         {
-            Debug.Log("Player camarita");
+            //Debug.Log("Player camarita");
             target = player.transform;
         }
         else

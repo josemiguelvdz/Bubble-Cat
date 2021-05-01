@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 36d327355355b5442bfe64b544a1d4c3
+  - enabled: 1
     path: Assets/Scenes/Debug.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Sewer.unity
+    guid: 7059654831a25cd4a9f82a61d7d0b6d6
+  - enabled: 1
+    path: Assets/Scenes/Beach.unity
+    guid: c8928878b5ceaea40b54d836f5653091
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: f0729e87b0edff144b141e3600b60a97
   m_configObjects: {}
