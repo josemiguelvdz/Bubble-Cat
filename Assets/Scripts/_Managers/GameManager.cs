@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("SE EJECUTO EL START");
         switch (GameState.currentCheckpoint)
         {
             case Checkpoint.spawnpoint:

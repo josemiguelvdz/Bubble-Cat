@@ -2,7 +2,8 @@
 
 public class BubbleHelmet : MonoBehaviour
 {
-    
+    public GDTFadeEffect fadeEffect;
+
     public float time;
     public GameObject helmet;
     bool helmetOn = true;
@@ -29,8 +30,23 @@ public class BubbleHelmet : MonoBehaviour
                 CancelInvoke();
             }
             else
-                Debug.Log("Has muerto");
+            {
+                // PARTICULAS
+
+                fadeEffect.StartEffect();
+                Invoke("InvokeRespawn", 1f);
+
+                helmetOn = true;
+                helmet.SetActive(true);
+            }
+                
+            
         }
+    }
+    public void InvokeRespawn()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Sewer");
+        
     }
 
     public void InvokeReplace()
