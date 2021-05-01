@@ -100,7 +100,8 @@
     <Compile Include="Assets\Scripts\Shooter.cs" />
     <Compile Include="Assets\Scripts\Spider\DetectPlayer.cs" />
     <Compile Include="Assets\Scripts\Spider\SpiderMovement.cs" />
-    <Compile Include="Assets\Scripts\Title\Play.cs" />
+    <Compile Include="Assets\Scripts\Title\ChangeScene.cs" />
+    <Compile Include="Assets\Scripts\Title\Pause.cs" />
     <Compile Include="Assets\Scripts\Title\Quit.cs" />
     <Compile Include="Assets\Scripts\Title\Settings.cs" />
     <Compile Include="Assets\Scripts\Water.cs" />

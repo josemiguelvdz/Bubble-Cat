@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Bastet : MonoBehaviour
 {
@@ -71,7 +72,6 @@ public class Bastet : MonoBehaviour
         if (!ko && collision.gameObject.GetComponent<Melee>())
         {
             currentHealth--;
-            Debug.Log(currentHealth);
             if (currentHealth <= 0)
                 KOEnter();
         }
@@ -109,10 +109,19 @@ public class Bastet : MonoBehaviour
         KOExit();
         currentHealth = health;
         piecesNum--;
+        Debug.Log(piecesNum);
+
+        if (piecesNum == 0)
+            Win();
     }
 
     public void SetBubble(BubbleController b)
     {
         bubble = b;
+    }
+
+    void Win()
+    {
+        SceneManager.LoadScene("Credits");
     }
 }

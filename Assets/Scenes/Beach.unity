@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
-  koTime: 10
+  koTime: 15
   pieces:
   - {fileID: 1443857122}
   - {fileID: 1501803036}

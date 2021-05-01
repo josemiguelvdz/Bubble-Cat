@@ -70,7 +70,10 @@ public class BubbleController : MonoBehaviour
             BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer,child);
 
             if (grab)
+            {
                 GameManager.GetInstance().NextPhase();
+                Debug.Log("Has matado a Bastet");
+            }
         }
     }
 
