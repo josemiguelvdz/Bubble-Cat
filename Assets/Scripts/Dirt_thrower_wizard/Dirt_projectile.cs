@@ -33,7 +33,7 @@ public class Dirt_projectile : MonoBehaviour
             if (dir == Vector2.zero)
                 rb.velocity = Vector2.down;
             else
-                rb.velocity = dir;
+                rb.velocity = dir.normalized;
         }
 
     }

@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edee8518412224d4daaca129e360672f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raycastDistance: 5
+  raycastDistance: 50
 --- !u!114 &9196591159938102953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +175,6 @@ MonoBehaviour:
   escapeSpeed: 2
   visionRadius: 7
   attackRadius: 3
-  lives: 2
   timeToAttack: 0.1
   forceX: 20
   forceY: 20

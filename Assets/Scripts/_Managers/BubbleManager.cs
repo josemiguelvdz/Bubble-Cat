@@ -45,13 +45,6 @@ public class BubbleManager : MonoBehaviour
             collissioned.transform.position = child.transform.position;
             collissioned.transform.rotation = child.transform.rotation;
             collissioned.SetActive(true);
-
-            if (bubble.sprite.name == "Dirt_Projectile")
-            {
-                GameObject dirt_projectile = GameObject.Find(bubble.sprite.name);
-                dirt_projectile.GetComponent<Dirt_projectile>().rotationProjectil(child.transform.rotation);
-
-            }
         }
 
         GameManager.GetInstance().ActivatePlayerController();

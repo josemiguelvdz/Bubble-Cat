@@ -9,9 +9,9 @@ public class Lizard : MonoBehaviour
     //Obtiene el pide derecho, encargado de crear el RayCast encargado de detectar el suelo
     public Transform foot;
     //Obtiene el transform spawner, desde donde se van a instanciar los proyectiles
-    public GameObject spawnerProjectile;
+    public Transform spawnerProjectile;
     //Obtiene el objeto projectile de la carpeta Prefabs
-    private GameObject dirtProjectile;
+    public GameObject dirtProjectile;
     //Indica el tiempo que pasa entre un proyectil y el siguiente
     public float shootCadenceSecs;
     //Indica si queremos que haya una repeticion de projectiles o no
@@ -53,9 +53,6 @@ public class Lizard : MonoBehaviour
         initialTime = shootCadenceSecs;
         //Asignamos algunos valores iniciales que iran modificandose a lo largo de la ejecucion y es necesario tenerlas almacenadas        
         spawnerProjectile.transform.position = transform.position + posSpawner;
-        dirtProjectile = spawnerProjectile.transform.GetChild(0).gameObject;
-        dirtProjectile.transform.position = spawnerProjectile.transform.position + posProjectile;
-        dirtProjectile.transform.localScale = scaleChange;
         foot.transform.position = transform.position + posFoot;
         initialTrans = transform.rotation;
         dir = Vector2.zero;
@@ -148,7 +145,7 @@ public class Lizard : MonoBehaviour
         {
             Debug.Log("Disparo");
             initialTime = Time.time + shootCadenceSecs;
-            Instantiate(dirtProjectile, dirtProjectile.transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+            Instantiate(dirtProjectile, spawnerProjectile.position, Quaternion.Euler(new Vector3(0, 0, 0)));
             setDirectionDirtProjectile(player.position - dirtProjectile.transform.position);        
         }
     }
