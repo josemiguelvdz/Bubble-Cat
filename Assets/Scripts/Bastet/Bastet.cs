@@ -3,6 +3,21 @@ using UnityEngine.SceneManagement;
 
 public class Bastet : MonoBehaviour
 {
+    public enum States { fists, shoot, magic, box, trash, bomb, ko, dead };
+
+    States currentState, nextState;
+
+    MonoBehaviour currentComponent;
+    Fists fists;
+    Shoot shoot;
+    Magic magic;
+    Box box;
+    Trash trash;
+    Bomb bomb;
+    KO ko;
+    Dead dead;
+    MonoBehaviour[] components;
+
     [SerializeField, Tooltip("Vida que tiene cada fase de Bastet. " +
         "Cuando llegue a 0, su próximo ataque será el de lanzar " +
         "la bomba de butano que deberemos devolver para dejarla KO")]
@@ -15,7 +30,6 @@ public class Bastet : MonoBehaviour
     GameObject [] pieces = null;
 
     int piecesNum = 3; //Número de piezas que tenemos que quitar a Bastet para desmontar su robot
-    bool ko = false;
     int currentHealth;
 
     Transform player;
@@ -48,17 +62,69 @@ public class Bastet : MonoBehaviour
     // - Bastet se transforma de vuelta y se hacen amigos? Yuno le regala un cuenco de comida
     // - Tiramos a Bastet al mar para darle un baño?
 
+    public void DesiredState(States newState)
+    {
+        switch(piecesNum)
+        {
+            case 3:
+                if (newState == States.fists || newState == States.shoot || newState == States.bomb || newState == States.ko)
+                    nextState = newState;
+                break;
+            case 2:
+                if(newState == States.fists || newState == States.magic || newState == States.box || newState == States.bomb || newState == States.ko)
+                    nextState = newState;
+                break;
+            case 1:
+                if (newState == States.magic || newState == States.box || newState == States.trash || newState == States.bomb || newState == States.ko)
+                    nextState = newState;
+                break;
+            case 0:
+                if(newState == States.dead)
+                    nextState = newState;
+                break;
+            default:
+                nextState = newState;
+                break;
+        }
+    }
+
     private void Start()
     {
         piecesNum = pieces.Length;
         currentHealth = health;
 
         GameManager.GetInstance().SetBastet(this);
+
+        fists = GetComponent<Fists>();
+        shoot = GetComponent<Shoot>();
+        magic = GetComponent<Magic>();
+        box = GetComponent<Box>();
+        trash = GetComponent<Trash>();
+        bomb = GetComponent<Bomb>();
+        ko = GetComponent<KO>();
+        dead = GetComponent<Dead>();
+
+        currentState = States.fists;
+        components = new MonoBehaviour[8] { fists, shoot, magic, box, trash, bomb, ko, dead };
+    }
+
+    private void Update()
+    {
+        if(currentState != nextState)
+        {
+            if (currentComponent != null)
+                currentComponent.enabled = false;
+
+            components[(int)nextState].enabled = true;
+            currentComponent = components[(int)nextState];
+
+            currentState = nextState;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!ko && collision.gameObject.GetComponent<Damageable>() && !collision.gameObject.GetComponent<EnemyHealth>())
+        if (!ko.enabled && collision.gameObject.GetComponent<Damageable>() && !collision.gameObject.GetComponent<EnemyHealth>())
         {
             currentHealth--;
             Debug.Log(currentHealth);
@@ -69,7 +135,7 @@ public class Bastet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!ko && collision.gameObject.GetComponent<Melee>())
+        if (!ko.enabled && collision.gameObject.GetComponent<Melee>())
         {
             currentHealth--;
             if (currentHealth <= 0)
@@ -85,7 +151,6 @@ public class Bastet : MonoBehaviour
 
     void KOEnter()
     {
-        ko = true;
         Invoke("KOExit", koTime);
 
         pieces[piecesNum - 1].SetActive(true);
@@ -98,7 +163,6 @@ public class Bastet : MonoBehaviour
             bubble.Pop();
         }
         catch { }
-        ko = false;
         currentHealth = health;
         pieces[piecesNum - 1].SetActive(false);
     }
