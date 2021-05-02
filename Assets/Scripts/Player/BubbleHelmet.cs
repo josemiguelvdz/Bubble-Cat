@@ -43,6 +43,23 @@ public class BubbleHelmet : MonoBehaviour
             
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Gas>())
+        {
+            if (helmetOn)
+            {
+                inProgress = false;
+                helmetOn = false;
+                helmet.SetActive(false);
+                CancelInvoke();
+            }
+            else
+                Debug.Log("Has muerto");
+        }
+    }
+
     public void InvokeRespawn()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Sewer");

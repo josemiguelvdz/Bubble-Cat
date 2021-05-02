@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 9196591159938102953}
   - component: {fileID: 9196591159938102952}
   - component: {fileID: 9196591159938102955}
+  - component: {fileID: 5953320162425949201}
   m_Layer: 11
   m_Name: "Ara\xF1a"
   m_TagString: Untagged
@@ -195,3 +196,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a68381c312d4994eba319f27f467a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5953320162425949201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196591159938102963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4ba27ff5e765d2479125ae450ef2afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 3
