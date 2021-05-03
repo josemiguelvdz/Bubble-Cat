@@ -18,11 +18,10 @@ public class Bastet : MonoBehaviour
     Dead dead;
     MonoBehaviour[] components;
 
-    [SerializeField, Tooltip("Vida que tiene cada fase de Bastet.")]
+    [SerializeField, Tooltip("Vida que tiene cada fase de Bastet. " +
+        "Cuando llegue a 0, su próximo ataque será el de lanzar " +
+        "la bomba de butano que deberemos devolver para dejarla KO")]
     int health = 50;
-
-    [SerializeField, Tooltip("Vida que tiene que alcanzar Bastet para lanzar la bomba de Butano gigante")]
-    int healthBombLimit = 20;
 
     [SerializeField, Tooltip("Piezas que quitaremos de Bastet en orden descendente. La 0 sera la última pieza que se quita.")]
     GameObject [] pieces = null;
@@ -140,24 +139,24 @@ public class Bastet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (currentState != States.ko && currentState != States.dead &&
+        if (currentState != States.ko && currentState != States.dead && 
             collision.gameObject.GetComponent<Damageable>() && !collision.gameObject.GetComponent<EnemyHealth>())
-            TakeDamage();
+        {
+            currentHealth--;
+            Debug.Log(currentHealth);
+            if (currentHealth <= 0)
+                DesiredState(States.ko);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (currentState != States.ko && currentState != States.dead && collision.gameObject.GetComponent<Melee>())
-            TakeDamage();
-    }
-
-    void TakeDamage()
-    {
-        currentHealth--;
-        if (currentHealth <= 0)
-            DesiredState(States.ko);
-        else if (currentHealth <= healthBombLimit)
-            DesiredState(States.bomb);
+        {
+            currentHealth--;
+            if (currentHealth <= 0)
+                DesiredState(States.ko);
+        }
     }
 
     public void Appear()

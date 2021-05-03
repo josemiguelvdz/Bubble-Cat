@@ -2,25 +2,15 @@
 
 public class Bomb : MonoBehaviour
 {
-    [Tooltip("Prefab de la bomba de butano a instanciar en el Spawn Point"), SerializeField]
-    GameObject bomb;
-
-    [Tooltip("Aquí se instancia la bomba de butano"), SerializeField]
-    Transform spawnPoint;
-
-    [Tooltip("Dirección que toma la bomba de butano"), SerializeField]
-    Vector3 direction;
-
-    [Tooltip("Tiempo que tarda Bastet en cargar la bomba de butano y disparar"), SerializeField]
-    float chargeTime;
-
-    private void OnEnable()
+    // Start is called before the first frame update
+    void Start()
     {
-        Invoke("Fire", chargeTime);
+        
     }
 
-    void Fire()
+    // Update is called once per frame
+    void Update()
     {
-        Instantiate(bomb, spawnPoint);
+        
     }
 }
