@@ -14,10 +14,8 @@ public class Lizard : MonoBehaviour
     public GameObject dirtProjectile;
     //Indica el tiempo que pasa entre un proyectil y el siguiente
     public float shootCadenceSecs;
-    //Indica si queremos que haya una repeticion de projectiles o no
-    public bool autoShoot;
     //Indica si el lagarto puede disparar
-    public bool canShoot = false;
+    public bool canShoot;
     //Indica si me puedo destruir al chocar con el proximo objeto
     public bool destructible;
     //Obtenemos variables necesarias para el recalculo contionuo de los diferentes elementos
@@ -25,15 +23,8 @@ public class Lizard : MonoBehaviour
     private float initialTime;
     //Indica la direction en la que se mueve el lagarto, empezamos con movimiento hacia la derecha
     private string direction = "right";
-    //Indica la posicion del spawner del proyectil, como empezamos con movimiento hacia la derecha la poscion es una en concreto, si es movimiento hacia la izquierda es otra
-    private Vector3 posSpawner = new Vector3(0.5f, -0.75f, 0);
-    //Indica la posicion en donde se situa el inicio del proyectil, como empezamos con movimiento hacia la derecha la poscion es una en concreto, si es movimiento hacia la izquierda es otra
-    private Vector3 posProjectile = new Vector3(0, -0.3f, 0);
-    //Indica la posicion del pie delantero, como empezamos con movimiento hacia la derecha la poscion es una en concreto, si es movimiento hacia la izquierda es otra
-    private Vector3 posFoot = new Vector3(0.15f, 0.25f, 0);
     //Indica la velocidad del descenso del lagarto
-    private float velocity = 5;
-    private Vector3 scaleChange = new Vector3(0.75f, 0.75f, 0);
+    private float dropVelocity = 5;
     //Indica la rotacion inicial, para perder dicha referencia al rotar al lagarto dentro de la pompa 
     private Quaternion initialTrans;
    
@@ -44,23 +35,17 @@ public class Lizard : MonoBehaviour
     private Transform player; //Posicion del jugador
     private float radius; //Distancia a la que veo al jugador
 
-    Vector2 dir;
+    Vector3 dir;
+
+    RaycastHit2D hitStage;
 
     void Start()
     {
         //Obtenemos el sprite del lagarto para poder hacer uso del volteo (flip)
         sprite = GetComponent<SpriteRenderer>();
         initialTime = shootCadenceSecs;
-        //Asignamos algunos valores iniciales que iran modificandose a lo largo de la ejecucion y es necesario tenerlas almacenadas        
-        spawnerProjectile.transform.position = transform.position + posSpawner;
-        foot.transform.position = transform.position + posFoot;
         initialTrans = transform.rotation;
         dir = Vector2.zero;
-
-        //if (autoShoot) //Esta activado el autoShoot se generan continuamente proyectiles
-        //    InvokeRepeating("Shoot", initialTime, shootCadenceSecs);
-        //else //NO esta activado el autoShoot se generan un unico proyectil
-        //    Invoke("Shoot", shootCadenceSecs);
     }
 
     private void Update()
@@ -75,18 +60,17 @@ public class Lizard : MonoBehaviour
             //Detectamos al jugador y trazamos un rayo hacia él
             if (player != null)
             {
-                //RaycastHit2D hitPlayer = Physics2D.Raycast(spawnerProjectile.transform.position, dir, radius);
-                //Debug.DrawRay(spawnerProjectile.transform.position, dir.normalized * hitPlayer.distance, Color.red);
                 Debug.Log("Detecto player");
                 Shoot();
             }
 
             if (direction != "drop")//No tiene que caerse el lagarto
             {
-                RaycastHit2D hit = Physics2D.Raycast(foot.transform.position, Vector3.up, 0.05f);
+                hitStage = Physics2D.Raycast(foot.position, Vector2.up, 0.5f);
+                Debug.DrawRay(foot.position, Vector2.up * 0.5f, Color.green);
 
-                if (hit != null && hit.collider != null) //Detecta suelo
-                {
+                if (hitStage != null && hitStage.collider != null) //Detecta suelo
+                {                   
                     if (direction == "right")
                     {
                         //Indicamos la traslacion (movimiento) del lagarto hacia la derecha y cambio del sprite (volteo)
@@ -97,34 +81,23 @@ public class Lizard : MonoBehaviour
                     {
                         //Indicamos la traslacion (movimiento) del lagarto hacia la izquierda yu cambio del scripte (volteo)
                         transform.Translate(Vector3.left * Time.deltaTime);
-                         sprite.flipX = true;
+                        sprite.flipX = true;
                     }
                 }
                 else //No detecta suelo
                 {
                     //Cambiamos al direccion del lagarto y actualizamos la posicion del pie
+                    foot.localPosition = new Vector3(-foot.localPosition.x, foot.localPosition.y, foot.localPosition.z);
                     if (direction == "right")
                     {
                         direction = "left";
-                        foot.transform.position = new Vector3((transform.position.x + -posFoot.x), (transform.position.y + posFoot.y), (transform.position.z + posFoot.z));
+                        //foot.position = new Vector3(-foot.position.x, foot.position.y, foot.position.z);
                     }
                     else if (direction == "left")
                     {
                         direction = "right";
-                        foot.transform.position = transform.position + posFoot;
+                        //foot.position = new Vector3(foot.position.x, foot.position.y, foot.position.z);
                     }
-                }
-
-                //Actualizamos la posicion tanto del spawner como del proyectil ya que el lagarto esta en movimiento continuo, y al instanciar el nuevo proyectil debe tener estas referencias
-                if (direction == "right")
-                {
-                    spawnerProjectile.transform.position = transform.position + posSpawner;
-                    //dirtProjectile.transform.position = spawnerProjectile.transform.position + posProjectile;
-                }
-                else if (direction == "left")
-                {
-                    spawnerProjectile.transform.position = new Vector3((transform.position.x + -posSpawner.x), (transform.position.y + posSpawner.y), (transform.position.z + posSpawner.z));
-                    //dirtProjectile.transform.position = spawnerProjectile.transform.position + posProjectile;
                 }
             }
             else//Tiene que caerse el lagarto
@@ -132,7 +105,7 @@ public class Lizard : MonoBehaviour
                 //Asignamos la rotacion al lagarto, para generar un movimineto de caida vertical, ya que al haberlo rotado el movimiento saldra con la rotacion de la manipulacion de la pompa.
                 transform.rotation = initialTrans;
                 //Indicamos la traslacion (movimiento) del lagarto en descenso
-                transform.Translate(Vector3.down * velocity * Time.deltaTime);
+                transform.Translate(Vector3.down * dropVelocity * Time.deltaTime);
             }
         }
     }
@@ -141,14 +114,15 @@ public class Lizard : MonoBehaviour
     public void Shoot()
     {
         Debug.Log("Intento disparar");
-        if (Time.time > initialTime)
+        if (Time.time > initialTime && canShoot == true)
         {
             Debug.Log("Disparo");
             initialTime = Time.time + shootCadenceSecs;
             Instantiate(dirtProjectile, spawnerProjectile.position, Quaternion.Euler(new Vector3(0, 0, 0)));
-            setDirectionDirtProjectile(player.position - dirtProjectile.transform.position);        
+            setDirectionDirtProjectile(player.position - spawnerProjectile.position);        
         }
     }
+
 
     public Vector2 getDirectionDirtProjectile()
     {
@@ -194,15 +168,17 @@ public class Lizard : MonoBehaviour
 
         if (desapariciones == 8)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
-    public void StopShooting()
+    public void StopShooting(bool shoot, bool destruction)
     {
         canShoot = false;
-        direction = "drop";
-        destructible = true;
+        if (destruction == true)
+        { 
+            direction = "drop"; 
+        }
     }
 
     public void PositionPlayer(Transform t, float s) 
