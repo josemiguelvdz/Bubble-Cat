@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Bastet : MonoBehaviour
 {
-    public enum States { fists, shoot, magic, box, trash, bomb, ko, dead };
+    public enum States { fists, shoot, magic, box, trash, bomb, ko, dead, start };
 
     States currentState, nextState;
 
@@ -22,9 +22,6 @@ public class Bastet : MonoBehaviour
         "Cuando llegue a 0, su próximo ataque será el de lanzar " +
         "la bomba de butano que deberemos devolver para dejarla KO")]
     int health = 50;
-
-    [SerializeField, Tooltip("Tiempo en segundos que tarda Bastet en salir de su estado KO")]
-    float koTime = 10;
 
     [SerializeField, Tooltip("Piezas que quitaremos de Bastet en orden descendente. La 0 sera la última pieza que se quita.")]
     GameObject [] pieces = null;
@@ -62,30 +59,44 @@ public class Bastet : MonoBehaviour
     // - Bastet se transforma de vuelta y se hacen amigos? Yuno le regala un cuenco de comida
     // - Tiramos a Bastet al mar para darle un baño?
 
-    public void DesiredState(States newState)
+    public bool DesiredState(States newState)
     {
         switch(piecesNum)
         {
             case 3:
                 if (newState == States.fists || newState == States.shoot || newState == States.bomb || newState == States.ko)
+                {
                     nextState = newState;
+                    return true;
+                }
                 break;
             case 2:
                 if(newState == States.fists || newState == States.magic || newState == States.box || newState == States.bomb || newState == States.ko)
+                {
                     nextState = newState;
+                    return true;
+                }
                 break;
             case 1:
                 if (newState == States.magic || newState == States.box || newState == States.trash || newState == States.bomb || newState == States.ko)
+                {
                     nextState = newState;
+                    return true;
+                }
                 break;
             case 0:
                 if(newState == States.dead)
+                {
                     nextState = newState;
+                    return true;
+                }
                 break;
             default:
                 nextState = newState;
-                break;
+                return true;
         }
+
+        return false;
     }
 
     private void Start()
@@ -104,8 +115,10 @@ public class Bastet : MonoBehaviour
         ko = GetComponent<KO>();
         dead = GetComponent<Dead>();
 
-        currentState = States.fists;
+        currentState = States.start;
         components = new MonoBehaviour[8] { fists, shoot, magic, box, trash, bomb, ko, dead };
+
+        Invoke("FirstAttack", 2);
     }
 
     private void Update()
@@ -119,27 +132,30 @@ public class Bastet : MonoBehaviour
             currentComponent = components[(int)nextState];
 
             currentState = nextState;
+
+            Debug.Log(currentState);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!ko.enabled && collision.gameObject.GetComponent<Damageable>() && !collision.gameObject.GetComponent<EnemyHealth>())
+        if (currentState != States.ko && currentState != States.dead && 
+            collision.gameObject.GetComponent<Damageable>() && !collision.gameObject.GetComponent<EnemyHealth>())
         {
             currentHealth--;
             Debug.Log(currentHealth);
             if (currentHealth <= 0)
-                KOEnter();
+                DesiredState(States.ko);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!ko.enabled && collision.gameObject.GetComponent<Melee>())
+        if (currentState != States.ko && currentState != States.dead && collision.gameObject.GetComponent<Melee>())
         {
             currentHealth--;
             if (currentHealth <= 0)
-                KOEnter();
+                DesiredState(States.ko);
         }
     }
 
@@ -149,34 +165,50 @@ public class Bastet : MonoBehaviour
         GetComponent<CapsuleCollider2D>().enabled = true;
     }
 
-    void KOEnter()
+    public void PieceAppear()
     {
-        Invoke("KOExit", koTime);
-
+        //Activa una pieza de Bastet para que podamos quitarsela del robot con la pompa
         pieces[piecesNum - 1].SetActive(true);
     }
 
-    void KOExit()
+    public void PieceDisappear()
     {
-        try
-        {
-            bubble.Pop();
-        }
-        catch { }
-        currentHealth = health;
-        pieces[piecesNum - 1].SetActive(false);
+        if(piecesNum > 0)
+            pieces[piecesNum - 1].SetActive(false);
     }
 
     public void PieceOff()
     {
-        CancelInvoke();
-        KOExit();
-        currentHealth = health;
+        PieceDisappear();
         piecesNum--;
         Debug.Log(piecesNum);
+    }
 
-        if (piecesNum == 0)
-            Win();
+    public void RestoreHealth()
+    {
+        currentHealth = health;
+    }
+
+    public void FirstAttack()
+    {
+        switch (piecesNum)
+        {
+            case 3:
+                DesiredState(States.fists);
+                break;
+            case 2:
+                DesiredState(States.box);
+                break;
+            case 1:
+                DesiredState(States.trash);
+                break;
+            case 0:
+                DesiredState(States.dead);
+                break;
+            default:
+                DesiredState(States.fists);
+                break;
+        }
     }
 
     public void SetBubble(BubbleController b)
@@ -184,8 +216,8 @@ public class Bastet : MonoBehaviour
         bubble = b;
     }
 
-    void Win()
+    public BubbleController GetBubble()
     {
-        SceneManager.LoadScene("Credits");
+        return bubble;
     }
 }

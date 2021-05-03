@@ -72,7 +72,6 @@ public class BubbleController : MonoBehaviour
             if (grab)
             {
                 GameManager.GetInstance().NextPhase();
-                Debug.Log("Has matado a Bastet");
             }
         }
     }
