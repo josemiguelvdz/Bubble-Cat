@@ -27,7 +27,7 @@ public class Lizard : MonoBehaviour
     private float dropVelocity = 5;
     //Indica la rotacion inicial, para perder dicha referencia al rotar al lagarto dentro de la pompa 
     private Quaternion initialTrans;
-   
+
     private SpriteRenderer sprite;
     private int contador = 0;
     private int desapariciones = 0;
@@ -60,17 +60,17 @@ public class Lizard : MonoBehaviour
             //Detectamos al jugador y trazamos un rayo hacia él
             if (player != null)
             {
-                Debug.Log("Detecto player");
+                //Debug.Log("Detecto player");
                 Shoot();
             }
 
             if (direction != "drop")//No tiene que caerse el lagarto
             {
                 hitStage = Physics2D.Raycast(foot.position, Vector2.up, 0.5f);
-                Debug.DrawRay(foot.position, Vector2.up * 0.5f, Color.green);
+                //Debug.DrawRay(foot.position, Vector2.up * 0.5f, Color.green);
 
                 if (hitStage != null && hitStage.collider != null) //Detecta suelo
-                {                   
+                {
                     if (direction == "right")
                     {
                         //Indicamos la traslacion (movimiento) del lagarto hacia la derecha y cambio del sprite (volteo)
@@ -119,7 +119,7 @@ public class Lizard : MonoBehaviour
             Debug.Log("Disparo");
             initialTime = Time.time + shootCadenceSecs;
             Instantiate(dirtProjectile, spawnerProjectile.position, Quaternion.Euler(new Vector3(0, 0, 0)));
-            setDirectionDirtProjectile(player.position - spawnerProjectile.position);        
+            setDirectionDirtProjectile(player.position - spawnerProjectile.position);
         }
     }
 
@@ -176,12 +176,12 @@ public class Lizard : MonoBehaviour
     {
         canShoot = false;
         if (destruction == true)
-        { 
-            direction = "drop"; 
+        {
+            direction = "drop";
         }
     }
 
-    public void PositionPlayer(Transform t, float s) 
+    public void PositionPlayer(Transform t, float s)
     {
         player = t;
         radius = s;

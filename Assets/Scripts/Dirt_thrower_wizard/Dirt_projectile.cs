@@ -30,7 +30,7 @@ public class Dirt_projectile : MonoBehaviour
         }
         else
         {
-             rb.velocity = dir.normalized * speed * Time.fixedDeltaTime;
+            rb.velocity = dir.normalized * speed * Time.fixedDeltaTime;
         }
 
     }
