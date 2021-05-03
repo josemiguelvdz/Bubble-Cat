@@ -114,10 +114,9 @@ public class BubbleController : MonoBehaviour
             BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);
         //Añadir layer de todo lo que destruya la burbuja
         else if (col.gameObject.layer == stageLayer || col.gameObject.layer == playerLayer)
-            BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);
-        
+            BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);        
         else if (col.gameObject.GetComponent<Lizard>())
-            col.gameObject.GetComponent<Lizard>().StopShooting();
+            col.gameObject.GetComponent<Lizard>().StopShooting(false, true);
 
         if (col.gameObject.layer == pieceLayer)
         {
