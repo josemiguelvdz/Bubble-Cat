@@ -5,20 +5,19 @@ using UnityEngine;
 public class Dirt_projectile : MonoBehaviour
 {
     //Indica la velocidad a la que se mueve la bala
-    public float speed;
+    private float speed = 100;
     Rigidbody2D rb;
-    Vector2 dir;
+    Vector3 dir;
     Lizard parent;
     bool isRotated;
-    Quaternion rotation;
+    float rotation;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         parent = FindObjectOfType<Lizard>();
         dir = parent.getDirectionDirtProjectile();
-        this.tag = "Enemy";
-        this.gameObject.layer = 9;
+        isRotated = false;
     }
 
     void FixedUpdate()
@@ -26,14 +25,12 @@ public class Dirt_projectile : MonoBehaviour
         //Se calcula el vector que indica la velocidad a la que se mueve el proyectil
         if (isRotated == true)
         {
-            rb.MoveRotation(rotation);
+            //rb.SetRotation(rotation);   
+            rb.velocity = dir.normalized * speed * Time.fixedDeltaTime;
         }
         else
         {
-            if (dir == Vector2.zero)
-                rb.velocity = Vector2.down;
-            else
-                rb.velocity = dir.normalized;
+             rb.velocity = dir.normalized * speed * Time.fixedDeltaTime;
         }
 
     }
@@ -51,9 +48,41 @@ public class Dirt_projectile : MonoBehaviour
         }
     }
 
-    public void rotationProjectil(Quaternion rot)
+    public void rotationProjectil(float rot)
     {
         isRotated = true;
-        rotation = rot;
+        if (rot > 90 && rot <= 180)
+        {
+            if (dir.x < 0)
+                dir.x = -dir.x;
+            if (dir.y < 0)
+                dir.y = -dir.y;
+        }
+        else if (rot > 180 && rot <= 270)
+        {
+            if (dir.x > 0)
+                dir.x = -dir.x;
+            if (dir.y < 0)
+                dir.y = -dir.y;
+        }
+        else if (rot > 270 && rot <= 0)
+        {
+            if (dir.x > 0)
+                dir.x = -dir.x;
+            if (dir.y > 0)
+                dir.y = -dir.y;
+        }
+        else if (rot > 0 && rot <= 90)
+        {
+            if (dir.x < 0)
+                dir.x = -dir.x;
+            if (dir.y > 0)
+                dir.y = -dir.y;
+        }
+    }
+
+    public void StopShooting(bool shoot, bool destruction)
+    {
+        parent.StopShooting(shoot, destruction);
     }
 }
