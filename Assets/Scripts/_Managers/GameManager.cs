@@ -156,6 +156,7 @@ public class GameManager : MonoBehaviour
     {
         //Pasa a la siguiente fase de Bastet
         bastet.PieceOff();
+        bastet.FirstAttack();
     }
 
     public void BubbleHelmet()

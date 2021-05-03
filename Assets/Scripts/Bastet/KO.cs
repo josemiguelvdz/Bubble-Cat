@@ -1,18 +1,39 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class KO : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField, Tooltip("Tiempo en segundos que tarda Bastet en salir de su estado KO")]
+    float koTime = 15;
+
+    Bastet bastet;
+
+    private void Awake()
     {
-        
+        bastet = GetComponent<Bastet>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        Invoke("KOExit", koTime);
+
+        bastet.PieceAppear();
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
+
+        if (bastet.GetBubble() != null)
+        {
+            //Si hay pompa, la explota y repite la fase
+            bastet.GetBubble().Pop();
+        }
+        bastet.RestoreHealth();
+        bastet.PieceDisappear();
+    }
+
+    void KOExit()
+    {
+        this.enabled = false;
     }
 }
