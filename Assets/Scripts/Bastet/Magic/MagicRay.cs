@@ -8,6 +8,7 @@ public class MagicRay : MonoBehaviour
     Rigidbody2D rb;
     Magic parent;
     Vector3 direction;
+    bool isRotated;
 
     void Start()
     {
@@ -19,13 +20,53 @@ public class MagicRay : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //rb.velocity = Vector2.left * speed * Time.fixedDeltaTime;
-        rb.velocity = direction.normalized * speed * Time.fixedDeltaTime;
+        if (isRotated == true)
+        {
+            //rb.SetRotation(rotation);   
+            rb.velocity = direction.normalized * speed * Time.fixedDeltaTime;
+        }
+        else
+        {
+            rb.velocity = direction.normalized * speed * Time.fixedDeltaTime;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.GetComponent<BubbleController>())
             Destroy(this.gameObject);
+    }
+
+    public void rotationProjectil(float rot)
+    {
+        isRotated = true;
+        if (rot > 0 && rot <= 90) 
+        {
+            if (direction.x < 0)
+                direction.x = -direction.x;
+            if (direction.y < 0)
+                direction.y = -direction.y;
+        }
+        else if (rot > 90 && rot <= 180)
+        {
+            if (direction.x > 0)
+                direction.x = -direction.x;
+            if (direction.y < 0)
+                direction.y = -direction.y;
+        }
+        else if (rot < 0 && rot <= -90)
+        {
+            if (direction.x > 0)
+                direction.x = -direction.x;
+            if (direction.y > 0)
+                direction.y = -direction.y;
+        }
+        else if (rot < -90 && rot <= -180)
+        {
+            if (direction.x < 0)
+                direction.x = -direction.x;
+            if (direction.y > 0)
+                direction.y = -direction.y;
+        }
     }
 }
