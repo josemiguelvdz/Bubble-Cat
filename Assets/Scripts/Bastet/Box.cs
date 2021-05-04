@@ -18,6 +18,8 @@ public class Box : MonoBehaviour
 
     private int cont = 0;
 
+    Bastet bastet;
+
     void Start()
     { 
         bc = boxSpawner.GetComponent<BoxCollider2D>();
@@ -29,13 +31,13 @@ public class Box : MonoBehaviour
         // ANIMACION?
         Invoke("BoxSpawn", 1f);
 
-        
+        bastet = GetComponent<Bastet>();
     }
 
     public void BoxSpawn()
     {
         float time;
-        
+
 
         if (cont < boxNumber)
         {
@@ -56,7 +58,12 @@ public class Box : MonoBehaviour
 
             //Reinvocamos el método
             Invoke("BoxSpawn", time);
-            
+
+        }
+        else
+        {
+            bastet.DesiredState(Bastet.States.magic);
+            bastet.DesiredState(Bastet.States.fists);
         }
     }
 }

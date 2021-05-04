@@ -12,7 +12,7 @@ public class Magic : MonoBehaviour
     private Bastet bastet;
 
     [Tooltip("Probabilidad de que el siguiente ataque sean la caida de cajas si estamos en la segunda fase"), Range(0, 100f), SerializeField]
-    float prob = 70f;
+    float prob = 40f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,11 +21,6 @@ public class Magic : MonoBehaviour
         InvokeRepeating("InvokeRay", rateTime, cooldownTime);
         numMagicRays = Random.Range(2, 6);
         bastet = GetComponent<Bastet>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {        
     }
 
     void InvokeRay()
@@ -43,7 +38,10 @@ public class Magic : MonoBehaviour
             if (Random.Range(0, 101) < prob)
                 bastet.DesiredState(Bastet.States.box);
             else
-                bastet.DesiredState(Bastet.States.bomb);
+            {
+                bastet.DesiredState(Bastet.States.fists);
+                bastet.DesiredState(Bastet.States.trash);
+            }
         }
     }
 
@@ -55,5 +53,10 @@ public class Magic : MonoBehaviour
     public Vector3 getDirection()
     {
         return directionMagicRay;
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
     }
 }

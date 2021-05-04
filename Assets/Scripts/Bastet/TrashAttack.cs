@@ -5,6 +5,7 @@ public class TrashAttack : MonoBehaviour
     public GameObject Pillars;
 
     Rigidbody2D rb;
+    Bastet bastet;
 
     private bool afterSpawn = false;
     void Start()
@@ -13,7 +14,7 @@ public class TrashAttack : MonoBehaviour
         // ANIMACIÓN BASTET    
         Invoke("TrashSpawn", 1f);
 
-        
+        bastet = GetComponent<Bastet>();
     }
 
     private void Update()
@@ -32,5 +33,6 @@ public class TrashAttack : MonoBehaviour
     public void TrashDespawn()
     {
         Pillars.SetActive(false);
+        bastet.DesiredState(Bastet.States.magic);
     }
 }
