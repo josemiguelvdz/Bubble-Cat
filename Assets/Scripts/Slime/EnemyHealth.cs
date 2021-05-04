@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int lives;
+    public float timeToExplodeTheBubble;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -17,6 +18,7 @@ public class EnemyHealth : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+
     }
 
     private void OnCollisionStay2D(Collision2D collision)

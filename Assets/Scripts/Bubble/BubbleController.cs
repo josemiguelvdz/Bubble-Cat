@@ -116,6 +116,7 @@ public class BubbleController : MonoBehaviour
             BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);        
         else if (col.gameObject.GetComponent<Lizard>())
             col.gameObject.GetComponent<Lizard>().StopShooting(false, true);
+        if (col.gameObject.GetComponent<EnemyHealth>()) Invoke("Pop", col.gameObject.GetComponent<EnemyHealth>().timeToExplodeTheBubble);
 
         if (col.gameObject.layer == pieceLayer)
         {

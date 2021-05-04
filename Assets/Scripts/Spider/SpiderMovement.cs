@@ -74,7 +74,7 @@ public class SpiderMovement : MonoBehaviour
             attacking = true;
             Invoke("Attack", timeToAttack);
         }
-        else if(distance > visionRadius)
+        else if(distance > visionRadius && ground)
         {
             runnningAway = true;
             rb.velocity = new Vector2(-player.transform.position.x + transform.position.x, rb.velocity.y).normalized * escapeSpeed;
