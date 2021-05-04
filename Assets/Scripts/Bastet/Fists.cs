@@ -68,4 +68,9 @@ public class Fists : MonoBehaviour
             bastet.DesiredState(Bastet.States.shoot);
         }
     }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
+    }
 }

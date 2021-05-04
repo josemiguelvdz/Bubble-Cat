@@ -59,44 +59,30 @@ public class Bastet : MonoBehaviour
     // - Bastet se transforma de vuelta y se hacen amigos? Yuno le regala un cuenco de comida
     // - Tiramos a Bastet al mar para darle un baño?
 
-    public bool DesiredState(States newState)
+    public void DesiredState(States newState)
     {
         switch(piecesNum)
         {
             case 3:
                 if (newState == States.fists || newState == States.shoot || newState == States.bomb || newState == States.ko)
-                {
                     nextState = newState;
-                    return true;
-                }
                 break;
             case 2:
                 if(newState == States.fists || newState == States.magic || newState == States.box || newState == States.bomb || newState == States.ko)
-                {
                     nextState = newState;
-                    return true;
-                }
                 break;
             case 1:
                 if (newState == States.magic || newState == States.box || newState == States.trash || newState == States.bomb || newState == States.ko)
-                {
                     nextState = newState;
-                    return true;
-                }
                 break;
             case 0:
                 if(newState == States.dead)
-                {
                     nextState = newState;
-                    return true;
-                }
                 break;
             default:
                 nextState = newState;
-                return true;
+                break;
         }
-
-        return false;
     }
 
     private void Start()
