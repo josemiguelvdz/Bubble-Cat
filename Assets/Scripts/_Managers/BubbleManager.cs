@@ -39,9 +39,12 @@ public class BubbleManager : MonoBehaviour
             collissioned.transform.position = child.transform.position;
             collissioned.transform.rotation = child.transform.rotation;
             collissioned.SetActive(true);
-            if (collissioned.gameObject.name.Contains("Dirt_Projectile"))
+            if (collissioned.gameObject.name.Contains("Dirt_Projectile") || collissioned.gameObject.name.Contains("Magic_ray"))
             {
-                collissioned.gameObject.GetComponent<Dirt_projectile>().rotationProjectil(collissioned.transform.eulerAngles.z);
+                if (collissioned.gameObject.name.Contains("Dirt_Projectile"))
+                    collissioned.gameObject.GetComponent<Dirt_projectile>().rotationProjectil(collissioned.transform.eulerAngles.z);
+                else
+                    collissioned.gameObject.GetComponent<MagicRay>().rotationProjectil(collissioned.transform.eulerAngles.z);
             }
         }
 

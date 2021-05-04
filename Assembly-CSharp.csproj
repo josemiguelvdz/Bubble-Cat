@@ -102,7 +102,9 @@
     <Compile Include="Assets\Scripts\Dirt_thrower_wizard\Dirt_projectile.cs" />
     <Compile Include="Assets\Scripts\Dirt_thrower_wizard\Lizard.cs" />
     <Compile Include="Assets\Scripts\Dirt_thrower_wizard\LizardDetector.cs" />
+    <Compile Include="Assets\Scripts\FinalBomb.cs" />
     <Compile Include="Assets\Scripts\GameState.cs" />
+    <Compile Include="Assets\Scripts\Grate.cs" />
     <Compile Include="Assets\Scripts\LanzaBasura.cs" />
     <Compile Include="Assets\Scripts\PillarMovement.cs" />
     <Compile Include="Assets\Scripts\Pipeline.cs" />

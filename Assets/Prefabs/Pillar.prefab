@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5795258025723334325}
   - component: {fileID: 2910698901788400516}
   - component: {fileID: 3321068422918541979}
-  - component: {fileID: 4274419448940513618}
   m_Layer: 0
   m_Name: Pillar
   m_TagString: Untagged
@@ -145,15 +144,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: {x: 0, y: 40}
---- !u!114 &4274419448940513618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5795258025723334327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a68381c312d4994eba319f27f467a67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

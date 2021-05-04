@@ -21,8 +21,11 @@ public class Bastet : MonoBehaviour
     [SerializeField, Tooltip("Vida que tiene cada fase de Bastet.")]
     int health = 50;
 
-    [SerializeField, Tooltip("Vida que tiene que alcanzar Bastet para lanzar la bomba de Butano gigante")]
+    [SerializeField, Tooltip("Vida que tiene que alcanzar Bastet para lanzar la bomba de Butano gigante.")]
     int healthBombLimit = 20;
+
+    [SerializeField, Tooltip("Vida que le quita la bomba de butano a Bastet.")]
+    int bombDamage = 20;
 
     [SerializeField, Tooltip("Piezas que quitaremos de Bastet en orden descendente. La 0 sera la última pieza que se quita.")]
     GameObject [] pieces = null;
@@ -62,14 +65,14 @@ public class Bastet : MonoBehaviour
 
     public void DesiredState(States newState)
     {
-        switch(piecesNum)
+        switch (piecesNum)
         {
             case 3:
                 if (newState == States.fists || newState == States.shoot || newState == States.bomb || newState == States.ko)
                     nextState = newState;
                 break;
             case 2:
-                if(newState == States.fists || newState == States.magic || newState == States.box || newState == States.bomb || newState == States.ko)
+                if (newState == States.fists || newState == States.magic || newState == States.box || newState == States.bomb || newState == States.ko)
                     nextState = newState;
                 break;
             case 1:
@@ -77,7 +80,7 @@ public class Bastet : MonoBehaviour
                     nextState = newState;
                 break;
             case 0:
-                if(newState == States.dead)
+                if (newState == States.dead)
                     nextState = newState;
                 break;
             default:
@@ -206,5 +209,10 @@ public class Bastet : MonoBehaviour
     public BubbleController GetBubble()
     {
         return bubble;
+    }
+
+    public void BombDamage()
+    {
+        currentHealth -= bombDamage;
     }
 }
