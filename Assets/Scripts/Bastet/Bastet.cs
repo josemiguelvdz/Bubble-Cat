@@ -12,7 +12,7 @@ public class Bastet : MonoBehaviour
     Shoot shoot;
     Magic magic;
     Box box;
-    Trash trash;
+    TrashAttack trash;
     Bomb bomb;
     KO ko;
     Dead dead;
@@ -110,12 +110,12 @@ public class Bastet : MonoBehaviour
         shoot = GetComponent<Shoot>();
         magic = GetComponent<Magic>();
         box = GetComponent<Box>();
-        trash = GetComponent<Trash>();
+        trash = GetComponent<TrashAttack>();
         bomb = GetComponent<Bomb>();
         ko = GetComponent<KO>();
         dead = GetComponent<Dead>();
 
-        currentState = States.start;
+        currentState = nextState = States.start;
         components = new MonoBehaviour[8] { fists, shoot, magic, box, trash, bomb, ko, dead };
     }
 
@@ -161,7 +161,7 @@ public class Bastet : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<CapsuleCollider2D>().enabled = true;
-
+        
         Invoke("FirstAttack", 2);
     }
 

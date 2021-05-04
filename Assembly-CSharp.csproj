@@ -79,11 +79,12 @@
     <Compile Include="Assets\Scripts\Bastet\Magic\Magic.cs" />
     <Compile Include="Assets\Scripts\Bastet\Magic\MagicRay.cs" />
     <Compile Include="Assets\Scripts\Bastet\Shoot.cs" />
-    <Compile Include="Assets\Scripts\Bastet\Trash.cs" />
+    <Compile Include="Assets\Scripts\Bastet\TrashAttack.cs" />
     <Compile Include="Assets\Scripts\Bastet\YunoDetector.cs" />
     <Compile Include="Assets\Scripts\Basura.cs" />
     <Compile Include="Assets\Scripts\Bat\BatBehaviour.cs" />
     <Compile Include="Assets\Scripts\Bat\BatDetection.cs" />
+    <Compile Include="Assets\Scripts\BoxDestroyer.cs" />
     <Compile Include="Assets\Scripts\BrokenWall.cs" />
     <Compile Include="Assets\Scripts\Bubble\BubbleController.cs" />
     <Compile Include="Assets\Scripts\Bubble\BubbleSpawner.cs" />
@@ -97,11 +98,13 @@
     <Compile Include="Assets\Scripts\Cannon.cs" />
     <Compile Include="Assets\Scripts\ConvertToDinamic.cs" />
     <Compile Include="Assets\Scripts\Damageable.cs" />
+    <Compile Include="Assets\Scripts\DestroyBoxes.cs" />
     <Compile Include="Assets\Scripts\Dirt_thrower_wizard\Dirt_projectile.cs" />
     <Compile Include="Assets\Scripts\Dirt_thrower_wizard\Lizard.cs" />
     <Compile Include="Assets\Scripts\Dirt_thrower_wizard\LizardDetector.cs" />
     <Compile Include="Assets\Scripts\GameState.cs" />
     <Compile Include="Assets\Scripts\LanzaBasura.cs" />
+    <Compile Include="Assets\Scripts\PillarMovement.cs" />
     <Compile Include="Assets\Scripts\Pipeline.cs" />
     <Compile Include="Assets\Scripts\Player\BubbleHelmet.cs" />
     <Compile Include="Assets\Scripts\Player\ExplosionRadius.cs" />
