@@ -143,4 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baeb021b7d4a71243bf32c5c542b7d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityLimit: {x: 5, y: 5}
+  velocityLimit: {x: 9, y: 9}

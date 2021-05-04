@@ -14,14 +14,10 @@ public class LanzaBasura : MonoBehaviour
         InvokeRepeating("Shoot", timeToStartShooting, cadenceShooting);
     }
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.GetComponent<Basura>()) collision.GetComponent<Rigidbody2D>().AddForce(force, ForceMode2D.Impulse);
-    }
     void Shoot()
     {
-        Instantiate<GameObject>(GarbagePrefab,transform.position,Quaternion.identity);
+        GameObject trash = Instantiate<GameObject>(GarbagePrefab,transform.position,Quaternion.identity);
+        trash.GetComponent<Rigidbody2D>().AddForce(force, ForceMode2D.Impulse);
     }
 
 

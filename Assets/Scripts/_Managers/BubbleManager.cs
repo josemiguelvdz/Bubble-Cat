@@ -16,17 +16,11 @@ public class BubbleManager : MonoBehaviour
         else Destroy(this.gameObject);
     }
 
-    public void ActivateTrigger(CircleCollider2D circleCollider2D)
-    {
-        circleCollider2D.isTrigger = true;
-    }
 
-
-    public void TakeObjects(GameObject col , SpriteRenderer bubble ,GameObject child, CircleCollider2D circleCollider2D)
+    public void TakeObjects(GameObject col , SpriteRenderer bubble ,GameObject child)
     {
         bubble.sprite = col.GetComponent<SpriteRenderer>().sprite;
         child.transform.rotation = col.transform.rotation;
-        circleCollider2D.isTrigger = false;
         collissioned = col;
         collissioned.SetActive(false);
         if (col.name == "Lizard")
