@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1056270468271598500}
   - component: {fileID: 398242043511452414}
   - component: {fileID: 1013174068534142730}
-  - component: {fileID: 1941410996955652102}
   m_Layer: 0
   m_Name: Fist
   m_TagString: Untagged
@@ -109,16 +108,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.78, y: 4.6115074}
   m_EdgeRadius: 0
---- !u!114 &1941410996955652102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3444623713319779704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa976ac57994b445a382998f57f3d50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeDestroyer: 1

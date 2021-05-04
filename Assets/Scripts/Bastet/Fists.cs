@@ -4,11 +4,11 @@ public class Fists : MonoBehaviour
 {
     public GameObject fist;
     public float start, cooldown;
+    public float timeDestroyer;
     int spawn, firstSon, secondSon;
 
     void Start()
     {
-
         InvokeRepeating("InvokeFit", start, cooldown);
     }
 
@@ -43,6 +43,7 @@ public class Fists : MonoBehaviour
 
         Debug.Log(spawn);
 
-        Instantiate(fist, transform.GetChild(spawn).position, fist.transform.rotation);
+        GameObject fistInstance = Instantiate(fist, transform.GetChild(spawn).position, fist.transform.rotation);
+        Destroy(fistInstance, timeDestroyer);
     }
 }
