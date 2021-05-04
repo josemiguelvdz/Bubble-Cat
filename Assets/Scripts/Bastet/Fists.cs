@@ -12,7 +12,7 @@ public class Fists : MonoBehaviour
     int spawn, firstSon, secondSon, numAttacks;
     Bastet bastet;
 
-    void Start()
+    void OnEnable()
     {
         numAttacks = Random.Range(2, 6);
         InvokeRepeating("InvokeFit", start, cooldown);
