@@ -1273,6 +1273,8 @@ MonoBehaviour:
   spawner: {fileID: 1277682274}
   magicRay: {fileID: 2298656925611692503, guid: 2f40f61be5295554097a7aed68086210,
     type: 3}
+  rateTime: 2
+  cooldownTime: 3
 --- !u!114 &893177699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1298,9 +1300,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e519ae4063c263488680085489d8804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fist: {fileID: 5915846316227312823, guid: 1636bee2a0ae1e04ea26a6a4f705c197, type: 3}
-  start: 0
-  cooldown: 2
 --- !u!114 &893177701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1472,7 +1471,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277682273}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 3.5, z: -2.0415049}
+  m_LocalPosition: {x: -1, y: 3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 893177693}
