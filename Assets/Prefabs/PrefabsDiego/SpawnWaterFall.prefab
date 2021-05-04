@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 220908400}
   - component: {fileID: 9207069290999337538}
-  - component: {fileID: 7396765300236762070}
   - component: {fileID: 9215446423961954}
   - component: {fileID: 5063599380066456538}
+  - component: {fileID: 1072899901662356149}
   m_Layer: 0
   m_Name: WaterFall
   m_TagString: Untagged
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220908399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.09, y: -6.294, z: 0}
-  m_LocalScale: {x: 1.3137412, y: 0.9467369, z: 1}
+  m_LocalPosition: {x: 0.09, y: -5.93, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 3322830481552631423}
   m_RootOrder: 0
@@ -73,43 +73,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 606f5693a2a2b15458fa87c997f211af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f66bf9a1c753f8c48969f788fec066ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.53, y: 14}
+  m_Size: {x: 0.95, y: 3.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7396765300236762070
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 220908399}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.10137451, y: 0.7766609}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.53, y: 14}
-    newSize: {x: 3.53, y: 14}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.7052641, y: 12.446678}
-  m_EdgeRadius: 0
 --- !u!50 &9215446423961954
 Rigidbody2D:
   serializedVersion: 4
@@ -143,6 +117,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a68381c312d4994eba319f27f467a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &1072899901662356149
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220908399}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0000017359853, y: 0.17410707}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.95, y: 3.75}
+    newSize: {x: 0.95, y: 3.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.36633903, y: 3.4017859}
+  m_EdgeRadius: 0
 --- !u!1 &2681123028200066573
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,8 +195,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.2, y: 0.64}
-    newSize: {x: 3.2, y: 0.64}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 5.12, y: 5.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -243,13 +243,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -4060702099939321127, guid: 64d2e80bd48ffc540b0a9213a10282ce,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 64d2e80bd48ffc540b0a9213a10282ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.2, y: 0.64}
+  m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         {
             case Checkpoint.spawnpoint:
                 GameObject.Find("Player").transform.position = GameObject.Find("spawnpoint").transform.position;
-                GameObject.Find("Camera").transform.position = GameObject.Find("spawnpoint").transform.position + new Vector3(5, 0, -10);
+                GameObject.Find("Camera").transform.position = GameObject.Find("spawnpoint").transform.position + new Vector3(5, 3, -10);
                 break;
             case Checkpoint.checkpoint1: // Delete Key1, Door1
 
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
                 GameObject.Find("Player").transform.position = GameObject.Find("checkpoint1").transform.position;
 
-                GameObject.Find("Camera").transform.position = GameObject.Find("checkpoint1").transform.position + new Vector3(5,0, -10);
+                GameObject.Find("Camera").transform.position = GameObject.Find("checkpoint1").transform.position + new Vector3(5,3, -10);
                 break;
 
             case Checkpoint.checkpoint2: // Delete Key1, Door1
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
 
                 GameObject.Find("Player").transform.position = GameObject.Find("checkpoint2").transform.position;
 
-                GameObject.Find("Camera").transform.position = GameObject.Find("checkpoint2").transform.position + new Vector3(5, 0, -10);
+                GameObject.Find("Camera").transform.position = GameObject.Find("checkpoint2").transform.position + new Vector3(5, 3, -10);
                 break;
 
         }

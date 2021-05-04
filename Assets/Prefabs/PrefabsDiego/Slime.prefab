@@ -159,12 +159,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1490cea150cc842499f9efcefede4fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ground:
-    serializedVersion: 2
-    m_Bits: 0
   slimeSpeed: 2
   coolDown: 0
-  wallDistance: 0
+  wallDistance: 0.75
   attackRadius: 1.25
   visionRadius: 5
 --- !u!114 &4481387800052859278
@@ -192,3 +189,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 3
+  timeToExplodeTheBubble: 3
