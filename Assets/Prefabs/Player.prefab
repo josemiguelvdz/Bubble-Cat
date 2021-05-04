@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 964593979786218405}
   - component: {fileID: 964593979786218410}
   - component: {fileID: 6055711807188745263}
-  - component: {fileID: 561291139570862662}
   - component: {fileID: 1043255758}
   m_Layer: 8
   m_Name: Player
@@ -64,7 +63,9 @@ MonoBehaviour:
   lowJumpMultiplier: 5
   raycastLength: 0.8
   speed: 5
-  stageLayer: 9
+  stage:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!212 &964593979786218405
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -148,23 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053ceeda0691aad4ea43f1601dbef3f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 964593979786218404}
-  time: 1
-  helmet: {fileID: 3995560674584329885}
---- !u!114 &561291139570862662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 964593979786218404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efd634f4312d032478083b09f3e72f1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkpoint: {fileID: 0}
-  player: {fileID: 964593979786218404}
+  fadeEffect: {fileID: 0}
+  replaceTime: 2
+  inmunityTime: 1
+  helmet: {fileID: 8041657466684949796}
 --- !u!70 &1043255758
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -191,9 +179,9 @@ GameObject:
   m_Component:
   - component: {fileID: 964593980426227866}
   - component: {fileID: 7530990271419361537}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpawnBubble
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,9 +222,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 964593980933118402}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpawnBullet
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -270,7 +258,7 @@ GameObject:
   - component: {fileID: 3880646406462258865}
   m_Layer: 8
   m_Name: Melee
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -417,7 +405,7 @@ GameObject:
   - component: {fileID: 5487655665664931791}
   m_Layer: 2
   m_Name: ExplosionRadius
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -463,7 +451,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 15
+  m_Radius: 20
 --- !u!1 &3995560674584329885
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +464,7 @@ GameObject:
   - component: {fileID: 8041657466684949796}
   m_Layer: 8
   m_Name: Helmet
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -513,7 +501,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6e6cb4728e008e04fb3c360b5eb7da4d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -559,7 +547,7 @@ GameObject:
   - component: {fileID: 3151188328575085782}
   m_Layer: 2
   m_Name: WarningRadius
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -605,4 +593,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 15

@@ -101,6 +101,7 @@
     <Compile Include="Assets\Scripts\Dirt_thrower_wizard\Lizard.cs" />
     <Compile Include="Assets\Scripts\Dirt_thrower_wizard\LizardDetector.cs" />
     <Compile Include="Assets\Scripts\GameState.cs" />
+    <Compile Include="Assets\Scripts\LanzaBasura.cs" />
     <Compile Include="Assets\Scripts\Pipeline.cs" />
     <Compile Include="Assets\Scripts\Player\BubbleHelmet.cs" />
     <Compile Include="Assets\Scripts\Player\ExplosionRadius.cs" />

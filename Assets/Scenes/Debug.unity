@@ -16840,11 +16840,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 964593979786218407, guid: c78566f9b190c9a458201192023a411f,
-        type: 3}
-      propertyPath: stage.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
     - target: {fileID: 964593979786218409, guid: c78566f9b190c9a458201192023a411f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16900,68 +16895,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 964593980426227865, guid: c78566f9b190c9a458201192023a411f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 964593980426227865, guid: c78566f9b190c9a458201192023a411f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 964593980933118401, guid: c78566f9b190c9a458201192023a411f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 964593980933118401, guid: c78566f9b190c9a458201192023a411f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 1448924114859675637, guid: c78566f9b190c9a458201192023a411f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 2622879711709642003, guid: c78566f9b190c9a458201192023a411f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 3151188328575085782, guid: c78566f9b190c9a458201192023a411f,
-        type: 3}
-      propertyPath: m_Radius
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3995560674584329885, guid: c78566f9b190c9a458201192023a411f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 5487655665664931791, guid: c78566f9b190c9a458201192023a411f,
-        type: 3}
-      propertyPath: m_Radius
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 6055711807188745263, guid: c78566f9b190c9a458201192023a411f,
         type: 3}
       propertyPath: fadeEffect
       value: 
       objectReference: {fileID: 1321354175}
-    - target: {fileID: 6818735229615599694, guid: c78566f9b190c9a458201192023a411f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 8041657466684949796, guid: c78566f9b190c9a458201192023a411f,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6e6cb4728e008e04fb3c360b5eb7da4d, type: 2}
-    m_RemovedComponents:
-    - {fileID: 561291139570862662, guid: c78566f9b190c9a458201192023a411f, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c78566f9b190c9a458201192023a411f, type: 3}
 --- !u!1001 &1108106544473214200
 PrefabInstance:
