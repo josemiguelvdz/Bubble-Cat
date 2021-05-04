@@ -13,10 +13,12 @@ public class Butano : MonoBehaviour
         if (Mathf.Abs(col.relativeVelocity.x) > velocityLimit.x)
         {
             Explode();
+            if (col.gameObject.GetComponent<BrokenWall>()) Destroy(col.gameObject);
         }
-        if(Mathf.Abs(col.relativeVelocity.y) > velocityLimit.y)
+        if (Mathf.Abs(col.relativeVelocity.y) > velocityLimit.y)
         {
             Explode();
+            if (col.gameObject.GetComponent<BrokenWall>()) Destroy(col.gameObject);
         }
 
     }
