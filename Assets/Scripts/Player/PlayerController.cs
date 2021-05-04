@@ -139,18 +139,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-
-        string name = col.gameObject.name.Split('_')[0];
-
-        if (name == "Door" && key)
+        if (col.gameObject.GetComponent<Door>() && key)
         {
             key = false;
-
             col.gameObject.GetComponent<Door>().OpenDoor();
 
             GameState.currentCheckpoint += 1;
         }
-        if (name == "Key")
+        if (col.gameObject.GetComponent<Key>())
         {
             key = true;
             Destroy(col.gameObject);

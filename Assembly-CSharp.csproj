@@ -67,6 +67,7 @@
     <Compile Include="Assets\GDT-Fade-Effect\FadeControl.cs" />
     <Compile Include="Assets\GDT-Fade-Effect\GDTFadeEffect.cs" />
     <Compile Include="Assets\Key.cs" />
+    <Compile Include="Assets\PressurePlate.cs" />
     <Compile Include="Assets\Scripts\Bar.cs" />
     <Compile Include="Assets\Scripts\Bastet\Bastet.cs" />
     <Compile Include="Assets\Scripts\Bastet\Bomb.cs" />

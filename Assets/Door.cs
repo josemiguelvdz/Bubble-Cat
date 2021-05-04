@@ -2,12 +2,27 @@
 
 public class Door : MonoBehaviour
 {
+    public Sprite openDoor;
+    Sprite closeDoor;
+    BoxCollider2D bc;
+    SpriteRenderer spriteRenderer;
+    
+
+    private void Start()
+    {
+        bc = GetComponent<BoxCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        closeDoor = spriteRenderer.sprite;
+    }
     public void OpenDoor()
     {
-        BoxCollider2D bc = GetComponent<BoxCollider2D>();
         bc.enabled = false;
+        spriteRenderer.sprite = openDoor;
+    }
 
-        // PARTICULAS
-        Destroy(gameObject);
+    public void CloseDoor()
+    {
+        bc.enabled = true;
+        spriteRenderer.sprite = closeDoor;
     }
 }
