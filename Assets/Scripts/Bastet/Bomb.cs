@@ -9,7 +9,7 @@ public class Bomb : MonoBehaviour
     Transform spawnPoint;
 
     [Tooltip("Dirección que toma la bomba de butano"), SerializeField]
-    Vector3 direction;
+    Vector2 direction;
 
     [Tooltip("Tiempo que tarda Bastet en cargar la bomba de butano y disparar"), SerializeField]
     float chargeTime;
@@ -21,6 +21,6 @@ public class Bomb : MonoBehaviour
 
     void Fire()
     {
-        Instantiate(bomb, spawnPoint);
+        GameObject bombInstance = Instantiate(bomb, spawnPoint);
     }
 }

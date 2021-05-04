@@ -11,8 +11,8 @@ public class Shoot : MonoBehaviour
     [Tooltip("Munición que tiene el ataque"), SerializeField]
     int ammo;
 
-    [Tooltip("Desvío hacia arriba al apuntar al jugador para contraarrestar la gravedad"), SerializeField]
-    float verticalOffset;
+    [Tooltip("Fuerza del impulso que toman los proyectiles al ser instanciados"), SerializeField]
+    Vector2 impulse;
 
     [Tooltip("Tiempo que tarda Bastet en cargar los proyectiles y empezar a disparar"), SerializeField]
     float chargeTime;
@@ -48,7 +48,8 @@ public class Shoot : MonoBehaviour
 
     void Burst()
     {
-        Instantiate(proyectile, spawnPoint);
+        GameObject bag = Instantiate(proyectile, spawnPoint.position, Quaternion.identity);
+        bag.GetComponent<Rigidbody2D>().AddForce(impulse * Random.Range(0.5f, 2f), ForceMode2D.Impulse);
         proyectilesLeft--;
 
         if (proyectilesLeft == 0)

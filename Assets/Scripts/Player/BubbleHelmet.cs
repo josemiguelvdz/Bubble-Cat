@@ -29,17 +29,13 @@ public class BubbleHelmet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!inmunity && collision.gameObject.GetComponent<Damageable>())
-        {
             MakeDamage();
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!inmunity && collision.GetComponent<Damageable>())
-        {
+        if (!inmunity && collision.GetComponent<Gas>() && !collision.GetComponent<PillarMovement>())
             MakeDamage();
-        }
     }
 
     void MakeDamage()

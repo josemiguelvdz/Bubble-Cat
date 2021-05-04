@@ -180,7 +180,7 @@ MonoBehaviour:
   forceX: 20
   forceY: 20
   refreshAttack: 2
-  raycastLength: 0.7
+  raycastLength: 0.6
   stageLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -209,3 +209,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 3
+  timeToExplodeTheBubble: 4
