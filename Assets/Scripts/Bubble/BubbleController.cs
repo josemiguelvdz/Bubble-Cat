@@ -7,8 +7,8 @@ public class BubbleController : MonoBehaviour
     [Tooltip("Fuerza de la burbuja"), SerializeField]
     float force = 0;
 
-    [Tooltip("Limite de velocidad para la colisión"), SerializeField]
-    float velocityLimit = 0;
+    /*[Tooltip("Limite de velocidad para la colisión"), SerializeField]
+    float velocityLimit = 0;*/
 
     [Tooltip("Capa de colisión de las piezas."), SerializeField]
     int pieceLayer = 17;

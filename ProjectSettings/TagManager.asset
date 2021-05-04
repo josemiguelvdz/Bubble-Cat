@@ -8,6 +8,7 @@ TagManager:
   - Bubble
   - Interactuable
   - Enemy
+  - Camara
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - Boss
   - Piece
   - Staff
-  - 
+  - Camera
   - 
   - 
   - 

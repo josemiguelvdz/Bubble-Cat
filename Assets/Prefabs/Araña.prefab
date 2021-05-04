@@ -180,7 +180,7 @@ MonoBehaviour:
   forceX: 20
   forceY: 20
   refreshAttack: 2
-  raycastLength: 1
+  raycastLength: 0.7
   stageLayer:
     serializedVersion: 2
     m_Bits: 512

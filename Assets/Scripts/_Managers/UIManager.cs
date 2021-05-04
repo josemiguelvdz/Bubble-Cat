@@ -3,6 +3,10 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    static UIManager instance;
+
+    public YunoArrow yunoArrow;
+
     [SerializeField]
     Text barText=null, bulletText=null;
 
@@ -11,6 +15,21 @@ public class UIManager : MonoBehaviour
 
     Color startingColor;
 
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+            Destroy(this.gameObject);
+    }
+
+    public static UIManager GetInstance()
+    {
+        //Consigue la referencia al UIManager
+        return instance;
+    }
 
     void Start()
     {
@@ -35,5 +54,22 @@ public class UIManager : MonoBehaviour
             barText.color = noBars;
         else
             barText.color = startingColor;
+    }
+
+    
+
+    public void ActivateArrow()
+    {
+        yunoArrow.gameObject.SetActive(true);
+    }
+
+    public void DeactivateArrow()
+    {
+        yunoArrow.gameObject.SetActive(false);
+    }
+
+    public void ClosestPoint(Vector3 point)
+    {
+        yunoArrow.ClosestPoint(point);
     }
 }

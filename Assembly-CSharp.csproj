@@ -90,6 +90,8 @@
     <Compile Include="Assets\Scripts\BulletMovement.cs" />
     <Compile Include="Assets\Scripts\Butano.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraMovement.cs" />
+    <Compile Include="Assets\Scripts\Camera\YunoArrow.cs" />
+    <Compile Include="Assets\Scripts\Camera\YunoVisible.cs" />
     <Compile Include="Assets\Scripts\Cannon.cs" />
     <Compile Include="Assets\Scripts\ConvertToDinamic.cs" />
     <Compile Include="Assets\Scripts\Damageable.cs" />

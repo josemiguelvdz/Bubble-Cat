@@ -22,12 +22,12 @@ public class PlayerController : MonoBehaviour
     float horizontal; // Input del eje horizontal
     bool isJumping;
 
-    [Tooltip("Índice de la layer del escenario."), SerializeField]
-    int stageLayer = 9;
+    [Tooltip("Layer del escenario."), SerializeField]
+    LayerMask stage;
 
     private bool key = false;
 
-    void Start()
+    void OnEnable()
     {
         GameManager.GetInstance().SetPlayerController(this);
 
@@ -35,12 +35,7 @@ public class PlayerController : MonoBehaviour
         spawner = GetComponentInChildren<BubbleSpawner>();  
         bubbleHelmet = GetComponent<BubbleHelmet>();
         bubbleSpawner = GetComponentInChildren<BubbleSpawner>();
-
-        //Bit shift para obtener la bit mask
-        stageLayer = 1 << stageLayer;
     }
-
-
 
 
     void Update()
@@ -88,16 +83,17 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y); // Movimiento físico del jugador
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, raycastLength, stage);
 
-        if (Physics2D.Raycast(transform.position, Vector2.down, raycastLength, stageLayer))
+        if (hit)
         {
-            //Debug.Log("He llegado al suelo");
+            Debug.Log("He llegado al suelo");
             isJumping = false;
             bubbleSpawner.enabled = true;
         }
         else
         {
-            //Debug.Log("Estoy en el aire");
+            Debug.Log("Estoy en el aire");
             isJumping = true;
             bubbleSpawner.enabled = false;
         }
