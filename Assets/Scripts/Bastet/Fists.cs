@@ -5,11 +5,19 @@ public class Fists : MonoBehaviour
     public GameObject fist;
     public float start, cooldown;
     public float timeDestroyer;
-    int spawn, firstSon, secondSon;
+
+    [Tooltip("Probabilidad de que el siguiente ataque sean los rayos mágicos si estamos en la segunda fase"), Range(0, 100f), SerializeField]
+    float prob = 70f;
+
+    int spawn, firstSon, secondSon, numAttacks;
+    Bastet bastet;
 
     void Start()
     {
+        numAttacks = Random.Range(2, 6);
         InvokeRepeating("InvokeFit", start, cooldown);
+
+        bastet = GetComponent<Bastet>();
     }
 
     void InvokeFit()
@@ -45,5 +53,19 @@ public class Fists : MonoBehaviour
 
         GameObject fistInstance = Instantiate(fist, transform.GetChild(spawn).position, fist.transform.rotation);
         Destroy(fistInstance, timeDestroyer);
+
+        numAttacks--;
+
+        if (numAttacks == 0)
+        {
+            CancelInvoke();
+
+            if (Random.Range(0, 101) < prob)
+                bastet.DesiredState(Bastet.States.magic);
+            else
+                bastet.DesiredState(Bastet.States.box);
+
+            bastet.DesiredState(Bastet.States.shoot);
+        }
     }
 }

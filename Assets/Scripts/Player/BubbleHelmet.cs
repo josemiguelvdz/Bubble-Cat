@@ -4,14 +4,22 @@ public class BubbleHelmet : MonoBehaviour
 {
     public GDTFadeEffect fadeEffect;
 
-    public float time;
-    public GameObject helmet;
+    public float replaceTime, inmunityTime;
+    public SpriteRenderer helmet;
     bool helmetOn = true;
     bool inProgress = false;
-    bool inmunity;
+
+    bool inmunity = false;
+    SpriteRenderer yuno;
+
+    private void Start()
+    {
+        yuno = GetComponent<SpriteRenderer>();
+    }
+
     private void ReplaceHelmet()
     {
-        helmet.SetActive(true);
+        helmet.enabled = true;
         helmetOn = true;
         inProgress = false;
         GameManager.GetInstance().BubbleHelmet();
@@ -20,50 +28,54 @@ public class BubbleHelmet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Damageable>())
+        if (!inmunity && collision.gameObject.GetComponent<Damageable>())
         {
-            if (helmetOn)
-            {
-                inProgress = false;
-                helmetOn = false;
-                helmet.SetActive(false);
-                CancelInvoke();
-            }
-            else
-            {
-                // PARTICULAS
-
-                fadeEffect.StartEffect();
-                Invoke("InvokeRespawn", 1f);
-
-                helmetOn = true;
-                helmet.SetActive(true);
-            }
-                
-            
+            MakeDamage();
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Gas>())
+        if (!inmunity && collision.GetComponent<Gas>())
         {
-            if (helmetOn)
-            {
-                inProgress = false;
-                helmetOn = false;
-                helmet.SetActive(false);
-                CancelInvoke();
-            }
-            else
-                Debug.Log("Has muerto");
+            MakeDamage();
         }
+    }
+
+    void MakeDamage()
+    {
+        if (helmetOn)
+        {
+            inProgress = false;
+            helmetOn = false;
+            helmet.enabled = false;
+            CancelInvoke();
+            inmunity = true;
+            yuno.color = new Color(1f, 1f, 1f, .5f);
+            Invoke("StopInmunity", inmunityTime);
+        }
+        else
+        {
+            // PARTICULAS
+
+            fadeEffect.StartEffect();
+            Invoke("InvokeRespawn", 1f);
+
+            helmetOn = true;
+            helmet.enabled = true;
+        }
+    }
+
+    void StopInmunity()
+    {
+        Debug.Log("Fuera inmunidad");
+        inmunity = false;
+        yuno.color = Color.white;
     }
 
     public void InvokeRespawn()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Sewer");
-        
     }
 
     public void InvokeReplace()
@@ -72,7 +84,7 @@ public class BubbleHelmet : MonoBehaviour
         {
             GameManager.GetInstance().DeactivatePlayerController();
             inProgress = true;
-            Invoke("ReplaceHelmet", time);
+            Invoke("ReplaceHelmet", replaceTime);
         }
     }
 }

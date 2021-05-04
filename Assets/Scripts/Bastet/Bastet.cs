@@ -117,8 +117,6 @@ public class Bastet : MonoBehaviour
 
         currentState = States.start;
         components = new MonoBehaviour[8] { fists, shoot, magic, box, trash, bomb, ko, dead };
-
-        Invoke("FirstAttack", 2);
     }
 
     private void Update()
@@ -163,6 +161,8 @@ public class Bastet : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<CapsuleCollider2D>().enabled = true;
+
+        Invoke("FirstAttack", 2);
     }
 
     public void PieceAppear()
