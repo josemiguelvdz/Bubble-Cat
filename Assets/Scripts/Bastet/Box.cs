@@ -22,16 +22,19 @@ public class Box : MonoBehaviour
 
     Bastet bastet;
 
-    void Start()
+    void OnEnable()
     { 
+        // ANIMACION?
+        Invoke("BoxSpawn", 1f);
+        cont = 0;
+    }
+    private void Start()
+    {
         bc = boxSpawner.GetComponent<BoxCollider2D>();
         btrans = boxSpawner.GetComponent<Transform>();
 
         maxPoint = bc.bounds.max;
         minPoint = bc.bounds.min;
-
-        // ANIMACION?
-        Invoke("BoxSpawn", 1f);
 
         bastet = GetComponent<Bastet>();
     }
@@ -72,5 +75,10 @@ public class Box : MonoBehaviour
     {
         bastet.DesiredState(Bastet.States.magic);
         bastet.DesiredState(Bastet.States.fists);
+    }
+
+    public void CancelNextAttack()
+    {
+        CancelInvoke();
     }
 }

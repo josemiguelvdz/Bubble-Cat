@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5242885454530735503}
   - component: {fileID: 5242885454530735502}
-  - component: {fileID: 5242885454530735501}
   - component: {fileID: 5242885454530735500}
   - component: {fileID: 5242885454530735499}
   - component: {fileID: 5242885454530735498}
+  - component: {fileID: 5045077965172088310}
   m_Layer: 11
   m_Name: Bar
   m_TagString: Untagged
@@ -85,22 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &5242885454530735501
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5242885454530735497}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1
 --- !u!50 &5242885454530735500
 Rigidbody2D:
   serializedVersion: 4
@@ -146,3 +130,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead7a59db5859084ea632ec603fd3ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &5045077965172088310
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5242885454530735497}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.58, y: 0.96}
+  m_Direction: 1

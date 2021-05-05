@@ -1297,7 +1297,7 @@ PrefabInstance:
     - target: {fileID: 6055711807188745263, guid: c78566f9b190c9a458201192023a411f,
         type: 3}
       propertyPath: invencible
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c78566f9b190c9a458201192023a411f, type: 3}
@@ -1515,7 +1515,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893177690}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1630,7 +1630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d4beacbccef0d4187f03dd58f47ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 50
   bombDamage: 20
   pieces:
   - {fileID: 1443857122}
@@ -1639,6 +1639,7 @@ MonoBehaviour:
   bar: {fileID: 5242885454530735497, guid: 27a15721638109d40988395e68cd3dc3, type: 3}
   barSpawn: {fileID: 1367930292}
   barForce: {x: -3, y: 8}
+  waitingTime: 2
 --- !u!114 &893177696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1688,8 +1689,8 @@ MonoBehaviour:
   magicRay: {fileID: 2298656925611692503, guid: 2f40f61be5295554097a7aed68086210,
     type: 3}
   rateTime: 2
-  cooldownTime: 3
-  prob: 70
+  cooldownTime: 1
+  prob: 30
 --- !u!114 &893177699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1749,7 +1750,7 @@ MonoBehaviour:
   boxNumber: 5
   minTime: 0
   maxTime: 0.5
-  waitingTime: 0
+  waitingTime: 2
 --- !u!114 &893177703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2157,7 +2158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277682273}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 3.5, z: 0}
+  m_LocalPosition: {x: -3.13, y: 4.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 893177693}
@@ -2262,7 +2263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367930291}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.63, y: 1.82, z: 0}
+  m_LocalPosition: {x: -3.86, y: 1.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 893177693}

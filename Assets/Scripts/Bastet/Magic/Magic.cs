@@ -12,14 +12,17 @@ public class Magic : MonoBehaviour
     private Bastet bastet;
 
     [Tooltip("Probabilidad de que el siguiente ataque sean la caida de cajas si estamos en la segunda fase"), Range(0, 100f), SerializeField]
-    float prob = 40f;
+    int prob = 30;
 
-    // Start is called before the first frame update
+    private void OnEnable()
+    {
+        InvokeRepeating("InvokeRay", rateTime, cooldownTime);
+        numMagicRays = Random.Range(2, 6);
+    }
+
     void Start()
     {
         player = GameManager.GetInstance().GetPlayer();
-        InvokeRepeating("InvokeRay", rateTime, cooldownTime);
-        numMagicRays = Random.Range(2, 6);
         bastet = GetComponent<Bastet>();
     }
 

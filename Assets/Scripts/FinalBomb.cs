@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FinalBomb : MonoBehaviour
 {
@@ -35,6 +33,8 @@ public class FinalBomb : MonoBehaviour
 
         if(!returned)
         {
+            GameManager.GetInstance().GetBastet().FirstAttack();
+
             if (collision.gameObject.GetComponent<Bastet>())
                 collision.gameObject.GetComponent<Bastet>().BombDamage();
             else
@@ -43,10 +43,5 @@ public class FinalBomb : MonoBehaviour
                 
             Destroy(this.gameObject);
         }
-    }
-
-    private void OnDistroy()
-    {
-        GameManager.GetInstance().GetBastet().FirstAttack();
     }
 }

@@ -87,13 +87,13 @@ public class PlayerController : MonoBehaviour
 
         if (hit)
         {
-            Debug.Log("He llegado al suelo");
+            //Debug.Log("He llegado al suelo");
             isJumping = false;
             bubbleSpawner.enabled = true;
         }
         else
         {
-            Debug.Log("Estoy en el aire");
+            //Debug.Log("Estoy en el aire");
             isJumping = true;
             bubbleSpawner.enabled = false;
         }

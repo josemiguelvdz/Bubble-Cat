@@ -68,7 +68,7 @@ public class BubbleHelmet : MonoBehaviour
 
     void StopInmunity()
     {
-        Debug.Log("Fuera inmunidad");
+        //Debug.Log("Fuera inmunidad");
         inmunity = false;
         yuno.color = Color.white;
     }

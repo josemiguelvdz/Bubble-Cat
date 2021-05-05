@@ -49,7 +49,7 @@ public class Fists : MonoBehaviour
             secondSon = 0;
         }
 
-        Debug.Log(spawn);
+        //Debug.Log(spawn);
 
         GameObject fistInstance = Instantiate(fist, transform.GetChild(spawn).position, fist.transform.rotation);
         Destroy(fistInstance, timeDestroyer);

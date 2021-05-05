@@ -61,15 +61,14 @@ public class BubbleController : MonoBehaviour
 
         movement = new Vector2(horizontal * force, vertical * force);
 
-        if (Input.GetButtonDown("Bubble") ||
-            (grab && Mathf.Abs(Vector3.Distance(ini, transform.position)) > pullDistance))
-        {
+        if (Input.GetButtonDown("Bubble"))
             BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer,child);
 
-            if (grab)
-            {
-                GameManager.GetInstance().NextPhase();
-            }
+        //Ataque final de Bastet
+        else if(grab && Mathf.Abs(Vector3.Distance(ini, transform.position)) > pullDistance)
+        {
+            BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);
+            GameManager.GetInstance().NextPhase();
         }
     }
 

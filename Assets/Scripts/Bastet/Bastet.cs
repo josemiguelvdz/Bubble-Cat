@@ -36,6 +36,9 @@ public class Bastet : MonoBehaviour
     [SerializeField, Tooltip("Fuerza con la que salen las pastillas de jabón")]
     Vector2 barForce;
 
+    [SerializeField, Tooltip("Tiempo que tarda la nueva fase de Bastet en empezar")]
+    float waitingTime = 2f;
+
     int piecesNum = 3; //Número de piezas que tenemos que quitar a Bastet para desmontar su robot
     int currentHealth;
 
@@ -70,11 +73,12 @@ public class Bastet : MonoBehaviour
 
     public void DesiredState(States newState)
     {
-        if(newState == States.start)
+        if(currentState != States.start && newState == States.start)
         {
             piecesNum = pieces.Length;
             RestoreHealth();
             currentState = States.start;
+            FirstAttack();
         }
         else
             switch (piecesNum)
@@ -136,7 +140,7 @@ public class Bastet : MonoBehaviour
 
             currentState = nextState;
 
-            Debug.Log(currentState);
+            //Debug.Log(currentState);
         }
     }
 
@@ -144,28 +148,32 @@ public class Bastet : MonoBehaviour
     {
         if (currentState != States.ko && currentState != States.dead && 
             collision.gameObject.GetComponent<Damageable>() && !collision.gameObject.GetComponent<EnemyHealth>())
-            TakeDamage();
+            TakeDamage(1);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (currentState != States.ko && currentState != States.dead && collision.gameObject.GetComponent<Melee>())
-            TakeDamage();
+            TakeDamage(1);
     }
 
-    void TakeDamage()
+    void TakeDamage(int damage)
     {
-        currentHealth--;
+        currentHealth -= damage;
+        //Debug.Log(currentHealth);
         if (currentHealth <= 0)
+        {
+            box.CancelNextAttack();
             DesiredState(States.ko);
+        }
     }
 
     public void Appear()
     {
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<CapsuleCollider2D>().enabled = true;
-        
-        Invoke("FirstAttack", 2);
+
+        FirstAttack();
     }
 
     public void PieceAppear()
@@ -182,13 +190,17 @@ public class Bastet : MonoBehaviour
 
     public void PieceOff()
     {
+        if (piecesNum > 1)
+        {
+            Rigidbody2D barInstance = Instantiate(bar, barSpawn.position, Quaternion.identity).GetComponent<Rigidbody2D>();
+            barInstance.bodyType = RigidbodyType2D.Dynamic;
+            barInstance.AddForce(barForce, ForceMode2D.Impulse);
+            barInstance.AddTorque(.1f, ForceMode2D.Impulse);
+        }
+
         PieceDisappear();
         piecesNum--;
         Debug.Log(piecesNum);
-
-        Rigidbody2D barInstance = Instantiate(bar, barSpawn.position, Quaternion.identity).GetComponent<Rigidbody2D>();
-        barInstance.bodyType = RigidbodyType2D.Dynamic;
-        barInstance.AddForce(barForce);
     }
 
     public void RestoreHealth()
@@ -197,6 +209,11 @@ public class Bastet : MonoBehaviour
     }
 
     public void FirstAttack()
+    {
+        Invoke("ChangeAttack", waitingTime);
+    }
+
+    void ChangeAttack()
     {
         switch (piecesNum)
         {
@@ -207,7 +224,7 @@ public class Bastet : MonoBehaviour
                 DesiredState(States.box);
                 break;
             case 1:
-                DesiredState(States.trash);
+                DesiredState(States.magic);
                 break;
             case 0:
                 DesiredState(States.dead);
@@ -230,6 +247,6 @@ public class Bastet : MonoBehaviour
 
     public void BombDamage()
     {
-        currentHealth -= bombDamage;
+        TakeDamage(bombDamage);
     }
 }
