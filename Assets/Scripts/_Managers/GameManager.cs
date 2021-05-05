@@ -37,26 +37,55 @@ public class GameManager : MonoBehaviour
         {
             case Checkpoint.spawnpoint:
                 GameObject.Find("Player").transform.position = GameObject.Find("spawnpoint").transform.position;
-                GameObject.Find("Camera").transform.position = GameObject.Find("spawnpoint").transform.position + new Vector3(5, 3, -10);
+                GameObject.Find("Camera").transform.position = GameObject.Find("spawnpoint").transform.position + new Vector3(0, 3, -10);
                 break;
-            case Checkpoint.checkpoint1: // Delete Key1, Door1
+            case Checkpoint.checkpoint1: // Abrir door
 
-                Destroy(GameObject.Find("Key_1"));
-                Destroy(GameObject.Find("Door_1"));
+                GameObject.Find("Box_10").transform.position = GameObject.Find("PressurePlate_1").transform.position;
 
                 GameObject.Find("Player").transform.position = GameObject.Find("checkpoint1").transform.position;
 
-                GameObject.Find("Camera").transform.position = GameObject.Find("checkpoint1").transform.position + new Vector3(5,3, -10);
+                GameObject.Find("Camera").transform.position = GameObject.Find("checkpoint1").transform.position + new Vector3(0,3, -10);
                 break;
 
-            case Checkpoint.checkpoint2: // Delete Key1, Door1
+            case Checkpoint.checkpoint2: // Delete Key1, OpenDoor
 
-                Destroy(GameObject.Find("Key_2"));
-                Destroy(GameObject.Find("Door_2"));
+                Destroy(GameObject.Find("Key_1"));
+                //GameObject.Find("Door_2").GetComponent<Door>().OpenDoor();
 
                 GameObject.Find("Player").transform.position = GameObject.Find("checkpoint2").transform.position;
 
-                GameObject.Find("Camera").transform.position = GameObject.Find("checkpoint2").transform.position + new Vector3(5, 3, -10);
+                GameObject.Find("Camera").transform.position = GameObject.Find("checkpoint2").transform.position + new Vector3(0, 3, -10);
+                break;
+            case Checkpoint.checkpoint3:
+
+                Destroy(GameObject.Find("Key_2"));
+                //GameObject.Find("Door_3").GetComponent<Door>().OpenDoor();
+
+                GameObject.Find("Player").transform.position = GameObject.Find("checkpoint3").transform.position;
+
+                GameObject.Find("Camera").transform.position = GameObject.Find("checkpoint3").transform.position + new Vector3(0, 3, -10);
+
+                break;
+            case Checkpoint.checkpoint4:
+
+                
+                //GameObject.Find("Door_4").GetComponent<Door>().OpenDoor();
+
+                GameObject.Find("Player").transform.position = GameObject.Find("checkpoint4").transform.position;
+
+                GameObject.Find("Camera").transform.position = GameObject.Find("checkpoint4").transform.position + new Vector3(0, 3, -10);
+
+                GameObject.Find("Key_3").transform.position = GameObject.Find("Player").transform.position;
+
+                break;
+
+            case Checkpoint.checkpoint5:
+
+
+                GameObject.Find("ChangeScene").GetComponent<ChangeScene>().StartGame();
+
+
                 break;
 
         }

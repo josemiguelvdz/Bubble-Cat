@@ -69,7 +69,7 @@ public class Lizard : MonoBehaviour
                 hitStage = Physics2D.Raycast(foot.position, Vector2.up, 0.5f);
                 //Debug.DrawRay(foot.position, Vector2.up * 0.5f, Color.green);
 
-                if (hitStage != null && hitStage.collider != null) //Detecta suelo
+                if (!hitStage && hitStage.collider != null) //Detecta suelo
                 {
                     if (direction == "right")
                     {

@@ -144,7 +144,8 @@ public class PlayerController : MonoBehaviour
             key = false;
             col.gameObject.GetComponent<Door>().OpenDoor();
 
-            GameState.currentCheckpoint += 1;
+
+
         }
         if (col.gameObject.GetComponent<Key>())
         {

@@ -18,11 +18,35 @@ public class Door : MonoBehaviour
     {
         bc.enabled = false;
         spriteRenderer.sprite = openDoor;
+
+        ChangeCheckpoint();
     }
 
     public void CloseDoor()
     {
         bc.enabled = true;
         spriteRenderer.sprite = closeDoor;
+    }
+
+    public void ChangeCheckpoint()
+    {
+        if (gameObject.name == "Door_1")
+        {
+            GameState.currentCheckpoint = Checkpoint.checkpoint1;
+        }
+        else if (gameObject.name == "Door_2")
+        {
+            GameState.currentCheckpoint = Checkpoint.checkpoint2;
+        }
+        else if (gameObject.name == "Door_3")
+        {
+            GameState.currentCheckpoint = Checkpoint.checkpoint3;
+        }
+        else if (gameObject.name == "Door_4")
+        {
+            GameState.currentCheckpoint = Checkpoint.checkpoint4;
+            Debug.Log(GameState.currentCheckpoint);
+        }
+
     }
 }
