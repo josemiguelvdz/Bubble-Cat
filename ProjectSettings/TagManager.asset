@@ -9,6 +9,7 @@ TagManager:
   - Interactuable
   - Enemy
   - Camara
+  - Fists
   layers:
   - Default
   - TransparentFX

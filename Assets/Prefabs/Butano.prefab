@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1974734726970970575}
   - component: {fileID: 3087988546213174049}
   - component: {fileID: 6499323679986180188}
+  - component: {fileID: 1766035550}
   m_Layer: 0
   m_Name: Butano
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8507822074070478840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.51, y: -0.8, z: 0}
-  m_LocalScale: {x: 0.43713388, y: 0.442707, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -118,18 +119,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.030177712, y: 0}
+  m_Offset: {x: -0.013702393, y: -0.0000009536743}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.97, y: 3.97}
+    oldSize: {x: 1.588, y: 1.588}
     newSize: {x: 3.97, y: 3.97}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.2196596, y: 3.97}
+  m_Size: {x: 0.9343872, y: 1.399374}
   m_EdgeRadius: 0
 --- !u!114 &6499323679986180188
 MonoBehaviour:
@@ -144,3 +145,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityLimit: {x: 9, y: 9}
+--- !u!114 &1766035550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8507822074070478840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9abcdd75907d104e97a73b35ccc962e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
