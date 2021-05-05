@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yuno Arrow Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6528378170274861444, guid: d38fb2d08e41e4142ab744ae4515ed12,
+        type: 3}
+      propertyPath: center
+      value: 
+      objectReference: {fileID: 512073678}
     - target: {fileID: 6528378170274861447, guid: d38fb2d08e41e4142ab744ae4515ed12,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1046,6 +1051,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 838a4a8e7cb935648a4e6e33157d2a19, type: 3}
+--- !u!4 &512073678 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 880856294, guid: 7a059b0edce40cb4285b58ba05322a43,
+    type: 3}
+  m_PrefabInstance: {fileID: 742107256}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &541642801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1940,6 +1951,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f07b96075a94f4c897343a8aa477ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1031745283 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6528378170274861444, guid: d38fb2d08e41e4142ab744ae4515ed12,
+    type: 3}
+  m_PrefabInstance: {fileID: 23026687}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fc6606c803aaa4bbd1b7ae2f884a82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1144504888
 GameObject:
   m_ObjectHideFlags: 0
@@ -2757,6 +2780,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6849142926987517259, guid: 0ca3a9f20e79f184db81bdc79b6704dc,
+        type: 3}
+      propertyPath: yunoArrow
+      value: 
+      objectReference: {fileID: 1031745283}
     - target: {fileID: 6849142926987517261, guid: 0ca3a9f20e79f184db81bdc79b6704dc,
         type: 3}
       propertyPath: m_Name
