@@ -1289,28 +1289,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 964593980933118402, guid: c78566f9b190c9a458201192023a411f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 1448924114859675637, guid: c78566f9b190c9a458201192023a411f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6055711807188745263, guid: c78566f9b190c9a458201192023a411f,
         type: 3}
       propertyPath: fadeEffect
       value: 
       objectReference: {fileID: 958468652}
-    - target: {fileID: 8041657466684949796, guid: c78566f9b190c9a458201192023a411f,
+    - target: {fileID: 6055711807188745263, guid: c78566f9b190c9a458201192023a411f,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    m_RemovedComponents:
-    - {fileID: 561291139570862662, guid: c78566f9b190c9a458201192023a411f, type: 3}
+      propertyPath: invencible
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c78566f9b190c9a458201192023a411f, type: 3}
 --- !u!1 &713606637
 GameObject:
@@ -1511,6 +1500,7 @@ GameObject:
   - component: {fileID: 893177698}
   - component: {fileID: 893177697}
   - component: {fileID: 893177696}
+  - component: {fileID: 893177704}
   m_Layer: 16
   m_Name: Bastet
   m_TagString: Untagged
@@ -1603,6 +1593,7 @@ Transform:
   - {fileID: 935888355}
   - {fileID: 1144504889}
   - {fileID: 1212561754}
+  - {fileID: 1367930292}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1639,13 +1630,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d4beacbccef0d4187f03dd58f47ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 25
-  healthBombLimit: 20
+  health: 5
   bombDamage: 20
   pieces:
   - {fileID: 1443857122}
   - {fileID: 1501803036}
   - {fileID: 936202833}
+  bar: {fileID: 5242885454530735497, guid: 27a15721638109d40988395e68cd3dc3, type: 3}
+  barSpawn: {fileID: 1367930292}
+  barForce: {x: -3, y: 8}
 --- !u!114 &893177696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1678,6 +1671,7 @@ MonoBehaviour:
   impulse: {x: -20, y: 10}
   chargeTime: 2
   shootRate: 0.5
+  prob: 40
 --- !u!114 &893177698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1755,6 +1749,7 @@ MonoBehaviour:
   boxNumber: 5
   minTime: 0
   maxTime: 0.5
+  waitingTime: 0
 --- !u!114 &893177703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1771,6 +1766,18 @@ MonoBehaviour:
   spawnPoint: {fileID: 1212561754}
   direction: {x: -4, y: 10}
   chargeTime: 3
+--- !u!114 &893177704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893177690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a68381c312d4994eba319f27f467a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &935888353
 GameObject:
   m_ObjectHideFlags: 0
@@ -2231,6 +2238,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 494bd74d15238c242a2da854b81e556d, type: 3}
+--- !u!1 &1367930291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1367930292}
+  m_Layer: 16
+  m_Name: Bar Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1367930292
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367930291}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.63, y: 1.82, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 893177693}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1443857122
 GameObject:
   m_ObjectHideFlags: 0

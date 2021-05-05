@@ -6,6 +6,7 @@ public class BubbleHelmet : MonoBehaviour
 
     public float replaceTime, inmunityTime;
     public SpriteRenderer helmet;
+    public bool invencible = false;
     bool helmetOn = true;
     bool inProgress = false;
 
@@ -40,25 +41,28 @@ public class BubbleHelmet : MonoBehaviour
 
     public void MakeDamage()
     {
-        if (helmetOn)
+        if(!invencible)
         {
-            inProgress = false;
-            helmetOn = false;
-            helmet.enabled = false;
-            CancelInvoke();
-            inmunity = true;
-            yuno.color = new Color(1f, 1f, 1f, .5f);
-            Invoke("StopInmunity", inmunityTime);
-        }
-        else
-        {
-            // PARTICULAS
+            if (helmetOn)
+            {
+                inProgress = false;
+                helmetOn = false;
+                helmet.enabled = false;
+                CancelInvoke();
+                inmunity = true;
+                yuno.color = new Color(1f, 1f, 1f, .5f);
+                Invoke("StopInmunity", inmunityTime);
+            }
+            else
+            {
+                // PARTICULAS
 
-            fadeEffect.StartEffect();
-            Invoke("InvokeRespawn", 1f);
+                fadeEffect.StartEffect();
+                Invoke("InvokeRespawn", 1f);
 
-            helmetOn = true;
-            helmet.enabled = true;
+                helmetOn = true;
+                helmet.enabled = true;
+            }
         }
     }
 

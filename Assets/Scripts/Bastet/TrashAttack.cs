@@ -33,6 +33,6 @@ public class TrashAttack : MonoBehaviour
     public void TrashDespawn()
     {
         Pillars.SetActive(false);
-        bastet.DesiredState(Bastet.States.magic);
+        bastet.DesiredState(Bastet.States.bomb);
     }
 }

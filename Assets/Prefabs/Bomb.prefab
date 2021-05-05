@@ -156,4 +156,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d4b8493876e8d4084f3a2eb669b626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impulse: {x: 20, y: 10}
+  impulse: {x: 12, y: 7}
+  rotationSpeed: 1

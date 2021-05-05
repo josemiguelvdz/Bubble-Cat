@@ -21,19 +21,24 @@ public class Bastet : MonoBehaviour
     [SerializeField, Tooltip("Vida que tiene cada fase de Bastet.")]
     int health = 50;
 
-    [SerializeField, Tooltip("Vida que tiene que alcanzar Bastet para lanzar la bomba de Butano gigante.")]
-    int healthBombLimit = 20;
-
     [SerializeField, Tooltip("Vida que le quita la bomba de butano a Bastet.")]
     int bombDamage = 20;
 
     [SerializeField, Tooltip("Piezas que quitaremos de Bastet en orden descendente. La 0 sera la última pieza que se quita.")]
     GameObject [] pieces = null;
 
+    [SerializeField, Tooltip("Prefab de la pastilla de jabón")]
+    GameObject bar;
+
+    [SerializeField, Tooltip("Spawn Point de las pastillas de jabón")]
+    Transform barSpawn;
+
+    [SerializeField, Tooltip("Fuerza con la que salen las pastillas de jabón")]
+    Vector2 barForce;
+
     int piecesNum = 3; //Número de piezas que tenemos que quitar a Bastet para desmontar su robot
     int currentHealth;
 
-    Transform player;
     BubbleController bubble;
 
     //Ataques que hay que meter:
@@ -65,34 +70,44 @@ public class Bastet : MonoBehaviour
 
     public void DesiredState(States newState)
     {
-        switch (piecesNum)
+        if(newState == States.start)
         {
-            case 3:
-                if (newState == States.fists || newState == States.shoot || newState == States.bomb || newState == States.ko)
-                    nextState = newState;
-                break;
-            case 2:
-                if (newState == States.fists || newState == States.magic || newState == States.box || newState == States.bomb || newState == States.ko)
-                    nextState = newState;
-                break;
-            case 1:
-                if (newState == States.magic || newState == States.box || newState == States.trash || newState == States.bomb || newState == States.ko)
-                    nextState = newState;
-                break;
-            case 0:
-                if (newState == States.dead)
-                    nextState = newState;
-                break;
-            default:
-                nextState = newState;
-                break;
+            piecesNum = pieces.Length;
+            RestoreHealth();
+            currentState = States.start;
         }
+        else
+            switch (piecesNum)
+            {
+                case 3:
+                    if (newState == States.fists || newState == States.shoot || 
+                        newState == States.bomb || newState == States.ko)
+                        nextState = newState;
+                    break;
+                case 2:
+                    if (newState == States.fists || newState == States.magic || 
+                        newState == States.box || newState == States.bomb || newState == States.ko)
+                        nextState = newState;
+                    break;
+                case 1:
+                    if (newState == States.magic || newState == States.box || 
+                        newState == States.trash || newState == States.bomb || newState == States.ko)
+                        nextState = newState;
+                    break;
+                case 0:
+                    if (newState == States.dead)
+                        nextState = newState;
+                    break;
+                default:
+                    nextState = newState;
+                    break;
+            }
     }
 
     private void Start()
     {
         piecesNum = pieces.Length;
-        currentHealth = health;
+        RestoreHealth();
 
         GameManager.GetInstance().SetBastet(this);
 
@@ -143,8 +158,6 @@ public class Bastet : MonoBehaviour
         currentHealth--;
         if (currentHealth <= 0)
             DesiredState(States.ko);
-        else if (currentHealth <= healthBombLimit)
-            DesiredState(States.bomb);
     }
 
     public void Appear()
@@ -172,6 +185,10 @@ public class Bastet : MonoBehaviour
         PieceDisappear();
         piecesNum--;
         Debug.Log(piecesNum);
+
+        Rigidbody2D barInstance = Instantiate(bar, barSpawn.position, Quaternion.identity).GetComponent<Rigidbody2D>();
+        barInstance.bodyType = RigidbodyType2D.Dynamic;
+        barInstance.AddForce(barForce);
     }
 
     public void RestoreHealth()

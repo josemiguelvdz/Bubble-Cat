@@ -20,6 +20,9 @@ public class Shoot : MonoBehaviour
     [Tooltip("Tiempo entre proyectiles"), SerializeField]
     float shootRate;
 
+    [Tooltip("Probabilidad de que el siguiente ataque sean los puños"), Range(0, 100f), SerializeField]
+    float prob = 40f;
+
     int proyectilesLeft;
     Transform player;
     Bastet bastet;
@@ -53,6 +56,11 @@ public class Shoot : MonoBehaviour
         proyectilesLeft--;
 
         if (proyectilesLeft == 0)
-            bastet.DesiredState(Bastet.States.fists);
+        {
+            if(Random.Range(0, 101) < prob)
+                bastet.DesiredState(Bastet.States.fists);
+            else
+                bastet.DesiredState(Bastet.States.bomb);
+        }
     }
 }

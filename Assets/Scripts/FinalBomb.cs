@@ -45,7 +45,7 @@ public class FinalBomb : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    private void OnDistroy()
     {
         GameManager.GetInstance().GetBastet().FirstAttack();
     }

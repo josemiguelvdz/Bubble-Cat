@@ -16,6 +16,8 @@ public class Box : MonoBehaviour
     private Vector3 minPoint;
     private Transform btrans;
 
+    public float waitingTime;
+
     private int cont = 0;
 
     Bastet bastet;
@@ -62,8 +64,13 @@ public class Box : MonoBehaviour
         }
         else
         {
-            bastet.DesiredState(Bastet.States.magic);
-            bastet.DesiredState(Bastet.States.fists);
+            Invoke("NextAttack", waitingTime);
         }
+    }
+
+    void NextAttack()
+    {
+        bastet.DesiredState(Bastet.States.magic);
+        bastet.DesiredState(Bastet.States.fists);
     }
 }
