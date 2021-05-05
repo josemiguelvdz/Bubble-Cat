@@ -160,9 +160,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slimeSpeed: 2
-  coolDown: 0
   wallDistance: 0.75
-  attackRadius: 1.25
+  force: 7
   visionRadius: 5
 --- !u!114 &4481387800052859278
 MonoBehaviour:
