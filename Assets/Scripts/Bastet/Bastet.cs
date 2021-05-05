@@ -164,6 +164,7 @@ public class Bastet : MonoBehaviour
         if (currentHealth <= 0)
         {
             box.CancelNextAttack();
+            CancelInvoke();
             DesiredState(States.ko);
         }
     }

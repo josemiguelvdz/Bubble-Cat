@@ -48,4 +48,10 @@ public class TrashAttack : MonoBehaviour
     {
         bastet.DesiredState(Bastet.States.bomb);
     }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
+        TrashDespawn();
+    }
 }
