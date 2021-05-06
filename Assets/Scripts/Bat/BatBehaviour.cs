@@ -48,7 +48,7 @@ public class BatBehaviour : MonoBehaviour
             Debug.DrawRay(transform.position, dir.normalized * hit.distance, Color.red);
 
             //Si colisiona con el jugador
-            if (hit.collider.gameObject.layer == playerLayer)
+            if (hit && hit.collider.gameObject.layer == playerLayer)
             {
                 //Perseguimos al jugador
                 if(rb.velocity.magnitude < flySpeed)

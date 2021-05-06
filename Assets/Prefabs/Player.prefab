@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &660216320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 660216321}
+  m_Layer: 8
+  m_Name: DetectWall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &660216321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660216320}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.22, y: 0.61, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 964593979786218409}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &964593979786218404
 GameObject:
   m_ObjectHideFlags: 0
@@ -38,6 +68,7 @@ Transform:
   - {fileID: 8100370241744776342}
   - {fileID: 1909826177425793928}
   - {fileID: 1911316398340008095}
+  - {fileID: 660216321}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -56,14 +87,15 @@ MonoBehaviour:
   bala: {fileID: 7541391376405976063, guid: bbf11be75e70cfe429020afb30487c62, type: 3}
   melee: {fileID: 1448924114859675637}
   bulletSpawn: {fileID: 964593980933118402}
+  allowAttack: {fileID: 660216321}
   bulletRate: 0.5
   timeBulletRate: 0
   jumpVelocity: 12
   jumpHeigth: 2
   fallMultiplier: 3
-  lowJumpMultiplier: 5
+  lowJumpMultiplier: 7
   raycastLength: 0.8
-  speed: 5
+  speed: 6
   stage:
     serializedVersion: 2
     m_Bits: 512

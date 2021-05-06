@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flySpeed: 5
-  acceleration: 5
+  acceleration: 10
   bounceForce: 10
   waitingTime: 5
   playerLayer: 8
@@ -261,3 +261,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 3
+  timeToExplodeTheBubble: 6

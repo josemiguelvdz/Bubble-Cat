@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bala;
     public GameObject melee;
     public Transform bulletSpawn;
+    public Transform allowAttack;
 
     public float bulletRate = 0.5f;
     public float timeBulletRate = 0;
@@ -48,18 +49,23 @@ public class PlayerController : MonoBehaviour
         else if (horizontal > 0 && transform.localScale.x<=0) 
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
-        if (Input.GetButtonDown("Gun")) 
-            Shoot();
-
-        if (Input.GetButtonDown("Bubble") && !isJumping)
+        Vector2 dir = allowAttack.position - transform.position;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, dir.magnitude, stage);
+        if (!hit || !hit.collider.gameObject.GetComponent<CompositeCollider2D>())
         {
-            rb.velocity = new Vector2(0, 0);
-            spawner.BubbleSpawn();
-            GameManager.GetInstance().DeactivatePlayerController();
-        }
+            if (Input.GetButtonDown("Gun"))
+                Shoot();
 
-        if (Input.GetButtonDown("Melee")) 
-            Hit();
+            if (Input.GetButtonDown("Bubble") && !isJumping)
+            {
+                rb.velocity = new Vector2(0, 0);
+                spawner.BubbleSpawn();
+                GameManager.GetInstance().DeactivatePlayerController();
+            }
+
+            if (Input.GetButtonDown("Melee"))
+                Hit();
+        }
 
         if (Input.GetButtonDown("Reload")) 
             GameManager.GetInstance().Reload();
