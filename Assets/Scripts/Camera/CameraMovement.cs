@@ -24,9 +24,6 @@ public class CameraMovement : MonoBehaviour
     GameObject bubble;
     Transform target;
 
-    float distance;
-
-    bool isFollowing = false;
 
     void Start() 
     {
@@ -38,24 +35,14 @@ public class CameraMovement : MonoBehaviour
         else
             Debug.LogError("No estoy siguiendo al jugador");
 
-        if (takeOffsetFromInitialPos && target != null) generalOffset = transform.position - target.position;
+        
     }
 
 
     void Update()
     {
-        distance = Mathf.Abs(Vector2.Distance(transform.position, target.position));
 
-        if (distance > distanceLimit)
-        {
-            isFollowing = true;
-        }
-        else if (distance < distanceLimit / 2)
-        {
-            isFollowing = false;
-        }
-
-        if (isFollowing && target != null) 
+        if (target != null) 
         {
             whereCameraShouldBe = target.position + generalOffset;
             transform.position = Vector3.Lerp(transform.position, whereCameraShouldBe, Time.deltaTime);
@@ -76,15 +63,19 @@ public class CameraMovement : MonoBehaviour
     void LateUpdate()
     {
         // CAMBIAR FIND POR LLAMAR A UN METODO SETBUBBLE(b) QUE HAGA bubble = b;
-        bubble = GameObject.Find("Bubble(Clone)");
+        
+
+        bubble = GameObject.Find("Bubble(Clone)").transform.GetChild(1).gameObject;
 
         if (bubble)
         {
             target = bubble.transform;
         }
-        else
+        else if (!bubble)
         {
             target = player.transform;
         }
+
+        Debug.Log(target.na);
     }
 }
