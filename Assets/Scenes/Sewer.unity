@@ -507,6 +507,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 711f5434f3873514dae650cac6d2b498, type: 3}
+--- !u!114 &61397422 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6528378170274861444, guid: d38fb2d08e41e4142ab744ae4515ed12,
+    type: 3}
+  m_PrefabInstance: {fileID: 315680462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fc6606c803aaa4bbd1b7ae2f884a82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &68374537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -140242,6 +140254,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6849142926987517259, guid: 0ca3a9f20e79f184db81bdc79b6704dc,
+        type: 3}
+      propertyPath: yunoArrow
+      value: 
+      objectReference: {fileID: 61397422}
     - target: {fileID: 6849142926987517261, guid: 0ca3a9f20e79f184db81bdc79b6704dc,
         type: 3}
       propertyPath: m_Name
