@@ -5,6 +5,7 @@ public class CameraMovement : MonoBehaviour
     [Tooltip("Jugador al que sigue la camara"), SerializeField]
     GameObject player = null;
 
+
     [Tooltip("Vector de distancia"), SerializeField]
     int distanceLimit = 0;
 

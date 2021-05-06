@@ -10,20 +10,20 @@ public class TrashAttack : MonoBehaviour
 
     private bool afterSpawn = false;
 
+
     void Start()
     {
         rb = Pillars.transform.GetChild(0).GetComponent<Rigidbody2D>();
-        initialPosition = Pillars.transform.position;
-        // ANIMACIÓN BASTET    
-        Invoke("TrashSpawn", 1f);
 
+        initialPosition = Pillars.transform.position;
+
+        // ANIMACIÓN 
         bastet = GetComponent<Bastet>();
     }
 
     private void OnEnable()
-    {
-        if(afterSpawn)
-            Pillars.transform.position = initialPosition;
+    { 
+        Invoke("TrashSpawn", 1f);
     }
 
     private void Update()
@@ -35,13 +35,22 @@ public class TrashAttack : MonoBehaviour
     }
     public void TrashSpawn()
     {
+
+        Pillars.transform.position = initialPosition;
+
+        if (Random.Range(0, 2) == 1){
+            Pillars.transform.position = Pillars.transform.position + new Vector3(2, 0, 0);
+        }
+
         Pillars.SetActive(true);
+        
         afterSpawn = true;
         Invoke("NextAttack", 3f);
     }
     public void TrashDespawn()
     {
         Pillars.SetActive(false);
+        afterSpawn = false;
     }
 
     void NextAttack()

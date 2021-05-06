@@ -91,10 +91,6 @@ public class SpiderMovement : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRadius);
     }
 
-
-
-
-
     void Attack()
     {
         if(transform.localScale.x<0) rb.AddForce(new Vector2(-forceX, forceY), ForceMode2D.Impulse);
@@ -102,10 +98,6 @@ public class SpiderMovement : MonoBehaviour
 
         Invoke("CanAttack", refreshAttack);
     }
-
-
-
-
 
     void CanAttack()
     {

@@ -40,8 +40,12 @@ public class YunoArrow : MonoBehaviour
                 if (perpendicularDir.x < 0) perpendicularDir = new Vector3(-1, 0, 0);
                 else perpendicularDir = new Vector3(1, 0, 0);
             }
-            else if(perpendicularDir.y < 0) perpendicularDir = new Vector3(0, -1, 0);
-            else perpendicularDir = new Vector3(0, 1, 0);
+            else if(Mathf.Abs(perpendicularDir.x) < Mathf.Cos(29.40f))
+            {
+                if (perpendicularDir.y < 0) perpendicularDir = new Vector3(0, -1, 0);
+                else perpendicularDir = new Vector3(0, 1, 0);
+
+            }
 
 
             arrowPosition = closestPoint - perpendicularDir * distance;

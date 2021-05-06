@@ -9,10 +9,14 @@ public class PillarMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     private bool limitAchieved = false;
+
+    private Vector3 initialPos;
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        initialPos = gameObject.transform.position;
+
     }
 
     // Update is called once per frame
@@ -42,9 +46,16 @@ public class PillarMovement : MonoBehaviour
             limitAchieved = true;
             Debug.Log("Debería parar");
         }
-        if (col.name == "Player")
+
+        if(col.tag == "Enemy")
         {
-            // Do damage
+            Destroy(col.gameObject);
         }
+    }
+
+    private void OnDisable()
+    {
+        gameObject.transform.position = initialPos;
+        limitAchieved = false;
     }
 }

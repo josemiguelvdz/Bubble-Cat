@@ -8,5 +8,8 @@ public class Water : MonoBehaviour
         {
             Destroy(col.gameObject);
         }
+        
+    
     }
+ 
 }
