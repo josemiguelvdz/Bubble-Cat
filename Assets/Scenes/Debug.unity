@@ -128,16 +128,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5953320162425949201, guid: f9dbbcf61921bb248b7fe7f5b2abed12,
-        type: 3}
-      propertyPath: timeToExplodeTheBubble
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9196591159938102952, guid: f9dbbcf61921bb248b7fe7f5b2abed12,
-        type: 3}
-      propertyPath: raycastLength
-      value: 0.6
-      objectReference: {fileID: 0}
     - target: {fileID: 9196591159938102959, guid: f9dbbcf61921bb248b7fe7f5b2abed12,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -995,6 +985,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79eabd82afdbde3438887d5cdaf90671, type: 3}
+--- !u!4 &481235634 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5491634891109774277, guid: c78566f9b190c9a458201192023a411f,
+    type: 3}
+  m_PrefabInstance: {fileID: 964593980458602032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &499175128
 GameObject:
   m_ObjectHideFlags: 0
@@ -14977,12 +14973,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1201576300209567835}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1043255756 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 964593979786218404, guid: c78566f9b190c9a458201192023a411f,
-    type: 3}
-  m_PrefabInstance: {fileID: 964593980458602032}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1321354175 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8123498301447945662, guid: 0ca3a9f20e79f184db81bdc79b6704dc,
@@ -16816,7 +16806,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1043255756}
+      objectReference: {fileID: 481235634}
     - target: {fileID: 1201576298927770884, guid: 7a059b0edce40cb4285b58ba05322a43,
         type: 3}
       propertyPath: m_Name

@@ -5,7 +5,7 @@ using UnityEngine;
 public class DetectPlayer : MonoBehaviour
 {
     Rigidbody2D rb;
-    BoxCollider2D bc;
+    Collider2D cc;
     Vector3 spider;
 
     public float raycastDistance;
@@ -16,7 +16,7 @@ public class DetectPlayer : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        bc = GetComponent<BoxCollider2D>();
+        cc = GetComponent<Collider2D>();
         spider = transform.position;
     }
 
@@ -27,7 +27,7 @@ public class DetectPlayer : MonoBehaviour
 
 
 
-        hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - bc.size.y / 2), Vector2.down, raycastDistance);
+        hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - cc.bounds.size.y / 2), Vector2.down, raycastDistance);
 
         
 

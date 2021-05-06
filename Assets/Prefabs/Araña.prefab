@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 9196591159938102959}
   - component: {fileID: 9196591159938102956}
   - component: {fileID: 9196591159938102962}
-  - component: {fileID: 9196591159938102957}
   - component: {fileID: 9196591159938102958}
   - component: {fileID: 9196591159938102953}
   - component: {fileID: 9196591159938102952}
   - component: {fileID: 9196591159938102955}
   - component: {fileID: 5953320162425949201}
+  - component: {fileID: 1901567283928255673}
   m_Layer: 2
   m_Name: "Ara\xF1a"
   m_TagString: Untagged
@@ -109,32 +109,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &9196591159938102957
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9196591159938102963}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.00028896332, y: 0.04510355}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.4, y: 1.688}
-    newSize: {x: 2.4, y: 1.688}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.2545033, y: 0.75991154}
-  m_EdgeRadius: 0
 --- !u!114 &9196591159938102958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +154,7 @@ MonoBehaviour:
   forceX: 20
   forceY: 20
   refreshAttack: 2
-  raycastLength: 0.7
+  raycastLength: 0.6
   wallDistance: 0.8
   stageLayer:
     serializedVersion: 2
@@ -211,3 +185,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   timeToExplodeTheBubble: 4
+--- !u!70 &1901567283928255673
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196591159938102963}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.028481483, y: 0.023277229}
+  m_Size: {x: 1.1506178, y: 0.7537981}
+  m_Direction: 1

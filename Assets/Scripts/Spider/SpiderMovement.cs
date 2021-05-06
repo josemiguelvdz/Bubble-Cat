@@ -71,7 +71,7 @@ public class SpiderMovement : MonoBehaviour
 
 
 
-        if (Physics2D.Raycast(transform.position, Vector2.down, raycastLength, stageLayer))
+        if (Physics2D.Raycast(transform.position,new Vector2(0,-transform.up.y), raycastLength, stageLayer))
         {
             Debug.Log("He llegado al suelo");
             ground = true;
@@ -124,7 +124,10 @@ public class SpiderMovement : MonoBehaviour
     }
 
 
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+         transform.rotation = playerRotation;
+    }
 
     void Attack()
     {
