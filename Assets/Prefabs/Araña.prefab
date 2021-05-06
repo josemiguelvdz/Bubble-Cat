@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 9196591159938102952}
   - component: {fileID: 9196591159938102955}
   - component: {fileID: 5953320162425949201}
-  m_Layer: 14
+  m_Layer: 2
   m_Name: "Ara\xF1a"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.005581856, y: 0.038388252}
+  m_Offset: {x: 0.00028896332, y: 0.04510355}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -133,7 +133,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.023901, y: 0.6390343}
+  m_Size: {x: 1.2545033, y: 0.75991154}
   m_EdgeRadius: 0
 --- !u!114 &9196591159938102958
 MonoBehaviour:
@@ -180,7 +180,8 @@ MonoBehaviour:
   forceX: 20
   forceY: 20
   refreshAttack: 2
-  raycastLength: 0.6
+  raycastLength: 0.7
+  wallDistance: 0.8
   stageLayer:
     serializedVersion: 2
     m_Bits: 512
