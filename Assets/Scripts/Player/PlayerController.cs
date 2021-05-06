@@ -9,9 +9,11 @@ public class PlayerController : MonoBehaviour
     public float bulletRate = 0.5f;
     public float timeBulletRate = 0;
     public float jumpVelocity = 8f;
+    public float jumpHeigth = 2f;
     public float fallMultiplier = 2.5f, lowJumpMultiplier = 1.2f;
     public float raycastLength;
 
+    float jumpStart = 10000f; //Punto de inicio del salto
     Rigidbody2D rb;
     BubbleSpawner spawner;
     BubbleHelmet bubbleHelmet;
@@ -63,19 +65,26 @@ public class PlayerController : MonoBehaviour
             GameManager.GetInstance().Reload();
 
         //Salto
-        if (Input.GetButtonDown("Jump") && !isJumping) 
+        if (Input.GetButtonDown("Jump") && !isJumping)
+        {
+            jumpStart = transform.position.y;
             rb.velocity = Vector2.up * jumpVelocity;
+        }
 
         if (Input.GetButtonDown("Helmet")) 
             bubbleHelmet.InvokeReplace();
 
 
+        if(isJumping)
+        {
+            //Añade una fuerza complementaria hacia abajo al llegar al tope de altura y al seguir cayendo
+            if (rb.velocity.y > 0 && transform.position.y > jumpStart + jumpHeigth || rb.velocity.y < 0)
+                rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
 
-        if (rb.velocity.y < 0) 
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-       
-        else if (rb.velocity.y > 0 && !Input.GetButton("Jump")) 
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            //Si cancelamos el salto aplica otra fuerza hacia abajo
+            else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+                rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
     }
 
 
@@ -143,9 +152,6 @@ public class PlayerController : MonoBehaviour
         {
             key = false;
             col.gameObject.GetComponent<Door>().OpenDoor();
-
-
-
         }
         if (col.gameObject.GetComponent<Key>())
         {

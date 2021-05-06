@@ -58,7 +58,8 @@ MonoBehaviour:
   bulletSpawn: {fileID: 964593980933118402}
   bulletRate: 0.5
   timeBulletRate: 0
-  jumpVelocity: 8
+  jumpVelocity: 12
+  jumpHeigth: 2
   fallMultiplier: 3
   lowJumpMultiplier: 5
   raycastLength: 0.8
@@ -132,7 +133,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b5efe0a9547e9f84386acb1b7592b342, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -153,6 +154,7 @@ MonoBehaviour:
   replaceTime: 2
   inmunityTime: 1
   helmet: {fileID: 8041657466684949796}
+  invencible: 0
 --- !u!70 &1043255758
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
