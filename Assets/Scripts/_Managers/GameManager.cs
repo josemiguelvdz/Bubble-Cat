@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
             case Checkpoint.checkpoint5:
 
                 
-                GameObject.Find("ChangeScene").GetComponent<ChangeScene>().StartGame();
+                GameObject.Find("ChangeScene").GetComponent<ChangeScene>().NextScene();
 
 
                 break;
