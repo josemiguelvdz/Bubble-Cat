@@ -51,6 +51,8 @@ public class BubbleController : MonoBehaviour
 
         child = transform.GetChild(0).gameObject;
         spriteRenderer = child.GetComponent<SpriteRenderer>();
+
+        BubbleManager.GetInstance().SetBubble(this);
     }
 
     void Update()
@@ -99,7 +101,7 @@ public class BubbleController : MonoBehaviour
 
 
     private void OnCollisionEnter2D(Collision2D col)
-    {        
+    {
         int stageLayer = LayerMask.NameToLayer("Stage");
         int playerLayer = LayerMask.NameToLayer("Player");
         //spriteRenderer = col.gameObject.GetComponent<SpriteRenderer>();

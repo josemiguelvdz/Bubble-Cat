@@ -12,6 +12,7 @@ public class BubbleHelmet : MonoBehaviour
 
     bool inmunity = false;
     SpriteRenderer yuno;
+    BubbleController bubble;
 
     private void Start()
     {
@@ -63,6 +64,9 @@ public class BubbleHelmet : MonoBehaviour
                 helmetOn = true;
                 helmet.enabled = true;
             }
+
+            bubble = BubbleManager.GetInstance().GetBubble();
+            if (bubble) bubble.Pop();
         }
     }
 

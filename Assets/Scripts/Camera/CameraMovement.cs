@@ -3,7 +3,7 @@
 public class CameraMovement : MonoBehaviour
 {
     [Tooltip("Jugador al que sigue la camara"), SerializeField]
-    GameObject player = null;
+    Transform player = null;
 
 
     [Tooltip("Vector de distancia"), SerializeField]
@@ -30,12 +30,10 @@ public class CameraMovement : MonoBehaviour
         if (player != null)
         {
             //Debug.Log("Player camarita");
-            target = player.transform;
+            target = player;
         }
         else
             Debug.LogError("No estoy siguiendo al jugador");
-
-        
     }
 
 
@@ -54,7 +52,7 @@ public class CameraMovement : MonoBehaviour
         {
             if (!warningAlreadyShown) 
             {
-                Debug.Log("Warning: You should specify a target in the simpleCamFollow script.", gameObject);
+                Debug.LogError("Warning: You should specify a target in the simpleCamFollow script.", gameObject);
                 warningAlreadyShown = true;
             }
         }
@@ -62,20 +60,15 @@ public class CameraMovement : MonoBehaviour
 
     void LateUpdate()
     {
-        // CAMBIAR FIND POR LLAMAR A UN METODO SETBUBBLE(b) QUE HAGA bubble = b;
-        
-
-        bubble = GameObject.Find("Bubble(Clone)").transform.GetChild(1).gameObject;
+        BubbleController bubble = BubbleManager.GetInstance().GetBubble();
 
         if (bubble)
         {
             target = bubble.transform;
         }
-        else if (!bubble)
+        else
         {
-            target = player.transform;
+            target = player;
         }
-
-        Debug.Log(target.na);
     }
 }

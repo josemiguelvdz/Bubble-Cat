@@ -3,6 +3,8 @@
 public class BubbleManager : MonoBehaviour
 {
     static BubbleManager instance;
+
+    BubbleController currentBubble = null;
     GameObject collissioned;
 
     private void Awake()
@@ -54,7 +56,17 @@ public class BubbleManager : MonoBehaviour
 
     public static BubbleManager GetInstance()
     {
-        //Consigue la referencia al GameManager
+        //Consigue la referencia al BubbleManager
         return instance;
+    }
+
+    public void SetBubble(BubbleController b)
+    {
+        currentBubble = b;
+    }
+
+    public BubbleController GetBubble()
+    {
+        return currentBubble;
     }
 }

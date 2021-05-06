@@ -185,7 +185,7 @@ MonoBehaviour:
   distanceLimit: 1
   lookAtTarget: 0
   takeOffsetFromInitialPos: 1
-  generalOffset: {x: 0, y: 0, z: 0}
+  generalOffset: {x: 0, y: 0, z: -10}
 --- !u!114 &737584903
 MonoBehaviour:
   m_ObjectHideFlags: 0

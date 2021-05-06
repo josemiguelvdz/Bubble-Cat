@@ -135994,10 +135994,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2684073616533880833, guid: c78566f9b190c9a458201192023a411f,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5491634891109774277, guid: c78566f9b190c9a458201192023a411f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5491634891109774277, guid: c78566f9b190c9a458201192023a411f,
         type: 3}
@@ -136009,6 +136014,11 @@ PrefabInstance:
       propertyPath: fadeEffect
       value: 
       objectReference: {fileID: 940125004}
+    - target: {fileID: 6251592335318148130, guid: c78566f9b190c9a458201192023a411f,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c78566f9b190c9a458201192023a411f, type: 3}
 --- !u!1001 &1007259669
@@ -139867,12 +139877,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 2110775107}
-    - target: {fileID: 403998049787124093, guid: 7a059b0edce40cb4285b58ba05322a43,
-        type: 3}
-      propertyPath: laziness
-      value: 2
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2110775108}
     - target: {fileID: 1201576298927770884, guid: 7a059b0edce40cb4285b58ba05322a43,
         type: 3}
       propertyPath: m_Name
@@ -141126,9 +141131,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6263d7813389f814d938eeed4a36b3ef, type: 3}
---- !u!1 &2110775107 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7042447697718636018, guid: c78566f9b190c9a458201192023a411f,
+--- !u!4 &2110775108 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5491634891109774277, guid: c78566f9b190c9a458201192023a411f,
     type: 3}
   m_PrefabInstance: {fileID: 1003225632}
   m_PrefabAsset: {fileID: 0}

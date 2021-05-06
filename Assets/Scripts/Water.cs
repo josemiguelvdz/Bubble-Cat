@@ -8,8 +8,8 @@ public class Water : MonoBehaviour
         {
             Destroy(col.gameObject);
         }
-        
-    
+        else if (col.gameObject.GetComponent<BubbleController>())
+            col.gameObject.GetComponent<BubbleController>().Pop();
     }
  
 }
