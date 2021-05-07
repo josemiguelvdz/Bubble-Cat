@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8936481716341025425}
   - component: {fileID: -5654952253548020972}
   - component: {fileID: 1137719488174187112}
+  - component: {fileID: 124764488715421057}
   m_Layer: 0
   m_Name: Magic_ray
   m_TagString: Untagged
@@ -147,3 +148,15 @@ CapsuleCollider2D:
   m_Offset: {x: -0.18, y: 0}
   m_Size: {x: 1.3, y: 0.13}
   m_Direction: 1
+--- !u!114 &124764488715421057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2298656925611692503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a68381c312d4994eba319f27f467a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
