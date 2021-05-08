@@ -14,6 +14,7 @@ public class ConvertToDinamic : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.mass = 4;
         Destroy(this);
     }
 }
