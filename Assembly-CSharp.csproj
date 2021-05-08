@@ -797,7 +797,20 @@
       <HintPath>C:/Users/José Miguel/Documents/Bubble-Cat/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup></ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Unity.2D.Animation.Samples.Dependency.csproj">
+      <Project>{A3679AF8-8266-E0C8-23F7-F1B01BFF2862}</Project>
+      <Name>Unity.2D.Animation.Samples.Dependency</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Animation.Samples.Runtime.csproj">
+      <Project>{55597E6B-6861-5985-1AA9-DC22810698C2}</Project>
+      <Name>Unity.2D.Animation.Samples.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Animation.Samples.Editor.csproj">
+      <Project>{2DA5B607-C8FC-ABB8-10C4-F73028A915ED}</Project>
+      <Name>Unity.2D.Animation.Samples.Editor</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

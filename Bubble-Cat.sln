@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{F81FE908-9A2A-93DE-DEDA-E9F80B0DB090}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Animation.Samples.Runtime", "Unity.2D.Animation.Samples.Runtime.csproj", "{55597E6B-6861-5985-1AA9-DC22810698C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Animation.Samples.Dependency", "Unity.2D.Animation.Samples.Dependency.csproj", "{A3679AF8-8266-E0C8-23F7-F1B01BFF2862}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Animation.Samples.Editor", "Unity.2D.Animation.Samples.Editor.csproj", "{2DA5B607-C8FC-ABB8-10C4-F73028A915ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +19,18 @@ Global
 		{F81FE908-9A2A-93DE-DEDA-E9F80B0DB090}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F81FE908-9A2A-93DE-DEDA-E9F80B0DB090}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F81FE908-9A2A-93DE-DEDA-E9F80B0DB090}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55597E6B-6861-5985-1AA9-DC22810698C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55597E6B-6861-5985-1AA9-DC22810698C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55597E6B-6861-5985-1AA9-DC22810698C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55597E6B-6861-5985-1AA9-DC22810698C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3679AF8-8266-E0C8-23F7-F1B01BFF2862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3679AF8-8266-E0C8-23F7-F1B01BFF2862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3679AF8-8266-E0C8-23F7-F1B01BFF2862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3679AF8-8266-E0C8-23F7-F1B01BFF2862}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DA5B607-C8FC-ABB8-10C4-F73028A915ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DA5B607-C8FC-ABB8-10C4-F73028A915ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DA5B607-C8FC-ABB8-10C4-F73028A915ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DA5B607-C8FC-ABB8-10C4-F73028A915ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
