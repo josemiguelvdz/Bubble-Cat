@@ -36,8 +36,16 @@ public class BubbleHelmet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!inmunity && (collision.GetComponent<Gas>() || collision.GetComponent<PillarMovement>() || collision.tag == "Fists" || collision.GetComponent<Water>()))
+        if (!inmunity && (collision.GetComponent<Gas>() || collision.GetComponent<PillarMovement>() || collision.tag == "Fists"))
             MakeDamage();
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(!inmunity && collision.GetComponent<Water>())
+        {
+            MakeDamage();
+        }
     }
 
     public void MakeDamage()
