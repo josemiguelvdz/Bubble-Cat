@@ -9,17 +9,20 @@ public class Butano : MonoBehaviour
     public Vector2 velocityLimit;
     private void OnCollisionEnter2D(Collision2D col)
     {
-
-        if (Mathf.Abs(col.relativeVelocity.x) > velocityLimit.x)
+        if(col.gameObject.name != "Bullet(Clone)")
         {
-            Explode();
-            if (col.gameObject.GetComponent<BrokenWall>()) Destroy(col.gameObject);
+            if (Mathf.Abs(col.relativeVelocity.x) > velocityLimit.x)
+            {
+                Explode();
+                if (col.gameObject.GetComponent<BrokenWall>()) Destroy(col.gameObject);
+            }
+            if (Mathf.Abs(col.relativeVelocity.y) > velocityLimit.y)
+            {
+                Explode();
+                if (col.gameObject.GetComponent<BrokenWall>()) Destroy(col.gameObject);
+            }
         }
-        if (Mathf.Abs(col.relativeVelocity.y) > velocityLimit.y)
-        {
-            Explode();
-            if (col.gameObject.GetComponent<BrokenWall>()) Destroy(col.gameObject);
-        }
+        
 
     }
 

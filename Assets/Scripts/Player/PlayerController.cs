@@ -33,6 +33,10 @@ public class PlayerController : MonoBehaviour
 
     private bool key = false;
 
+    private void Start()
+    {
+        currentMeleeCd = meleeCooldown;
+    }
     void OnEnable()
     {
         GameManager.GetInstance().SetPlayerController(this);
@@ -42,7 +46,7 @@ public class PlayerController : MonoBehaviour
         bubbleHelmet = GetComponent<BubbleHelmet>();
         bubbleSpawner = GetComponentInChildren<BubbleSpawner>();
 
-        currentMeleeCd = meleeCooldown;
+        
     }
 
 
