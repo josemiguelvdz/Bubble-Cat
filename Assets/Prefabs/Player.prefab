@@ -89,6 +89,7 @@ MonoBehaviour:
   melee: {fileID: 1448924114859675637}
   bulletSpawn: {fileID: 964593980933118402}
   allowAttack: {fileID: 660216321}
+  meleeCooldown: 1
   bulletRate: 0.5
   timeBulletRate: 0
   jumpVelocity: 12
@@ -356,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe18f5b72d9488847bc2aa214883e513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: {x: 30, y: 0}
+  force: {x: 15, y: 10}
   dad: {fileID: 964593979786218409}
 --- !u!212 &1635278182
 SpriteRenderer:
