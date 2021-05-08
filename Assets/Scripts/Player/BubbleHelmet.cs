@@ -36,7 +36,7 @@ public class BubbleHelmet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!inmunity && (collision.GetComponent<Gas>() || collision.GetComponent<PillarMovement>() || collision.tag == "Fists") || collision.GetComponent<Water>())
+        if (!inmunity && (collision.GetComponent<Gas>() || collision.GetComponent<PillarMovement>() || collision.tag == "Fists" || collision.GetComponent<Water>()))
             MakeDamage();
     }
 
@@ -59,6 +59,8 @@ public class BubbleHelmet : MonoBehaviour
                 inmunity = true;
                 yuno.color = new Color(1f, 1f, 1f, .5f);
                 Invoke("StopInmunity", inmunityTime);
+
+
 
                 PlayerController pc = gameObject.transform.GetComponentInParent<PlayerController>();
                 pc.enabled = false;
