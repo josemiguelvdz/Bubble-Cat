@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
     public Transform bulletSpawn;
     public Transform allowAttack;
 
+    public float meleeCooldown = 1.5f;
+    private float currentMeleeCd;
+
     public float bulletRate = 0.5f;
     public float timeBulletRate = 0;
     public float jumpVelocity = 8f;
@@ -38,11 +41,17 @@ public class PlayerController : MonoBehaviour
         spawner = GetComponentInChildren<BubbleSpawner>();  
         bubbleHelmet = GetComponent<BubbleHelmet>();
         bubbleSpawner = GetComponentInChildren<BubbleSpawner>();
+
+        currentMeleeCd = meleeCooldown;
     }
 
 
     void Update()
     {
+        
+        currentMeleeCd -=  Time.deltaTime;
+        Debug.Log(meleeCooldown);
+
         horizontal = Input.GetAxisRaw("Horizontal"); //Recogida de input
         if (horizontal < 0 && transform.localScale.x >= 0) 
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
@@ -63,8 +72,13 @@ public class PlayerController : MonoBehaviour
                 GameManager.GetInstance().DeactivatePlayerController();
             }
 
-            if (Input.GetButtonDown("Melee"))
+            if (Input.GetButtonDown("Melee") && currentMeleeCd < 0f)
+            {
                 Hit();
+                currentMeleeCd = meleeCooldown;
+            }
+                
+
         }
 
         if (Input.GetButtonDown("Reload")) 
