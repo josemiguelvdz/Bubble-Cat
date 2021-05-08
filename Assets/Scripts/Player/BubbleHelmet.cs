@@ -56,6 +56,15 @@ public class BubbleHelmet : MonoBehaviour
             }
             else
             {
+                inmunity = true;
+                yuno.color = new Color(1f, 1f, 1f, .5f);
+                Invoke("StopInmunity", inmunityTime);
+
+                PlayerController pc = gameObject.transform.GetComponentInParent<PlayerController>();
+                pc.enabled = false;
+                Rigidbody2D rb = gameObject.transform.GetComponentInParent<Rigidbody2D>();
+                rb.velocity = Vector2.zero;
+
                 // PARTICULAS
 
                 fadeEffect.StartEffect();
