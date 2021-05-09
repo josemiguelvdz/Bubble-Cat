@@ -145,7 +145,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 251.6, y: -1.8, z: 0}
+  m_LocalPosition: {x: 98.6, y: -16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -133242,6 +133242,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 7533517274260198766, guid: 00033a22594cbc0478509ec1fea2bce8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9158301307878034206, guid: 00033a22594cbc0478509ec1fea2bce8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -134706,6 +134711,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "Ara\xF1a (10)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196591159938102963, guid: f9dbbcf61921bb248b7fe7f5b2abed12,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9dbbcf61921bb248b7fe7f5b2abed12, type: 3}
@@ -136275,6 +136285,11 @@ PrefabInstance:
       propertyPath: fadeEffect
       value: 
       objectReference: {fileID: 940125004}
+    - target: {fileID: 6055711807188745263, guid: c78566f9b190c9a458201192023a411f,
+        type: 3}
+      propertyPath: invencible
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6251592335318148130, guid: c78566f9b190c9a458201192023a411f,
         type: 3}
       propertyPath: m_BodyType
@@ -138427,6 +138442,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "Ara\xF1a (11)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196591159938102963, guid: f9dbbcf61921bb248b7fe7f5b2abed12,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9dbbcf61921bb248b7fe7f5b2abed12, type: 3}

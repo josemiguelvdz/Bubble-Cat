@@ -26,6 +26,6 @@ public class ManHole : MonoBehaviour
 
     private void OnEnable()
     {
-        rb.velocity = Vector2.right * speed;
+        rb.velocity = new Vector2(transform.right.x, transform.right.y) * speed;
     }
 }

@@ -19,8 +19,10 @@ public class SlimeBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
-        hitPlayer = Physics2D.Raycast(transform.position, player.transform.position - transform.position, visionRadius, 1 << LayerMask.NameToLayer("Player"));
-        Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.cyan);
+        Vector3 raySpawn = (player.transform.position - transform.position);
+
+        hitPlayer = Physics2D.Raycast(transform.position, raySpawn, visionRadius, 1 << LayerMask.NameToLayer("Player"));
+        Debug.DrawRay(transform.position, raySpawn.normalized * visionRadius, Color.cyan);
 
         if (hitPlayer.collider != null && hitPlayer.collider.GetComponent<PlayerController>())
         {
