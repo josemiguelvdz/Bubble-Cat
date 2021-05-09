@@ -18,7 +18,19 @@ public class LizardDetector : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerController>())
         {
             parent.PositionPlayer(collision.gameObject.transform, col.radius);
-            Debug.Log("Colisiono con el jugador");
         }
+    }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<PlayerController>())
+        {
+            parent.PositionPlayer(collision.gameObject.transform, col.radius);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        parent.PositionPlayer(null, 0);
     }
 }

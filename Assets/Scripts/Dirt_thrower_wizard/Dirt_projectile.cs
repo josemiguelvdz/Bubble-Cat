@@ -14,23 +14,23 @@ public class Dirt_projectile : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        parent = FindObjectOfType<Lizard>();
-        dir = parent.getDirectionDirtProjectile();
-        isRotated = false;
+        this.rb = GetComponent<Rigidbody2D>();
+        this.parent = FindObjectOfType<Lizard>();
+        this.dir = parent.getDirectionDirtProjectile();
+        this.isRotated = false;
     }
 
     void FixedUpdate()
     {
         //Se calcula el vector que indica la velocidad a la que se mueve el proyectil
-        if (isRotated == true)
+        if (this.isRotated == true)
         {
             //rb.SetRotation(rotation);   
-            rb.velocity = dir.normalized * speed * Time.fixedDeltaTime;
+            this.rb.velocity = this.dir.normalized * this.speed * Time.fixedDeltaTime;
         }
         else
         {
-            rb.velocity = dir.normalized * speed * Time.fixedDeltaTime;
+            this.rb.velocity = this.dir.normalized * this.speed * Time.fixedDeltaTime;
         }
 
     }
@@ -41,16 +41,25 @@ public class Dirt_projectile : MonoBehaviour
         if (!collision.gameObject.GetComponent<BubbleController>())
         {
             Destroy(this.gameObject);
-            if (isRotated == true)
+            if (this.isRotated == true)
             {
-                isRotated = false;
+                this.isRotated = false;
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collision2D collision)
+    {
+        // Si colisiona se destruye
+        if (!collision.gameObject.GetComponent<BubbleController>())
+        {
+            Destroy(this.gameObject);           
         }
     }
 
     public void rotationProjectil(float rot)
     {
-        isRotated = true;
+        this.isRotated = true;
         if (rot > 90 && rot <= 180)
         {
             if (dir.x < 0)
@@ -79,10 +88,5 @@ public class Dirt_projectile : MonoBehaviour
             if (dir.y > 0)
                 dir.y = -dir.y;
         }
-    }
-
-    public void StopShooting(bool shoot, bool destruction)
-    {
-        parent.StopShooting(shoot, destruction);
     }
 }

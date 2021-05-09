@@ -16,175 +16,199 @@ public class Lizard : MonoBehaviour
     public float shootCadenceSecs;
     //Indica si el lagarto puede disparar
     public bool canShoot;
-    //Indica si me puedo destruir al chocar con el proximo objeto
     public bool destructible;
     //Obtenemos variables necesarias para el recalculo contionuo de los diferentes elementos
     //Se indica el tiempo de retardo tras el primer invoke
     private float initialTime;
-    //Indica la direction en la que se mueve el lagarto, empezamos con movimiento hacia la derecha
-    private string direction;
     //Indica la velocidad del descenso del lagarto
     private float dropVelocity = 5;
     //Indica la rotacion inicial, para perder dicha referencia al rotar al lagarto dentro de la pompa 
     private Quaternion initialTrans;
 
     private SpriteRenderer sprite;
-    private int contador = 0;
-    private int desapariciones = 0;
+    private int contador;
+    private int desapariciones;
 
     private Transform player; //Posicion del jugador
     private float radius; //Distancia a la que veo al jugador
 
-    Vector3 dir;
+    Vector3 dirVector;
     RaycastHit2D hitStage;
     bool hitWall;
+    enum Status {Stop, Movement, Drop, Die};
+    Status status;
+    enum Direction { Right, Left};
+    Direction direction;
 
     void Start()
     {
         //Obtenemos el sprite del lagarto para poder hacer uso del volteo (flip)
-        sprite = GetComponent<SpriteRenderer>();
-        initialTime = shootCadenceSecs;
-        initialTrans = transform.rotation;
-        dir = Vector2.zero;
-        hitWall = false;
-        direction = "right";
-    }
+        this.sprite = GetComponent<SpriteRenderer>();
+        this.initialTime = shootCadenceSecs;
+        this.initialTrans = transform.rotation;
+        this.dirVector = Vector2.zero;
+        this.hitWall = false;
+        this.status = Status.Stop;
+        this.destructible = false;
+     }
 
     private void Update()
     {
-        if (String.IsNullOrEmpty(direction))
+        if (this.status == Status.Stop)
         {
-            killLizard();
-        }
-        else
-        {
-            //Detectamos al jugador y trazamos un rayo hacia él
-            if (player != null)
+            Debug.Log(this.gameObject.name + ": Stop");
+            this.transform.Translate(Vector3.zero);
+
+            if (this.player != null)
             {
-                movimiento(direction);
-                Shoot();
+                this.status = Status.Movement;
+                if (this.sprite.flipX == false)
+                {
+                    this.direction = Direction.Right;
+                }
+                else
+                {
+                    this.direction = Direction.Left;
+                }
+            }
+        }
+        else if (this.status == Status.Movement)
+        {
+            Debug.Log(this.gameObject.name + ": Movement");
+            movimiento(this.direction);
+            Shoot();
+
+            if (this.player == null)
+            {
+                this.status = Status.Stop;
+            }
+        }
+        else if (this.status == Status.Drop)
+        {
+            Debug.Log(this.gameObject.name + ": Drop");
+            //Asignamos la rotacion al lagarto, para generar un movimineto de caida vertical, ya que al haberlo rotado el movimiento saldra con la rotacion de la manipulacion de la pompa.
+            this.transform.rotation = this.initialTrans;
+            //Indicamos la traslacion (movimiento) del lagarto en descenso
+            this.transform.Translate(Vector3.down * this.dropVelocity * Time.deltaTime);
+        }
+        else if (this.status == Status.Die)
+        {
+            this.transform.Translate(Vector3.zero);
+            this.contador++;
+            if (this.contador % 350 == 0)
+            {
+                if (this.sprite.enabled == false)
+                {
+                    this.sprite.enabled = true;
+                }
+                else
+                {
+                    this.sprite.enabled = false;
+                }
+                this.desapariciones++;
+            }
+
+            if (this.desapariciones == 8)
+            {
+                gameObject.SetActive(false);
             }
         }
     }
 
-    private void movimiento(string direction)
+    private void movimiento(Direction direction)
     {
-        if (this.direction != "drop")//No tiene que caerse el lagarto
-        {
-            hitStage = Physics2D.Raycast(foot.position, Vector2.up, 0.5f);
-            Debug.DrawRay(foot.position, Vector2.up * 0.5f, Color.red);
+        this.hitStage = Physics2D.Raycast(this.foot.position, Vector2.up, 0.5f);
+        Debug.DrawRay(this.foot.position, Vector2.up * 0.5f, Color.red);
 
-            if (hitStage.collider != null && (hitStage.collider.name == "Tilemap" || hitWall == false)) //Detecta suelo
+        if (this.hitStage.collider != null && this.hitStage.collider.name == "Tilemap" && this.hitWall == false) //Detecta colision contra el suelo y no contra una pared
+        {
+            if (this.direction == Direction.Right)
             {
-                if (this.direction == "right")
-                {
-                    //Indicamos la traslacion (movimiento) del lagarto hacia la derecha y cambio del sprite (volteo)
-                    transform.Translate(Vector3.right * Time.deltaTime);
-                    sprite.flipX = false;
-                }
-                else if (this.direction == "left")
-                {
-                    //Indicamos la traslacion (movimiento) del lagarto hacia la izquierda yu cambio del scripte (volteo)
-                    transform.Translate(Vector3.left * Time.deltaTime);
-                    sprite.flipX = true;
-                }
+                //Indicamos la traslacion (movimiento) del lagarto hacia la derecha y cambio del sprite (volteo)
+                this.transform.Translate(Vector3.right * Time.deltaTime);                
+                this.sprite.flipX = false;
             }
-            else if (hitStage.collider == null || hitStage.collider.name != "Tilemap") //No detecta suelo
+            else if (direction == Direction.Left)
             {
-                if (this.direction == "right")
-                {
-                    this.direction = "left";
-                    //foot.position = new Vector3(-foot.position.x, foot.position.y, foot.position.z);
-                }
-                else if (this.direction == "left")
-                {
-                    this.direction = "right";
-                    //foot.position = new Vector3(foot.position.x, foot.position.y, foot.position.z);
-                }
-                hitWall = false;
-                foot.localPosition = new Vector3(-foot.localPosition.x, foot.localPosition.y, foot.localPosition.z);
+                //Indicamos la traslacion (movimiento) del lagarto hacia la izquierda yu cambio del scripte (volteo)
+                this.transform.Translate(Vector3.left * Time.deltaTime);
+                this.sprite.flipX = true;
             }
         }
-        else//Tiene que caerse el lagarto
-        {
-            //Asignamos la rotacion al lagarto, para generar un movimineto de caida vertical, ya que al haberlo rotado el movimiento saldra con la rotacion de la manipulacion de la pompa.
-            transform.rotation = initialTrans;
-            //Indicamos la traslacion (movimiento) del lagarto en descenso
-            transform.Translate(Vector3.down * dropVelocity * Time.deltaTime);
+        else if (this.hitStage.collider == null || this.hitStage.collider.name != "Tilemap" || this.hitWall == true) //No detecta colision o suelo, pero si muro
+        {            
+            if (this.direction == Direction.Right)
+            {
+                this.direction = Direction.Left;
+            }
+            else if (this.direction == Direction.Left)
+            {
+                this.direction = Direction.Right;
+            }
+            this.foot.localPosition = new Vector3(-this.foot.localPosition.x, this.foot.localPosition.y, this.foot.localPosition.z);
+            this.spawnerProjectile.localPosition = new Vector3(-this.spawnerProjectile.localPosition.x, this.spawnerProjectile.localPosition.y, this.spawnerProjectile.localPosition.z);
+            this.hitWall = false;
         }
     }
 
     //Dispara bala en la direction dada
     public void Shoot()
-    {
-        if (Time.time > initialTime && canShoot == true)
+    {        
+        if (Time.time > this.initialTime && this.canShoot == true)
         {
-            initialTime = Time.time + shootCadenceSecs;         
-            Vector3 distance = player.position - spawnerProjectile.position;
-            if (Mathf.Abs(distance.x) >= 0 && Mathf.Abs(distance.x) <= radius)
+            this.initialTime = Time.time + this.shootCadenceSecs;         
+            Vector3 distance = this.player.position - this.spawnerProjectile.position;
+            if (Mathf.Abs(distance.x) >= 0 && Mathf.Abs(distance.x) <= this.radius)
             {
-                Instantiate(dirtProjectile, spawnerProjectile.position, Quaternion.Euler(new Vector3(0, 0, 90)));
+                Instantiate(this.dirtProjectile, this.spawnerProjectile.position, Quaternion.Euler(new Vector3(0, 0, 0)));
                 setDirectionDirtProjectile(distance);
             }
         }
+        
     }
 
 
     public Vector2 getDirectionDirtProjectile()
     {
-        return dir;
+        return this.dirVector;
     }
 
     public void setDirectionDirtProjectile(Vector3 vector)
     {
-        dir = vector;
+        this.dirVector = vector;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D col)
     {
         //En este caso obtenemos el id del layer Stage
         int stageLayer = LayerMask.NameToLayer("Stage");
+        int bubbleLayer = LayerMask.NameToLayer("Bubble");
 
         //Ha colisionado con un objetro con layer Stage
-        if (collision.gameObject.layer == stageLayer)
+        if (col.gameObject.layer == stageLayer)
         {
-            if (destructible == true)//Puedo destruirme, ya que si he interactuado con la pompa
+            if (this.destructible == true)//Puedo destruirme, ya que si he interactuado con la pompa
             {
                 //Animacion del lagarto
-                direction = String.Empty;
-            }
-        }
-    }
-
-    private void killLizard()
-    {
-        contador++;
-        if (contador % 350 == 0)
-        {
-            if (sprite.enabled == false)
-            {
-                sprite.enabled = true;
+                this.status = Status.Die;
+                this.contador = 0;
+                this.desapariciones = 0;
             }
             else
             {
-                sprite.enabled = false;
+                this.hitWall = true;
             }
-            desapariciones++;
         }
-
-        if (desapariciones == 8)
+        else if (col.gameObject.layer == bubbleLayer)
         {
-            gameObject.SetActive(false);
+            this.canShoot = false;
         }
     }
 
-    public void StopShooting(bool shoot, bool destruction)
+    public void isDestructible()
     {
-        canShoot = false;
-        if (destruction == true)
-        {
-            direction = "drop";
-        }
+        this.destructible = true;
+        this.status = Status.Drop;
     }
 
     public void PositionPlayer(Transform t, float s)

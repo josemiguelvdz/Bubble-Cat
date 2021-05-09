@@ -24,11 +24,7 @@ public class BubbleManager : MonoBehaviour
         bubble.sprite = col.GetComponent<SpriteRenderer>().sprite;
         child.transform.rotation = col.transform.rotation;
         collissioned = col;
-        collissioned.SetActive(false);
-        if (col.name == "Lizard")
-        {
-            col.gameObject.GetComponent<Lizard>().StopShooting(false, true);  
-        }        
+        collissioned.SetActive(false);   
     }
 
 
@@ -47,6 +43,10 @@ public class BubbleManager : MonoBehaviour
                     collissioned.gameObject.GetComponent<Dirt_projectile>().rotationProjectil(collissioned.transform.eulerAngles.z);
                 else
                     collissioned.gameObject.GetComponent<MagicRay>().rotationProjectil(collissioned.transform.eulerAngles.z);
+            }
+            if (collissioned.gameObject.name.Contains("Lizard"))
+            {
+                collissioned.gameObject.GetComponent<Lizard>().isDestructible();
             }
         }
 
