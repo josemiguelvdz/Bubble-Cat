@@ -48,7 +48,7 @@ public class Dirt_projectile : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         // Si colisiona se destruye
         if (!collision.gameObject.GetComponent<BubbleController>())

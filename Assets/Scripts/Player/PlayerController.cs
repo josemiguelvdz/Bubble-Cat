@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         
         currentMeleeCd -=  Time.deltaTime;
-        Debug.Log(meleeCooldown);
+        //Debug.Log(meleeCooldown);
 
         horizontal = Input.GetAxisRaw("Horizontal"); //Recogida de input
         if (horizontal < 0 && transform.localScale.x >= 0) 
