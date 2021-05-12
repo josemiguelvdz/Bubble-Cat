@@ -156,26 +156,18 @@ public class Lizard : MonoBehaviour
     {        
         if (Time.time > this.initialTime && this.canShoot == true)
         {
-            this.initialTime = Time.time + this.shootCadenceSecs;         
+            this.initialTime = Time.time + this.shootCadenceSecs;           
             Vector3 distance = this.player.position - this.spawnerProjectile.position;
             if (Mathf.Abs(distance.x) >= 0 && Mathf.Abs(distance.x) <= this.radius)
             {
-                Instantiate(this.dirtProjectile, this.spawnerProjectile.position, Quaternion.Euler(new Vector3(0, 0, 0)));
-                setDirectionDirtProjectile(distance);
+                Debug.Log("Instancio proyectil del lagarto " + this.name);
+                GameObject newProjectile = (GameObject) Instantiate(this.dirtProjectile, this.spawnerProjectile.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+                // accedemos al script con los valores iniciales
+                Dirt_projectile script = newProjectile.GetComponent<Dirt_projectile>();
+                script.setVelocity(distance);
             }
         }
         
-    }
-
-
-    public Vector2 getDirectionDirtProjectile()
-    {
-        return this.dirVector;
-    }
-
-    public void setDirectionDirtProjectile(Vector3 vector)
-    {
-        this.dirVector = vector;
     }
 
     private void OnCollisionEnter2D(Collision2D col)

@@ -78,7 +78,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 7
+  m_Radius: 15
 --- !u!50 &4817847727558653843
 Rigidbody2D:
   serializedVersion: 4
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 5206802609734798442}
   - component: {fileID: 2521109623618579526}
   m_Layer: 14
-  m_Name: Lizard (10)
+  m_Name: Lizard
   m_TagString: Interactuable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

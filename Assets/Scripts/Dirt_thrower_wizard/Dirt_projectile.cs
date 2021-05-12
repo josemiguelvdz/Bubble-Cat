@@ -5,34 +5,39 @@ using UnityEngine;
 public class Dirt_projectile : MonoBehaviour
 {
     //Indica la velocidad a la que se mueve la bala
-    private float speed = 100;
+    private float speed = 200;
     Rigidbody2D rb;
     Vector3 dir;
-    Lizard parent;
     bool isRotated;
     float rotation;
 
     void Start()
     {
-        this.rb = GetComponent<Rigidbody2D>();
-        this.parent = FindObjectOfType<Lizard>();
-        this.dir = parent.getDirectionDirtProjectile();
-        this.isRotated = false;
+        rb = GetComponent<Rigidbody2D>();
+        isRotated = false;
+        Debug.Log("Start proyectil del lagarto " + dir);
     }
 
-    void FixedUpdate()
+    void Update()
     {
+        Debug.Log("Velocidad: " + dir);
         //Se calcula el vector que indica la velocidad a la que se mueve el proyectil
-        if (this.isRotated == true)
+        if (isRotated == true)
         {
             //rb.SetRotation(rotation);   
-            this.rb.velocity = this.dir.normalized * this.speed * Time.fixedDeltaTime;
+            rb.velocity = dir.normalized * speed * Time.deltaTime;
         }
         else
         {
-            this.rb.velocity = this.dir.normalized * this.speed * Time.fixedDeltaTime;
+            rb.velocity = dir.normalized * speed * Time.deltaTime;
         }
 
+    }
+
+    public void setVelocity(Vector3 distance)
+    {
+        dir = distance;
+        Debug.Log("Distance: " + dir);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -40,26 +45,17 @@ public class Dirt_projectile : MonoBehaviour
         // Si colisiona se destruye
         if (!collision.gameObject.GetComponent<BubbleController>())
         {
-            Destroy(this.gameObject);
-            if (this.isRotated == true)
+            Destroy(gameObject);
+            if (isRotated == true)
             {
-                this.isRotated = false;
+                isRotated = false;
             }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // Si colisiona se destruye
-        if (!collision.gameObject.GetComponent<BubbleController>())
-        {
-            Destroy(this.gameObject);           
         }
     }
 
     public void rotationProjectil(float rot)
     {
-        this.isRotated = true;
+        isRotated = true;
         if (rot > 90 && rot <= 180)
         {
             if (dir.x < 0)
