@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2226638693783993176}
   - component: {fileID: 2226638693783993183}
   - component: {fileID: 2226638693783993182}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pipeline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_Size: {x: 1.62, y: 1.2866666}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &2226638693783993178

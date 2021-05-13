@@ -173,6 +173,7 @@ public class Bastet : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<CapsuleCollider2D>().enabled = true;
+        fists.ShowArms();
 
         FirstAttack();
     }

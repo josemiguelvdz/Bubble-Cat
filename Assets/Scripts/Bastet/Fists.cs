@@ -13,6 +13,12 @@ public class Fists : MonoBehaviour
     Bastet bastet;
     Animator rightFistAnim, leftFistAnim;
 
+    public void ShowArms()
+    {
+        rightFist.SetActive(true);
+        leftFist.SetActive(true);
+    }
+
     void OnEnable()
     {
         numAttacks = Random.Range(2, 6);
