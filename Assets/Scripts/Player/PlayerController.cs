@@ -45,8 +45,6 @@ public class PlayerController : MonoBehaviour
         spawner = GetComponentInChildren<BubbleSpawner>();  
         bubbleHelmet = GetComponent<BubbleHelmet>();
         bubbleSpawner = GetComponentInChildren<BubbleSpawner>();
-
-        
     }
 
 
@@ -175,11 +173,13 @@ public class PlayerController : MonoBehaviour
         if (col.gameObject.GetComponent<Door>() && key)
         {
             key = false;
+            UIManager.GetInstance().UseKey();
             col.gameObject.GetComponent<Door>().OpenDoor();
         }
         if (col.gameObject.GetComponent<Key>())
         {
             key = true;
+            UIManager.GetInstance().GetKey();
             Destroy(col.gameObject);
         }
     }

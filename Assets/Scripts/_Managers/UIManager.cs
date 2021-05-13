@@ -13,6 +13,9 @@ public class UIManager : MonoBehaviour
     [Tooltip("Color que adquirirá BulletText al quedarse con poca munición"), SerializeField]
     Color lowAmmunition=Color.black, noBars=Color.black, noAmmo=Color.black;
 
+    [SerializeField]
+    GameObject key;
+
     Color startingColor;
 
     void Awake()
@@ -71,5 +74,15 @@ public class UIManager : MonoBehaviour
     public void ClosestPoint(Vector3 point)
     {
         yunoArrow.ClosestPoint(point);
+    }
+
+    public void GetKey()
+    {
+        key.SetActive(true);
+    }
+
+    public void UseKey()
+    {
+        key.SetActive(false);
     }
 }

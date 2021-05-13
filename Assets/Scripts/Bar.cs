@@ -14,5 +14,4 @@ public class Bar : MonoBehaviour
             GameManager.GetInstance().CollectBar();
         }
     }
-
 }

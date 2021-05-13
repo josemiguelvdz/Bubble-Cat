@@ -5,7 +5,7 @@ using UnityEngine;
 public class Dirt_projectile : MonoBehaviour
 {
     //Indica la velocidad a la que se mueve la bala
-    private float speed = 200;
+    public float speed = 200;
     Rigidbody2D rb;
     Vector3 dir;
     bool isRotated;

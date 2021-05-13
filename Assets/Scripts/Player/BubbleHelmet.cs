@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BubbleHelmet : MonoBehaviour
 {
@@ -14,9 +15,14 @@ public class BubbleHelmet : MonoBehaviour
     SpriteRenderer yuno;
     BubbleController bubble;
 
+    string sceneName;
+
     private void Start()
     {
         yuno = GetComponent<SpriteRenderer>();
+
+        Scene scene = SceneManager.GetActiveScene();
+        sceneName = scene.name;
     }
 
     private void ReplaceHelmet()
@@ -30,6 +36,8 @@ public class BubbleHelmet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        bubble = BubbleManager.GetInstance().GetBubble();
+        if (bubble) bubble.Pop();
         if (!inmunity && collision.gameObject.GetComponent<Damageable>())
             MakeDamage();
     }
@@ -83,9 +91,6 @@ public class BubbleHelmet : MonoBehaviour
                 helmetOn = true;
                 helmet.enabled = true;
             }
-
-            bubble = BubbleManager.GetInstance().GetBubble();
-            if (bubble) bubble.Pop();
         }
     }
 
@@ -98,7 +103,7 @@ public class BubbleHelmet : MonoBehaviour
 
     public void InvokeRespawn()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Sewer");
+        SceneManager.LoadScene(sceneName);
     }
 
     public void InvokeReplace()

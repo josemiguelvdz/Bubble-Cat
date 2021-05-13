@@ -47,7 +47,6 @@ public class YunoArrow : MonoBehaviour
 
             }
 
-
             arrowPosition = closestPoint - perpendicularDir * distance;
             yunoArrow.position = arrowPosition;
         }
