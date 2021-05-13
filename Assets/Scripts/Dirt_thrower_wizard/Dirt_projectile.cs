@@ -56,9 +56,18 @@ public class Dirt_projectile : MonoBehaviour
     public void rotationProjectil(float rot)
     {
         isRotated = true;
-        if (rot > 90 && rot <= 180)
+        rot = rot - 90;
+        Debug.Log("Rotacion es: " + rot);
+        if (rot > 0 && rot <= 90)
         {
             if (dir.x < 0)
+                dir.x = -dir.x;
+            if (dir.y < 0)
+                dir.y = -dir.y;
+        }
+        else if (rot > 90 && rot <= 180)
+        {
+            if (dir.x > 0)
                 dir.x = -dir.x;
             if (dir.y < 0)
                 dir.y = -dir.y;
@@ -67,17 +76,10 @@ public class Dirt_projectile : MonoBehaviour
         {
             if (dir.x > 0)
                 dir.x = -dir.x;
-            if (dir.y < 0)
-                dir.y = -dir.y;
-        }
-        else if (rot > 270 && rot <= 0)
-        {
-            if (dir.x > 0)
-                dir.x = -dir.x;
             if (dir.y > 0)
                 dir.y = -dir.y;
         }
-        else if (rot > 0 && rot <= 90)
+        else if (rot > -90 && rot <= 0)
         {
             if (dir.x < 0)
                 dir.x = -dir.x;

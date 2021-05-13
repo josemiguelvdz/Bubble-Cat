@@ -219,9 +219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e63f1e765a0e0644085951f4c78c7689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flySpeed: 5
-  acceleration: 10
-  bounceForce: 10
+  flySpeed: 45
+  acceleration: 30
+  bounceForce: 50
   waitingTime: 5
   playerLayer: 8
 --- !u!114 &9070052441522267320
