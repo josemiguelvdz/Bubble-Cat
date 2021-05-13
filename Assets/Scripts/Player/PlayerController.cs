@@ -93,8 +93,12 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.up * jumpVelocity;
         }
 
-        if (Input.GetButtonDown("Helmet")) 
+        if (Input.GetButtonDown("Helmet"))
+        {
             bubbleHelmet.InvokeReplace();
+            rb.velocity = Vector2.zero;
+        } 
+           
 
 
         if(isJumping)
