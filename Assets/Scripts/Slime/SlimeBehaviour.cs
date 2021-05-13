@@ -9,6 +9,8 @@ public class SlimeBehaviour : MonoBehaviour
     float distance;
     public float slimeSpeed, wallDistance,force;
     public float visionRadius;
+    bool enemy = false;
+    Quaternion slimeRotation = new Quaternion(0, 0, 0, 0);
 
     void Start()
     {
@@ -41,11 +43,12 @@ public class SlimeBehaviour : MonoBehaviour
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
 
-        if ((distance > visionRadius) && hitWall.collider != null && hitWall.collider.gameObject.layer == 9)
+        if (((distance > visionRadius) && hitWall.collider != null && hitWall.collider.gameObject.layer == 9) || enemy)
         {
             Debug.Log("Muro encontrado");
             direction = -direction;
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            enemy = false;
         }
 
         if ((distance > visionRadius) || (distance < visionRadius && (hitWall.collider == null && hitGround.collider != null)))
@@ -73,10 +76,12 @@ public class SlimeBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        transform.rotation = slimeRotation;
         if (collision.gameObject.GetComponent<PlayerController>())
         {
             rb.AddForce(-direction*force, ForceMode2D.Impulse);
         }
+        if (collision.gameObject.GetComponent<EnemyHealth>()) enemy = true;
     }
 
     private void OnDrawGizmosSelected()

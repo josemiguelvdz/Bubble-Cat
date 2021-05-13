@@ -9,17 +9,17 @@ public class SpiderMovement : MonoBehaviour
 
     float distance,izq, der;
     bool attacking,ground, runnningAway;
+    bool enemy;
 
     GameObject player;
     Rigidbody2D rb;
-    Quaternion playerRotation;
+    Quaternion spiderRotation=new Quaternion(0,0,0,0);
     RaycastHit2D wall;
 
     private void Start()
     {
         izq = -transform.localScale.x;
         der = transform.localScale.x;
-        playerRotation = transform.rotation;
         rb = GetComponent<Rigidbody2D>();
         player = GameManager.GetInstance().GetPlayer();
     }
@@ -31,14 +31,14 @@ public class SpiderMovement : MonoBehaviour
             if (player.transform.position.x - transform.position.x < 0 ) transform.localScale = new Vector3(izq, transform.localScale.y, transform.localScale.z);
             else if (player.transform.position.x - transform.position.x > 0 ) transform.localScale = new Vector3(der, transform.localScale.y, transform.localScale.z);
         }
-        else
+        else if(ground)
         {
-            wall = Physics2D.Raycast(transform.position,new Vector2(transform.localScale.x, 0).normalized, wallDistance, stageLayer);
+            wall = Physics2D.Raycast(transform.position,new Vector2(transform.localScale.x, 0).normalized, wallDistance);
             Debug.DrawRay(transform.position,new Vector2(transform.localScale.x, 0), Color.red);
 
             if(wall.collider!=null)Debug.Log(wall.collider.name);
 
-            if (wall.collider != null)
+            if ((wall.collider != null && !wall.collider.gameObject.GetComponent<PlayerController>()) || enemy)
             {
                 if (transform.localScale.x <= 0 )
                 {
@@ -50,6 +50,7 @@ public class SpiderMovement : MonoBehaviour
                     transform.localScale = new Vector3(-1, 1, 1);
                     Debug.Log("Izquierda");
                 }
+                enemy = false;
             }
             else
             {
@@ -65,8 +66,8 @@ public class SpiderMovement : MonoBehaviour
     private void FixedUpdate()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position, visionRadius, 1 << LayerMask.NameToLayer("Player"));
-        Vector3 forward = transform.TransformDirection(player.transform.position - transform.position);
-        Debug.DrawRay(transform.position, forward, Color.red);
+        Vector3 forward = transform.TransformDirection(player.transform.position - transform.position).normalized;
+        Debug.DrawRay(transform.position, forward*visionRadius, Color.red);
 
 
 
@@ -75,7 +76,8 @@ public class SpiderMovement : MonoBehaviour
         {
             Debug.Log("He llegado al suelo");
             ground = true;
-            transform.rotation = playerRotation;
+            transform.rotation = spiderRotation;
+            Debug.DrawRay(transform.position, Vector3.down * raycastLength, Color.red);
         }
         else
         {
@@ -126,7 +128,10 @@ public class SpiderMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-         transform.rotation = playerRotation;
+         transform.rotation = spiderRotation;
+        if (collision.gameObject.GetComponent<EnemyHealth>()) 
+            enemy = true;
+        Debug.Log("He colisonado con la araña");
     }
 
     void Attack()
