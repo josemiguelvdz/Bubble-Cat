@@ -89,7 +89,7 @@ MonoBehaviour:
   melee: {fileID: 1448924114859675637}
   bulletSpawn: {fileID: 964593980933118402}
   allowAttack: {fileID: 660216321}
-  meleeCooldown: 1
+  meleeCooldown: 0.4
   bulletRate: 0.5
   timeBulletRate: 0
   jumpVelocity: 13

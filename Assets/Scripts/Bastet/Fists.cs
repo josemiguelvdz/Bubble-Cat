@@ -2,57 +2,46 @@
 
 public class Fists : MonoBehaviour
 {
-    public GameObject fist;
+    public GameObject rightFist, leftFist;
     public float start, cooldown;
     public float timeDestroyer;
 
     [Tooltip("Probabilidad de que el siguiente ataque sean los rayos mágicos si estamos en la segunda fase"), Range(0, 100f), SerializeField]
     float prob = 70f;
 
-    int spawn, firstSon, secondSon, numAttacks;
+    int which, numAttacks;
     Bastet bastet;
+    Animator rightFistAnim, leftFistAnim;
 
     void OnEnable()
     {
         numAttacks = Random.Range(2, 6);
-        InvokeRepeating("InvokeFit", start, cooldown);
+        InvokeRepeating("InvokeFist", start, cooldown);
 
         bastet = GetComponent<Bastet>();
     }
 
-    void InvokeFit()
+    private void Start()
     {
+        rightFistAnim = rightFist.GetComponent<Animator>();
+        leftFistAnim = leftFist.GetComponent<Animator>();
+    }
 
-        spawn = Random.Range(0, 2);
+    void InvokeFist()
+    {
+        which = Random.Range(0, 2);
 
-        if (spawn == 0)
+        if (which == 0)
         {
-            firstSon++;
-        }
+            //Puño abajo
+            rightFistAnim.SetBool("PuñetazoAbajo", true);
 
+        }
         else
         {
-            secondSon++;
+            //Puño arriba
+            leftFistAnim.SetBool("PuñetazoArriba", true);
         }
-
-        if (firstSon == 3)
-        {
-            spawn = 1;
-            secondSon = 1;
-            firstSon = 0;
-        }
-
-        else if (secondSon == 3)
-        {
-            spawn = 0;
-            firstSon = 1;
-            secondSon = 0;
-        }
-
-        //Debug.Log(spawn);
-
-        GameObject fistInstance = Instantiate(fist, transform.GetChild(spawn).position, fist.transform.rotation);
-        Destroy(fistInstance, timeDestroyer);
 
         numAttacks--;
 
@@ -71,6 +60,8 @@ public class Fists : MonoBehaviour
 
     private void OnDisable()
     {
+        rightFistAnim.SetBool("PuñetazoAbajo", false);
+        leftFistAnim.SetBool("PuñetazoArriba", false);
         CancelInvoke();
     }
 }

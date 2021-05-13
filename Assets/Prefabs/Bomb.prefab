@@ -158,3 +158,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impulse: {x: 12, y: 7}
   rotationSpeed: 1
+  explosion: {fileID: 1906620466346837949, guid: f5fa4ef818b38214ab698bad9c424e2a,
+    type: 3}
