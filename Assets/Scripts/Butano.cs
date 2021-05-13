@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Butano : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public Vector2 velocityLimit;
+    public GameObject explosion;
+
     private void OnCollisionEnter2D(Collision2D col)
     {
         if(col.gameObject.name != "Bullet(Clone)")
@@ -22,13 +20,13 @@ public class Butano : MonoBehaviour
                 if (col.gameObject.GetComponent<BrokenWall>()) Destroy(col.gameObject);
             }
         }
-        
-
     }
 
     void Explode()
     {
+        explosion.SetActive(true);
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         // PUM particulas y tal
-        Destroy(this.gameObject);
+        Destroy(this.gameObject, 1);
     }
 }

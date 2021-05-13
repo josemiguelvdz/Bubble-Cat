@@ -23,7 +23,6 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        
         if (collision.gameObject.GetComponent<Trap>())
         {
             Destroy(this.gameObject);
