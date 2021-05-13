@@ -92,8 +92,8 @@ MonoBehaviour:
   meleeCooldown: 1
   bulletRate: 0.5
   timeBulletRate: 0
-  jumpVelocity: 12
-  jumpHeigth: 2
+  jumpVelocity: 13
+  jumpHeigth: 2.5
   fallMultiplier: 3
   lowJumpMultiplier: 7
   raycastLength: 0.8

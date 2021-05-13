@@ -95,7 +95,7 @@ public class Lizard : MonoBehaviour
         {
             this.transform.Translate(Vector3.zero);
             this.contador++;
-            if (this.contador % 350 == 0)
+            if (this.contador % 100 == 0)
             {
                 if (this.sprite.enabled == false)
                 {
@@ -108,7 +108,7 @@ public class Lizard : MonoBehaviour
                 this.desapariciones++;
             }
 
-            if (this.desapariciones == 8)
+            if (this.desapariciones == 2)
             {
                 gameObject.SetActive(false);
             }

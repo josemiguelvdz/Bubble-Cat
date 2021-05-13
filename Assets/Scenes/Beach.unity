@@ -2590,6 +2590,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 403998049787124093, guid: 7a059b0edce40cb4285b58ba05322a43,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1201576298927770884, guid: 7a059b0edce40cb4285b58ba05322a43,
         type: 3}
       propertyPath: m_Name
@@ -2802,7 +2807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d4beacbccef0d4187f03dd58f47ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 2
   bombDamage: 10
   pieces:
   - {fileID: 1443857122}
@@ -2810,7 +2815,7 @@ MonoBehaviour:
   - {fileID: 936202833}
   bar: {fileID: 5242885454530735497, guid: 27a15721638109d40988395e68cd3dc3, type: 3}
   barSpawn: {fileID: 1367930292}
-  barForce: {x: -3, y: 8}
+  barForce: {x: -0.6, y: 1.2}
   waitingTime: 2
 --- !u!114 &893177696
 MonoBehaviour:
@@ -2981,7 +2986,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -7.8910017, y: 6.48}
+  m_Offset: {x: -12.377389, y: 6.48}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2992,7 +2997,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 29.210833, y: 1}
+  m_Size: {x: 16.446749, y: 1}
   m_EdgeRadius: 0
 --- !u!4 &935888355
 Transform:
