@@ -40,7 +40,9 @@ public class MagicRay : MonoBehaviour
     public void rotationProjectil(float rot)
     {
         isRotated = true;
-        if (rot > 0 && rot <= 90) 
+        rot = rot - 180;
+        Debug.Log("Rotacion es: " + rot);
+        if (rot > 0 && rot <= 90)
         {
             if (direction.x < 0)
                 direction.x = -direction.x;
@@ -54,14 +56,14 @@ public class MagicRay : MonoBehaviour
             if (direction.y < 0)
                 direction.y = -direction.y;
         }
-        else if (rot < 0 && rot <= -90)
+        else if (rot > 180 && rot <= 270)
         {
             if (direction.x > 0)
                 direction.x = -direction.x;
             if (direction.y > 0)
                 direction.y = -direction.y;
         }
-        else if (rot < -90 && rot <= -180)
+        else if (rot > -90 && rot <= 0)
         {
             if (direction.x < 0)
                 direction.x = -direction.x;
