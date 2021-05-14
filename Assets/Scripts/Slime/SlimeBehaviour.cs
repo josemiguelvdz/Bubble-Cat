@@ -82,6 +82,11 @@ public class SlimeBehaviour : MonoBehaviour
             rb.AddForce(-direction*force, ForceMode2D.Impulse);
         }
         if (collision.gameObject.GetComponent<EnemyHealth>()) enemy = true;
+        if (collision.gameObject.GetComponent<Pipeline>())
+        {
+            direction = -direction;
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
     }
 
     private void OnDrawGizmosSelected()
