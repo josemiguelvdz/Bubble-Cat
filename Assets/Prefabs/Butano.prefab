@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8135661875846380524}
   - component: {fileID: 3127574379984441148}
   - component: {fileID: 3548693133337619535}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 3087988546213174049}
   - component: {fileID: 6499323679986180188}
   - component: {fileID: 1766035550}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Butano
   m_TagString: Untagged
   m_Icon: {fileID: 0}
