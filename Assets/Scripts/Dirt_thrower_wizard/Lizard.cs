@@ -95,7 +95,7 @@ public class Lizard : MonoBehaviour
         {
             this.transform.Translate(Vector3.zero);
             this.contador++;
-            if (this.contador % 100 == 0)
+            if (this.contador % 300 == 0)
             {
                 if (this.sprite.enabled == false)
                 {
@@ -108,7 +108,7 @@ public class Lizard : MonoBehaviour
                 this.desapariciones++;
             }
 
-            if (this.desapariciones == 2)
+            if (this.desapariciones == 3)
             {
                 gameObject.SetActive(false);
             }
@@ -175,6 +175,7 @@ public class Lizard : MonoBehaviour
         //En este caso obtenemos el id del layer Stage
         int stageLayer = LayerMask.NameToLayer("Stage");
         int bubbleLayer = LayerMask.NameToLayer("Bubble");
+        int projectileLayer = LayerMask.NameToLayer("Proyectile");
 
         //Ha colisionado con un objetro con layer Stage
         if (col.gameObject.layer == stageLayer)
@@ -194,6 +195,11 @@ public class Lizard : MonoBehaviour
         else if (col.gameObject.layer == bubbleLayer)
         {
             this.canShoot = false;
+        }
+        else if (col.gameObject.layer == projectileLayer)
+        {            
+            this.destructible = true;
+            this.status = Status.Drop;
         }
     }
 

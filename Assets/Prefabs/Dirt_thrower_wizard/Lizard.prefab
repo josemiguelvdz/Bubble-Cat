@@ -126,6 +126,8 @@ GameObject:
   - component: {fileID: 8154440766700322953}
   - component: {fileID: 5206802609734798442}
   - component: {fileID: 2521109623618579526}
+  - component: {fileID: 3324141139426838408}
+  - component: {fileID: 4074638124853934440}
   m_Layer: 14
   m_Name: Lizard
   m_TagString: Interactuable
@@ -216,7 +218,7 @@ MonoBehaviour:
   spawnerProjectile: {fileID: 8588176725950459429}
   dirtProjectile: {fileID: 3726990211285945959, guid: ddd07effbf9f27d4c96e74fba96f9a29,
     type: 3}
-  shootCadenceSecs: 3
+  shootCadenceSecs: 4
   canShoot: 1
   destructible: 0
 --- !u!114 &8154440766700322953
@@ -268,6 +270,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &3324141139426838408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5956578319485701160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a68381c312d4994eba319f27f467a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4074638124853934440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5956578319485701160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4ba27ff5e765d2479125ae450ef2afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 2
+  timeToExplodeTheBubble: 0
 --- !u!1 &6694047313927097968
 GameObject:
   m_ObjectHideFlags: 0
