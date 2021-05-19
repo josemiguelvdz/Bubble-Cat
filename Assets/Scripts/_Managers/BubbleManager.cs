@@ -4,11 +4,19 @@ public class BubbleManager : MonoBehaviour
 {
     static BubbleManager instance;
 
+    public Material bubbleable;
+
     BubbleController currentBubble = null;
     GameObject collissioned;
 
     private void Awake()
     {
+        //Accedemos al material bubbleable y hacemos que aun no brille
+        if (bubbleable.HasProperty("Vector1_E336CF1E"))
+        {
+            bubbleable.SetInt("Vector1_E336CF1E", 0);
+            bubbleable.EnableKeyword("Vector1_E336CF1E");
+        }
 
         if (instance == null)
         {
@@ -19,16 +27,16 @@ public class BubbleManager : MonoBehaviour
     }
 
 
-    public void TakeObjects(GameObject col , SpriteRenderer bubble ,GameObject child)
+    public void TakeObjects(GameObject col, SpriteRenderer bubble, GameObject child)
     {
         bubble.sprite = col.GetComponent<SpriteRenderer>().sprite;
         child.transform.rotation = col.transform.rotation;
         collissioned = col;
-        collissioned.SetActive(false);   
+        collissioned.SetActive(false);
     }
 
 
-    public void DestroyBubble(GameObject col, SpriteRenderer bubble,GameObject child)
+    public void DestroyBubble(GameObject col, SpriteRenderer bubble, GameObject child)
     {
         Destroy(col);
 
@@ -50,6 +58,7 @@ public class BubbleManager : MonoBehaviour
             }
         }
 
+        BubbleDestruction();
         GameManager.GetInstance().ActivatePlayerController();
     }
 
@@ -63,10 +72,24 @@ public class BubbleManager : MonoBehaviour
     public void SetBubble(BubbleController b)
     {
         currentBubble = b;
+        BubbleCreation();
     }
 
     public BubbleController GetBubble()
     {
         return currentBubble;
+    }
+
+    void BubbleCreation()
+    {
+        //Hacemos que el material bubbleable brille
+        if (bubbleable.HasProperty("Vector1_E336CF1E"))
+            bubbleable.SetInt("Vector1_E336CF1E", 1);
+    }
+
+    void BubbleDestruction()
+    {
+        if (bubbleable.HasProperty("Vector1_E336CF1E"))
+            bubbleable.SetInt("Vector1_E336CF1E", 0);
     }
 }
