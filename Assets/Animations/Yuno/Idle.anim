@@ -1931,7 +1931,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Cuerpo/Cola1/Cola2
+    path: Cuerpo/Cola1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1941,7 +1941,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Cuerpo/Cola1/Cola2
+    path: Cuerpo/Cola1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1951,7 +1951,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Cuerpo/Cola1/Cola2
+    path: Cuerpo/Cola1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1961,7 +1961,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Cuerpo/Cola1
+    path: Cuerpo/Cola1/Cola2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1971,7 +1971,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Cuerpo/Cola1
+    path: Cuerpo/Cola1/Cola2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1981,7 +1981,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Cuerpo/Cola1
+    path: Cuerpo/Cola1/Cola2
     classID: 4
     script: {fileID: 0}
   - curve:

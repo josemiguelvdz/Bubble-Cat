@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     LayerMask stage;
 
     private bool key = false;
+    private Animator animator;
 
     private void Start()
     {
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
         spawner = GetComponentInChildren<BubbleSpawner>();  
         bubbleHelmet = GetComponent<BubbleHelmet>();
         bubbleSpawner = GetComponentInChildren<BubbleSpawner>();
+        animator = GetComponent<Animator>();
     }
 
 
@@ -55,10 +57,25 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(meleeCooldown);
 
         horizontal = Input.GetAxisRaw("Horizontal"); //Recogida de input
-        if (horizontal < 0 && transform.localScale.x >= 0) 
+        if (horizontal < 0 && transform.localScale.x >= 0)
+        {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        else if (horizontal > 0 && transform.localScale.x<=0) 
+        }
+            
+        else if (horizontal > 0 && transform.localScale.x<=0)
+        {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
+
+        if (rb.velocity != Vector2.zero)
+        {
+            animator.SetBool("isRunning", true);
+        }
+        else if (Mathf.Round(rb.velocity.magnitude) == 0)
+        {
+            animator.SetBool("isRunning", false);
+        }
+            
 
         Vector2 dir = allowAttack.position - transform.position;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, dir.magnitude, stage);
@@ -91,6 +108,13 @@ public class PlayerController : MonoBehaviour
         {
             jumpStart = transform.position.y;
             rb.velocity = Vector2.up * jumpVelocity;
+
+            animator.SetBool("isJumping", true);
+        }
+
+        if(rb.velocity.y == 0)
+        {
+            animator.SetBool("isJumping", false);
         }
 
         if (Input.GetButtonDown("Helmet"))
