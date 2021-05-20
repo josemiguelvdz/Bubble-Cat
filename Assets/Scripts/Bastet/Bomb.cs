@@ -20,12 +20,12 @@ public class Bomb : MonoBehaviour
     {
         Invoke("Fire", chargeTime);
     }
-
+    /*
     private void Update()
     {
         if (bombInstance != null) ;
     }
-
+    */
     void Fire()
     {
         bombInstance = Instantiate(bomb, spawnPoint);
