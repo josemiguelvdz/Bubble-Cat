@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 9070052441522267320}
   - component: {fileID: 9070052441522267322}
   - component: {fileID: 975944369974124063}
+  - component: {fileID: 1067676943743545923}
   m_Layer: 2
   m_Name: Bat
   m_TagString: Enemy
@@ -159,7 +160,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 711909586261537235, guid: 0644f2e9506f758498686edf7bf3c5e3, type: 3}
+  m_Sprite: {fileID: 8647823593821616703, guid: 89f2bb04c4c0b0d4cbd5aa925dfd1d88,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -262,3 +264,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   timeToExplodeTheBubble: 6
+--- !u!95 &1067676943743545923
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9070052441522267266}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ac016a06122112540b0f050e186b83d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
