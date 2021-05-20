@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubbleable: {fileID: 2100000, guid: d4f22f9ca6c6b364da70ef3757dcd173, type: 2}
+  grate: {fileID: 2100000, guid: d2853389a6f646247bd552b6bd34b5ce, type: 2}

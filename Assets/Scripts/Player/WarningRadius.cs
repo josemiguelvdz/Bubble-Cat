@@ -2,14 +2,12 @@
 
 public class WarningRadius : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     private void OnTriggerExit2D(Collider2D col)
     {
         if (col.CompareTag("Bubble"))
         {
-            //Debug.Log("Aparece"); // aparece
-            col.GetComponent<SpriteRenderer>().color = Color.red;
+            // aparece el aviso, se pone la pompa roja
+            col.GetComponent<SpriteRenderer>().material.SetInt("_Lejos", 1);
         }
     }
 
@@ -17,8 +15,8 @@ public class WarningRadius : MonoBehaviour
     {
         if (col.gameObject.tag == "Bubble")
         {
-            //Debug.Log("Desaparece"); // desaparece
-            col.GetComponent<SpriteRenderer>().color = Color.white;
+            // desaparece, la pompa vuelve a su color original
+            col.GetComponent<SpriteRenderer>().material.SetInt("_Lejos", 0);
         }
     }
 

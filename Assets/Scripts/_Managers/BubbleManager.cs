@@ -5,6 +5,7 @@ public class BubbleManager : MonoBehaviour
     static BubbleManager instance;
 
     public Material bubbleable;
+    public Material grate;
 
     BubbleController currentBubble = null;
     GameObject collissioned;
@@ -16,6 +17,12 @@ public class BubbleManager : MonoBehaviour
         {
             bubbleable.SetInt("Vector1_E336CF1E", 0);
             bubbleable.EnableKeyword("Vector1_E336CF1E");
+        }
+
+        if (grate.HasProperty("Vector1_E336CF1E"))
+        {
+            grate.SetInt("Vector1_E336CF1E", 0);
+            grate.EnableKeyword("Vector1_E336CF1E");
         }
 
         if (instance == null)
@@ -59,7 +66,7 @@ public class BubbleManager : MonoBehaviour
             }
         }
 
-        HighlightOff();
+        AllHighlightOff();
         GameManager.GetInstance().ActivatePlayerController();
     }
 
@@ -86,11 +93,23 @@ public class BubbleManager : MonoBehaviour
         //Hacemos que el material bubbleable brille
         if (bubbleable.HasProperty("Vector1_E336CF1E"))
             bubbleable.SetInt("Vector1_E336CF1E", 1);
+
+        if (grate.HasProperty("Vector1_E336CF1E"))
+            grate.SetInt("Vector1_E336CF1E", 1);
     }
 
     void HighlightOff()
     {
         if (bubbleable.HasProperty("Vector1_E336CF1E"))
             bubbleable.SetInt("Vector1_E336CF1E", 0);
+    }
+
+    void AllHighlightOff()
+    {
+        if (bubbleable.HasProperty("Vector1_E336CF1E"))
+            bubbleable.SetInt("Vector1_E336CF1E", 0);
+
+        if (grate.HasProperty("Vector1_E336CF1E"))
+            grate.SetInt("Vector1_E336CF1E", 0);
     }
 }

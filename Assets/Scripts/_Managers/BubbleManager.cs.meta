@@ -3,7 +3,9 @@ guid: f33170c94cb0dc64981968695fea422d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bubbleable: {fileID: 2100000, guid: d4f22f9ca6c6b364da70ef3757dcd173, type: 2}
+  - grate: {fileID: 2100000, guid: d2853389a6f646247bd552b6bd34b5ce, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
