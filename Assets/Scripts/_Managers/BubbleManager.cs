@@ -29,6 +29,7 @@ public class BubbleManager : MonoBehaviour
 
     public void TakeObjects(GameObject col, SpriteRenderer bubble, GameObject child)
     {
+        HighlightOff();
         bubble.sprite = col.GetComponent<SpriteRenderer>().sprite;
         child.transform.rotation = col.transform.rotation;
         collissioned = col;
@@ -58,7 +59,7 @@ public class BubbleManager : MonoBehaviour
             }
         }
 
-        BubbleDestruction();
+        HighlightOff();
         GameManager.GetInstance().ActivatePlayerController();
     }
 
@@ -72,7 +73,7 @@ public class BubbleManager : MonoBehaviour
     public void SetBubble(BubbleController b)
     {
         currentBubble = b;
-        BubbleCreation();
+        HighlightOn();
     }
 
     public BubbleController GetBubble()
@@ -80,14 +81,14 @@ public class BubbleManager : MonoBehaviour
         return currentBubble;
     }
 
-    void BubbleCreation()
+    void HighlightOn()
     {
         //Hacemos que el material bubbleable brille
         if (bubbleable.HasProperty("Vector1_E336CF1E"))
             bubbleable.SetInt("Vector1_E336CF1E", 1);
     }
 
-    void BubbleDestruction()
+    void HighlightOff()
     {
         if (bubbleable.HasProperty("Vector1_E336CF1E"))
             bubbleable.SetInt("Vector1_E336CF1E", 0);

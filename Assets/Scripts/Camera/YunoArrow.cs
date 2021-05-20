@@ -7,9 +7,6 @@ public class YunoArrow : MonoBehaviour
     [Tooltip("Indicador de la posición de Yuno cuando este sale de la pantalla"), SerializeField]
     RectTransform yunoArrow;
 
-    [Tooltip("Capa de colisión del jugador."), SerializeField]
-    int playerLayer = 8;
-
     [Tooltip("Posición de Yuno Detector de la cámara, para lanzar un raycast desde ahí"), SerializeField]
     Transform center;
 
