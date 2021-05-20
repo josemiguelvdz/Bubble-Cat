@@ -34,9 +34,13 @@ public class PlayerController : MonoBehaviour
     private bool key = false;
     private Animator animator;
 
+    public AudioClip jumpSound, shootSound;
+    AudioSource audioSource;
+
     private void Start()
     {
         currentMeleeCd = meleeCooldown;
+        audioSource = GetComponent<AudioSource>();
     }
     void OnEnable()
     {
@@ -82,7 +86,10 @@ public class PlayerController : MonoBehaviour
         if (!hit || !hit.collider.gameObject.GetComponent<CompositeCollider2D>())
         {
             if (Input.GetButtonDown("Gun"))
+            {
                 Shoot();
+                audioSource.PlayOneShot(shootSound);
+            }
 
             if (Input.GetButtonDown("Bubble") && !isJumping)
             {
@@ -110,7 +117,10 @@ public class PlayerController : MonoBehaviour
             jumpStart = transform.position.y;
             rb.velocity = Vector2.up * jumpVelocity;
 
+            audioSource.PlayOneShot(jumpSound);
+
             animator.SetBool("isJumping", true);
+
         }
 
 
