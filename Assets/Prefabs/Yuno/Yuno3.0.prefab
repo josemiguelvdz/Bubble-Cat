@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 452995592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.5, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.12, y: 0.12, z: 1}
   m_Children: []
   m_Father: {fileID: 6659622440678299915}
   m_RootOrder: 8
@@ -534,13 +534,13 @@ MonoBehaviour:
   melee: {fileID: 452995592}
   bulletSpawn: {fileID: 7907601833176816574}
   allowAttack: {fileID: 4313619630763242325}
-  meleeCooldown: 1.5
+  meleeCooldown: 0.4
   bulletRate: 0.5
   timeBulletRate: 0
-  jumpVelocity: 8
-  jumpHeigth: 2
-  fallMultiplier: 2.5
-  lowJumpMultiplier: 1.2
+  jumpVelocity: 13
+  jumpHeigth: 2.5
+  fallMultiplier: 3
+  lowJumpMultiplier: 7
   raycastLength: 0.8
   speed: 6
   stage:

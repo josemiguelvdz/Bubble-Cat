@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Melee") && currentMeleeCd < 0f)
             {
                 Hit();
+                animator.SetBool("isAttacking", true);
                 currentMeleeCd = meleeCooldown;
             }
                 
@@ -112,10 +113,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isJumping", true);
         }
 
-        if(rb.velocity.y == 0)
-        {
-            animator.SetBool("isJumping", false);
-        }
 
         if (Input.GetButtonDown("Helmet"))
         {
@@ -142,13 +139,17 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y); // Movimiento físico del jugador
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, raycastLength, stage);
+        RaycastHit2D rcDown = Physics2D.Raycast(transform.position, Vector2.down, raycastLength, stage);
 
-        if (hit)
+        if (rcDown)
         {
             //Debug.Log("He llegado al suelo");
             isJumping = false;
             bubbleSpawner.enabled = true;
+            if(Mathf.Round(rb.velocity.y) == 0)
+            {
+                animator.SetBool("isJumping", false);
+            }
         }
         else
         {
@@ -189,11 +190,15 @@ public class PlayerController : MonoBehaviour
     {
         melee.SetActive(true);
 
-        Invoke("desactiveMelee", 0.2f);
+        Invoke("desactiveMelee", 0.4f);
     }
     void desactiveMelee()
     {
-        if (melee.activeSelf) melee.SetActive(false);
+        if (melee.activeSelf)
+        {
+            melee.SetActive(false);
+            animator.SetBool("isAttacking", false);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
