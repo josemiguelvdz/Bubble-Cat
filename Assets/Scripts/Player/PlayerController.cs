@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
     {
         melee.SetActive(true);
 
-        Invoke("desactiveMelee", 0.4f);
+        Invoke("desactiveMelee", 0.2f);
     }
     void desactiveMelee()
     {

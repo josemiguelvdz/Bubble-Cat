@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 452995596}
   - component: {fileID: 452995595}
   - component: {fileID: 452995594}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Melee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452995592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 0.12, y: 0.12, z: 1}
   m_Children: []
   m_Father: {fileID: 6659622440678299915}
@@ -340,9 +340,9 @@ GameObject:
   - component: {fileID: 2666128255842710780}
   - component: {fileID: 5639004468724925975}
   - component: {fileID: 2335777141484339089}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Yuno3.0
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
