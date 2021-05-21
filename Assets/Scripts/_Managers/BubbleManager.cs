@@ -7,6 +7,8 @@ public class BubbleManager : MonoBehaviour
     public Material bubbleable;
     public Material grate;
 
+    public AudioClip explosionBubble;
+
     BubbleController currentBubble = null;
     GameObject collissioned;
 
@@ -65,6 +67,9 @@ public class BubbleManager : MonoBehaviour
                 collissioned.gameObject.GetComponent<Lizard>().isDestructible();
             }
         }
+
+        AudioSource audiosource = GetComponent<AudioSource>();
+        audiosource.PlayOneShot(explosionBubble);
 
         AllHighlightOff();
         GameManager.GetInstance().ActivatePlayerController();

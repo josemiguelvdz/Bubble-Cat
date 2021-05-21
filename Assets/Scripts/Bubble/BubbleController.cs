@@ -41,7 +41,6 @@ public class BubbleController : MonoBehaviour
 
     Vector2 movement;
 
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Componente RigidBody2D del jugador
@@ -64,7 +63,10 @@ public class BubbleController : MonoBehaviour
         movement = new Vector2(horizontal * force, vertical * force);
 
         if (Input.GetButtonDown("Bubble"))
-            BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer,child);
+        {
+            BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);
+        }
+            
 
         //Ataque final de Bastet
         else if(grab && Mathf.Abs(Vector3.Distance(ini, transform.position)) > pullDistance)
