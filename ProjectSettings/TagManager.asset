@@ -47,6 +47,36 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 258620807
+    locked: 0
+  - name: Scenary
+    uniqueID: 2432516229
+    locked: 0
+  - name: Enemies
+    uniqueID: 3718824845
+    locked: 0
+  - name: Player
+    uniqueID: 558770053
+    locked: 0
+  - name: Bastet
+    uniqueID: 3162736079
+    locked: 0
+  - name: Interactuable
+    uniqueID: 1702019949
+    locked: 0
+  - name: Key
+    uniqueID: 510823025
+    locked: 0
+  - name: Bar
+    uniqueID: 3562000607
+    locked: 0
+  - name: Proyectile
+    uniqueID: 2133900039
+    locked: 0
   - name: Bubble
     uniqueID: 686265885
+    locked: 0
+  - name: Effects
+    uniqueID: 169427307
     locked: 0
