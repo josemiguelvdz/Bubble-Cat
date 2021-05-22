@@ -88,13 +88,15 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Gun"))
             {
                 Shoot();
-                audioSource.PlayOneShot(shootSound);
             }
 
             if (Input.GetButtonDown("Bubble") && !isJumping)
             {
                 rb.velocity = new Vector2(0, 0);
                 spawner.BubbleSpawn();
+                animator.SetBool("createBubble", true);
+                Invoke("StopCreatingBubbleAnim", 0.3f);
+
                 GameManager.GetInstance().DeactivatePlayerController();
             }
 
@@ -124,10 +126,10 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown("Helmet"))
+        if (Input.GetButtonDown("Helmet") && !isJumping)
         {
             bubbleHelmet.InvokeReplace();
-            rb.velocity = Vector2.zero;
+            
         } 
            
 
@@ -175,6 +177,9 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.GetInstance().CanShoot() && Time.time > timeBulletRate)
         {
+            audioSource.PlayOneShot(shootSound);
+            animator.SetBool("isShooting", true);
+            Invoke("StopShootingAnim", 0.2f);
 
             if (transform.localScale.x < 0)
             {
@@ -195,7 +200,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
+    private void StopShootingAnim()
+    {
+        animator.SetBool("isShooting", false);
+    }
+    private void StopCreatingBubbleAnim()
+    {
+        animator.SetBool("createBubble", false);
+    }
     void Hit()
     {
         melee.SetActive(true);

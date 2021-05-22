@@ -126,4 +126,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gas: {fileID: 3227221017557356923, guid: 57d42df4d7637ce46be612089bf52b6e, type: 3}
-  cooldown: 2
+  cooldown: 4

@@ -17,9 +17,14 @@ public class BubbleHelmet : MonoBehaviour
 
     string sceneName;
 
+    Rigidbody2D rb;
+    Animator animator;
+
     private void Start()
     {
         yuno = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         Scene scene = SceneManager.GetActiveScene();
         sceneName = scene.name;
@@ -30,6 +35,8 @@ public class BubbleHelmet : MonoBehaviour
         helmet.enabled = true;
         helmetOn = true;
         inProgress = false;
+        animator.SetBool("bubbleHelmet", false);
+
         GameManager.GetInstance().BubbleHelmet();
     }
 
@@ -111,7 +118,12 @@ public class BubbleHelmet : MonoBehaviour
         if(!helmetOn && !inProgress && GameManager.GetInstance().CanReplaceHelmet())
         {
             GameManager.GetInstance().DeactivatePlayerController();
+            rb.velocity = Vector2.zero;
             inProgress = true;
+            animator.SetBool("bubbleHelmet", true);
+
+            helmet.enabled = true;
+
             Invoke("ReplaceHelmet", replaceTime);
         }
     }

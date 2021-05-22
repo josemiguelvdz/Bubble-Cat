@@ -563,7 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeEffect: {fileID: 0}
-  replaceTime: 2
+  replaceTime: 1.4
   inmunityTime: 1
   helmet: {fileID: 7896241264193771485}
   invencible: 0
