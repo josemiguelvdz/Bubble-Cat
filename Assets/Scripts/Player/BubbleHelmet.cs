@@ -32,7 +32,6 @@ public class BubbleHelmet : MonoBehaviour
 
     private void ReplaceHelmet()
     {
-        helmet.enabled = true;
         helmetOn = true;
         inProgress = false;
         animator.SetBool("bubbleHelmet", false);
