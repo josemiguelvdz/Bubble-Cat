@@ -34,8 +34,8 @@ public class SlimeBehaviour : MonoBehaviour
         hitWall = Physics2D.Raycast(transform.position, direction, wallDistance, 1 << LayerMask.NameToLayer("Stage"));
         Debug.DrawRay(transform.position, direction.normalized*wallDistance, Color.red);
 
-        hitGround = Physics2D.Raycast(transform.position, Vector2.down, wallDistance, 1 << LayerMask.NameToLayer("Stage"));
-        Debug.DrawRay(transform.position, Vector2.down.normalized*wallDistance, Color.yellow);
+        hitGround = Physics2D.Raycast(transform.position + direction*wallDistance, Vector2.down, wallDistance, 1 << LayerMask.NameToLayer("Stage"));
+        Debug.DrawRay(transform.position + direction*wallDistance, Vector2.down.normalized*wallDistance, Color.yellow);
 
         if (hitGround.collider == null)
         {
@@ -62,14 +62,17 @@ public class SlimeBehaviour : MonoBehaviour
 
             direction = new Vector3(player.transform.position.x - transform.position.x, 0, 0).normalized;
 
-            if (player.transform.position.x < transform.position.x)
+            if (Mathf.Round(player.transform.position.x) != Mathf.Round(transform.position.x))
             {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
+                if (player.transform.position.x < transform.position.x)
+                {
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
 
-            else
-            {
-                transform.localScale = new Vector3(1, 1, 1);
+                else
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
             }
         }
     }
