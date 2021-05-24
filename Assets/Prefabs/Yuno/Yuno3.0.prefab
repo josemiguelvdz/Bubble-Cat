@@ -98,7 +98,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -342,6 +342,7 @@ GameObject:
   - component: {fileID: 2335777141484339089}
   - component: {fileID: 8078391449813081436}
   - component: {fileID: 3535296710930263135}
+  - component: {fileID: 2113240183}
   m_Layer: 8
   m_Name: Yuno3.0
   m_TagString: Player
@@ -392,7 +393,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -549,7 +550,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   jumpSound: {fileID: 8300000, guid: 1add10318c4a8b94b859d7e23d4b12e4, type: 3}
-  shootSound: {fileID: 8300000, guid: 5bd2f1891df613247b39a353b4f3e1eb, type: 3}
+  shootSound: {fileID: 8300000, guid: dd29d2d954521994b833167b97e69ee9, type: 3}
 --- !u!114 &2335777141484339089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,6 +672,32 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3645603282067745744}
   m_Enabled: 1
+--- !u!114 &2113240183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3645603282067745744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000873d6a0f8540fd908dc3a8dd85274e21cf8583bc6dc37265718a721edfd04fd407bb307f1d96e7286b41190a
+  m_ShapePath:
+  - {x: -1.0409371, y: -0.80146563, z: 0}
+  - {x: 0.4731213, y: -0.80146563, z: 0}
+  - {x: 0.4731213, y: 1.3574597, z: 0}
+  - {x: -1.0409371, y: 1.3574597, z: 0}
+  m_ShapePathHash: -1976831653
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 26980
 --- !u!1 &3809929427012538669
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,8 +909,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 686265885
+  m_SortingLayer: 10
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 3be85eeea5d1df24baf921a3590432e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

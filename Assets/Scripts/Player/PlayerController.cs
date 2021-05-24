@@ -71,15 +71,13 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
 
-        if (rb.velocity != Vector2.zero)
-        {
-            animator.SetBool("isRunning", true);
-        }
-        else if (Mathf.Round(rb.velocity.magnitude) == 0)
+        if (Mathf.Round(rb.velocity.magnitude) == 0)
         {
             animator.SetBool("isRunning", false);
         }
-            
+        else
+            animator.SetBool("isRunning", true);
+
 
         Vector2 dir = allowAttack.position - transform.position;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, dir.magnitude, stage);
@@ -92,6 +90,7 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetButtonDown("Bubble") && !isJumping)
             {
+                animator.SetBool("isRunning", false);
                 rb.velocity = new Vector2(0, 0);
                 spawner.BubbleSpawn();
                 animator.SetBool("createBubble", true);

@@ -187,7 +187,12 @@ public class Bastet : MonoBehaviour
     public void PieceDisappear()
     {
         if(piecesNum > 0)
+        {
             pieces[piecesNum - 1].SetActive(false);
+
+            ChangeAttack();
+        }
+            
     }
 
     public void PieceOff()
