@@ -294,8 +294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4ba27ff5e765d2479125ae450ef2afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 2
-  timeToExplodeTheBubble: 0
+  lives: 1
+  timeToExplodeTheBubble: 15
 --- !u!1 &6694047313927097968
 GameObject:
   m_ObjectHideFlags: 0
