@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Animation.Samples.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Animation.Samples.Dependency", "Unity.2D.Animation.Samples.Dependency.csproj", "{A3679AF8-8266-E0C8-23F7-F1B01BFF2862}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Animation.Samples.Editor", "Unity.2D.Animation.Samples.Editor.csproj", "{2DA5B607-C8FC-ABB8-10C4-F73028A915ED}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{F2D6687C-B5E0-A54C-B097-961181C27F41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Animation.Samples.Editor", "Unity.2D.Animation.Samples.Editor.csproj", "{2DA5B607-C8FC-ABB8-10C4-F73028A915ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,14 +29,14 @@ Global
 		{A3679AF8-8266-E0C8-23F7-F1B01BFF2862}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3679AF8-8266-E0C8-23F7-F1B01BFF2862}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3679AF8-8266-E0C8-23F7-F1B01BFF2862}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2DA5B607-C8FC-ABB8-10C4-F73028A915ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2DA5B607-C8FC-ABB8-10C4-F73028A915ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2DA5B607-C8FC-ABB8-10C4-F73028A915ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2DA5B607-C8FC-ABB8-10C4-F73028A915ED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F2D6687C-B5E0-A54C-B097-961181C27F41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F2D6687C-B5E0-A54C-B097-961181C27F41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2D6687C-B5E0-A54C-B097-961181C27F41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2D6687C-B5E0-A54C-B097-961181C27F41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DA5B607-C8FC-ABB8-10C4-F73028A915ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DA5B607-C8FC-ABB8-10C4-F73028A915ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DA5B607-C8FC-ABB8-10C4-F73028A915ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DA5B607-C8FC-ABB8-10C4-F73028A915ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

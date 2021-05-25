@@ -37,7 +37,7 @@ public class SlimeBehaviour : MonoBehaviour
         hitGround = Physics2D.Raycast(transform.position + direction*wallDistance, Vector2.down, wallDistance, 1 << LayerMask.NameToLayer("Stage"));
         Debug.DrawRay(transform.position + direction*wallDistance, Vector2.down.normalized*wallDistance, Color.yellow);
 
-        if (hitGround.collider == null)
+        if (hitGround.collider == null && hitWall.collider == null)
         {
             direction = -direction;
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
