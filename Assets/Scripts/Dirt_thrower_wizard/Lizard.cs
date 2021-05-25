@@ -56,7 +56,7 @@ public class Lizard : MonoBehaviour
     {
         if (this.status == Status.Stop)
         {
-            Debug.Log(this.gameObject.name + ": Stop");
+            //Debug.Log(this.gameObject.name + ": Stop");
             this.transform.Translate(Vector3.zero);
 
             if (this.player != null)

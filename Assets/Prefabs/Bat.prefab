@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4ba27ff5e765d2479125ae450ef2afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 3
+  lives: 1
   timeToExplodeTheBubble: 6
 --- !u!95 &1067676943743545923
 Animator:

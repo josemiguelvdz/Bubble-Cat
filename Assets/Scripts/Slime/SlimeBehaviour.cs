@@ -45,7 +45,7 @@ public class SlimeBehaviour : MonoBehaviour
 
         if (((distance > visionRadius) && hitWall.collider != null && hitWall.collider.gameObject.layer == 9) || enemy)
         {
-            Debug.Log("Muro encontrado");
+            //Debug.Log("Muro encontrado");
             direction = -direction;
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
             enemy = false;

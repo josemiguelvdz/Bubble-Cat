@@ -67,18 +67,6 @@ public class GameManager : MonoBehaviour
                 GameObject.Find("Camera").transform.position = GameObject.Find("checkpoint3").transform.position + new Vector3(0, 3, -10);
 
                 break;
-            case Checkpoint.checkpoint4:
-
-                
-                //GameObject.Find("Door_4").GetComponent<Door>().OpenDoor();
-
-                GameObject.Find("Player").transform.position = GameObject.Find("checkpoint4").transform.position;
-
-                GameObject.Find("Camera").transform.position = GameObject.Find("checkpoint4").transform.position + new Vector3(0, 3, -10);
-
-                GameObject.Find("Key_3").transform.position = GameObject.Find("Player").transform.position;
-
-                break;
 
             case Checkpoint.checkpoint5:
 

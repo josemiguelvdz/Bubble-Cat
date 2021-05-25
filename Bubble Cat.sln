@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Animation.Samples.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Animation.Samples.Dependency", "Unity.2D.Animation.Samples.Dependency.csproj", "{DFCB2683-B19B-E4A2-CBC5-6BE9DCE3EC4A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{4EDF34BC-A094-8923-D40E-754E692D87E1}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Animation.Samples.Editor", "Unity.2D.Animation.Samples.Editor.csproj", "{8ECB5DDE-EB29-F619-B18D-01A7B7EBB26E}"
 EndProject
 Global
@@ -27,6 +29,10 @@ Global
 		{DFCB2683-B19B-E4A2-CBC5-6BE9DCE3EC4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFCB2683-B19B-E4A2-CBC5-6BE9DCE3EC4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFCB2683-B19B-E4A2-CBC5-6BE9DCE3EC4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EDF34BC-A094-8923-D40E-754E692D87E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EDF34BC-A094-8923-D40E-754E692D87E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EDF34BC-A094-8923-D40E-754E692D87E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EDF34BC-A094-8923-D40E-754E692D87E1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8ECB5DDE-EB29-F619-B18D-01A7B7EBB26E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8ECB5DDE-EB29-F619-B18D-01A7B7EBB26E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ECB5DDE-EB29-F619-B18D-01A7B7EBB26E}.Release|Any CPU.ActiveCfg = Release|Any CPU

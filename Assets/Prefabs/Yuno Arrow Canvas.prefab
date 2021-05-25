@@ -132,7 +132,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 169427307
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &6528378170274861441
@@ -187,6 +187,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yunoArrow: {fileID: 6528378169954505374}
-  playerLayer: 8
   center: {fileID: 0}
   distance: 1

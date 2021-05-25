@@ -53,6 +53,9 @@ TagManager:
   - name: Scenary
     uniqueID: 2432516229
     locked: 0
+  - name: Interactuable
+    uniqueID: 1702019949
+    locked: 0
   - name: Enemies
     uniqueID: 3718824845
     locked: 0
@@ -61,9 +64,6 @@ TagManager:
     locked: 0
   - name: Bastet
     uniqueID: 3162736079
-    locked: 0
-  - name: Interactuable
-    uniqueID: 1702019949
     locked: 0
   - name: Key
     uniqueID: 510823025
