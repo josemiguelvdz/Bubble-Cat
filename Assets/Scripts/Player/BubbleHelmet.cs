@@ -39,11 +39,15 @@ public class BubbleHelmet : MonoBehaviour
         GameManager.GetInstance().BubbleHelmet();
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        bubble = BubbleManager.GetInstance().GetBubble();
+        if (bubble) bubble.Pop();
         if (!inmunity && collision.gameObject.GetComponent<Damageable>())
             MakeDamage();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!inmunity && (collision.GetComponent<Gas>() || collision.GetComponent<PillarMovement>() || collision.tag == "Fists"))
@@ -52,17 +56,16 @@ public class BubbleHelmet : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!inmunity && collision.GetComponent<Water>())
+        if(!inmunity && collision.GetComponent<Water>())
+        {
             MakeDamage();
+        }
     }
 
     public void MakeDamage()
     {
         if(!invencible)
         {
-            bubble = BubbleManager.GetInstance().GetBubble();
-            if (bubble) bubble.Pop();
-
             if (helmetOn)
             {
                 inProgress = false;

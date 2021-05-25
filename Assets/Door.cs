@@ -42,6 +42,11 @@ public class Door : MonoBehaviour
         {
             GameState.currentCheckpoint = Checkpoint.checkpoint3;
         }
+        else if (gameObject.name == "Door_4")
+        {
+            GameState.currentCheckpoint = Checkpoint.checkpoint4;
+            Debug.Log(GameState.currentCheckpoint);
+        }
 
     }
 }

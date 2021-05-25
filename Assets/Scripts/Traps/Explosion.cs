@@ -11,8 +11,5 @@ public class Explosion : MonoBehaviour
 
         else if (collision.gameObject.GetComponent<EnemyHealth>())
             Destroy(collision.gameObject);
-
-        else if(collision.gameObject.GetComponent<BrokenWall>())
-            Destroy(collision.gameObject);
     }
 }
