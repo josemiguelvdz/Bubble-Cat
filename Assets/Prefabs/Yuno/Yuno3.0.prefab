@@ -550,7 +550,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   jumpSound: {fileID: 8300000, guid: 1add10318c4a8b94b859d7e23d4b12e4, type: 3}
-  shootSound: {fileID: 8300000, guid: dd29d2d954521994b833167b97e69ee9, type: 3}
+  shootSound: {fileID: 8300000, guid: 5bd2f1891df613247b39a353b4f3e1eb, type: 3}
 --- !u!114 &2335777141484339089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,7 +697,7 @@ MonoBehaviour:
   - {x: -1.0409371, y: 1.3574597, z: 0}
   m_ShapePathHash: -1976831653
   m_Mesh: {fileID: 0}
-  m_InstanceId: 26980
+  m_InstanceId: -3306
 --- !u!1 &3809929427012538669
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,7 +965,6 @@ GameObject:
   - component: {fileID: 2994947831990812088}
   - component: {fileID: 6075827589697388370}
   - component: {fileID: 6403944095502600487}
-  - component: {fileID: 1200398597}
   - component: {fileID: 1200398598}
   m_Layer: 2
   m_Name: ExplosionRadius
@@ -1037,14 +1036,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!81 &1200398597
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6521126109840997784}
-  m_Enabled: 1
 --- !u!82 &1200398598
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1400,7 +1391,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8870821670134529849}
   - component: {fileID: 3917873181938928103}
-  - component: {fileID: 2857148321126767447}
   - component: {fileID: 5886644488367532420}
   m_Layer: 0
   m_Name: SpawnBubble
@@ -1437,14 +1427,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubble: {fileID: 1128551028752080721, guid: adac7a99c6cbf13428183066210184e6, type: 3}
   bubbleCreation: {fileID: 8300000, guid: 86c889dee6cf5d94e859ea3e67ca74cf, type: 3}
---- !u!81 &2857148321126767447
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7835447909095039411}
-  m_Enabled: 1
 --- !u!82 &5886644488367532420
 AudioSource:
   m_ObjectHideFlags: 0
