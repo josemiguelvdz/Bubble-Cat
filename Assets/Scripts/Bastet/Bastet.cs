@@ -27,6 +27,13 @@ public class Bastet : MonoBehaviour
     [SerializeField, Tooltip("Piezas que quitaremos de Bastet en orden descendente. La 0 sera la última pieza que se quita.")]
     GameObject [] pieces = null;
 
+    [SerializeField, Tooltip("Cañon 1")]
+    GameObject cannon1 = null;
+    [SerializeField, Tooltip("Cañon 2")]
+    GameObject cannon2 = null;
+    [SerializeField, Tooltip("Protector de aluminio de los cañones")]
+    GameObject cannonProtector = null;
+
     [SerializeField, Tooltip("Prefab de la pastilla de jabón")]
     GameObject bar;
 
@@ -43,6 +50,8 @@ public class Bastet : MonoBehaviour
     int currentHealth;
 
     BubbleController bubble;
+
+    private Random rnd;
 
     //Ataques que hay que meter:
 
@@ -190,6 +199,28 @@ public class Bastet : MonoBehaviour
         {
             pieces[piecesNum - 1].SetActive(false);
 
+            if (piecesNum - 1 == 2) // Si la que cae es la primera pieza
+            {
+                Rigidbody2D rb_cannon1 = cannon1.GetComponent<Rigidbody2D>();
+                cannon1.GetComponent<Animator>().enabled = false;
+
+                rb_cannon1.bodyType = RigidbodyType2D.Dynamic;
+                rb_cannon1.mass = 4;
+                rb_cannon1.AddForce(new Vector2(Random.Range(-10, 10), Random.Range(5, 10)), ForceMode2D.Impulse);
+
+                Rigidbody2D rb_cannon2 = cannon2.GetComponent<Rigidbody2D>();
+                cannon2.GetComponent<Animator>().enabled = false;
+
+                rb_cannon2.bodyType = RigidbodyType2D.Dynamic;
+                rb_cannon2.mass = 4;
+                rb_cannon2.AddForce(new Vector2(Random.Range(-10, 10), Random.Range(5, 10)), ForceMode2D.Impulse);
+
+                Rigidbody2D rb_cannonProtector = cannonProtector.GetComponent<Rigidbody2D>(); // 30 grados de Z
+                cannonProtector.GetComponent<Animator>().enabled = false;
+                rb_cannonProtector.bodyType = RigidbodyType2D.Dynamic;
+                rb_cannonProtector.AddTorque(-30);
+            }
+
             ChangeAttack();
         }
             
@@ -204,6 +235,8 @@ public class Bastet : MonoBehaviour
             barInstance.AddForce(barForce, ForceMode2D.Impulse);
             barInstance.AddTorque(.1f, ForceMode2D.Impulse);
         }
+
+        
 
         PieceDisappear();
         piecesNum--;
