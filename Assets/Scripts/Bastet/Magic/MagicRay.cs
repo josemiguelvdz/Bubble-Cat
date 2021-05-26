@@ -15,20 +15,12 @@ public class MagicRay : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         parent = FindObjectOfType<Magic>();
         direction = parent.getDirection();
+        rb.velocity = direction.normalized * speed * Time.fixedDeltaTime;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isRotated == true)
-        {
-            //rb.SetRotation(rotation);   
-            rb.velocity = direction.normalized * speed * Time.fixedDeltaTime;
-        }
-        else
-        {
-            rb.velocity = direction.normalized * speed * Time.fixedDeltaTime;
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -40,8 +32,6 @@ public class MagicRay : MonoBehaviour
     public void rotationProjectil(float rot)
     {
         isRotated = true;
-        rot = rot - 180;
-        Debug.Log("Rotacion es: " + rot);
         if (rot > 0 && rot <= 90)
         {
             if (direction.x < 0)
@@ -63,12 +53,14 @@ public class MagicRay : MonoBehaviour
             if (direction.y > 0)
                 direction.y = -direction.y;
         }
-        else if (rot > -90 && rot <= 0)
+        else if (rot > 270 && rot <= 360)
         {
             if (direction.x < 0)
                 direction.x = -direction.x;
             if (direction.y > 0)
                 direction.y = -direction.y;
         }
+
+        rb.velocity = direction.normalized * speed * Time.fixedDeltaTime;
     }
 }

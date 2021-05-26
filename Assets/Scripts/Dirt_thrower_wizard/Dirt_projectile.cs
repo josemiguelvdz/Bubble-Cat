@@ -15,21 +15,11 @@ public class Dirt_projectile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         isRotated = false;
         Debug.Log("Start proyectil del lagarto " + dir);
+        rb.velocity = dir.normalized * speed * Time.deltaTime;
     }
 
     void Update()
     {
-        Debug.Log("Velocidad: " + dir);
-        //Se calcula el vector que indica la velocidad a la que se mueve el proyectil
-        if (isRotated == true)
-        {
-            //rb.SetRotation(rotation);   
-            rb.velocity = dir.normalized * speed * Time.deltaTime;
-        }
-        else
-        {
-            rb.velocity = dir.normalized * speed * Time.deltaTime;
-        }
 
     }
 
@@ -82,5 +72,7 @@ public class Dirt_projectile : MonoBehaviour
             if (dir.y > 0)
                 dir.y = -dir.y;
         }
+
+        rb.velocity = dir.normalized * speed * Time.deltaTime;
     }
 }

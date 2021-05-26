@@ -29,8 +29,13 @@ public class Magic : MonoBehaviour
     void InvokeRay()
     {        
         setDirection(player.transform.position - spawner.position);
-        float angle = Vector3.Angle(getDirection(), transform.forward); //Angulo que indica la direccion del rayo para rotar el transform del rayo magico
-        Instantiate(magicRay, spawner.position, Quaternion.Euler(new Vector3(0, 0, 180)));
+        float x = player.transform.position.x - spawner.position.x;
+        float y = player.transform.position.y - spawner.position.y;
+        float angle = Mathf.Atan2(y, x) * 180 / Mathf.PI;
+        float AbsAngle = 360 - Mathf.Abs(angle);//Angulo que indica la direccion del rayo para rotar el transform del rayo magico
+        Debug.Log("Angle: " + angle);
+        Debug.Log("AbsAngle: " + AbsAngle); 
+        Instantiate(magicRay, spawner.position, Quaternion.Euler(new Vector3(0, 0, AbsAngle)));
 
         numMagicRays--;
 
