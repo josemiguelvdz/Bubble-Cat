@@ -25,6 +25,8 @@ public class BubbleController : MonoBehaviour
     [Tooltip("Distancia para quitar el bastón"), SerializeField]
     float pullDistance = 1f;
 
+    public GameObject shake, rotate, pull;
+
     float horizontal; // Input del eje horizontal
     float vertical;
     float delta;
@@ -66,14 +68,16 @@ public class BubbleController : MonoBehaviour
         {
             BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);
         }
-            
+
 
         //Ataque final de Bastet
-        else if(grab && Mathf.Abs(Vector3.Distance(ini, transform.position)) > pullDistance)
+        else if (grab && Mathf.Abs(Vector3.Distance(ini, transform.position)) > pullDistance)
         {
             BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);
             GameManager.GetInstance().NextPhase();
         }
+        else if (grab)
+            ActivatePull();
     }
 
     private void FixedUpdate()
@@ -83,8 +87,10 @@ public class BubbleController : MonoBehaviour
 
         if(!grab)
         {
-            if (piece && (currentRotation > 0 || delta > 0))
+            if (piece && (currentRotation >= 0 || delta > 0))
             {
+                ActivateRotate();
+
                 rb.rotation += delta * rotationSpeed;
 
                 currentRotation += delta;
@@ -114,12 +120,15 @@ public class BubbleController : MonoBehaviour
         }
         else if (col.gameObject.GetComponent<Bubbleable>() && spriteRenderer.sprite)
             BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);
-        //Añadir layer de todo lo que destruya la burbuja
         else if (col.gameObject.layer == stageLayer || col.gameObject.layer == playerLayer)
-            BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);        
+            BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);
         ///else if (col.gameObject.GetComponent<Lizard>())
-            //col.gameObject.GetComponent<Lizard>().StopShooting(false, true);
-        if (col.gameObject.GetComponent<EnemyHealth>()) Invoke("Pop", col.gameObject.GetComponent<EnemyHealth>().timeToExplodeTheBubble);
+        //col.gameObject.GetComponent<Lizard>().StopShooting(false, true);
+        if (col.gameObject.GetComponent<EnemyHealth>())
+        {
+            Invoke("Pop", col.gameObject.GetComponent<EnemyHealth>().timeToExplodeTheBubble);
+            ActivateShake();
+        }
 
         if (col.gameObject.layer == pieceLayer)
         {
@@ -142,5 +151,20 @@ public class BubbleController : MonoBehaviour
     {
         //Me exploto
         BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);
+    }
+
+    public void ActivateShake()
+    {
+        shake.SetActive(true);
+    }
+
+    public void ActivateRotate()
+    {
+        rotate.SetActive(true);
+    }
+
+    public void ActivatePull()
+    {
+        pull.SetActive(true);
     }
 }
