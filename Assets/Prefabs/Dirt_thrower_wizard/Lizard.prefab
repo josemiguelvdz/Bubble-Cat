@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 1
-  timeToExplodeTheBubble: 15
+  timeToExplodeTheBubble: 0
 --- !u!1 &6694047313927097968
 GameObject:
   m_ObjectHideFlags: 0

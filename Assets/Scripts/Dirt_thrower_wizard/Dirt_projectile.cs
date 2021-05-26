@@ -9,7 +9,6 @@ public class Dirt_projectile : MonoBehaviour
     Rigidbody2D rb;
     Vector3 dir;
     bool isRotated;
-    float rotation;
 
     void Start()
     {
@@ -37,7 +36,6 @@ public class Dirt_projectile : MonoBehaviour
     public void setVelocity(Vector3 distance)
     {
         dir = distance;
-        Debug.Log("Distance: " + dir);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -56,8 +54,6 @@ public class Dirt_projectile : MonoBehaviour
     public void rotationProjectil(float rot)
     {
         isRotated = true;
-        rot = rot - 90;
-        Debug.Log("Rotacion es: " + rot);
         if (rot > 0 && rot <= 90)
         {
             if (dir.x < 0)
@@ -79,7 +75,7 @@ public class Dirt_projectile : MonoBehaviour
             if (dir.y > 0)
                 dir.y = -dir.y;
         }
-        else if (rot > -90 && rot <= 0)
+        else if (rot > 270 && rot <= 360)
         {
             if (dir.x < 0)
                 dir.x = -dir.x;
