@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 4814833738685304363}
   - component: {fileID: 4481387800052859278}
   - component: {fileID: 692219453}
-  - component: {fileID: 491195702004821034}
+  - component: {fileID: 1034325428}
+  - component: {fileID: 1034325436}
   m_Layer: 2
   m_Name: Slime
   m_TagString: Interactuable
@@ -32,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 2477912156173663483}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -60.566, y: 2.365, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,9 +75,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -576142451
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3009108543499970395, guid: a7ff59567bdb2b84a960e6e5ba603a09,
+  m_Sprite: {fileID: 8926956341264071882, guid: d57765141b72c59409bbad574e6fa2dd,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -134,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slimeSpeed: 2
-  wallDistance: 0.75
+  wallDistance: 1
   force: 30
   visionRadius: 5
 --- !u!114 &4481387800052859278
@@ -163,8 +164,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 1
   timeToExplodeTheBubble: 8
---- !u!61 &491195702004821034
-BoxCollider2D:
+--- !u!70 &1034325428
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -176,16 +177,25 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06670189, y: 0.17449546}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.584, y: 1.52}
-    newSize: {x: 1.584, y: 1.52}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.1837807, y: 1.1710091}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.0645187, y: 0.009679564}
+  m_Size: {x: 1.7023995, y: 0.87339795}
+  m_Direction: 1
+--- !u!95 &1034325436
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2477912156173663483}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a6d767130a6f3144ea87b2863cc2ca3c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

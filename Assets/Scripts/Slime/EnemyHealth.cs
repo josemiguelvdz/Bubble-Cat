@@ -6,6 +6,12 @@ public class EnemyHealth : MonoBehaviour
 {
     public int lives;
     public float timeToExplodeTheBubble;
+    Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -13,9 +19,15 @@ public class EnemyHealth : MonoBehaviour
         {
             lives--;
 
-            if(lives == 0)
+            if (lives == 0)
             {
-                Destroy(this.gameObject);
+                if (this.gameObject.GetComponent<SlimeBehaviour>())
+                {
+                    animator.SetBool("Death", true);
+                    GetComponent<SlimeBehaviour>().enabled = false;
+                    Destroy(GetComponent<Damageable>());
+                }
+                Destroy(this.gameObject, 1);
             }
         }
 
@@ -25,7 +37,13 @@ public class EnemyHealth : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Trap>())
         {
-            Destroy(this.gameObject);
+            if (this.gameObject.GetComponent<SlimeBehaviour>())
+            {
+                animator.SetBool("Death", true);
+                GetComponent<SlimeBehaviour>().enabled = false;
+                Destroy(GetComponent<Damageable>());
+            }
+            Destroy(this.gameObject, 1);
         }
     }
 
@@ -37,7 +55,13 @@ public class EnemyHealth : MonoBehaviour
             Debug.Log(lives);
             if (lives == 0)
             {
-                Destroy(this.gameObject);
+                if (this.gameObject.GetComponent<SlimeBehaviour>())
+                {
+                    animator.SetBool("Death", true);
+                    GetComponent<SlimeBehaviour>().enabled = false;
+                    Destroy(GetComponent<Damageable>());
+                }
+                Destroy(this.gameObject, 1);
             }
         }
     }
