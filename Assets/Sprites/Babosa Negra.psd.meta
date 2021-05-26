@@ -1,0 +1,1466 @@
+fileFormatVersion: 2
+guid: d57765141b72c59409bbad574e6fa2dd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9155052684279076145
+    second: Babosa Negra_0
+  - first:
+      213: 2926527337284707229
+    second: Babosa Negra_1
+  - first:
+      213: 2150298285462630387
+    second: Babosa Negra_2
+  - first:
+      213: -263032815998910308
+    second: Babosa Negra_3
+  - first:
+      213: 3675554559936695999
+    second: Babosa Negra_4
+  - first:
+      213: -1719021554088409572
+    second: Babosa Negra_5
+  - first:
+      213: -6194431552233553585
+    second: Babosa Negra_6
+  - first:
+      213: 7657873458017052804
+    second: Babosa Negra_7
+  - first:
+      213: 2203861104559844622
+    second: Babosa Negra_8
+  - first:
+      213: 8926956341264071882
+    second: Babosa Negra_9
+  - first:
+      213: 590710054369383946
+    second: Babosa Negra_10
+  - first:
+      213: 5380053420059253214
+    second: Babosa Negra_11
+  - first:
+      213: 5345617681194909998
+    second: Babosa Negra_12
+  - first:
+      213: -4740069804760254313
+    second: Babosa Negra_13
+  - first:
+      213: -4935362301292157675
+    second: Babosa Negra_14
+  - first:
+      213: -3028128724343978972
+    second: Babosa Negra_15
+  - first:
+      213: -3868882897121716216
+    second: Babosa Negra_16
+  - first:
+      213: 5742672397828484143
+    second: Babosa Negra_17
+  - first:
+      213: -8697361408339419693
+    second: Babosa Negra_18
+  - first:
+      213: -3440434287948160762
+    second: Babosa Negra_19
+  - first:
+      213: -3987212635359531195
+    second: Babosa Negra_20
+  - first:
+      213: 6220707387877001173
+    second: Babosa Negra_21
+  - first:
+      213: -1717912447914456248
+    second: Babosa Negra_22
+  - first:
+      213: 7365598336740152875
+    second: Babosa Negra_23
+  - first:
+      213: 4573474377686854664
+    second: Babosa Negra_24
+  - first:
+      213: 2731989019377138931
+    second: Babosa Negra_25
+  - first:
+      213: -1123886680323323703
+    second: Babosa Negra_26
+  - first:
+      213: -5492693392334720188
+    second: Babosa Negra_27
+  - first:
+      213: 7667618504706878988
+    second: Babosa Negra_28
+  - first:
+      213: -2845222763833012988
+    second: Babosa Negra_29
+  - first:
+      213: 7133919544235527939
+    second: Babosa Negra_30
+  - first:
+      213: 247314277405365631
+    second: Babosa Negra_31
+  - first:
+      213: 4483313243954958331
+    second: Babosa Negra_32
+  - first:
+      213: 9128535960071993745
+    second: Babosa Negra_33
+  - first:
+      213: -7713478336225388148
+    second: Babosa Negra_34
+  - first:
+      213: -4595140623376204286
+    second: Babosa Negra_35
+  - first:
+      213: -1439238304644499712
+    second: Babosa Negra_36
+  - first:
+      213: 17647077699108820
+    second: Babosa Negra_37
+  - first:
+      213: -8128226651373251050
+    second: Babosa Negra_38
+  - first:
+      213: -2026736931681809705
+    second: Babosa Negra_39
+  - first:
+      213: 1101349226105926304
+    second: Babosa Negra_40
+  - first:
+      213: 8459627792390061169
+    second: Babosa Negra_41
+  - first:
+      213: 8966915700987877281
+    second: Babosa Negra_42
+  - first:
+      213: 4750128751982868136
+    second: Babosa Negra_43
+  - first:
+      213: -4293740352911235472
+    second: Babosa Negra_44
+  - first:
+      213: -6880911957511194266
+    second: Babosa Negra_45
+  - first:
+      213: 211285465904484682
+    second: Babosa Negra_46
+  - first:
+      213: -4494740213152649721
+    second: Babosa Negra_47
+  - first:
+      213: 8314878166969352089
+    second: Babosa Negra_48
+  - first:
+      213: -8178225834810391420
+    second: Babosa Negra_49
+  - first:
+      213: -2481357326095180137
+    second: Babosa Negra_50
+  - first:
+      213: -4789499645645308175
+    second: Babosa Negra_51
+  - first:
+      213: 5573294497405776002
+    second: Babosa Negra_52
+  - first:
+      213: 1433535910771387636
+    second: Babosa Negra_53
+  - first:
+      213: 894385147273654550
+    second: Babosa Negra_54
+  - first:
+      213: -4868609344961272107
+    second: Babosa Negra_55
+  - first:
+      213: -8741120412564232980
+    second: Babosa Negra_56
+  - first:
+      213: -7606819284355787460
+    second: Babosa Negra_57
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 40
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Babosa Negra_0
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 468
+        width: 64
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 135d07a29e74d0f70800000000000000
+      internalID: 9155052684279076145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_1
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 468
+        width: 66
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d93235c9b1d1d9820800000000000000
+      internalID: 2926527337284707229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_2
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 468
+        width: 68
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ffa12ad5e467dd10800000000000000
+      internalID: 2150298285462630387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_3
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 467
+        width: 73
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c904d162c05895cf0800000000000000
+      internalID: -263032815998910308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_4
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 467
+        width: 75
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbe0899f561320330800000000000000
+      internalID: 3675554559936695999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_5
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 467
+        width: 78
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c16025b110fc428e0800000000000000
+      internalID: -1719021554088409572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_6
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 467
+        width: 78
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f41c5af9255f80aa0800000000000000
+      internalID: -6194431552233553585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_7
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 469
+        width: 79
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 488afff365b364a60800000000000000
+      internalID: 7657873458017052804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_8
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 467
+        width: 81
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0de69f7fffa59e10800000000000000
+      internalID: 2203861104559844622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_9
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 377
+        width: 68
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acc377ece7be2eb70800000000000000
+      internalID: 8926956341264071882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_10
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 377
+        width: 73
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0650fb2aaf923800800000000000000
+      internalID: 590710054369383946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_11
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 378
+        width: 74
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed9d14fa41ac9aa40800000000000000
+      internalID: 5380053420059253214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_12
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 378
+        width: 72
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e218ba075f27f2a40800000000000000
+      internalID: 5345617681194909998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_13
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 379
+        width: 73
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 798b5b460a3e73eb0800000000000000
+      internalID: -4740069804760254313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_14
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 379
+        width: 75
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51560a9b222128bb0800000000000000
+      internalID: -4935362301292157675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_15
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 377
+        width: 69
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 424025b08fce9f5d0800000000000000
+      internalID: -3028128724343978972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_16
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 387
+        width: 66
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 808d977d087fe4ac0800000000000000
+      internalID: -3868882897121716216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_17
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 392
+        width: 66
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2ce10eae1212bf40800000000000000
+      internalID: 5742672397828484143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_18
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 288
+        width: 66
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dddcb431e3cc4780800000000000000
+      internalID: -8697361408339419693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_20
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 288
+        width: 68
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54f2279bb339aa8c0800000000000000
+      internalID: -3987212635359531195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_22
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 288
+        width: 71
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84b46d20bbfb828e0800000000000000
+      internalID: -1717912447914456248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_23
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 288
+        width: 71
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b26da93a9acd73660800000000000000
+      internalID: 7365598336740152875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_24
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 288
+        width: 73
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80c206717be387f30800000000000000
+      internalID: 4573474377686854664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_25
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 287
+        width: 72
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fcfd36d989f9e520800000000000000
+      internalID: 2731989019377138931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_26
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 289
+        width: 71
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c80983d4072760f0800000000000000
+      internalID: -1123886680323323703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_27
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 289
+        width: 72
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 443f0c1167806c3b0800000000000000
+      internalID: -5492693392334720188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_28
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 290
+        width: 76
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0ee34eb76ad86a60800000000000000
+      internalID: 7667618504706878988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_29
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 199
+        width: 76
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40dc0ee88fcb388d0800000000000000
+      internalID: -2845222763833012988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_30
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 199
+        width: 76
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30f00624706c00360800000000000000
+      internalID: 7133919544235527939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_31
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 199
+        width: 75
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7511a46603ae6300800000000000000
+      internalID: 247314277405365631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_32
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 200
+        width: 72
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bff4dba44ade73e30800000000000000
+      internalID: 4483313243954958331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_33
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 200
+        width: 71
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 199787337131fae70800000000000000
+      internalID: 9128535960071993745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_34
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 111
+        width: 75
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c895d9a225834f490800000000000000
+      internalID: -7713478336225388148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_35
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 200
+        width: 75
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20eb1baf2f7ca30c0800000000000000
+      internalID: -4595140623376204286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_36
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 199
+        width: 75
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0077788236cc60ce0800000000000000
+      internalID: -1439238304644499712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_37
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 199
+        width: 76
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4df34957ce1be3000800000000000000
+      internalID: 17647077699108820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_38
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 111
+        width: 81
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 616d80ffcecb23f80800000000000000
+      internalID: -8128226651373251050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_39
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 111
+        width: 81
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dac0fdaf759fd3e0800000000000000
+      internalID: -2026736931681809705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_40
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 111
+        width: 83
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a2f1b33947c84f00800000000000000
+      internalID: 1101349226105926304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_41
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 112
+        width: 89
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17c7e69f7a2a66570800000000000000
+      internalID: 8459627792390061169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_42
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 126
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a751404252e07c70800000000000000
+      internalID: 8966915700987877281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_43
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 144
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a6fe43cee8dbe140800000000000000
+      internalID: 4750128751982868136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_44
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 111
+        width: 83
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07627f2f5e19964c0800000000000000
+      internalID: -4293740352911235472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_45
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 144
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 669bec108071280a0800000000000000
+      internalID: -6880911957511194266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_46
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 111
+        width: 85
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4190750303aee200800000000000000
+      internalID: 211285465904484682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_47
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 142
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70e6f5d17997f91c0800000000000000
+      internalID: -4494740213152649721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_48
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 111
+        width: 81
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99ffbd483a1646370800000000000000
+      internalID: 8314878166969352089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_49
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 21
+        width: 68
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 484443feeea118e80800000000000000
+      internalID: -8178225834810391420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_50
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 21
+        width: 68
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79e9841a8a2709dd0800000000000000
+      internalID: -2481357326095180137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_51
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 21
+        width: 68
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1feb379b277488db0800000000000000
+      internalID: -4789499645645308175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_52
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 21
+        width: 68
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 280b28a11d1585d40800000000000000
+      internalID: 5573294497405776002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_53
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 21
+        width: 68
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fc6b4ec051f4e310800000000000000
+      internalID: 1433535910771387636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_54
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 22
+        width: 67
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 611b1a38d8e796c00800000000000000
+      internalID: 894385147273654550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_55
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 21
+        width: 82
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d6af6388993f6cb0800000000000000
+      internalID: -4868609344961272107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_56
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 21
+        width: 82
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce461361c4d41b680800000000000000
+      internalID: -8741120412564232980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Babosa Negra_57
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 21
+        width: 82
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c35d16dd9262f6690800000000000000
+      internalID: -7606819284355787460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

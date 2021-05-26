@@ -56,7 +56,7 @@ public class Lizard : MonoBehaviour
     {
         if (this.status == Status.Stop)
         {
-            //Debug.Log(this.gameObject.name + ": Stop");
+            Debug.Log(this.gameObject.name + ": Stop");
             this.transform.Translate(Vector3.zero);
 
             if (this.player != null)
@@ -95,23 +95,24 @@ public class Lizard : MonoBehaviour
         {
             this.transform.Translate(Vector3.zero);
             this.contador++;
-            if (this.contador % 300 == 0)
+            if (this.contador > 500)
             {
-                if (this.sprite.enabled == false)
-                {
-                    this.sprite.enabled = true;
-                }
-                else
-                {
-                    this.sprite.enabled = false;
-                }
-                this.desapariciones++;
-            }
-
-            if (this.desapariciones == 3)
-            {
+                //if (this.sprite.enabled == false)
+                //{
+                //    this.sprite.enabled = true;
+                //}
+                //else
+                //{
+                //    this.sprite.enabled = false;
+                //}
+                //this.desapariciones++;
                 gameObject.SetActive(false);
             }
+
+            //if (this.desapariciones == 3)
+            //{
+            //    gameObject.SetActive(false);
+            //}
         }
     }
 
@@ -161,7 +162,13 @@ public class Lizard : MonoBehaviour
             if (Mathf.Abs(distance.x) >= 0 && Mathf.Abs(distance.x) <= this.radius)
             {
                 Debug.Log("Instancio proyectil del lagarto " + this.name);
-                GameObject newProjectile = (GameObject) Instantiate(this.dirtProjectile, this.spawnerProjectile.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+                float x = this.player.position.x - this.spawnerProjectile.position.x;
+                float y = this.player.position.y - this.spawnerProjectile.position.y;
+                float angle = Mathf.Atan2(y, x) * 180 / Mathf.PI;
+                float AbsAngle = 360 - Mathf.Abs(angle);
+                Debug.Log("Angle: " + angle);
+                Debug.Log("AbsAngle: " + AbsAngle);
+                GameObject newProjectile = (GameObject) Instantiate(this.dirtProjectile, this.spawnerProjectile.position, Quaternion.Euler(new Vector3(0, 0, AbsAngle)));
                 // accedemos al script con los valores iniciales
                 Dirt_projectile script = newProjectile.GetComponent<Dirt_projectile>();
                 script.setVelocity(distance);
@@ -176,8 +183,13 @@ public class Lizard : MonoBehaviour
         int stageLayer = LayerMask.NameToLayer("Stage");
         int bubbleLayer = LayerMask.NameToLayer("Bubble");
         int projectileLayer = LayerMask.NameToLayer("Proyectile");
+        int meleeLayer = LayerMask.NameToLayer("Melee");
 
-        //Ha colisionado con un objetro con layer Stage
+        if (col.gameObject.layer == meleeLayer)
+        {
+
+        }
+            //Ha colisionado con un objetro con layer Stage
         if (col.gameObject.layer == stageLayer)
         {
             if (this.destructible == true)//Puedo destruirme, ya que si he interactuado con la pompa
@@ -197,7 +209,8 @@ public class Lizard : MonoBehaviour
             this.canShoot = false;
         }
         else if (col.gameObject.layer == projectileLayer)
-        {            
+        {
+            this.canShoot = false;
             this.destructible = true;
             this.status = Status.Drop;
         }

@@ -7,13 +7,15 @@ public class SlimeBehaviour : MonoBehaviour
     RaycastHit2D hitPlayer, hitWall, hitGround;
     Vector3 direction = Vector3.left;
     float distance;
-    public float slimeSpeed, wallDistance,force;
+    public float slimeSpeed, wallDistance, force;
     public float visionRadius;
     bool enemy = false;
+    Animator animator;
     Quaternion slimeRotation = new Quaternion(0, 0, 0, 0);
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         player = GameManager.GetInstance().GetPlayer();
         rb = GetComponent<Rigidbody2D>();
         distance = 100f;
@@ -32,10 +34,10 @@ public class SlimeBehaviour : MonoBehaviour
         }
 
         hitWall = Physics2D.Raycast(transform.position, direction, wallDistance, 1 << LayerMask.NameToLayer("Stage"));
-        Debug.DrawRay(transform.position, direction.normalized*wallDistance, Color.red);
+        Debug.DrawRay(transform.position, direction.normalized * wallDistance, Color.red);
 
-        hitGround = Physics2D.Raycast(transform.position + direction*wallDistance, Vector2.down, wallDistance, 1 << LayerMask.NameToLayer("Stage"));
-        Debug.DrawRay(transform.position + direction*wallDistance, Vector2.down.normalized*wallDistance, Color.yellow);
+        hitGround = Physics2D.Raycast(transform.position + direction * wallDistance, Vector2.down, wallDistance, 1 << LayerMask.NameToLayer("Stage"));
+        Debug.DrawRay(transform.position + direction * wallDistance, Vector2.down.normalized * wallDistance, Color.yellow);
 
         if (hitGround.collider == null && hitWall.collider == null)
         {
@@ -66,12 +68,12 @@ public class SlimeBehaviour : MonoBehaviour
             {
                 if (player.transform.position.x < transform.position.x)
                 {
-                    transform.localScale = new Vector3(-1, 1, 1);
+                    transform.localScale = new Vector3(1, 1, 1);
                 }
 
                 else
                 {
-                    transform.localScale = new Vector3(1, 1, 1);
+                    transform.localScale = new Vector3(-1, 1, 1);
                 }
             }
         }
@@ -82,7 +84,9 @@ public class SlimeBehaviour : MonoBehaviour
         transform.rotation = slimeRotation;
         if (collision.gameObject.GetComponent<PlayerController>())
         {
-            rb.AddForce(-direction*force, ForceMode2D.Impulse);
+            animator.SetBool("Attack", true);
+            Invoke("DesactivateAttack", 0.5f);
+            rb.AddForce(-direction * force, ForceMode2D.Impulse);
         }
         if (collision.gameObject.GetComponent<EnemyHealth>()) enemy = true;
         if (collision.gameObject.GetComponent<Pipeline>())
@@ -96,5 +100,11 @@ public class SlimeBehaviour : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, visionRadius);
+    }
+
+
+    private void DesactivateAttack()
+    {
+        animator.SetBool("Attack", false);
     }
 }
