@@ -39,6 +39,7 @@ public class Lizard : MonoBehaviour
     Status status;
     enum Direction { Right, Left};
     Direction direction;
+    Animator anim;
 
     void Start()
     {
@@ -50,12 +51,14 @@ public class Lizard : MonoBehaviour
         this.hitWall = false;
         this.status = Status.Stop;
         this.destructible = false;
+        anim = GetComponent<Animator>();
      }
 
     private void Update()
     {
         if (this.status == Status.Stop)
         {
+            anim.SetBool("Mov", false);
             Debug.Log(this.gameObject.name + ": Stop");
             this.transform.Translate(Vector3.zero);
 
@@ -74,6 +77,7 @@ public class Lizard : MonoBehaviour
         }
         else if (this.status == Status.Movement)
         {
+            anim.SetBool("Mov",true);
             Debug.Log(this.gameObject.name + ": Movement");
             movimiento(this.direction);
             Shoot();
@@ -93,6 +97,8 @@ public class Lizard : MonoBehaviour
         }
         else if (this.status == Status.Die)
         {
+            anim.SetBool("Mov", false);
+            anim.SetBool("Death", true);
             this.transform.Translate(Vector3.zero);
             this.contador++;
             if (this.contador > 500)
