@@ -26,9 +26,14 @@ public class BatBehaviour : MonoBehaviour
 
     Rigidbody2D rb;
 
+    Animator animator;
+    SpriteRenderer sprite;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -39,9 +44,17 @@ public class BatBehaviour : MonoBehaviour
             //Huir de ella
             if(rb.velocity.magnitude < flySpeed) //Evitamos acelerar de más
                 rb.AddForce(-(bubble.position - transform.position).normalized * acceleration);
+            if ((bubble.position - transform.position).normalized.x < 0)
+                sprite.flipX = true;
+            else
+                sprite.flipX = false;
         }
         else if (player != null)
         {
+            if ((player.position - transform.position).normalized.x < 0)
+                sprite.flipX = false;
+            else
+                sprite.flipX = true;
             //Trazamos un rayo hacia el jugador
             Vector2 dir = player.position - transform.position;
             RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, radius);
@@ -83,6 +96,11 @@ public class BatBehaviour : MonoBehaviour
 
         //Vuelve a rotacion 0
         transform.rotation = Quaternion.Euler(Vector3.zero);
+
+        //if (animator.GetBool("Death"))
+        //{
+        //    rb.AddForce(Vector2.down * acceleration);
+        //}
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

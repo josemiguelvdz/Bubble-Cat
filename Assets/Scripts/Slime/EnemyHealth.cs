@@ -61,6 +61,10 @@ public class EnemyHealth : MonoBehaviour
                     GetComponent<SlimeBehaviour>().enabled = false;
                     Destroy(GetComponent<Damageable>());
                 }
+                if (this.gameObject.GetComponent<BatBehaviour>())
+                {
+                    animator.SetBool("Death", true);
+                }
                 Destroy(this.gameObject, 1);
             }
         }
