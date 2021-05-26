@@ -95,23 +95,24 @@ public class Lizard : MonoBehaviour
         {
             this.transform.Translate(Vector3.zero);
             this.contador++;
-            if (this.contador % 300 == 0)
+            if (this.contador > 500)
             {
-                if (this.sprite.enabled == false)
-                {
-                    this.sprite.enabled = true;
-                }
-                else
-                {
-                    this.sprite.enabled = false;
-                }
-                this.desapariciones++;
-            }
-
-            if (this.desapariciones == 3)
-            {
+                //if (this.sprite.enabled == false)
+                //{
+                //    this.sprite.enabled = true;
+                //}
+                //else
+                //{
+                //    this.sprite.enabled = false;
+                //}
+                //this.desapariciones++;
                 gameObject.SetActive(false);
             }
+
+            //if (this.desapariciones == 3)
+            //{
+            //    gameObject.SetActive(false);
+            //}
         }
     }
 
