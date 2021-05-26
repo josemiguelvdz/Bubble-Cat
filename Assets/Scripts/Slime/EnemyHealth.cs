@@ -7,10 +7,13 @@ public class EnemyHealth : MonoBehaviour
     public int lives;
     public float timeToExplodeTheBubble;
     Animator animator;
+    public AudioClip killSound;
+    AudioSource audioSource;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -28,9 +31,9 @@ public class EnemyHealth : MonoBehaviour
                     Destroy(GetComponent<Damageable>());
                 }
                 Destroy(this.gameObject, 1);
+                audioSource.PlayOneShot(killSound);
             }
         }
-
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -44,6 +47,8 @@ public class EnemyHealth : MonoBehaviour
                 Destroy(GetComponent<Damageable>());
             }
             Destroy(this.gameObject, 1);
+            audioSource.PlayOneShot(killSound);
+
         }
     }
 
@@ -61,11 +66,8 @@ public class EnemyHealth : MonoBehaviour
                     GetComponent<SlimeBehaviour>().enabled = false;
                     Destroy(GetComponent<Damageable>());
                 }
-                if (this.gameObject.GetComponent<BatBehaviour>())
-                {
-                    animator.SetBool("Death", true);
-                }
                 Destroy(this.gameObject, 1);
+                audioSource.PlayOneShot(killSound);
             }
         }
     }

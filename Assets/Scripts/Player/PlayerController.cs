@@ -34,13 +34,14 @@ public class PlayerController : MonoBehaviour
     private bool key = false;
     private Animator animator;
 
-    public AudioClip jumpSound, shootSound;
+    public AudioClip jumpSound, shootSound, meleeSound;
     AudioSource audioSource;
 
     private void Start()
     {
         currentMeleeCd = meleeCooldown;
         audioSource = GetComponent<AudioSource>();
+        MusicManager.GetInstance().MusicScene();
     }
     void OnEnable()
     {
@@ -103,6 +104,7 @@ public class PlayerController : MonoBehaviour
             {
                 Hit();
                 animator.SetBool("isAttacking", true);
+                audioSource.PlayOneShot(meleeSound);
                 currentMeleeCd = meleeCooldown;
             }
                 

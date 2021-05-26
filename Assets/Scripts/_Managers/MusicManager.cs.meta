@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 15ea9d332312c5943a2d8fa438ebb965
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - sewer: {fileID: 8300000, guid: ef6e71e53eb779a469dfc12e9dde6165, type: 3}
+  - bastet: {fileID: 8300000, guid: 89f542238c380a849a11b316c3a60b44, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

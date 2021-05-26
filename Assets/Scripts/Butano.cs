@@ -4,6 +4,13 @@ public class Butano : MonoBehaviour
 {
     public Vector2 velocityLimit;
     public GameObject explosion;
+    public AudioClip explosionSound;
+    AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -28,5 +35,6 @@ public class Butano : MonoBehaviour
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         // PUM particulas y tal
         Destroy(this.gameObject, 1);
+        audioSource.PlayOneShot(explosionSound);
     }
 }

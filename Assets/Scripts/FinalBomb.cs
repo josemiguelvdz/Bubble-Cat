@@ -9,6 +9,9 @@ public class FinalBomb : MonoBehaviour
     Rigidbody2D rb;
     float angle;
 
+    public AudioClip explosionSound;
+    AudioSource audioSource;
+
     void OnEnable()
     {
         if (returned)
@@ -18,6 +21,7 @@ public class FinalBomb : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -42,6 +46,7 @@ public class FinalBomb : MonoBehaviour
                 GameManager.GetInstance().GetPlayer().GetComponent<BubbleHelmet>().MakeDamage();
                 
             Destroy(this.gameObject);
+            audioSource.PlayOneShot(explosionSound);
         }
     }
 }

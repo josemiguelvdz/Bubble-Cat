@@ -138,6 +138,7 @@
     <Compile Include="Assets\Scripts\WaterFall.cs" />
     <Compile Include="Assets\Scripts\_Managers\BubbleManager.cs" />
     <Compile Include="Assets\Scripts\_Managers\GameManager.cs" />
+    <Compile Include="Assets\Scripts\_Managers\MusicManager.cs" />
     <Compile Include="Assets\Scripts\_Managers\UIManager.cs" />
     <Compile Include="Assets\SlimUI\Tech Menu\Scripts\ToolTip.cs" />
     <Compile Include="Assets\SlimUI\Tech Menu\Scripts\UIElementDragger.cs" />

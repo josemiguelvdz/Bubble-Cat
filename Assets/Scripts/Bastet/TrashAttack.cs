@@ -10,6 +10,8 @@ public class TrashAttack : MonoBehaviour
 
     private bool afterSpawn = false;
 
+    public AudioClip pilarSound;
+    AudioSource audioSource;
 
     void Start()
     {
@@ -19,6 +21,8 @@ public class TrashAttack : MonoBehaviour
 
         // ANIMACIÓN 
         bastet = GetComponent<Bastet>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -43,7 +47,8 @@ public class TrashAttack : MonoBehaviour
         }
 
         Pillars.SetActive(true);
-        
+        audioSource.PlayOneShot(pilarSound);
+
         afterSpawn = true;
         Invoke("NextAttack", 3f);
     }

@@ -8,6 +8,14 @@ public class BubbleGum : MonoBehaviour
     float getOut;
     bool inSide;
 
+    public AudioClip gumSound;
+    AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     private void Update()
     {
         if (inSide)
@@ -33,6 +41,8 @@ public class BubbleGum : MonoBehaviour
         {
             collision.GetComponent<PlayerController>().enabled = false;
             collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+            audioSource.PlayOneShot(gumSound);
 
             inSide = true;
         }

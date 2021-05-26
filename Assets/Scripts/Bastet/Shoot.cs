@@ -34,6 +34,9 @@ public class Shoot : MonoBehaviour
     Transform player;
     Bastet bastet;
 
+    public AudioClip shootSound;
+    AudioSource audioSource;
+
     private void Awake()
     {
         bastet = GetComponent<Bastet>();
@@ -50,6 +53,7 @@ public class Shoot : MonoBehaviour
     private void Start()
     {
         player = GameManager.GetInstance().GetPlayer().transform;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void OnDisable()
@@ -69,6 +73,7 @@ public class Shoot : MonoBehaviour
 
 
         proyectilesLeft--;
+        audioSource.PlayOneShot(shootSound);
 
         if (proyectilesLeft == 0)
         {

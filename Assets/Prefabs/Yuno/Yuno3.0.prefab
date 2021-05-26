@@ -341,8 +341,8 @@ GameObject:
   - component: {fileID: 5639004468724925975}
   - component: {fileID: 2335777141484339089}
   - component: {fileID: 8078391449813081436}
-  - component: {fileID: 3535296710930263135}
   - component: {fileID: 2113240183}
+  - component: {fileID: 1972803792242718767}
   m_Layer: 8
   m_Name: Yuno3.0
   m_TagString: Player
@@ -461,8 +461,8 @@ MonoBehaviour:
   - {fileID: 7337280714795813559}
   - {fileID: 3697906392256748999}
   m_Bounds:
-    m_Center: {x: -0.28390777, y: 0.27799702, z: 0}
-    m_Extent: {x: 0.7570292, y: 1.0794626, z: 0}
+    m_Center: {x: -0.28390753, y: 0.2779969, z: 0}
+    m_Extent: {x: 0.75702894, y: 1.079463, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!95 &3775205702327096157
@@ -551,6 +551,7 @@ MonoBehaviour:
     m_Bits: 512
   jumpSound: {fileID: 8300000, guid: 1add10318c4a8b94b859d7e23d4b12e4, type: 3}
   shootSound: {fileID: 8300000, guid: 5bd2f1891df613247b39a353b4f3e1eb, type: 3}
+  meleeSound: {fileID: 8300000, guid: fec388eb84a632a499ffb6ca822d99de, type: 3}
 --- !u!114 &2335777141484339089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,14 +665,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &3535296710930263135
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3645603282067745744}
-  m_Enabled: 1
 --- !u!114 &2113240183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,7 +690,15 @@ MonoBehaviour:
   - {x: -1.0409371, y: 1.3574597, z: 0}
   m_ShapePathHash: -1976831653
   m_Mesh: {fileID: 0}
-  m_InstanceId: -3306
+  m_InstanceId: -95538
+--- !u!81 &1972803792242718767
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3645603282067745744}
+  m_Enabled: 1
 --- !u!1 &3809929427012538669
 GameObject:
   m_ObjectHideFlags: 0

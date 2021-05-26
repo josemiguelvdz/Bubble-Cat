@@ -14,6 +14,9 @@ public class Magic : MonoBehaviour
     [Tooltip("Probabilidad de que el siguiente ataque sean la caida de cajas si estamos en la segunda fase"), Range(0, 100f), SerializeField]
     int prob = 30;
 
+    public AudioClip magicSound;
+    AudioSource audioSource;
+
     private void OnEnable()
     {
         InvokeRepeating("InvokeRay", rateTime, cooldownTime);
@@ -24,6 +27,7 @@ public class Magic : MonoBehaviour
     {
         player = GameManager.GetInstance().GetPlayer();
         bastet = GetComponent<Bastet>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void InvokeRay()
@@ -36,6 +40,7 @@ public class Magic : MonoBehaviour
         Debug.Log("Angle: " + angle);
         Debug.Log("AbsAngle: " + AbsAngle); 
         Instantiate(magicRay, spawner.position, Quaternion.Euler(new Vector3(0, 0, AbsAngle)));
+        audioSource.PlayOneShot(magicSound);
 
         numMagicRays--;
 
