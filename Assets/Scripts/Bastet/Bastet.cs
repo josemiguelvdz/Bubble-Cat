@@ -33,6 +33,13 @@ public class Bastet : MonoBehaviour
     GameObject cannon2 = null;
     [SerializeField, Tooltip("Protector de aluminio de los cañones")]
     GameObject cannonProtector = null;
+    [SerializeField, Tooltip("Protector de aluminio de los cañones (final)")]
+    GameObject cannonProtector2 = null;
+
+    [SerializeField, Tooltip("Puño izquierdo")]
+    GameObject leftArm = null;
+    [SerializeField, Tooltip("Puño derecho")]
+    GameObject rightArm = null;
 
     [SerializeField, Tooltip("Prefab de la pastilla de jabón")]
     GameObject bar;
@@ -199,8 +206,23 @@ public class Bastet : MonoBehaviour
         {
             pieces[piecesNum - 1].SetActive(false);
 
+            ChangeAttack();
+        }
+            
+    }
+
+    public void PieceOff()
+    {
+        if (piecesNum > 1)
+        {
+            Rigidbody2D barInstance = Instantiate(bar, barSpawn.position, Quaternion.identity).GetComponent<Rigidbody2D>();
+            barInstance.bodyType = RigidbodyType2D.Dynamic;
+            barInstance.AddForce(barForce, ForceMode2D.Impulse);
+            barInstance.AddTorque(.1f, ForceMode2D.Impulse);
+
             if (piecesNum - 1 == 2) // Si la que cae es la primera pieza
             {
+
                 Rigidbody2D rb_cannon1 = cannon1.GetComponent<Rigidbody2D>();
                 cannon1.GetComponent<Animator>().enabled = false;
 
@@ -219,21 +241,29 @@ public class Bastet : MonoBehaviour
                 cannonProtector.GetComponent<Animator>().enabled = false;
                 rb_cannonProtector.bodyType = RigidbodyType2D.Dynamic;
                 rb_cannonProtector.AddTorque(-30);
+
+                cannonProtector2.SetActive(true);
             }
+            else if (piecesNum - 1 == 1)
+            {
 
-            ChangeAttack();
-        }
-            
-    }
+                leftArm.GetComponent<Animator>().enabled = false;
 
-    public void PieceOff()
-    {
-        if (piecesNum > 1)
-        {
-            Rigidbody2D barInstance = Instantiate(bar, barSpawn.position, Quaternion.identity).GetComponent<Rigidbody2D>();
-            barInstance.bodyType = RigidbodyType2D.Dynamic;
-            barInstance.AddForce(barForce, ForceMode2D.Impulse);
-            barInstance.AddTorque(.1f, ForceMode2D.Impulse);
+                Rigidbody2D rb_leftArm = leftArm.GetComponent<Rigidbody2D>();
+
+                rb_leftArm.bodyType = RigidbodyType2D.Dynamic;
+                rb_leftArm.AddTorque(30);
+                rb_leftArm.AddForce(new Vector2(Random.Range(-20, 20), Random.Range(20, 25)), ForceMode2D.Impulse);
+
+                rightArm.GetComponent<Animator>().enabled = false;
+
+                Rigidbody2D rb_rightArm = rightArm.GetComponent<Rigidbody2D>();
+
+                rb_rightArm.bodyType = RigidbodyType2D.Dynamic;
+                rb_rightArm.AddTorque(-30);
+                rb_rightArm.AddForce(new Vector2(Random.Range(-20, 20), Random.Range(5, 10)), ForceMode2D.Impulse);
+
+            }
         }
 
         
