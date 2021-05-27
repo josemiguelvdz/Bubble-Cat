@@ -53,6 +53,9 @@ public class Bastet : MonoBehaviour
     [SerializeField, Tooltip("Tiempo que tarda la nueva fase de Bastet en empezar")]
     float waitingTime = 2f;
 
+    public Material piece1Material, piece2Matierial;
+    Material staffMaterial;
+
     int piecesNum = 3; //Número de piezas que tenemos que quitar a Bastet para desmontar su robot
     int currentHealth;
 
@@ -142,6 +145,8 @@ public class Bastet : MonoBehaviour
 
         currentState = nextState = States.start;
         components = new MonoBehaviour[8] { fists, shoot, magic, box, trash, bomb, ko, dead };
+
+        staffMaterial = pieces[0].GetComponent<SpriteRenderer>().material;
     }
 
     private void Update()
@@ -197,14 +202,41 @@ public class Bastet : MonoBehaviour
     public void PieceAppear()
     {
         //Activa una pieza de Bastet para que podamos quitarsela del robot con la pompa
-        pieces[piecesNum - 1].SetActive(true);
+        pieces[piecesNum - 1].GetComponent<Collider2D>().enabled = true;
+
+        if (piecesNum == 1)
+        {
+            pieces[0].GetComponent<SpriteRenderer>().material = piece1Material;
+            piece1Material.SetInt("_Activo", 1);
+        }
+        else if (piecesNum == 2)
+        {
+            piece1Material.SetInt("_Activo", 1);
+            piece2Matierial.SetInt("_Activo", 1);
+        }
+        else if (piecesNum == 3)
+            piece1Material.SetInt("_Activo", 1);
     }
 
     public void PieceDisappear()
     {
-        if(piecesNum > 0)
+        if (piecesNum == 1)
         {
-            pieces[piecesNum - 1].SetActive(false);
+            piece1Material.SetInt("_Activo", 0);
+            pieces[0].GetComponent<SpriteRenderer>().material = staffMaterial;
+        }
+        else if (piecesNum == 2)
+        {
+            piece2Matierial.SetInt("_Activo", 0);
+            piece1Material.SetInt("_Activo", 0);
+        }
+            
+        else if (piecesNum == 3)
+            piece1Material.SetInt("_Activo", 0);
+
+        if (piecesNum > 0)
+        {
+            pieces[piecesNum - 1].GetComponent<Collider2D>().enabled = false;
 
             ChangeAttack();
         }
@@ -253,7 +285,7 @@ public class Bastet : MonoBehaviour
 
                 rb_leftArm.bodyType = RigidbodyType2D.Dynamic;
                 rb_leftArm.AddTorque(30);
-                rb_leftArm.AddForce(new Vector2(Random.Range(-20, 20), Random.Range(20, 25)), ForceMode2D.Impulse);
+                rb_leftArm.AddForce(new Vector2(Random.Range(5, 20), Random.Range(2, 20)), ForceMode2D.Impulse);
 
                 rightArm.GetComponent<Animator>().enabled = false;
 
@@ -261,14 +293,13 @@ public class Bastet : MonoBehaviour
 
                 rb_rightArm.bodyType = RigidbodyType2D.Dynamic;
                 rb_rightArm.AddTorque(-30);
-                rb_rightArm.AddForce(new Vector2(Random.Range(-20, 20), Random.Range(5, 10)), ForceMode2D.Impulse);
+                rb_rightArm.AddForce(new Vector2(Random.Range(5, 20), Random.Range(-5, 10)), ForceMode2D.Impulse);
 
             }
         }
 
-        
-
         PieceDisappear();
+        pieces[piecesNum - 1].SetActive(false);
         piecesNum--;
         Debug.Log(piecesNum);
     }

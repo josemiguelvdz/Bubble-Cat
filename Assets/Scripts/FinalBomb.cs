@@ -4,6 +4,7 @@ public class FinalBomb : MonoBehaviour
 {
     public Vector2 impulse;
     public float rotationSpeed = 1f;
+    public GameObject explosion;
 
     bool returned = false;
     Rigidbody2D rb;
@@ -45,8 +46,15 @@ public class FinalBomb : MonoBehaviour
                 //Explotar
                 GameManager.GetInstance().GetPlayer().GetComponent<BubbleHelmet>().MakeDamage();
                 
-            Destroy(this.gameObject);
             audioSource.PlayOneShot(explosionSound);
+            Destroy(this.gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        GameObject ex = Instantiate(explosion, transform.position, Quaternion.identity);
+        ex.transform.localScale *= 2.5f;
+        Destroy(ex, 1);
     }
 }

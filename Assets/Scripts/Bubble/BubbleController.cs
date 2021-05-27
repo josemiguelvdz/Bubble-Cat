@@ -40,6 +40,8 @@ public class BubbleController : MonoBehaviour
     Rigidbody2D rb;
     GameObject child;
     SpriteRenderer spriteRenderer;
+    Vector3 position;
+    GameObject go;
 
     Vector2 movement;
 
@@ -68,7 +70,6 @@ public class BubbleController : MonoBehaviour
         {
             BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);
         }
-
 
         //Ataque final de Bastet
         else if (grab && Mathf.Abs(Vector3.Distance(ini, transform.position)) > pullDistance)
@@ -135,6 +136,8 @@ public class BubbleController : MonoBehaviour
             piece = true;
             rb.velocity = Vector2.zero;
             GameManager.GetInstance().GetBastet().SetBubble(this);
+            position = col.transform.position;
+            go = col.gameObject;
         }
         else if (col.gameObject.layer == staffLayer)
         {
@@ -143,6 +146,8 @@ public class BubbleController : MonoBehaviour
             rb.mass *= pullWeigth;
             ini = transform.position;
             GameManager.GetInstance().GetBastet().SetBubble(this);
+            position = col.transform.position;
+            go = col.gameObject;
         }
 
     }
@@ -166,5 +171,11 @@ public class BubbleController : MonoBehaviour
     public void ActivatePull()
     {
         pull.SetActive(true);
+    }
+
+    private void OnDestroy()
+    {
+        if(grab || pull)
+            go.transform.position = position;
     }
 }

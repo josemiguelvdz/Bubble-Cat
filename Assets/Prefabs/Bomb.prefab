@@ -159,6 +159,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impulse: {x: 12, y: 7}
   rotationSpeed: 1
+  explosion: {fileID: 1906620466346837949, guid: f5fa4ef818b38214ab698bad9c424e2a,
+    type: 3}
   explosionSound: {fileID: 8300000, guid: 19fc0b1f509436a41ad6e4b681b54513, type: 3}
 --- !u!82 &3021086689588677511
 AudioSource:

@@ -19,18 +19,13 @@ public class MusicManager : MonoBehaviour
 
         else
             Destroy(this.gameObject);
-    }
 
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>(); 
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void MusicScene()
     {
         Scene escena = SceneManager.GetActiveScene();
-
-        Debug.Log("Estoy en " + escena.name);
 
         switch (escena.name)
         {
@@ -42,8 +37,6 @@ public class MusicManager : MonoBehaviour
                 audioSource.PlayOneShot(bastet);
                 break;
         }
-
-
     }
 
     public static MusicManager GetInstance()

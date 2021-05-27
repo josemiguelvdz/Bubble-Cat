@@ -74,6 +74,12 @@ TagManager:
   - name: Proyectile
     uniqueID: 2133900039
     locked: 0
+  - name: Water
+    uniqueID: 1713670427
+    locked: 0
+  - name: "Pu\xF1o"
+    uniqueID: 1403344835
+    locked: 0
   - name: Bubble
     uniqueID: 686265885
     locked: 0
