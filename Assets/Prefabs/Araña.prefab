@@ -189,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 1
   timeToExplodeTheBubble: 4
-  killSound: {fileID: 0}
+  killSound: {fileID: 8300000, guid: 38946c902ba1cfe4685f4f8b813562ca, type: 3}
 --- !u!70 &1901567283928255673
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
