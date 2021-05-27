@@ -71,9 +71,6 @@ public class SpiderMovement : MonoBehaviour
         Vector3 forward = transform.TransformDirection(player.transform.position - transform.position).normalized;
         Debug.DrawRay(transform.position, forward*visionRadius, Color.red);
 
-
-
-
         if (Physics2D.Raycast(transform.position,new Vector2(0,-transform.up.y), raycastLength, stageLayer))
         {
             animator.SetBool("Jump", false);
@@ -139,6 +136,10 @@ public class SpiderMovement : MonoBehaviour
          transform.rotation = spiderRotation;
         if (collision.gameObject.GetComponent<EnemyHealth>()) 
             enemy = true;
+        if (collision.gameObject.GetComponent<PlayerController>())
+        {
+            rb.AddForce(new Vector2(Random.Range(-3, 3), Random.Range(2, 5)), ForceMode2D.Impulse);
+        }
         Debug.Log("He colisonado con la araña");
     }
 

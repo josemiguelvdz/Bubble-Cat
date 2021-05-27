@@ -50,6 +50,8 @@ public class BatBehaviour : MonoBehaviour
 
             Destroy(gameObject.GetComponent<Damageable>());
         }
+
+        
         else
         {
             
@@ -104,6 +106,11 @@ public class BatBehaviour : MonoBehaviour
                     //Vuelve arriba
                     if (rb.velocity.magnitude < flySpeed)
                         rb.AddForce(Vector2.up * acceleration);
+
+                    if (rb.velocity.y == 0)
+                    {
+                        animator.SetBool("Mov", false);
+                    }
 
                     Debug.Log("Me he cansao de esperar");
                 }
