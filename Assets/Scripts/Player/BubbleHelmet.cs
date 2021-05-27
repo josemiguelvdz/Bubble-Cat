@@ -5,6 +5,9 @@ public class BubbleHelmet : MonoBehaviour
 {
     public GDTFadeEffect fadeEffect;
 
+    public GameObject dead;
+    float timeParticle = 1f;
+
     public float replaceTime, inmunityTime;
     public SpriteRenderer helmet;
     public bool invencible = false;
@@ -92,6 +95,8 @@ public class BubbleHelmet : MonoBehaviour
                 rb.velocity = Vector2.zero;
 
                 // PARTICULAS
+                dead.SetActive(true);
+                Invoke("OffParticles", timeParticle);
 
                 fadeEffect.StartEffect();
                 Invoke("InvokeRespawn", 1f);
@@ -113,6 +118,12 @@ public class BubbleHelmet : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    void OffParticles()
+    {
+        dead.SetActive(false);
+    }
+
 
     public void InvokeReplace()
     {

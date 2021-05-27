@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject bala;
     public GameObject melee;
+
     public Transform bulletSpawn;
     public Transform allowAttack;
 
