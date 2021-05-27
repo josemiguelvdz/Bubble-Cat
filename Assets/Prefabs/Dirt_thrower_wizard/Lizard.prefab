@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 3324141139426838408}
   - component: {fileID: 4074638124853934440}
   - component: {fileID: -813908758455908603}
+  - component: {fileID: 4520460486095260234}
   m_Layer: 14
   m_Name: Lizard
   m_TagString: Interactuable
@@ -395,6 +396,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &4520460486095260234
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5956578319485701160}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: afbbf645a76d59841b73a0615ac31c99, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6694047313927097968
 GameObject:
   m_ObjectHideFlags: 0
