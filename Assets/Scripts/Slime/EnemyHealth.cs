@@ -37,6 +37,13 @@ public class EnemyHealth : MonoBehaviour
                     animator.SetBool("Mov", false);
                     animator.SetBool("Death", true);
                 }
+                if (this.gameObject.GetComponent<BatBehaviour>())
+                {
+                    animator.SetBool("Death", true);
+                    GetComponent<SlimeBehaviour>().enabled = false;
+                    Destroy(GetComponent<Damageable>());
+                    this.gameObject.GetComponent<BatBehaviour>().die();
+                }
                 Destroy(this.gameObject, 1);
                 audioSource.PlayOneShot(killSound);
             }
@@ -77,6 +84,13 @@ public class EnemyHealth : MonoBehaviour
                 {
                     //animator.SetBool("Death", true);
                     this.gameObject.GetComponent<Lizard>().isDestructible();
+                }
+                if (this.gameObject.GetComponent<BatBehaviour>())
+                {
+                    animator.SetBool("Death", true);
+                    GetComponent<SlimeBehaviour>().enabled = false;
+                    Destroy(GetComponent<Damageable>());
+                    this.gameObject.GetComponent<BatBehaviour>().die();
                 }
                 Destroy(this.gameObject, 1);
                 Destroy(this.gameObject, 1);

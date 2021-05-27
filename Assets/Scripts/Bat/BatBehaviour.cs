@@ -28,6 +28,7 @@ public class BatBehaviour : MonoBehaviour
 
     Animator animator;
     SpriteRenderer sprite;
+    bool death = false;
 
     void Start()
     {
@@ -39,74 +40,85 @@ public class BatBehaviour : MonoBehaviour
     void FixedUpdate()
     {
         //Si hay una pompa cerca
-        if (bubble)
+        if (animator.GetBool("Death"))
         {
-            //Huir de ella
-            if(rb.velocity.magnitude < flySpeed) //Evitamos acelerar de más
-                rb.AddForce(-(bubble.position - transform.position).normalized * acceleration);
-            if ((bubble.position - transform.position).normalized.x < 0)
-                sprite.flipX = true;
-            else
-                sprite.flipX = false;
+            rb.AddForce(Vector2.down * acceleration);
         }
-        else if (player != null)
+        else
         {
-            if ((player.position - transform.position).normalized.x < 0)
-                sprite.flipX = false;
-            else
-                sprite.flipX = true;
-            //Trazamos un rayo hacia el jugador
-            Vector2 dir = player.position - transform.position;
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, radius);
-            Debug.DrawRay(transform.position, dir.normalized * hit.distance, Color.red);
-
-            //Si colisiona con el jugador
-            if (hit && hit.collider.gameObject.layer == playerLayer)
+            
+            if (bubble)
             {
-                //Perseguimos al jugador
-                if(rb.velocity.magnitude < flySpeed)
-                    rb.AddForce(dir.normalized * acceleration);
-
-                Debug.Log("Estoy persiguiendo a Yuno");
+                //Huir de ella
+                if (rb.velocity.magnitude < flySpeed) //Evitamos acelerar de más
+                    rb.AddForce(-(bubble.position - transform.position).normalized * acceleration);
+                if ((bubble.position - transform.position).normalized.x < 0)
+                    sprite.flipX = true;
+                else
+                    sprite.flipX = false;
+            }
+            else if (player != null)
+            {
                 
-                CancelInvoke();
-                invokeOnce = false;
-                waiting = true;
-            }
-            else if(waiting)
-            {
-                if(!invokeOnce)
+                if ((player.position - transform.position).normalized.x < 0)
+                    sprite.flipX = false;
+                else
+                    sprite.flipX = true;
+                //Trazamos un rayo hacia el jugador
+                Vector2 dir = player.position - transform.position;
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, radius);
+                Debug.DrawRay(transform.position, dir.normalized * hit.distance, Color.red);
+
+                //Si colisiona con el jugador
+                if (hit && hit.collider.gameObject.layer == playerLayer)
                 {
-                    Invoke("EndWait", waitingTime);
+                    //Perseguimos al jugador
+                    if (rb.velocity.magnitude < flySpeed)
+                        rb.AddForce(dir.normalized * acceleration);
 
-                    invokeOnce = true;
+                    Debug.Log("Estoy persiguiendo a Yuno");
+
+                    CancelInvoke();
+                    invokeOnce = false;
+                    waiting = true;
                 }
+                else if (waiting)
+                {
+                    if (!invokeOnce)
+                    {
+                        Invoke("EndWait", waitingTime);
 
-                Debug.Log("No veo a Yuno");
-            }
-            else
-            {
-                //Vuelve arriba
-                if (rb.velocity.magnitude < flySpeed)
-                    rb.AddForce(Vector2.up * acceleration);
+                        invokeOnce = true;
+                    }
 
-                Debug.Log("Me he cansao de esperar");
+                    Debug.Log("No veo a Yuno");
+                }
+                else
+                {
+                    //Vuelve arriba
+                    if (rb.velocity.magnitude < flySpeed)
+                        rb.AddForce(Vector2.up * acceleration);
+
+                    Debug.Log("Me he cansao de esperar");
+                }
             }
+
+            //Vuelve a rotacion 0
+            transform.rotation = Quaternion.Euler(Vector3.zero);
         }
-
-        //Vuelve a rotacion 0
-        transform.rotation = Quaternion.Euler(Vector3.zero);
-
-        //if (animator.GetBool("Death"))
-        //{
-        //    rb.AddForce(Vector2.down * acceleration);
-        //}
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        int stageLayer = LayerMask.NameToLayer("Stage");
+
         if (collision.gameObject.GetComponent<PlayerController>())
             rb.AddForce((transform.position - player.position).normalized * bounceForce, ForceMode2D.Impulse);
+        if (collision.gameObject.layer == stageLayer)
+        {
+            if (death == true)
+                gameObject.SetActive(false);
+        }
     }
 
     public void CollissionData(Transform t, float r, bool isBubble) //true si es pompa, false si es player
@@ -120,11 +132,18 @@ public class BatBehaviour : MonoBehaviour
         radius = r;
 
         waiting = true;
+
+        animator.SetBool("Mov", true);
     }
 
     void EndWait()
     {
         waiting = false;
         invokeOnce = false;
+    }
+
+    public void die()
+    {
+        death = true;
     }
 }
