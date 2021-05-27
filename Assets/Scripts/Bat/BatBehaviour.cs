@@ -28,13 +28,14 @@ public class BatBehaviour : MonoBehaviour
 
     Animator animator;
     SpriteRenderer sprite;
-    bool death = false;
+    bool death;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        death = false;
     }
 
     void FixedUpdate()
