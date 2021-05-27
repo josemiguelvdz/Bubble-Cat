@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2564642106009654487}
   - component: {fileID: 4502211326536330685}
   - component: {fileID: -322106064051211527}
-  m_Layer: 14
+  m_Layer: 13
   m_Name: Dirt_Projectile
   m_TagString: Enemy
   m_Icon: {fileID: 0}
