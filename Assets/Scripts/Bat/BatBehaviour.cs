@@ -44,6 +44,11 @@ public class BatBehaviour : MonoBehaviour
         if (animator.GetBool("Death"))
         {
             rb.AddForce(Vector2.down * acceleration);
+            death = true;
+
+            Destroy(gameObject.GetComponent<Bubbleable>());
+
+            Destroy(gameObject.GetComponent<Damageable>());
         }
         else
         {
@@ -111,14 +116,12 @@ public class BatBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        int stageLayer = LayerMask.NameToLayer("Stage");
 
         if (collision.gameObject.GetComponent<PlayerController>())
             rb.AddForce((transform.position - player.position).normalized * bounceForce, ForceMode2D.Impulse);
-        if (collision.gameObject.layer == stageLayer)
+        if (death == true)
         {
-            if (death == true)
-                gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 

@@ -1,0 +1,650 @@
+fileFormatVersion: 2
+guid: 99c16515595d68742a57d01607edd32e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2749376429996753186
+    second: Sangre_Roja_0
+  - first:
+      213: 2413852225009228196
+    second: Sangre_Roja_1
+  - first:
+      213: 7221475090884041634
+    second: Sangre_Roja_2
+  - first:
+      213: -2497698068629125436
+    second: Sangre_Roja_3
+  - first:
+      213: -7708494393590016861
+    second: Sangre_Roja_4
+  - first:
+      213: -8688129890800600733
+    second: Sangre_Roja_5
+  - first:
+      213: 4083550229092302000
+    second: Sangre_Roja_6
+  - first:
+      213: -5733285148771300380
+    second: Sangre_Roja_7
+  - first:
+      213: -8231924874915705486
+    second: Sangre_Roja_8
+  - first:
+      213: 7747049715016081661
+    second: Sangre_Roja_9
+  - first:
+      213: -4889143827681219548
+    second: Sangre_Roja_10
+  - first:
+      213: 3393995616696766563
+    second: Sangre_Roja_11
+  - first:
+      213: -6387411104538427406
+    second: Sangre_Roja_12
+  - first:
+      213: 4954215094503251577
+    second: Sangre_Roja_13
+  - first:
+      213: -3660783078249956101
+    second: Sangre_Roja_14
+  - first:
+      213: -5266615252190753254
+    second: Sangre_Roja_15
+  - first:
+      213: -9025444704574256136
+    second: Sangre_Roja_16
+  - first:
+      213: -7490632407446867103
+    second: Sangre_Roja_17
+  - first:
+      213: 879787557788793884
+    second: Sangre_Roja_18
+  - first:
+      213: 9143480974056342691
+    second: Sangre_Roja_19
+  - first:
+      213: 5178385631384008093
+    second: Sangre_Roja_20
+  - first:
+      213: 81079829680672330
+    second: Sangre_Roja_21
+  - first:
+      213: 4977028288076774142
+    second: Sangre_Roja_22
+  - first:
+      213: 1983783539002958545
+    second: Sangre_Roja_23
+  - first:
+      213: 4051414105136129843
+    second: Sangre_Roja_24
+  - first:
+      213: 2722177208566798212
+    second: Sangre_Roja_25
+  - first:
+      213: -8333762795052870275
+    second: Sangre_Roja_26
+  - first:
+      213: 1222002363837372584
+    second: Sangre_Roja_27
+  - first:
+      213: -352649976177921806
+    second: Sangre_Roja_28
+  - first:
+      213: -9166597461457681390
+    second: Sangre_Roja_29
+  - first:
+      213: -6394946720068278460
+    second: Sangre_Roja_30
+  - first:
+      213: -3555656197440626439
+    second: Sangre_Roja_31
+  - first:
+      213: 8046022264656903710
+    second: Sangre_Roja_32
+  - first:
+      213: 2477444899467653360
+    second: Sangre_Roja_33
+  - first:
+      213: 1923509342953940386
+    second: Sangre_Roja_34
+  - first:
+      213: -1743105648223247405
+    second: Sangre_Roja_35
+  - first:
+      213: 7663552913084802721
+    second: Sangre_Roja_36
+  - first:
+      213: 4099308324650303217
+    second: Sangre_Roja_37
+  - first:
+      213: 6255994945236660984
+    second: Sangre_Roja_38
+  - first:
+      213: 1544890705299446253
+    second: Sangre_Roja_39
+  - first:
+      213: -6633826640112316102
+    second: Sangre_Roja_40
+  - first:
+      213: -919923645192956794
+    second: Sangre_Roja_41
+  - first:
+      213: 1136713676777214296
+    second: Sangre_Roja_42
+  - first:
+      213: 5564807051186476634
+    second: Sangre_Roja_43
+  - first:
+      213: 50980237178337374
+    second: Sangre_Roja_44
+  - first:
+      213: 4065419385472284464
+    second: Sangre_Roja_45
+  - first:
+      213: -584658659717770002
+    second: Sangre_Roja_46
+  - first:
+      213: -8353427226315914558
+    second: Sangre_Roja_47
+  - first:
+      213: -4208211460221682230
+    second: Sangre_Roja_48
+  - first:
+      213: 4362569527695659613
+    second: Sangre_Roja_49
+  - first:
+      213: -8957931850867805375
+    second: Sangre_Roja_50
+  - first:
+      213: 614957358730387027
+    second: Sangre_Roja_51
+  - first:
+      213: 5410949067328924456
+    second: Sangre_Roja_52
+  - first:
+      213: -1250847260518267562
+    second: Sangre_Roja_53
+  - first:
+      213: 1744336923803810186
+    second: Sangre_Roja_54
+  - first:
+      213: -7843210587514738271
+    second: Sangre_Roja_55
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sangre_Roja_0
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 292
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ede363824b048d9d0800000000000000
+      internalID: -2749376429996753186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre_Roja_1
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 291
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a916fb3fc9bf7120800000000000000
+      internalID: 2413852225009228196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre_Roja_2
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 290
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ab997a8555d73460800000000000000
+      internalID: 7221475090884041634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre_Roja_3
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 289
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c68e2707d4665dd0800000000000000
+      internalID: -2497698068629125436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre_Roja_4
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 288
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a41afcb03de50590800000000000000
+      internalID: -7708494393590016861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre_Roja_6
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 286
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bcf28b3c4faba830800000000000000
+      internalID: 4083550229092302000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre_Roja_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 184
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27d82fcd0f352cd80800000000000000
+      internalID: -8231924874915705486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre_Roja_9
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 181
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df023d09bac038b60800000000000000
+      internalID: 7747049715016081661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre_Roja_22
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 174
+        width: 39
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efaf2ebcbd4f11540800000000000000
+      internalID: 4977028288076774142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre_Roja_35
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 182
+        width: 35
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d32da7f5ae3fc7e0800000000000000
+      internalID: -1743105648223247405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre_Roja_36
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 178
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a664dd65c86a5a60800000000000000
+      internalID: 7663552913084802721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre_Roja_39
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 174
+        width: 41
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de91d2a49ed807510800000000000000
+      internalID: 1544890705299446253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre_Roja_43
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 71
+        width: 43
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a561f89878a2a3d40800000000000000
+      internalID: 5564807051186476634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre_Roja_45
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 71
+        width: 44
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 037ff0e34654b6830800000000000000
+      internalID: 4065419385472284464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre_Roja_47
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 73
+        width: 44
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c20d5e223aa21c80800000000000000
+      internalID: -8353427226315914558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre_Roja_5
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 68
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 369706065ef8d6780800000000000000
+      internalID: -8688129890800600733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre_Roja_7
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 67
+        width: 53
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ebc67f88874f60b0800000000000000
+      internalID: -5733285148771300380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre_Roja_10
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 67
+        width: 59
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42c644fa795462cb0800000000000000
+      internalID: -4889143827681219548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

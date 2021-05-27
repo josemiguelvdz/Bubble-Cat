@@ -100,25 +100,8 @@ public class Lizard : MonoBehaviour
             anim.SetBool("Mov", false);
             anim.SetBool("Death", true);
             this.transform.Translate(Vector3.zero);
-            this.contador++;
-            if (this.contador > 500)
-            {
-                //if (this.sprite.enabled == false)
-                //{
-                //    this.sprite.enabled = true;
-                //}
-                //else
-                //{
-                //    this.sprite.enabled = false;
-                //}
-                //this.desapariciones++;
-                gameObject.SetActive(false);
-            }
 
-            //if (this.desapariciones == 3)
-            //{
-            //    gameObject.SetActive(false);
-            //}
+            gameObject.GetComponent<EnemyHealth>().KillEnemy();
         }
     }
 
@@ -191,10 +174,6 @@ public class Lizard : MonoBehaviour
         int projectileLayer = LayerMask.NameToLayer("Proyectile");
         int meleeLayer = LayerMask.NameToLayer("Melee");
 
-        if (col.gameObject.layer == meleeLayer)
-        {
-
-        }
             //Ha colisionado con un objetro con layer Stage
         if (col.gameObject.layer == stageLayer)
         {
