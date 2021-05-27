@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Bastet\Magic\Magic.cs" />
     <Compile Include="Assets\Scripts\Bastet\Magic\MagicRay.cs" />
     <Compile Include="Assets\Scripts\Bastet\Shoot.cs" />
+    <Compile Include="Assets\Scripts\Bastet\SoundFists.cs" />
     <Compile Include="Assets\Scripts\Bastet\TrashAttack.cs" />
     <Compile Include="Assets\Scripts\Bastet\YunoDetector.cs" />
     <Compile Include="Assets\Scripts\Basura.cs" />

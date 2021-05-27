@@ -13,9 +13,6 @@ public class Fists : MonoBehaviour
     Bastet bastet;
     Animator rightFistAnim, leftFistAnim;
 
-    public AudioClip fistSound;
-    AudioSource audioSource;
-
     public void ShowArms()
     {
         rightFist.SetActive(true);
@@ -34,8 +31,6 @@ public class Fists : MonoBehaviour
     {
         rightFistAnim = rightFist.GetComponent<Animator>();
         leftFistAnim = leftFist.GetComponent<Animator>();
-
-        audioSource = GetComponent<AudioSource>();
     }
 
     void InvokeFist()
@@ -55,7 +50,6 @@ public class Fists : MonoBehaviour
         }
 
         numAttacks--;
-        audioSource.PlayOneShot(fistSound);
 
         if (numAttacks == 0)
         {

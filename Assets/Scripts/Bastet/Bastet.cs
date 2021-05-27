@@ -53,6 +53,8 @@ public class Bastet : MonoBehaviour
     [SerializeField, Tooltip("Tiempo que tarda la nueva fase de Bastet en empezar")]
     float waitingTime = 2f;
 
+    public GameObject arm, fakePiece1, fakePiece2;
+
     public Material piece1Material, piece2Matierial;
     Material staffMaterial;
 
@@ -60,6 +62,8 @@ public class Bastet : MonoBehaviour
     int currentHealth;
 
     BubbleController bubble;
+
+    Animator anim;
 
     private Random rnd;
 
@@ -97,7 +101,6 @@ public class Bastet : MonoBehaviour
             piecesNum = pieces.Length;
             RestoreHealth();
             currentState = States.start;
-            FirstAttack();
         }
         else
             switch (piecesNum)
@@ -118,8 +121,7 @@ public class Bastet : MonoBehaviour
                         nextState = newState;
                     break;
                 case 0:
-                    if (newState == States.dead)
-                        nextState = newState;
+                    nextState = States.dead;
                     break;
                 default:
                     nextState = newState;
@@ -147,6 +149,8 @@ public class Bastet : MonoBehaviour
         components = new MonoBehaviour[8] { fists, shoot, magic, box, trash, bomb, ko, dead };
 
         staffMaterial = pieces[0].GetComponent<SpriteRenderer>().material;
+
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -192,9 +196,25 @@ public class Bastet : MonoBehaviour
 
     public void Appear()
     {
+        anim.SetTrigger("Appear");
+
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<CapsuleCollider2D>().enabled = true;
         fists.ShowArms();
+    }
+
+    public void AppearFinish()
+    {
+        rightArm.GetComponent<SpriteRenderer>().sortingLayerName = "Puño";
+
+        //Cambiazo
+        fakePiece1.SetActive(false);
+        fakePiece2.SetActive(false);
+        pieces[2].SetActive(true);
+        pieces[1].SetActive(true);
+
+        //Empieza a sonar la musica
+        MusicManager.GetInstance().StartBastetMusic();
 
         FirstAttack();
     }
@@ -254,6 +274,8 @@ public class Bastet : MonoBehaviour
 
             if (piecesNum - 1 == 2) // Si la que cae es la primera pieza
             {
+                pieces[0].SetActive(true);
+                arm.SetActive(true);
 
                 Rigidbody2D rb_cannon1 = cannon1.GetComponent<Rigidbody2D>();
                 cannon1.GetComponent<Animator>().enabled = false;

@@ -34,9 +34,14 @@ public class MusicManager : MonoBehaviour
                 break;
 
             case "Beach":
-                audioSource.PlayOneShot(bastet);
+                //audioSource.PlayOneShot(bastet);
                 break;
         }
+    }
+
+    public void StartBastetMusic()
+    {
+        audioSource.PlayOneShot(bastet);
     }
 
     public static MusicManager GetInstance()
