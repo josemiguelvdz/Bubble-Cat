@@ -185,6 +185,11 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: AdjustQuality
       objectReference: {fileID: 0}
+    - target: {fileID: 4002330952608649129, guid: 48ae2ec2ad6cbe84a92252e1c0eb6e90,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4002330952798577030, guid: 48ae2ec2ad6cbe84a92252e1c0eb6e90,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target

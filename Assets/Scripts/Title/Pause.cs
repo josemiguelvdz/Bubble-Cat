@@ -12,6 +12,8 @@ public class Pause : MonoBehaviour
             if (isPaused)
             {
                 Resume();
+
+                
             }
             else
             {
@@ -26,6 +28,8 @@ public class Pause : MonoBehaviour
     public void Resume()
     {
         pause.SetActive(false);
+        confirmation.SetActive(false);
+        settings.SetActive(false);
         Time.timeScale = 1;
         isPaused = false;
         GameManager.GetInstance().ActivatePlayerController();
@@ -34,20 +38,24 @@ public class Pause : MonoBehaviour
     public void OpenConfirmation()
     {
         confirmation.SetActive(true);
+        pause.SetActive(false);
     }
 
     public void CloseConfirmation()
     {
         confirmation.SetActive(false);
+        pause.SetActive(true);
     }
 
     public void OpenSetting()
     {
+        pause.SetActive(false);
         settings.SetActive(true);
     }
 
     public void CloseSettings()
     {
         settings.SetActive(false);
+        pause.SetActive(true);
     }
 }
