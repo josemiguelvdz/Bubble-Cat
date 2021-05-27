@@ -188,6 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 1
   timeToExplodeTheBubble: 4
+  killSound: {fileID: 0}
 --- !u!70 &1901567283928255673
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -214,7 +215,7 @@ Animator:
   m_GameObject: {fileID: 9196591159938102963}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 974c584989ab2e14ea1f01d3877e5504, type: 2}
+  m_Controller: {fileID: 9100000, guid: 04a96905241057841bc78a0ed7a3008b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

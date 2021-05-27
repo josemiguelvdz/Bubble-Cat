@@ -15,9 +15,11 @@ public class SpiderMovement : MonoBehaviour
     Rigidbody2D rb;
     Quaternion spiderRotation=new Quaternion(0,0,0,0);
     RaycastHit2D wall;
+    Animator animator;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         izq = -transform.localScale.x;
         der = transform.localScale.x;
         rb = GetComponent<Rigidbody2D>();
@@ -74,6 +76,7 @@ public class SpiderMovement : MonoBehaviour
 
         if (Physics2D.Raycast(transform.position,new Vector2(0,-transform.up.y), raycastLength, stageLayer))
         {
+            animator.SetBool("Jump", false);
             Debug.Log("He llegado al suelo");
             ground = true;
             transform.rotation = spiderRotation;
@@ -81,6 +84,7 @@ public class SpiderMovement : MonoBehaviour
         }
         else
         {
+            animator.SetBool("Move", false);
             Debug.Log("Estoy en el aire");
             ground = false;
         }
@@ -93,12 +97,15 @@ public class SpiderMovement : MonoBehaviour
 
         if (distance < attackRadius && !attacking && ground)
         {
+            animator.SetBool("Move", false);
+            animator.SetBool("Jump", true);
             rb.velocity = Vector3.zero;
             attacking = true;
             Invoke("Attack", timeToAttack);
         }
         else if (distance < visionRadius && distance > attackRadius && ground && !attacking) 
         {
+            animator.SetBool("Move", true);
             rb.velocity = new Vector2(player.transform.position.x - transform.position.x, rb.velocity.y).normalized * spiderSpeed;
             if (!attacking) CancelInvoke();
             else attacking = false;
@@ -107,6 +114,7 @@ public class SpiderMovement : MonoBehaviour
 
         else if(distance > visionRadius && ground && !attacking)
         {
+            animator.SetBool("Move", true);
             if (!runnningAway)
             {
                 if (player.transform.position.x < transform.position.x) transform.localScale = new Vector3(der, transform.localScale.y, transform.localScale.z);

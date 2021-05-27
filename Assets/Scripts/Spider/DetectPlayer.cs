@@ -12,9 +12,11 @@ public class DetectPlayer : MonoBehaviour
 
     RaycastHit2D  hit;
 
+    Animator animator;
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         cc = GetComponent<Collider2D>();
         spider = transform.position;
@@ -34,16 +36,18 @@ public class DetectPlayer : MonoBehaviour
         if (hit.collider != null)
         {
             //Debug.Log(hit.collider.name);
-            if(hit.transform.GetComponent<PlayerController>()) rb.gravityScale = 1;
+            if (hit.transform.GetComponent<PlayerController>()) rb.bodyType = RigidbodyType2D.Dynamic;
          
         }
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision) 
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Stage"))
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Stage") || collision.gameObject.GetComponent<PlayerController>())
         {
+            animator.SetBool("Cuelga", false);
             GetComponent<SpiderMovement>().enabled = true;
             Destroy(this);
         }
