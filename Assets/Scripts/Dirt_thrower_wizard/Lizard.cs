@@ -89,7 +89,7 @@ public class Lizard : MonoBehaviour
         }
         else if (this.status == Status.Drop)
         {
-            Debug.Log(this.gameObject.name + ": Drop");
+            Destroy(gameObject.GetComponent<Damageable>());
             //Asignamos la rotacion al lagarto, para generar un movimineto de caida vertical, ya que al haberlo rotado el movimiento saldra con la rotacion de la manipulacion de la pompa.
             this.transform.rotation = this.initialTrans;
             //Indicamos la traslacion (movimiento) del lagarto en descenso

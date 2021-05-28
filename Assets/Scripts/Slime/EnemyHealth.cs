@@ -66,6 +66,8 @@ public class EnemyHealth : MonoBehaviour
                 gameObject.GetComponent<Lizard>().isDestructible();
                 gameObject.transform.GetChild(0).gameObject.SetActive(true);
 
+                Destroy(gameObject.GetComponent<Damageable>());
+
                 Destroy(gameObject, 1);
             }
             if (gameObject.GetComponent<BatBehaviour>())
