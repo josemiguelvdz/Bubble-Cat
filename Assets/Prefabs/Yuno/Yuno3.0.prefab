@@ -188,7 +188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2759754417125794144
 Transform:
   m_ObjectHideFlags: 0
@@ -286,7 +286,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -455,7 +455,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.26
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1036,7 +1036,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 500
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4899,8 +4899,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 169427307
+  m_SortingLayer: 13
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -5339,7 +5339,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -5446,7 +5446,7 @@ MonoBehaviour:
   - {x: -1.0409371, y: 1.3574597, z: 0}
   m_ShapePathHash: -1976831653
   m_Mesh: {fileID: 0}
-  m_InstanceId: -43112
+  m_InstanceId: -80354
 --- !u!81 &1972803792242718767
 AudioListener:
   m_ObjectHideFlags: 0

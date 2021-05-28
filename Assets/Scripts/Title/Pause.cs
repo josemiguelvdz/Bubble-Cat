@@ -12,7 +12,7 @@ public class Pause : MonoBehaviour
             if (isPaused)
             {
                 Resume();
-
+                
                 
             }
             else

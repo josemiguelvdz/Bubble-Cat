@@ -29,7 +29,7 @@ public class MusicManager : MonoBehaviour
 
         switch (escena.name)
         {
-            case "Sewer":   
+            case "Sewer":
                 audioSource.PlayOneShot(sewer);
                 break;
 
