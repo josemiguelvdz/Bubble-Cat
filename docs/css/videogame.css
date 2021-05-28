@@ -47,14 +47,14 @@ img.img-header {
 
 .btn-primary {
     color: #fff;
-    background-color: #F5B3B3;
-    border-color: #F5B3B3;
+    background-color: #FF5050;
+    border-color: #FF5050;
 }
 
 .btn-primary:hover {
     color: #fff;
-    background-color: #EC9090;
-    border-color: #EC9090;	
+    background-color: #FC0B0B;
+    border-color: #FC0B0B;	
 }
 
 
