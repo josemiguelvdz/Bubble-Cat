@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class YunoVisible : MonoBehaviour
 {
@@ -17,12 +15,14 @@ public class YunoVisible : MonoBehaviour
 
     private void Update()
     {
+        //Manda a YunoArrow el punto más cercano a Yuno del borde de la pantalla
         if (isVisible)
         {
             UIManager.GetInstance().ClosestPoint(col.bounds.ClosestPoint(yuno.transform.position));
         }
     }
 
+    //Activa y desactiva el indicador
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")

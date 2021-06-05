@@ -20,14 +20,10 @@ public class Bomb : MonoBehaviour
     {
         Invoke("Fire", chargeTime);
     }
-    /*
-    private void Update()
-    {
-        if (bombInstance != null) ;
-    }
-    */
+
     void Fire()
     {
+        //Dispara una gran bomba de butano
         bombInstance = Instantiate(bomb, spawnPoint);
         bombInstance.GetComponent<Rigidbody2D>().AddForce(direction, ForceMode2D.Impulse);
     }

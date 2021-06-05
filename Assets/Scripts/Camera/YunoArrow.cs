@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class YunoArrow : MonoBehaviour
 {
@@ -25,6 +23,7 @@ public class YunoArrow : MonoBehaviour
 
     private void Update()
     {
+        //Mueve el indicador de Yuno al lugar del borde más cercano posible
         if (yunoArrow.gameObject.activeSelf)
         {
             Vector2 dir = player.position - center.position;

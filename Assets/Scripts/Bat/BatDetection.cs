@@ -13,6 +13,7 @@ public class BatDetection : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        //Manda al murciélago la referencia del jugador o pompa que estén cerca
         if (collision.gameObject.GetComponent<PlayerController>())
             parent.CollissionData(collision.gameObject.transform, col.radius, false);
         else if(collision.gameObject.GetComponent<BubbleController>())

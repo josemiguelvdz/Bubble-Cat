@@ -76,7 +76,7 @@ public class EnemyHealth : MonoBehaviour
                 gameObject.transform.GetChild(1).gameObject.SetActive(true);
 
                 Destroy(GetComponent<Damageable>());
-                this.gameObject.GetComponent<BatBehaviour>().die();
+                this.gameObject.GetComponent<BatBehaviour>().Die();
             }
             if (gameObject.GetComponent<SpiderMovement>())
             {

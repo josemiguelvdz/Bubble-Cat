@@ -16,7 +16,6 @@ public class ChangeScene : MonoBehaviour
         {
             SceneManager.LoadScene(scene); //Cambiar luego por comic
         }
-        
 
         GameState.currentCheckpoint = Checkpoint.checkpoint5;
         

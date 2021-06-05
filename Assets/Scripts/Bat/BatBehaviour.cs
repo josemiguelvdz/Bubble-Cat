@@ -50,11 +50,8 @@ public class BatBehaviour : MonoBehaviour
 
             Destroy(gameObject.GetComponent<Damageable>());
         }
-
-        
         else
         {
-            
             if (bubble)
             {
                 //Huir de ella
@@ -123,7 +120,6 @@ public class BatBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
         if (collision.gameObject.GetComponent<PlayerController>())
             rb.AddForce((transform.position - player.position).normalized * bounceForce, ForceMode2D.Impulse);
         if (death == true)
@@ -153,7 +149,7 @@ public class BatBehaviour : MonoBehaviour
         invokeOnce = false;
     }
 
-    public void die()
+    public void Die()
     {
         death = true;
     }

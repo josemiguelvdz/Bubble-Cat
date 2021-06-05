@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
         Vector2 dir = allowAttack.position - transform.position;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, dir.magnitude, stage);
-        if (!hit || !hit.collider.gameObject.GetComponent<CompositeCollider2D>())
+        if (!hit)
         {
             if (Input.GetButtonDown("Gun"))
             {
@@ -108,8 +108,6 @@ public class PlayerController : MonoBehaviour
                 audioSource.PlayOneShot(meleeSound);
                 currentMeleeCd = meleeCooldown;
             }
-                
-
         }
 
         if (Input.GetButtonDown("Reload")) 

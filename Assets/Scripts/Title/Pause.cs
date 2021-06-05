@@ -10,13 +10,10 @@ public class Pause : MonoBehaviour
         if (Input.GetButtonDown("Cancel"))
         {
             if (isPaused)
-            {
                 Resume();
-                
-                
-            }
             else
             {
+                //Pausa
                 GameManager.GetInstance().DeactivatePlayerController();
                 pause.SetActive(true);
                 Time.timeScale = 0;

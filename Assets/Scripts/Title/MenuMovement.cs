@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MenuMovement : MonoBehaviour
 {
@@ -8,14 +6,11 @@ public class MenuMovement : MonoBehaviour
     public float movement=20f;
     RectTransform rT;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         rT = GetComponent<RectTransform>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         mousePosX = Input.mousePosition.x;

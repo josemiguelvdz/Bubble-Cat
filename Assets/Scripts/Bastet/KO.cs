@@ -28,12 +28,14 @@ public class KO : MonoBehaviour
             //Si hay pompa, la explota y repite la fase
             bastet.GetBubble().Pop();
         }
+
+        //Cuando salimos del estado KO, Bastet recupera toda su vida y desaparece la pieza correspondiente
         bastet.RestoreHealth();
         bastet.PieceDisappear();
     }
 
     void KOExit()
     {
-        this.enabled = false;
+        enabled = false;
     }
 }

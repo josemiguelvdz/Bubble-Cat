@@ -96,8 +96,12 @@ public class Bastet : MonoBehaviour
 
     public void DesiredState(States newState)
     {
+        //Bastet funciona gracias a una máquina de estados
+        //Este método se encargará de manejar a qué estados puede pasar en qué momento
+
         if(currentState != States.start && newState == States.start)
         {
+            //Inicialización
             piecesNum = pieces.Length;
             RestoreHealth();
             currentState = States.start;
@@ -106,21 +110,25 @@ public class Bastet : MonoBehaviour
             switch (piecesNum)
             {
                 case 3:
+                    //Fase 1
                     if (newState == States.fists || newState == States.shoot || 
                         newState == States.bomb || newState == States.ko)
                         nextState = newState;
                     break;
                 case 2:
+                    //Fase 2
                     if (newState == States.fists || newState == States.magic || 
                         newState == States.box || newState == States.bomb || newState == States.ko)
                         nextState = newState;
                     break;
                 case 1:
+                    //Fase 3
                     if (newState == States.magic || newState == States.box || 
                         newState == States.trash || newState == States.bomb || newState == States.ko)
                         nextState = newState;
                     break;
                 case 0:
+                    //Fin
                     nextState = States.dead;
                     break;
                 default:
@@ -155,6 +163,7 @@ public class Bastet : MonoBehaviour
 
     private void Update()
     {
+        //Si el estado ha cambiado
         if(currentState != nextState)
         {
             if (currentComponent != null)
@@ -196,6 +205,7 @@ public class Bastet : MonoBehaviour
 
     public void Appear()
     {
+        //Empieza la animación de aparición desde el agua
         anim.SetTrigger("Appear");
 
         GetComponent<SpriteRenderer>().enabled = true;
@@ -205,6 +215,7 @@ public class Bastet : MonoBehaviour
 
     public void AppearFinish()
     {
+        //Termina la animación de aparición
         rightArm.GetComponent<SpriteRenderer>().sortingLayerName = "Puño";
 
         //Cambiazo
@@ -240,6 +251,7 @@ public class Bastet : MonoBehaviour
 
     public void PieceDisappear()
     {
+        //Desactiva la pieza
         if (piecesNum == 1)
         {
             piece1Material.SetInt("_Activo", 0);
@@ -260,13 +272,14 @@ public class Bastet : MonoBehaviour
 
             ChangeAttack();
         }
-            
     }
 
     public void PieceOff()
     {
+        //Hemos conseguido quitarle la pieza, por lo que pasamos a la siguiente fase
         if (piecesNum > 1)
         {
+            //Spawneamos una pastilla de jabón como recompensa
             Rigidbody2D barInstance = Instantiate(bar, barSpawn.position, Quaternion.identity).GetComponent<Rigidbody2D>();
             barInstance.bodyType = RigidbodyType2D.Dynamic;
             barInstance.AddForce(barForce, ForceMode2D.Impulse);
@@ -274,6 +287,7 @@ public class Bastet : MonoBehaviour
 
             if (piecesNum - 1 == 2) // Si la que cae es la primera pieza
             {
+                //El cañón salta por los aires
                 pieces[0].SetActive(true);
                 arm.SetActive(true);
 
@@ -298,9 +312,9 @@ public class Bastet : MonoBehaviour
 
                 cannonProtector2.SetActive(true);
             }
-            else if (piecesNum - 1 == 1)
+            else if (piecesNum - 1 == 1) //Si es la segunda pieza
             {
-
+                //Los brazos saltan por los aires
                 leftArm.GetComponent<Animator>().enabled = false;
 
                 Rigidbody2D rb_leftArm = leftArm.GetComponent<Rigidbody2D>();
@@ -320,10 +334,11 @@ public class Bastet : MonoBehaviour
             }
         }
 
+        //La pieza desaparece
         PieceDisappear();
         pieces[piecesNum - 1].SetActive(false);
         piecesNum--;
-        Debug.Log(piecesNum);
+        //Debug.Log(piecesNum);
     }
 
     public void RestoreHealth()
@@ -338,6 +353,8 @@ public class Bastet : MonoBehaviour
 
     void ChangeAttack()
     {
+        //Ataque inicial por defecto de cada fase
+
         switch (piecesNum)
         {
             case 3:

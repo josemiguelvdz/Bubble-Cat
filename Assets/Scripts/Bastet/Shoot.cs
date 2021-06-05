@@ -31,7 +31,6 @@ public class Shoot : MonoBehaviour
     Animator alumAnim = null;
 
     int proyectilesLeft;
-    Transform player;
     Bastet bastet;
 
     public AudioClip shootSound;
@@ -47,12 +46,10 @@ public class Shoot : MonoBehaviour
         proyectilesLeft = ammo;
 
         InvokeRepeating("Burst", chargeTime, shootRate);
-
     }
 
     private void Start()
     {
-        player = GameManager.GetInstance().GetPlayer().transform;
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -63,6 +60,7 @@ public class Shoot : MonoBehaviour
 
     void Burst()
     {
+        //Dispara un número de bolsas de basura con distintas direcciones
         GameObject bag = Instantiate(proyectile, spawnPoint.position, Quaternion.identity);
         bag.GetComponent<Rigidbody2D>().AddForce(impulse * Random.Range(0.5f, 2f), ForceMode2D.Impulse);
 
