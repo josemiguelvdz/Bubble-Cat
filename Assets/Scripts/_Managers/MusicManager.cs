@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour
 {
+    //Clips de musica de para sewer y para la batalla contra bastet
     public AudioClip sewer, bastet;
     AudioSource audioSource;
 
@@ -20,6 +21,7 @@ public class MusicManager : MonoBehaviour
         else
             Destroy(this.gameObject);
 
+        //En el awake cogemos el componente de audio para que no de error entre escenas
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -27,20 +29,19 @@ public class MusicManager : MonoBehaviour
     {
         Scene escena = SceneManager.GetActiveScene();
 
+        //Dependiendo de la escena
         switch (escena.name)
         {
+            //Si estamos en sewer
             case "Sewer":
                 audioSource.PlayOneShot(sewer);
-                break;
-
-            case "Beach":
-                //audioSource.PlayOneShot(bastet);
                 break;
         }
     }
 
     public void StartBastetMusic()
     {
+        //La iniciamos desde el script del propio bastet
         audioSource.PlayOneShot(bastet);
     }
 

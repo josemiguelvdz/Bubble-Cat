@@ -23,6 +23,7 @@ public class BubbleHelmet : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
 
+
     private void Start()
     {
         yuno = GetComponent<SpriteRenderer>();
@@ -33,12 +34,14 @@ public class BubbleHelmet : MonoBehaviour
         sceneName = scene.name;
     }
 
+
     private void ReplaceHelmet()
     {
         helmetOn = true;
         inProgress = false;
         animator.SetBool("bubbleHelmet", false);
 
+        //Llamamos al gameManager para activar de nuevo el playerController
         GameManager.GetInstance().BubbleHelmet();
     }
 
@@ -47,11 +50,13 @@ public class BubbleHelmet : MonoBehaviour
         if (!inmunity && collision.gameObject.GetComponent<Damageable>())
             MakeDamage();
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!inmunity && collision.gameObject.GetComponent<Damageable>())
             MakeDamage();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!inmunity && (collision.GetComponent<Gas>() || collision.GetComponent<PillarMovement>() || collision.tag == "Fists"))
@@ -71,6 +76,7 @@ public class BubbleHelmet : MonoBehaviour
             bubble = BubbleManager.GetInstance().GetBubble();
             if (bubble) bubble.Pop();
 
+            //Si tenemos casco
             if (helmetOn)
             {
                 inProgress = false;
@@ -81,12 +87,16 @@ public class BubbleHelmet : MonoBehaviour
                 yuno.color = new Color(1f, 1f, 1f, .5f);
                 Invoke("StopInmunity", inmunityTime);
             }
+
+            //Si no tenemos casco
             else
             {
+                //Activamos el periodo de inmunidad
                 inmunity = true;
                 yuno.color = new Color(1f, 1f, 1f, .5f);
-                Invoke("StopInmunity", inmunityTime);
 
+                //Lo desactivamos
+                Invoke("StopInmunity", inmunityTime);
 
 
                 PlayerController pc = gameObject.transform.GetComponentInParent<PlayerController>();
@@ -99,8 +109,11 @@ public class BubbleHelmet : MonoBehaviour
                 Invoke("OffParticles", timeParticle);
 
                 fadeEffect.StartEffect();
+
+                //Hacemos respawn
                 Invoke("InvokeRespawn", 1f);
 
+                //Volvemos a activar el casco pompa
                 helmetOn = true;
                 helmet.enabled = true;
             }
@@ -109,13 +122,13 @@ public class BubbleHelmet : MonoBehaviour
 
     void StopInmunity()
     {
-        //Debug.Log("Fuera inmunidad");
         inmunity = false;
         yuno.color = Color.white;
     }
 
     public void InvokeRespawn()
     {
+        //Cargamos de nuevo la escena en el ultimo checkpoint
         SceneManager.LoadScene(sceneName);
     }
 
@@ -124,11 +137,12 @@ public class BubbleHelmet : MonoBehaviour
         dead.SetActive(false);
     }
 
-
     public void InvokeReplace()
     {
+        //Si no tenemos casco,    y tenemos las suficentes pastillas de jabon
         if(!helmetOn && !inProgress && GameManager.GetInstance().CanReplaceHelmet())
         {
+            //Desactivamos el PlayerController
             GameManager.GetInstance().DeactivatePlayerController();
             rb.velocity = Vector2.zero;
             inProgress = true;
