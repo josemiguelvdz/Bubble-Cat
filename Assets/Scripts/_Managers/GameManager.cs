@@ -75,6 +75,8 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
+        bars = GameState.currentSoap;
+
     }
 
     public static GameManager GetInstance()
@@ -92,6 +94,7 @@ public class GameManager : MonoBehaviour
     {
         //Suma una pastilla a nuestras pastillas
         bars++;
+        GameState.currentSoap++;
         SetUI();
     }
 
@@ -132,6 +135,8 @@ public class GameManager : MonoBehaviour
         if (bars > 0 && bullets <= reloadLimit)
         {
             bars--;
+            GameState.currentSoap--;
+
             bullets = startingBullets;
             SetUI();
         }    
@@ -178,6 +183,7 @@ public class GameManager : MonoBehaviour
         if(bars > 0)
         {
             bars--;
+            GameState.currentSoap--;
             SetUI();
             ActivatePlayerController();
         }

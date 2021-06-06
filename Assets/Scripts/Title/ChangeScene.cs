@@ -12,10 +12,13 @@ public class ChangeScene : MonoBehaviour
 
     public void NextScene()
     {
+        int bars = GameState.currentSoap;
         if (GameObject.Find("GasPipeline"))
         {
             SceneManager.LoadScene(scene); //Cambiar luego por comic
         }
+
+        GameManager.GetInstance().SetBars(bars);
 
         GameState.currentCheckpoint = Checkpoint.checkpoint5;
         
