@@ -3,33 +3,22 @@
 public class CameraMovement : MonoBehaviour
 {
     [Tooltip("Jugador al que sigue la camara"), SerializeField]
-    Transform player = null;
-
-
-    [Tooltip("Vector de distancia"), SerializeField]
-    int distanceLimit = 0;
-
-    [Tooltip("LookAtTarget"), SerializeField]
-    bool lookAtTarget = true;
-
-    [Tooltip("Offset"), SerializeField]
-    bool takeOffsetFromInitialPos = true;
+    private Transform player = null;
 
     [Tooltip("Coordenadas del offset"), SerializeField]
-    Vector3 generalOffset;
+    private Vector3 generalOffset;
 
-    Vector3 whereCameraShouldBe;
-    bool warningAlreadyShown = false;
-
-    GameObject bubble;
-    Transform target;
+    private Vector3 whereCameraShouldBe;
+    private bool warningAlreadyShown = false;
 
 
-    void Start() 
+    private Transform target; // Target al que va a seguir la cámara
+
+
+    void Start() // Pone al player como target al principio de cada partida
     {
         if (player != null)
         {
-            //Debug.Log("Player camarita");
             target = player;
         }
         else
@@ -40,19 +29,17 @@ public class CameraMovement : MonoBehaviour
     void Update()
     {
 
-        if (target != null) 
+        if (target != null)  // La cámara sigue al jugador o a la pompa
         {
             whereCameraShouldBe = target.position + generalOffset;
             transform.position = Vector3.Lerp(transform.position, whereCameraShouldBe, Time.deltaTime);
 
-
-            if (lookAtTarget) transform.LookAt(target);
         } 
         else 
         {
             if (!warningAlreadyShown) 
             {
-                Debug.LogError("Warning: You should specify a target in the simpleCamFollow script.", gameObject);
+                Debug.LogError("No se ha encontrado un target", gameObject);
                 warningAlreadyShown = true;
             }
         }
@@ -62,7 +49,7 @@ public class CameraMovement : MonoBehaviour
     {
         BubbleController bubble = BubbleManager.GetInstance().GetBubble();
 
-        if (bubble)
+        if (bubble) // Si hay burbuja, el target pasa a ser la burbuja
         {
             target = bubble.transform;
         }

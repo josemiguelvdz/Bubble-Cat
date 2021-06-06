@@ -33,13 +33,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        switch (GameState.currentCheckpoint)
+        switch (GameState.currentCheckpoint) // Dependiendo del checkpoint, el juego se cargará de una forma distinta y pondrá al player en
+            // su ubicación correspondiente al reaparecer
         {
             case Checkpoint.spawnpoint:
                 GameObject.Find("Player").transform.position = GameObject.Find("spawnpoint").transform.position;
                 GameObject.Find("Camera").transform.position = GameObject.Find("spawnpoint").transform.position + new Vector3(0, 3, -10);
                 break;
-            case Checkpoint.checkpoint1: // Abrir door
+            case Checkpoint.checkpoint1: 
 
                 GameObject.Find("Box_10").transform.position = GameObject.Find("PressurePlate_1").transform.position;
 
@@ -52,7 +53,6 @@ public class GameManager : MonoBehaviour
             case Checkpoint.checkpoint2: // Delete Key1, OpenDoor
 
                 Destroy(GameObject.Find("Key_1"));
-                //GameObject.Find("Door_2").GetComponent<Door>().OpenDoor();
 
                 GameObject.Find("Player").transform.position = GameObject.Find("checkpoint2").transform.position;
 
@@ -62,7 +62,6 @@ public class GameManager : MonoBehaviour
             case Checkpoint.checkpoint3:
 
                 Destroy(GameObject.Find("Key_2"));
-                //GameObject.Find("Door_3").GetComponent<Door>().OpenDoor();
 
                 GameObject.Find("Player").transform.position = GameObject.Find("checkpoint3").transform.position;
 
@@ -71,8 +70,6 @@ public class GameManager : MonoBehaviour
                 break;
 
             case Checkpoint.checkpoint5:
-
-                
                 GameObject.Find("ChangeScene").GetComponent<ChangeScene>().NextScene();
 
                 break;

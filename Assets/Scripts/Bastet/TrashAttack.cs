@@ -2,26 +2,27 @@
 
 public class TrashAttack : MonoBehaviour
 {
-    public GameObject Pillars;
+    [Tooltip("Pilares"), SerializeField]
+    private GameObject Pillars;
 
-    Vector3 initialPosition;
-    Rigidbody2D rb;
-    Bastet bastet;
+    private Vector3 initialPosition;
+    private Rigidbody2D rb;
+    private Bastet bastet;
 
     private bool afterSpawn = false;
 
-    public AudioClip pilarSound;
-    AudioSource audioSource;
+    [Tooltip("Sonido de los pilares"), SerializeField]
+    private AudioClip pilarSound;
+    private AudioSource audioSource;
 
     void Start()
     {
         rb = Pillars.transform.GetChild(0).GetComponent<Rigidbody2D>();
 
-        initialPosition = Pillars.transform.position;
+        initialPosition = Pillars.transform.position; // Para que al terminar, vuelvan a estar en su misma posición, por si hay que
+        // repetir el ataque
 
-        // ANIMACIÓN 
         bastet = GetComponent<Bastet>();
-
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -32,7 +33,7 @@ public class TrashAttack : MonoBehaviour
 
     private void Update()
     {
-        if (rb.velocity == Vector2.zero && afterSpawn)
+        if (rb.velocity == Vector2.zero && afterSpawn) // Cuando los pilares han parado
         {
             Invoke("TrashDespawn", 2f);
         }
@@ -42,23 +43,24 @@ public class TrashAttack : MonoBehaviour
 
         Pillars.transform.position = initialPosition;
 
-        if (Random.Range(0, 2) == 1){
+        if (Random.Range(0, 2) == 1) // Los pilares no aparecen siempre en el mismo sitio, a veces aparecen en distinta localización
+        {
             Pillars.transform.position = Pillars.transform.position + new Vector3(2, 0, 0);
         }
 
-        Pillars.SetActive(true);
+        Pillars.SetActive(true); // Aparecen los pilares
         audioSource.PlayOneShot(pilarSound);
 
         afterSpawn = true;
         Invoke("NextAttack", 3f);
     }
-    public void TrashDespawn()
+    public void TrashDespawn() // Desaparecen los pilares
     {
         Pillars.SetActive(false);
         afterSpawn = false;
     }
 
-    void NextAttack()
+    void NextAttack() // El siguiente ataque de Bastet siempre será el de la bomba
     {
         bastet.DesiredState(Bastet.States.bomb);
     }

@@ -2,10 +2,12 @@
 
 public class Door : MonoBehaviour
 {
-    public Sprite openDoor;
-    Sprite closeDoor;
-    BoxCollider2D bc;
-    SpriteRenderer spriteRenderer;
+    [Tooltip("Sprite de la puerta"), SerializeField]
+    private Sprite openDoor;
+
+    private Sprite closeDoor;
+    private BoxCollider2D bc;
+    private SpriteRenderer spriteRenderer;
     
 
     private void Start()
@@ -14,7 +16,8 @@ public class Door : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         closeDoor = spriteRenderer.sprite;
     }
-    public void OpenDoor()
+    public void OpenDoor() // Abrir la puerta quita el collider y cambia el sprite, además de invocar a la función que se encarga de
+        // cambiar el checkpoint
     {
         bc.enabled = false;
         spriteRenderer.sprite = openDoor;
@@ -30,7 +33,7 @@ public class Door : MonoBehaviour
 
     public void ChangeCheckpoint()
     {
-        if (gameObject.name == "Door_1")
+        if (gameObject.name == "Door_1") // Dependiendo de la puerta, cambias a un checkpoint u otro.
         {
             GameState.currentCheckpoint = Checkpoint.checkpoint1;
         }
