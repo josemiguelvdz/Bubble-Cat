@@ -2,7 +2,7 @@
 
 public class Pause : MonoBehaviour
 {
-    public GameObject pause, confirmation, settings;
+    public GameObject pause, confirmation, settings, controls;
     bool isPaused = false;
 
     private void Update()
@@ -54,5 +54,17 @@ public class Pause : MonoBehaviour
     {
         settings.SetActive(false);
         pause.SetActive(true);
+    }
+
+    public void OpenControls()
+    {
+        pause.SetActive(false);
+        controls.SetActive(true);
+    }
+
+    public void CloseControls()
+    {
+        pause.SetActive(true);
+        controls.SetActive(false);
     }
 }
