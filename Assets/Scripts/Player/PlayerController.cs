@@ -60,9 +60,8 @@ public class PlayerController : MonoBehaviour
     {
         
         currentMeleeCd -=  Time.deltaTime;
-        //Debug.Log(meleeCooldown);
-
         horizontal = Input.GetAxisRaw("Horizontal"); //Recogida de input
+
         if (horizontal < 0 && transform.localScale.x >= 0)
         {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
@@ -110,22 +109,18 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Reload")) 
+        if (Input.GetButtonDown("Reload")) //Recarga
             GameManager.GetInstance().Reload();
 
-        //Salto
+        //Si pulsa el botón de saltar y no está saltando, salta
         if (Input.GetButtonDown("Jump") && !isJumping)
         {
             jumpStart = transform.position.y;
             rb.velocity = Vector2.up * jumpVelocity;
-
             audioSource.PlayOneShot(jumpSound);
-
             animator.SetBool("isJumping", true);
-
         }
-
-
+        //Repone el casco pompa
         if (Input.GetButtonDown("Helmet") && !isJumping)
         {
             bubbleHelmet.InvokeReplace();
@@ -175,6 +170,7 @@ public class PlayerController : MonoBehaviour
 
     void Shoot()
     {
+        //Si puede disparar, activa el sonido y crea la bala
         if (GameManager.GetInstance().CanShoot() && Time.time > timeBulletRate)
         {
             audioSource.PlayOneShot(shootSound);
@@ -225,12 +221,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        //Si es una puerta y tienes llave, se abre
         if (col.gameObject.GetComponent<Door>() && key)
         {
             key = false;
             UIManager.GetInstance().UseKey();
             col.gameObject.GetComponent<Door>().OpenDoor();
         }
+        //Si es una llave, actualiza la UI y la coges
         if (col.gameObject.GetComponent<Key>())
         {
             key = true;

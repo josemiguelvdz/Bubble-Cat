@@ -14,11 +14,6 @@ public class Cannon : MonoBehaviour
         InvokeRepeating("Shoot", cadenceTime, cooldownTime);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void Shoot()
     {
         Instantiate(bullet, cannon.transform.position, cannon.rotation);

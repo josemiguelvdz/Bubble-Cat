@@ -35,8 +35,8 @@ public class BubbleManager : MonoBehaviour
         else Destroy(this.gameObject);
     }
 
-
-    public void TakeObjects(GameObject col, SpriteRenderer bubble, GameObject child)
+    //Activa el sprite del hijo de la burbuja y desactiva el objeto temporalmente
+    public void TakeObjects(GameObject col, SpriteRenderer bubble, GameObject child) 
     {
         HighlightOff();
         bubble.sprite = col.GetComponent<SpriteRenderer>().sprite;
@@ -46,11 +46,12 @@ public class BubbleManager : MonoBehaviour
     }
 
 
+    //Destruye la burbuja
     public void DestroyBubble(GameObject col, SpriteRenderer bubble, GameObject child)
     {
         Destroy(col);
 
-        if (bubble.sprite != null)
+        if (bubble.sprite != null) //Si tenía un objeto, lo vuelve a activar en la posición del hijo
         {
             collissioned.transform.position = child.transform.position;
             collissioned.transform.rotation = child.transform.rotation;

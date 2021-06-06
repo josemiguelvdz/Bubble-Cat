@@ -8,9 +8,10 @@ public class LanzaBasura : MonoBehaviour
     public Vector2 force;
     public float timeToStartShooting, cadenceShooting;
 
+    //Lanza basura cada cierto tiempo
+
     private void Start()
     {
-        
         InvokeRepeating("Shoot", timeToStartShooting, cadenceShooting);
     }
 

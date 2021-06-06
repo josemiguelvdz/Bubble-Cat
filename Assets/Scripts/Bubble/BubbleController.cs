@@ -25,32 +25,33 @@ public class BubbleController : MonoBehaviour
     [Tooltip("Distancia para quitar el bastón"), SerializeField]
     float pullDistance = 1f;
 
-    public GameObject shake, rotate, pull;
+    [Tooltip("Velocidad de rotación de la pompa"), SerializeField]
+    float rotationSpeed;
 
+    float currentRotation = 0f;
     float horizontal; // Input del eje horizontal
     float vertical;
     float delta;
-    public float rotationSpeed;
+
+    int stageLayer = LayerMask.NameToLayer("Stage");
+    int playerLayer = LayerMask.NameToLayer("Player");
 
     bool piece = false; //Si es una pieza de Bastet el comportamiento es diferente
     bool grab = false; //Si estamos tirando de algo agarrado
-    Vector3 ini;
-    float currentRotation = 0f;
+
+    public GameObject shake, rotate, pull; //Objetos que dan feedback
+    GameObject child,go;
 
     Rigidbody2D rb;
-    GameObject child;
     SpriteRenderer spriteRenderer;
-    Vector3 position;
-    GameObject go;
 
+
+    Vector3 position,ini;
     Vector2 movement;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Componente RigidBody2D del jugador
-
-        if (rb == null)
-            Debug.LogError("No he encontrado el Rigidbody2D de la pompa.");
 
         child = transform.GetChild(0).gameObject;
         spriteRenderer = child.GetComponent<SpriteRenderer>();
@@ -66,11 +67,10 @@ public class BubbleController : MonoBehaviour
 
         movement = new Vector2(horizontal * force, vertical * force);
 
-        if (Input.GetButtonDown("Bubble"))
+        if (Input.GetButtonDown("Bubble")) //Si estás controlando una pompa y vuelves a pulsar el botón de crearla se destruye
         {
             BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);
         }
-
         //Ataque final de Bastet
         else if (grab && Mathf.Abs(Vector3.Distance(ini, transform.position)) > pullDistance)
         {
@@ -108,29 +108,26 @@ public class BubbleController : MonoBehaviour
     }
 
 
-
+     
     private void OnCollisionEnter2D(Collision2D col)
     {
-        int stageLayer = LayerMask.NameToLayer("Stage");
-        int playerLayer = LayerMask.NameToLayer("Player");
-        //spriteRenderer = col.gameObject.GetComponent<SpriteRenderer>();
-        //Si el objeto colisionado tiene la layer de un objeto interactuable activa el trigger
+        //Llama al método que simula el agarre del objeto
         if (col.gameObject.GetComponent<Bubbleable>() && spriteRenderer.sprite == null)
         {
             BubbleManager.GetInstance().TakeObjects(col.gameObject, spriteRenderer, child);
         }
+        //Si colisiona con un objeto bubbleable pero ya tenía un objeto, se destruye
         else if (col.gameObject.GetComponent<Bubbleable>() && spriteRenderer.sprite)
             BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);
-        else if (col.gameObject.layer == stageLayer || col.gameObject.layer == playerLayer)
+        //Si choca con el escenario o el player, se destruye
+        else if (col.gameObject.layer == stageLayer || col.gameObject.layer == playerLayer) 
             BubbleManager.GetInstance().DestroyBubble(this.gameObject, spriteRenderer, child);
-        ///else if (col.gameObject.GetComponent<Lizard>())
-        //col.gameObject.GetComponent<Lizard>().StopShooting(false, true);
+        //Activa la destrucion de la pompa al tiempo que la destruya cada enemigo
         if (col.gameObject.GetComponent<EnemyHealth>())
         {
             Invoke("Pop", col.gameObject.GetComponent<EnemyHealth>().timeToExplodeTheBubble);
             ActivateShake();
         }
-
         if (col.gameObject.layer == pieceLayer)
         {
             piece = true;

@@ -16,8 +16,9 @@ public class Door : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         closeDoor = spriteRenderer.sprite;
     }
-    public void OpenDoor() // Abrir la puerta quita el collider y cambia el sprite, además de invocar a la función que se encarga de
-        // cambiar el checkpoint
+
+    // Abre la puerta, quita el collider y cambia el sprite, además de invocar a la función que se encarga de cambiar el checkpoint
+    public void OpenDoor() 
     {
         bc.enabled = false;
         spriteRenderer.sprite = openDoor;
@@ -25,6 +26,7 @@ public class Door : MonoBehaviour
         ChangeCheckpoint();
     }
 
+    //Cierra la puerta y activa el collider y el sprite
     public void CloseDoor()
     {
         bc.enabled = true;

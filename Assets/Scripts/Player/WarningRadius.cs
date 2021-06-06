@@ -6,7 +6,7 @@ public class WarningRadius : MonoBehaviour
     {
         if (col.CompareTag("Bubble"))
         {
-            // aparece el aviso, se pone la pompa roja
+            //Aparece el aviso, se pone la pompa roja
             col.GetComponent<SpriteRenderer>().material.SetInt("_Lejos", 1);
         }
     }
@@ -15,7 +15,7 @@ public class WarningRadius : MonoBehaviour
     {
         if (col.gameObject.tag == "Bubble")
         {
-            // desaparece, la pompa vuelve a su color original
+            //Desaparece, la pompa vuelve a su color original
             col.GetComponent<SpriteRenderer>().material.SetInt("_Lejos", 0);
         }
     }

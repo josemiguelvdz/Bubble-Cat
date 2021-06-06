@@ -6,6 +6,7 @@ public class RestorePipeline : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //Si colocamos una tubería rota donde corresponde, se arregla
         if (collision.gameObject.GetComponent<Pipeline>())
         {
             Destroy(collision.gameObject);
