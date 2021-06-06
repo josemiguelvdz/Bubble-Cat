@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Enemies.unity
     guid: af086cbf81611414e855d5cc4c9eb2d2
+  - enabled: 1
+    path: Assets/Scenes/Comic.unity
+    guid: 115bb1ab6fa73bd478bc74fa1929c421
   m_configObjects: {}
