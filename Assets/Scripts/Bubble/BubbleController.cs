@@ -33,8 +33,8 @@ public class BubbleController : MonoBehaviour
     float vertical;
     float delta;
 
-    int stageLayer = LayerMask.NameToLayer("Stage");
-    int playerLayer = LayerMask.NameToLayer("Player");
+    int stageLayer;
+    int playerLayer;
 
     bool piece = false; //Si es una pieza de Bastet el comportamiento es diferente
     bool grab = false; //Si estamos tirando de algo agarrado
@@ -51,6 +51,9 @@ public class BubbleController : MonoBehaviour
 
     void Start()
     {
+        stageLayer = LayerMask.NameToLayer("Stage");
+        playerLayer = LayerMask.NameToLayer("Player");
+
         rb = GetComponent<Rigidbody2D>(); // Componente RigidBody2D del jugador
 
         child = transform.GetChild(0).gameObject;
@@ -172,7 +175,7 @@ public class BubbleController : MonoBehaviour
 
     private void OnDestroy()
     {
-        if(grab || pull)
+        if(grab || piece)
             go.transform.position = position;
     }
 }
