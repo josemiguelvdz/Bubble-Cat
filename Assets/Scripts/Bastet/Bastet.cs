@@ -53,6 +53,9 @@ public class Bastet : MonoBehaviour
     [SerializeField, Tooltip("Tiempo que tarda la nueva fase de Bastet en empezar")]
     float waitingTime = 2f;
 
+    [SerializeField, Tooltip("Música que empezará a sonar cuando Bastet aparezca")]
+    AudioSource music;
+
     public GameObject arm, fakePiece1, fakePiece2;
 
     public Material piece1Material, piece2Matierial;
@@ -225,7 +228,7 @@ public class Bastet : MonoBehaviour
         pieces[1].SetActive(true);
 
         //Empieza a sonar la musica
-        MusicManager.GetInstance().StartBastetMusic();
+        music.Play();
 
         FirstAttack();
     }

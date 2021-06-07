@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        bars = GameState.currentSoap;
+
         switch (GameState.currentCheckpoint) // Dependiendo del checkpoint, el juego se cargará de una forma distinta y pondrá al player en
             // su ubicación correspondiente al reaparecer
         {
@@ -74,9 +76,6 @@ public class GameManager : MonoBehaviour
 
                 break;
         }
-
-        bars = GameState.currentSoap;
-
     }
 
     public static GameManager GetInstance()

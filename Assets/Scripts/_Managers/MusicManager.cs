@@ -25,26 +25,6 @@ public class MusicManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void MusicScene()
-    {
-        Scene escena = SceneManager.GetActiveScene();
-
-        //Dependiendo de la escena
-        switch (escena.name)
-        {
-            //Si estamos en sewer
-            case "Sewer":
-                audioSource.PlayOneShot(sewer);
-                break;
-        }
-    }
-
-    public void StartBastetMusic()
-    {
-        //La iniciamos desde el script del propio bastet
-        audioSource.PlayOneShot(bastet);
-    }
-
     public static MusicManager GetInstance()
     {
         return instance;

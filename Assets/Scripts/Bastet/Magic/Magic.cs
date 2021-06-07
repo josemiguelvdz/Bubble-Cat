@@ -32,7 +32,7 @@ public class Magic : MonoBehaviour
 
     void InvokeRay()
     {        
-        setDirection(player.transform.position - spawner.position);
+        SetDirection(player.transform.position - spawner.position);
         float x = player.transform.position.x - spawner.position.x;
         float y = player.transform.position.y - spawner.position.y;
         float angle = Mathf.Atan2(y, x) * 180 / Mathf.PI;
@@ -52,18 +52,18 @@ public class Magic : MonoBehaviour
                 bastet.DesiredState(Bastet.States.box);
             else
             {
-                bastet.DesiredState(Bastet.States.fists);
+                bastet.DesiredState(Bastet.States.bomb);
                 bastet.DesiredState(Bastet.States.trash);
             }
         }
     }
 
-    public void setDirection(Vector3 vector)
+    public void SetDirection(Vector3 vector)
     {
         directionMagicRay = vector;
     }
 
-    public Vector3 getDirection()
+    public Vector3 GetDirection()
     {
         return directionMagicRay;
     }

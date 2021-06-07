@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
     {
         currentMeleeCd = meleeCooldown;
         audioSource = GetComponent<AudioSource>();
-        MusicManager.GetInstance().MusicScene();
     }
     void OnEnable()
     {

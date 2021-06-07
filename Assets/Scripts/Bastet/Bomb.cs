@@ -27,4 +27,9 @@ public class Bomb : MonoBehaviour
         bombInstance = Instantiate(bomb, spawnPoint);
         bombInstance.GetComponent<Rigidbody2D>().AddForce(direction, ForceMode2D.Impulse);
     }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
+    }
 }

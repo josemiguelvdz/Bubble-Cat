@@ -14,7 +14,7 @@ public class MagicRay : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         parent = FindObjectOfType<Magic>();
-        direction = parent.getDirection();
+        direction = parent.GetDirection();
         rb.velocity = direction.normalized * speed * Time.fixedDeltaTime;
     }
 

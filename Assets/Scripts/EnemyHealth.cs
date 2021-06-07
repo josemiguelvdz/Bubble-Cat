@@ -47,7 +47,7 @@ public class EnemyHealth : MonoBehaviour
     public void KillEnemy()
     {
         lives--;
-        Debug.Log(lives);
+        
         if (lives <= 0)
         {
             if (gameObject.GetComponent<SlimeBehaviour>())
