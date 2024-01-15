@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1116575122
+CRC: 2731081435
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 42e921ef22dcb010b49708dadfa34a39
+    Hash: 0f3abb1d6b239dc3c0f7ff9d2bab23cf
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 41f2f6cf98145af5bfa833c72f2a49a2
+    Hash: bd60805606559efec394ae96b3c69dc0
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -17,6 +17,11 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Unity.2D.Animation.Runtime
+  ClassName: UnityEngine.U2D.Animation.SpriteCategoryEntry
+- AssemblyName: Unity.2D.Animation.Runtime
+  ClassName: UnityEngine.U2D.Animation.SpriteLibCategory
 Assets:
 - Assets/Samples/2D Animation/3.2.3/Samples/5 SpriteSwap/Sprites/Rikr Poison.png
 - Assets/Samples/2D Animation/3.2.3/Samples/5 SpriteSwap/Sprite Library/Rikr Poison.asset

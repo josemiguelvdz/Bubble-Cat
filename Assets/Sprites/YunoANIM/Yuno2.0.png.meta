@@ -33,7 +33,7 @@ TextureImporter:
       213: 5948202942118142144
     second: Yuno2.0_9
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -50,9 +50,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -61,9 +64,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -84,10 +87,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -99,6 +107,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -111,6 +120,33 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -334,110 +370,194 @@ TextureImporter:
     physicsShape: []
     bones:
     - name: Cuerpo
+      guid: 
       position: {x: 1366.0457, y: 1383.007, z: 0}
       rotation: {x: 0, y: 0, z: 0.70895535, w: 0.70525336}
       length: 238.64792
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Cuello
+      guid: 
       position: {x: 238.64781, y: 0.00004550883, z: 0}
       rotation: {x: 0, y: 0, z: 0.025129793, w: 0.9996842}
       length: 22.525038
       parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Cabeza
+      guid: 
       position: {x: 71.10989, y: -3.9506226, z: 4}
       rotation: {x: 0, y: 0, z: -0.02556423, w: 0.9996732}
       length: 286.12894
       parentId: 1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: BrazoDer1
+      guid: 
       position: {x: -44.771793, y: 230.23975, z: 3}
       rotation: {x: 0, y: -0, z: 0.9832068, w: 0.18249479}
       length: 154.89348
       parentId: 1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: BrazoDer2
+      guid: 
       position: {x: 154.89351, y: 0.00000083648047, z: 3}
       rotation: {x: 0, y: 0, z: 0.26459408, w: 0.9643599}
       length: 101.23758
       parentId: 3
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: ManoDer
+      guid: 
       position: {x: 101.23756, y: -0.000021706863, z: 3}
       rotation: {x: 0, y: 0, z: 0.03878931, w: 0.99924743}
       length: 58.883766
       parentId: 4
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: BrazoIzq1
+      guid: 
       position: {x: -44.010227, y: -206.53632, z: -1}
       rotation: {x: 0, y: -0, z: -0.9970456, w: 0.07681279}
       length: 144.33833
       parentId: 1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: BrazoIzq2
+      guid: 
       position: {x: 144.33836, y: -0.00008138448, z: -1}
       rotation: {x: 0, y: 0, z: -0.082500935, w: 0.99659103}
       length: 85.046616
       parentId: 6
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: ManoIzq
+      guid: 
       position: {x: 85.04662, y: -0.000064015774, z: -3}
       rotation: {x: 0, y: 0, z: -0.007336614, w: -0.9999731}
       length: 42.555016
       parentId: 7
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Cinturon
+      guid: 
       position: {x: -133.2521, y: 84.412476, z: 2}
       rotation: {x: 0, y: 0, z: 0.015891729, w: 0.99987376}
       length: 67.51708
       parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: PiernaDer1
+      guid: 
       position: {x: -183.36064, y: 59.685207, z: 1}
       rotation: {x: 0, y: -0, z: -0.9989111, w: 0.046654526}
       length: 114.257095
       parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: PiernaDer2
+      guid: 
       position: {x: 114.25715, y: 0.000042010368, z: 1}
       rotation: {x: 0, y: 0, z: -0.1574586, w: 0.9875256}
       length: 133.08363
       parentId: 10
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: PieDer
+      guid: 
       position: {x: 133.0837, y: -0.00003734468, z: 1}
       rotation: {x: 0, y: 0, z: -0.75184566, w: -0.6593392}
       length: 57.69198
       parentId: 11
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: PiernaIzq1
+      guid: 
       position: {x: -184.08684, y: -79.00283, z: -1}
       rotation: {x: 0, y: -0, z: -0.99342406, w: 0.11449312}
       length: 118.190704
       parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: PiernaIzq2
+      guid: 
       position: {x: 118.19069, y: 0.000034080993, z: -1}
       rotation: {x: 0, y: 0, z: -0.1750118, w: 0.98456633}
       length: 128.3241
       parentId: 13
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: PieIzq
+      guid: 
       position: {x: 128.32413, y: 0.000009146508, z: -1}
       rotation: {x: 0, y: 0, z: -0.70710754, w: -0.70710605}
       length: 64.161865
       parentId: 14
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Cola1
+      guid: 
       position: {x: -51.862026, y: 356.3722, z: -2}
       rotation: {x: 0, y: -0, z: 0.76323074, w: 0.64612603}
       length: 139.47577
       parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Cola2
+      guid: 
       position: {x: 139.4758, y: 0.0000032577682, z: -2}
       rotation: {x: 0, y: 0, z: 0.01822817, w: 0.9998339}
       length: 121.29981
       parentId: 16
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Cola3
+      guid: 
       position: {x: 121.29982, y: 0.00001169504, z: -2}
       rotation: {x: 0, y: 0, z: -0.031780154, w: 0.9994949}
       length: 87.11338
       parentId: 17
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Pompero
+      guid: 
       position: {x: -526.1512, y: -849.33276, z: -2}
       rotation: {x: 0, y: 0, z: 0.29905277, w: 0.9542366}
       length: 395.77127
       parentId: 8
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Pistola
+      guid: 
       position: {x: 1.8396103, y: 657.6471, z: 2}
       rotation: {x: 0, y: 0, z: 0.5730243, w: 0.8195384}
       length: 70.52681
       parentId: 5
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices:
@@ -4540,9 +4660,19 @@ TextureImporter:
       boneIndex[2]: 0
       boneIndex[3]: 0
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      Yuno2.0_0: 7482138267348762981
+      Yuno2.0_1: -4915265027971395058
+      Yuno2.0_2: 5390219085911988235
+      Yuno2.0_3: -1951721491614904932
+      Yuno2.0_4: 8516072344936479643
+      Yuno2.0_5: -4037060421477851610
+      Yuno2.0_6: 8734735686446359442
+      Yuno2.0_7: -1639451182514776610
+      Yuno2.0_8: 3489676248356852221
+      Yuno2.0_9: 5948202942118142144
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

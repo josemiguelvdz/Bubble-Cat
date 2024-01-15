@@ -177,7 +177,7 @@ TextureImporter:
       213: -7606819284355787460
     second: Babosa Negra_57
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -194,9 +194,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -205,9 +208,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -228,10 +231,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -243,6 +251,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -255,6 +264,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -267,6 +277,33 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1458,9 +1495,65 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      Babosa Negra_0: 9155052684279076145
+      Babosa Negra_1: 2926527337284707229
+      Babosa Negra_10: 590710054369383946
+      Babosa Negra_11: 5380053420059253214
+      Babosa Negra_12: 5345617681194909998
+      Babosa Negra_13: -4740069804760254313
+      Babosa Negra_14: -4935362301292157675
+      Babosa Negra_15: -3028128724343978972
+      Babosa Negra_16: -3868882897121716216
+      Babosa Negra_17: 5742672397828484143
+      Babosa Negra_18: -8697361408339419693
+      Babosa Negra_2: 2150298285462630387
+      Babosa Negra_20: -3987212635359531195
+      Babosa Negra_22: -1717912447914456248
+      Babosa Negra_23: 7365598336740152875
+      Babosa Negra_24: 4573474377686854664
+      Babosa Negra_25: 2731989019377138931
+      Babosa Negra_26: -1123886680323323703
+      Babosa Negra_27: -5492693392334720188
+      Babosa Negra_28: 7667618504706878988
+      Babosa Negra_29: -2845222763833012988
+      Babosa Negra_3: -263032815998910308
+      Babosa Negra_30: 7133919544235527939
+      Babosa Negra_31: 247314277405365631
+      Babosa Negra_32: 4483313243954958331
+      Babosa Negra_33: 9128535960071993745
+      Babosa Negra_34: -7713478336225388148
+      Babosa Negra_35: -4595140623376204286
+      Babosa Negra_36: -1439238304644499712
+      Babosa Negra_37: 17647077699108820
+      Babosa Negra_38: -8128226651373251050
+      Babosa Negra_39: -2026736931681809705
+      Babosa Negra_4: 3675554559936695999
+      Babosa Negra_40: 1101349226105926304
+      Babosa Negra_41: 8459627792390061169
+      Babosa Negra_42: 8966915700987877281
+      Babosa Negra_43: 4750128751982868136
+      Babosa Negra_44: -4293740352911235472
+      Babosa Negra_45: -6880911957511194266
+      Babosa Negra_46: 211285465904484682
+      Babosa Negra_47: -4494740213152649721
+      Babosa Negra_48: 8314878166969352089
+      Babosa Negra_49: -8178225834810391420
+      Babosa Negra_5: -1719021554088409572
+      Babosa Negra_50: -2481357326095180137
+      Babosa Negra_51: -4789499645645308175
+      Babosa Negra_52: 5573294497405776002
+      Babosa Negra_53: 1433535910771387636
+      Babosa Negra_54: 894385147273654550
+      Babosa Negra_55: -4868609344961272107
+      Babosa Negra_56: -8741120412564232980
+      Babosa Negra_57: -7606819284355787460
+      Babosa Negra_6: -6194431552233553585
+      Babosa Negra_7: 7657873458017052804
+      Babosa Negra_8: 2203861104559844622
+      Babosa Negra_9: 8926956341264071882
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -8,7 +8,6 @@ public class MagicRay : MonoBehaviour
     Rigidbody2D rb;
     Magic parent;
     Vector3 direction;
-    bool isRotated;
 
     void Start()
     {
@@ -31,7 +30,6 @@ public class MagicRay : MonoBehaviour
 
     public void rotationProjectil(float rot)
     {
-        isRotated = true;
         if (rot > 0 && rot <= 90)
         {
             if (direction.x < 0)

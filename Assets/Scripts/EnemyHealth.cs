@@ -63,7 +63,7 @@ public class EnemyHealth : MonoBehaviour
             if (gameObject.GetComponent<Lizard>())
             {
                 //animator.SetBool("Death", true);
-                gameObject.GetComponent<Lizard>().isDestructible();
+                gameObject.GetComponent<Lizard>().Fall();
                 gameObject.transform.GetChild(0).gameObject.SetActive(true);
 
                 Destroy(gameObject.GetComponent<Damageable>());

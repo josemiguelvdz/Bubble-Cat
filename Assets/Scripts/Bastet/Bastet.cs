@@ -68,8 +68,6 @@ public class Bastet : MonoBehaviour
 
     Animator anim;
 
-    private Random rnd;
-
     //Ataques que hay que meter:
 
     //Fase 1

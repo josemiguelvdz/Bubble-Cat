@@ -156,7 +156,7 @@ TextureImporter:
       213: -151367448006721379
     second: Gases_50
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -173,9 +173,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -185,8 +188,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -207,10 +210,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -222,6 +230,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -234,6 +243,33 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1320,9 +1356,60 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      Gases_0: 4593183658684342417
+      Gases_1: 6539059802578470778
+      Gases_10: -7789908149121503406
+      Gases_11: -1142712625898366425
+      Gases_12: -6804439962134583959
+      Gases_13: 2945734731830488595
+      Gases_14: -101996735768022899
+      Gases_15: 2815375945692822159
+      Gases_16: -3628639299699128311
+      Gases_17: 1908098610476567398
+      Gases_18: -9153336316459961434
+      Gases_19: -2558542586909553159
+      Gases_2: 6974947228180619093
+      Gases_20: 7364705855454324217
+      Gases_21: -2169753545800694054
+      Gases_22: -8111868441179233326
+      Gases_23: -8946698392787324281
+      Gases_24: 3088767099224618982
+      Gases_25: 3252307381643993391
+      Gases_26: -6744423639239271039
+      Gases_27: 2584312815308377684
+      Gases_28: -5110742193906417448
+      Gases_29: 4070708032166257187
+      Gases_3: -1975840687887277029
+      Gases_30: -8150765181297811771
+      Gases_31: 1696605647203447636
+      Gases_32: 3490100258484136554
+      Gases_33: -6749650441267088416
+      Gases_34: -6456183926900584868
+      Gases_35: -1670100713135986421
+      Gases_36: 3665118017939429277
+      Gases_37: -5360881910019370456
+      Gases_38: 98279121375495466
+      Gases_39: -1015688785704161991
+      Gases_4: -6104784037848571502
+      Gases_40: -5963100464955540457
+      Gases_41: -3220528715362798880
+      Gases_42: -601251655214587156
+      Gases_43: -5008372116248704287
+      Gases_44: -5310082646296387221
+      Gases_45: 1994031446213166008
+      Gases_46: 5185173098534965909
+      Gases_47: -244607596332264698
+      Gases_48: 1226452630762404684
+      Gases_49: 3749799224858455376
+      Gases_5: 6012582507643046072
+      Gases_50: -151367448006721379
+      Gases_6: 7831685253096352421
+      Gases_7: -4652250916450519734
+      Gases_8: 4266067568693171128
+      Gases_9: -4772753163630433703
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -135,7 +135,7 @@ TextureImporter:
       213: 853481534517147479
     second: Spikes_43
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -152,9 +152,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -164,8 +167,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -186,10 +189,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -201,6 +209,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -213,6 +222,33 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1152,9 +1188,53 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      Spikes_0: 6723963429988506304
+      Spikes_1: -7010832575621253078
+      Spikes_10: -6953474909685209652
+      Spikes_11: -1634528030429151649
+      Spikes_12: 6406074429159457002
+      Spikes_13: 8779244301830887357
+      Spikes_14: 8900571817394884602
+      Spikes_15: 4112021340526112356
+      Spikes_16: -5184010590927084044
+      Spikes_17: 1985817921114405524
+      Spikes_18: 1677359685467642345
+      Spikes_19: 2911467466273707247
+      Spikes_2: 8562923692314260799
+      Spikes_20: -1474636180849365011
+      Spikes_21: -1504042700791414411
+      Spikes_22: -5309576211151029936
+      Spikes_23: -6929554327560733868
+      Spikes_24: 9067095789357904554
+      Spikes_25: -3298334284704203709
+      Spikes_26: 5794756785224161058
+      Spikes_27: -7724231729807206933
+      Spikes_28: 8956899829745184900
+      Spikes_29: -8142346114267396992
+      Spikes_3: -4810244237682102619
+      Spikes_30: -714912936639628562
+      Spikes_31: 4580507338419198104
+      Spikes_32: -6999284206060741112
+      Spikes_33: 3765670539861748501
+      Spikes_34: 885819971805994954
+      Spikes_35: -5438175428518814937
+      Spikes_36: -5372574097060103121
+      Spikes_37: -3375606124700766264
+      Spikes_38: -2091653904938825257
+      Spikes_39: 7208604379474185306
+      Spikes_4: -3644641957871353732
+      Spikes_40: -4939817076351578271
+      Spikes_41: 1870240032975276764
+      Spikes_42: 4243460616710320969
+      Spikes_43: 853481534517147479
+      Spikes_5: 7573331673453511767
+      Spikes_6: -138403667897052782
+      Spikes_7: 3455471295796217898
+      Spikes_8: -3787672316652677526
+      Spikes_9: -3189035499719957858
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

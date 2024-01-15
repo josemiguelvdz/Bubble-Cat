@@ -65,7 +65,7 @@ public class BubbleManager : MonoBehaviour
             }
             if (collissioned.gameObject.name.Contains("Lizard"))
             {
-                collissioned.gameObject.GetComponent<Lizard>().isDestructible();
+                collissioned.gameObject.GetComponent<Lizard>().Fall();
             }
         }
 

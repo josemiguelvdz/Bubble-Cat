@@ -26,13 +26,10 @@ public class Lizard : MonoBehaviour
     private Quaternion initialTrans;
 
     private SpriteRenderer sprite;
-    private int contador;
-    private int desapariciones;
 
     private Transform player; //Posicion del jugador
     private float radius; //Distancia a la que veo al jugador
 
-    Vector3 dirVector;
     RaycastHit2D hitStage;
     bool hitWall;
     enum Status {Stop, Movement, Drop, Die};
@@ -44,62 +41,60 @@ public class Lizard : MonoBehaviour
     void Start()
     {
         //Obtenemos el sprite del lagarto para poder hacer uso del volteo (flip)
-        this.sprite = GetComponent<SpriteRenderer>();
-        this.initialTime = shootCadenceSecs;
-        this.initialTrans = transform.rotation;
-        this.dirVector = Vector2.zero;
-        this.hitWall = false;
-        this.status = Status.Stop;
-        this.destructible = false;
+        sprite = GetComponent<SpriteRenderer>();
+        initialTime = shootCadenceSecs;
+        initialTrans = transform.rotation;
+        hitWall = false;
+        status = Status.Stop;
+        destructible = false;
         anim = GetComponent<Animator>();
      }
 
     private void Update()
     {
-        if (this.status == Status.Stop)
+        if (status == Status.Stop)
         {
             anim.SetBool("Mov", false);
-            Debug.Log(this.gameObject.name + ": Stop");
-            this.transform.Translate(Vector3.zero);
+            transform.Translate(Vector3.zero);
 
-            if (this.player != null)
+            if (player != null)
             {
-                this.status = Status.Movement;
-                if (this.sprite.flipX == false)
+                status = Status.Movement;
+                if (!sprite.flipX)
                 {
-                    this.direction = Direction.Right;
+                    direction = Direction.Right;
                 }
                 else
                 {
-                    this.direction = Direction.Left;
+                    direction = Direction.Left;
                 }
             }
         }
-        else if (this.status == Status.Movement)
+        else if (status == Status.Movement)
         {
             anim.SetBool("Mov",true);
             Debug.Log(this.gameObject.name + ": Movement");
             movimiento(this.direction);
             Shoot();
 
-            if (this.player == null)
+            if (!player)
             {
-                this.status = Status.Stop;
+                status = Status.Stop;
             }
         }
-        else if (this.status == Status.Drop)
+        else if (status == Status.Drop)
         {
             Destroy(gameObject.GetComponent<Damageable>());
             //Asignamos la rotacion al lagarto, para generar un movimineto de caida vertical, ya que al haberlo rotado el movimiento saldra con la rotacion de la manipulacion de la pompa.
-            this.transform.rotation = this.initialTrans;
+            transform.rotation = initialTrans;
             //Indicamos la traslacion (movimiento) del lagarto en descenso
-            this.transform.Translate(Vector3.down * this.dropVelocity * Time.deltaTime);
+            transform.Translate(Vector3.down * this.dropVelocity * Time.deltaTime);
         }
-        else if (this.status == Status.Die)
+        else if (status == Status.Die)
         {
             anim.SetBool("Mov", false);
             anim.SetBool("Death", true);
-            this.transform.Translate(Vector3.zero);
+            transform.Translate(Vector3.zero);
 
             gameObject.GetComponent<EnemyHealth>().KillEnemy();
         }
@@ -107,57 +102,57 @@ public class Lizard : MonoBehaviour
 
     private void movimiento(Direction direction)
     {
-        this.hitStage = Physics2D.Raycast(this.foot.position, Vector2.up, 0.5f);
-        Debug.DrawRay(this.foot.position, Vector2.up * 0.5f, Color.red);
+        hitStage = Physics2D.Raycast(foot.position, Vector2.up, 0.5f);
+        Debug.DrawRay(foot.position, Vector2.up * 0.5f, Color.red);
 
-        if (this.hitStage.collider != null && this.hitStage.collider.name == "Tilemap" && this.hitWall == false) //Detecta colision contra el suelo y no contra una pared
+        if (!hitStage.collider && hitStage.collider.name == "Tilemap" && !hitWall) //Detecta colision contra el suelo y no contra una pared
         {
-            if (this.direction == Direction.Right)
+            if (direction == Direction.Right)
             {
                 //Indicamos la traslacion (movimiento) del lagarto hacia la derecha y cambio del sprite (volteo)
-                this.transform.Translate(Vector3.right * Time.deltaTime);                
-                this.sprite.flipX = false;
+                transform.Translate(Vector3.right * Time.deltaTime);                
+                sprite.flipX = false;
             }
             else if (direction == Direction.Left)
             {
                 //Indicamos la traslacion (movimiento) del lagarto hacia la izquierda yu cambio del scripte (volteo)
-                this.transform.Translate(Vector3.left * Time.deltaTime);
-                this.sprite.flipX = true;
+                transform.Translate(Vector3.left * Time.deltaTime);
+                sprite.flipX = true;
             }
         }
-        else if (this.hitStage.collider == null || this.hitStage.collider.name != "Tilemap" || this.hitWall == true) //No detecta colision o suelo, pero si muro
+        else if (!hitStage.collider || hitStage.collider.name != "Tilemap" || hitWall) //No detecta colision o suelo, pero si muro
         {            
-            if (this.direction == Direction.Right)
+            if (direction == Direction.Right)
             {
-                this.direction = Direction.Left;
+                direction = Direction.Left;
             }
-            else if (this.direction == Direction.Left)
+            else if (direction == Direction.Left)
             {
-                this.direction = Direction.Right;
+                direction = Direction.Right;
             }
-            this.foot.localPosition = new Vector3(-this.foot.localPosition.x, this.foot.localPosition.y, this.foot.localPosition.z);
-            this.spawnerProjectile.localPosition = new Vector3(-this.spawnerProjectile.localPosition.x, this.spawnerProjectile.localPosition.y, this.spawnerProjectile.localPosition.z);
-            this.hitWall = false;
+            foot.localPosition = new Vector3(-foot.localPosition.x, foot.localPosition.y, foot.localPosition.z);
+            spawnerProjectile.localPosition = new Vector3(-spawnerProjectile.localPosition.x, spawnerProjectile.localPosition.y, this.spawnerProjectile.localPosition.z);
+            hitWall = false;
         }
     }
 
     //Dispara bala en la direction dada
     public void Shoot()
     {        
-        if (Time.time > this.initialTime && this.canShoot == true)
+        if (Time.time > initialTime && canShoot == true)
         {
-            this.initialTime = Time.time + this.shootCadenceSecs;           
-            Vector3 distance = this.player.position - this.spawnerProjectile.position;
-            if (Mathf.Abs(distance.x) >= 0 && Mathf.Abs(distance.x) <= this.radius)
+            initialTime = Time.time + shootCadenceSecs;           
+            Vector3 distance = player.position - spawnerProjectile.position;
+            if (Mathf.Abs(distance.x) >= 0 && Mathf.Abs(distance.x) <= radius)
             {
-                Debug.Log("Instancio proyectil del lagarto " + this.name);
-                float x = this.player.position.x - this.spawnerProjectile.position.x;
-                float y = this.player.position.y - this.spawnerProjectile.position.y;
+                Debug.Log("Instancio proyectil del lagarto " + name);
+                float x = player.position.x - spawnerProjectile.position.x;
+                float y = player.position.y - spawnerProjectile.position.y;
                 float angle = Mathf.Atan2(y, x) * 180 / Mathf.PI;
                 float AbsAngle = 360 - Mathf.Abs(angle);
                 Debug.Log("Angle: " + angle);
                 Debug.Log("AbsAngle: " + AbsAngle);
-                GameObject newProjectile = (GameObject) Instantiate(this.dirtProjectile, this.spawnerProjectile.position, Quaternion.Euler(new Vector3(0, 0, AbsAngle)));
+                GameObject newProjectile = Instantiate(dirtProjectile, spawnerProjectile.position, Quaternion.Euler(new Vector3(0, 0, AbsAngle)));
                 // accedemos al script con los valores iniciales
                 Dirt_projectile script = newProjectile.GetComponent<Dirt_projectile>();
                 script.setVelocity(distance);
@@ -177,34 +172,25 @@ public class Lizard : MonoBehaviour
             //Ha colisionado con un objetro con layer Stage
         if (col.gameObject.layer == stageLayer)
         {
-            if (this.destructible == true)//Puedo destruirme, ya que si he interactuado con la pompa
-            {
-                //Animacion del lagarto
-                this.status = Status.Die;
-                this.contador = 0;
-                this.desapariciones = 0;
-            }
-            else
-            {
-                this.hitWall = true;
-            }
+            if (!destructible)
+                hitWall = true;
         }
         else if (col.gameObject.layer == bubbleLayer)
         {
-            this.canShoot = false;
+            canShoot = false;
         }
         else if (col.gameObject.layer == projectileLayer)
         {
-            this.canShoot = false;
-            this.destructible = true;
-            this.status = Status.Drop;
+            canShoot = false;
+            destructible = true;
+            status = Status.Drop;
         }
     }
 
-    public void isDestructible()
+    public void Fall()
     {
-        this.destructible = true;
-        this.status = Status.Drop;
+        destructible = true;
+        status = Status.Drop;
     }
 
     public void PositionPlayer(Transform t, float s)
